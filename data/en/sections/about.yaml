@@ -1,0 +1,108 @@
+# section information
+section:
+  name: About
+  id: about
+  enable: true
+  weight: 1
+  showOnNavbar: true
+  template: sections/about.html
+
+# your designation
+designation: Data Enginner - AI & ML Engineer 
+# your company information
+#company:
+#  name: [SFEIR]
+#  url: "https://www.sfeir.com/"
+
+# your resume. this file path should be relative to you "static" directory
+resourceLinks:
+- title: "My Resume"
+  url: "files/resume.pdf"
+
+# a summary about you
+summary: "
+As a Data / ML Engineer, I assist clients in leveraging data and AI to tackle complex challenges and drive value creation.\n\n
+
+I hold the Google Cloud Professional Data Engineer certification (2024) and am currently preparing for the Google Machine Learning Engineer certification, showcasing my expertise in cloud-based data engineering solutions and my dedication to advancing in the field of AI.\n\n
+
+I am passionate about data and AI and constantly strive to enhance my skills in this rapidly evolving domain. Let's connect and explore the exciting innovations in data and AI together!\n\n
+Let's connect and explore data and AI innovations together!"
+
+# your social links
+# give as many as you want. use font-awesome for the icons.
+socialLinks:
+- name: Email
+  icon: "fas fa-envelope"
+  url: "chen987415@gmail.com"
+
+- name: LinkedIn
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/chen-marc/"
+
+- name: Github
+  icon: "fab fa-github"
+  url: "https://github.com/MarcChen"
+
+# your soft skills
+# give the percentage between 50 to 100 with 5 intervals.
+# currently supported colors: blue, yellow, pink, green, sky, orange
+badges:
+- type: soft-skill-indicator
+  name: French (Native)
+  percentage: 100
+  color: "#27d912"
+
+- type: soft-skill-indicator
+  name: English (C1)
+  percentage: 100
+  color: "#27d912"
+
+- type: soft-skill-indicator
+  name: Chineese (B2+)
+  percentage: 100
+  color: "#27d912"
+
+
+- type: certification
+  name: Google Cloud Certified Professional Data Engineer
+  url: "https://www.credly.com/badges/822e0dea-4499-48e0-b18b-9bc3681aa55f/public_url"
+  badge: "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/35560265"
+
+- type: soft-skill-indicator
+  name: 
+  url :
+  badge: 
+
+- type: certification
+  name: Google Cloud Certified Professional Machine Learning
+  badge: "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/71712460"
+
+- type: soft-skill-indicator
+  name: Team Work
+  percentage: 100
+  color: "#00B4D8"
+  
+- type: soft-skill-indicator
+  name: Fast Learner
+  percentage: 100
+  color: "#00B4D8"
+
+- type: soft-skill-indicator
+  name: Problem Solving
+  percentage: 100
+  color: "#00B4D8"
+
+# - type: soft-skill-indicator
+#   name: Leadership
+#   percentage: 100
+#   color: blue
+
+# - type: soft-skill-indicator
+#   name: Communication
+#   percentage: 100
+#   color: pink
+
+#- type: soft-skill-indicator
+#  name: Hard Working
+#  percentage: 100
+#  color: green

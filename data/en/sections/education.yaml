@@ -1,0 +1,103 @@
+# section information
+section:
+  name: Education
+  id: education
+  template: sections/education.html # Use "sections/education-alt.html for alternate template.
+  enable: true
+  weight: 4
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+degrees:
+- name: "Master's Degree in Engineering, specializing in Artificial Intelligence"
+  icon: fa-graduation-cap
+  timeframe: 2022-2025
+  institution:
+    name: ENSTA Paris
+    url: "https://www.ensta-paris.fr/"
+    logo: /images/sections/education/Logo_ENSTA_Paris.jpg
+    # Can optionally show a different logo for dark theme
+    # darkLogo: /images/sections/education/university.jpg
+  grade: #(optional)
+    scale: GPA
+    achieved: 3.8
+    outOf: 4
+  takenCourses: #(optional)
+    # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
+    # showGrades: true
+    collapseAfter: 3
+    courses:
+        - name: Logics and Symbolic AI
+        - name: Probabilistic Models and Machine Learning
+        - name: Programming with GPU for Deep Learning
+        - name: Reinforcement Learning
+        - name: Language Models and Structured Data
+        - name: Deep Learning I
+        - name: Natural Language Processing
+        - name: Programming with Constraints
+        - name: Robotics Learning
+        - name: Predictive Maintenance
+        - name: Deep Learning-based Computer Vision
+
+  # publications: #(optional)
+  # - title: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  #   url: "#"
+  # - title: Fusce eu augue ut odio porttitor pulvinar.
+  #   url: "#"
+  extracurricularActivities: 
+    - Member of TECHNIMAGE, the audiovisual association, where I generated revenue by producing and selling communication videos to ENSTA. # showcasing examples of video work. #Links to the posts - https://example-link-to-post-1.com
+    - Treasurer of ENSTRAID, an association focused on retrofitting cars for sustainable energy solutions.
+    - Competitor in university-level badminton competitions under the French Federation of University Sports (FFSU).
+
+  # custonSections: #(optional)
+  #   - name: Thesis
+  #     content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  #   - name: Supervisor
+  #     content: Fusce eu augue ut odio porttitor pulvinar.
+- name: Prépa PTSI - PT*
+  icon: fa-university
+  timeframe: 2022-2025
+  institution:
+    name: Lycée Jean Baptiste Say 
+    url: "https://pia.ac-paris.fr/serail/jcms/s2_2939914/fr/accueil/"
+    logo: /images/sections/education/Lyce_Jean-Baptiste_Say.png
+    # Can optionally show a different logo for dark theme
+    # darkLogo: /images/sections/education/university.jpg
+  grade: #(optional)
+    scale: Class Ranking  
+    achieved: 7
+    outOf: 35
+  takenCourses: #(optional)
+    # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
+    # showGrades: true
+    collapseAfter: 3
+    courses:
+    - name: TIPE (Physical and Simulink model of the Larsen effect to study the main challenges in building a hearing aid)
+    - name: Mathematics (Algebra, Analysis, Geometry)
+    - name: Physics (Mechanics, Thermodynamics, Electromagnetism)
+    - name: Chemistry (Reactions and Transformations)
+    - name: Sciences Industrielles de l'Ingénieur (Mechanics, Automation, Systems)
+    - name: Informatics (Programming and Algorithmic Principles)
+
+
+- name: Terminal S Science de l'ingénieur - Option Informatique
+  timeframe: 2022-2025
+  institution:
+    name: Lycée Saint-Nicolas
+    url: "https://www.lyceesaintnicolas.com/"
+    logo: /images/sections/education/lycee.png
+    # Can optionally show a different logo for dark theme
+    # darkLogo: /images/sections/education/university.jpg
+  grade: #(optional)
+    scale: BAC
+    achieved: 16.5
+    outOf: 20
+
+- name: B.Sc. in Computer Science & Engineering
+  icon: fa-school
+  timeframe: 2022-2025
+  institution:
+    name: Collège Saint Georges
+    url: "https://www.saint-georges-paris.fr/"
+    logo: /images/sections/education/logo-college.jpg

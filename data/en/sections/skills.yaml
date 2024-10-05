@@ -1,0 +1,101 @@
+# section information
+section:
+  name: Skills
+  id: skills
+  enable: true
+  weight: 2
+  showOnNavbar: true
+  filter: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# filter buttons
+buttons:
+- name: All
+  filter: "all"
+- name: Basic
+  filter: "basic"
+- name: Programming Language
+  filter: "programming_language"
+- name: Cloud Services
+  filter: "cloud_services"
+
+# Your Skills.
+# Give a summary of you each skill in the summary section.
+skills:
+- name: Python Development
+  logo: "/images/sections/skills/Python_logo.svg"
+  summary: "Using as the main language for professional development. Capable of writing scalable, testable, and maintainable program."
+  categories: ["programming_language"]
+  url: "https://www.python.org/"
+
+- name: C++
+  logo: "/images/sections/skills/CXX_logo.svg"
+  summary: "Familiar with C/C++ programming, mostly used during my studies."
+  categories: ["programming_language"]
+  url: "https://en.cppreference.com/"
+
+- name: SQL
+  logo: "/images/sections/skills/Sql_logo.png"
+  summary: "Proficient, used to make complex transformation workflows."
+  categories: ["programming_language"]
+
+- name: MATLAB
+  logo: "/images/sections/skills/Matlab_Logo.png"
+  summary: "Used during school for multi-modal modeling systems, computing complex physics equations, and visualizing results."
+  categories: ["programming_language"]
+  url: "https://www.mathworks.com/products/matlab.html/"
+
+- name: LATEX
+  logo: "/images/sections/skills/LaTeX_logo.svg"
+  summary: "Mainly used for writing reports and creating presentations."
+  categories: ["basic"]
+  url: "https://fr.wikipedia.org/wiki/LaTeX/"
+
+- name: Terraform
+  logo: "/images/sections/skills/terraform.png"
+  summary: "Skilled in managing Google Cloud resources using Terraform, with a focus on Identity and Access Management, Cloud Functions, and other data-oriented GCP services."
+  categories: ["programming_language"]
+  url: "https://www.terraform.io/"
+
+- name: Linux
+  logo: /images/sections/skills/Linux_logo.svg
+  summary: "Using as the main operating system for work. Capable of writing bash/shell scripts."
+  categories: ["basic"]
+  url: "https://www.linux.org/"
+
+- name: Git
+  logo: /images/sections/skills/Git_logo.svg
+  summary: "Experienced in git-based development, primarily using GitLab for Agile workflows and CI/CD deployments. I also have experience working with GitHub."
+  categories: ["basic"]
+  url: "https://git-scm.com/"
+
+- name: Bigquery
+  logo: /images/sections/skills/bigquery-icon.png
+  summary: "Proficient in optimizing querying and storage costs."
+  categories: ["cloud_services"]
+  url: "https://git-scm.com/"
+
+- name: Cloud Storage
+  logo: /images/sections/skills/Google_Storage-Logo.svg
+  summary: "Experienced in managing scalable object storage for unstructured data and optimizing storage cost with lifecycle policies."
+  categories: ["cloud_services"]
+  url: "https://git-scm.com/"
+
+- name: Cloud functions
+  logo: /images/sections/skills/cloud-functions.png
+  summary: "Proficient in developing event-driven serverless functions to automate tasks and integrate cloud services."
+  categories: ["cloud_services"]
+  url: "https://git-scm.com/"
+
+- name: Appscript
+  logo: /images/sections/skills/Google_Apps_Script.png
+  summary: "Skilled in automating Google Workspace tasks, developing custom workflows, and integrating third-party APIs using Google Apps Script."
+  categories: ["cloud_services"]
+  url: "https://git-scm.com/"
+
+- name: Cloud Composer (Apache Airflow)
+  logo: /images/sections/skills/Cloud_Composer.svg
+  summary: "Used for orchestrating complex workflows with Apache Airflow, managing dependencies, and ensuring seamless data pipeline execution."
+  categories: ["cloud_services"]
+  url: "https://git-scm.com/"

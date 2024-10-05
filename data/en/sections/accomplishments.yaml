@@ -1,0 +1,46 @@
+# section information
+section:
+  name: Accomplishments
+  id: accomplishments
+  enable: true
+  weight: 6
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+
+# Your accomplishments
+accomplishments:
+- name: Linux and Bash for Data Engineering
+  timeline: "April 2024"
+  organization:
+    name: Duke University
+    url: https://www.coursera.org/learn/linux-and-bash-for-data-engineering-duke
+  courseOverview: This course covers the fundamentals of using Linux for data engineering tasks. You'll learn how to configure and customize Bash and zsh shells, manipulate data using shell scripting, and build command-line tools for automation. It also includes hands-on labs to manage file systems, search data, and control permissions using Bash and other adjacent tools such as Makefiles and Dockerfiles.
+  certificateURL: "https://www.coursera.org/account/accomplishments/records/6JV7MXRUP8C5"
+
+- name: Professional Data Engineer Certification
+  timeline: "May 2024"
+  organization:
+    name: Google
+    url: https://cloud.google.com/learn/certification/data-engineer?hl=fr
+  courseOverview: This certification validates expertise in designing and building data processing systems on Google Cloud. Topics include machine learning, data pipeline creation, data storage optimization, and security practices. It emphasizes best practices in handling large-scale data systems and machine learning integration.
+  certificateURL: "https://www.credly.com/badges/822e0dea-4499-48e0-b18b-9bc3681aa55f/linked_in_profile"
+
+- name: Getting Started with Terraform for Google Cloud
+  timeline: "March 2024"
+  organization:
+    name: Google
+    url: https://www.coursera.org/learn/getting-started-with-terraform-for-google-cloud
+  courseOverview: This course offers a hands-on introduction to managing infrastructure as code using Terraform on Google Cloud. It guides you through setting up cloud resources, managing infrastructure configurations, and automating infrastructure tasks efficiently. You'll also learn best practices for handling real-world system design challenges.
+  certificateURL: "https://www.coursera.org/account/accomplishments/records/TWX8W5EC6BB4"
+
+- name: MOOC Gestion de Projet - Parcours CLASSIQUE
+  timeline: "Nov 2017 - Mar 2018"
+  organization:
+    name: Centrale Lille
+    url: https://mooc.gestiondeprojet.pm/
+  courseOverview: This course provides fundamental project management skills, focusing on planning, organizing, and controlling projects efficiently. Participants learn to apply tools and methodologies for handling real-world projects, emphasizing Agile methodologies and the use of modern project management software.
+  certificateURL: "https://certification.gestiondeprojet.pm/GdP22AP/GdP22PC-CHCOwyncA.pdf"
+
+ 
