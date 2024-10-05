@@ -1,0 +1,22 @@
+# some information about you
+name: "Marc Chen"
+nickname: "Marc!"
+# greeting message before your name. it will default to "Hi! I am" if not provided
+greeting: "Hi, I'm"
+image: "images/author/marc.png"
+# give your some contact information. they will be used in the footer
+contactInfo:
+  email: "chen987415@gmail.com"
+  github: MarcChen
+  linkedin: Marc Chen
+# phone: "+33 6 51 85 80 57"
+
+# some summary about what you do
+summary:
+  - Nice to meet you!
+  - I am a data engineer and data scientist.
+  - Welcome to my page.
+  - Feel free to contact me!
+#  - I love automation and optimization
+#  - I love speed and accuracy
+#  - I love to work on fun projects

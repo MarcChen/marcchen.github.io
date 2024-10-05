@@ -1,0 +1,64 @@
+# section information
+section:
+  name: Experiences
+  id: experiences
+  enable: true
+  weight: 3
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your experiences
+experiences:
+- company:
+    name: Veolia 
+    url: "https://www.veolia.com/fr"
+    location: Aubervilliers, France
+    logo: /images/sections/experiences/Veolia_logo.png
+    # company overview
+    overview: "Veolia is a global leader in environmental services, providing innovative solutions in water, waste, and energy management to promote sustainability and resource efficiency."
+  positions:
+  - designation: Data Engineer Apprentice
+    start: Septembre 2023
+    # don't provide end date if you are currently working there. It will be replaced by "Present"
+    end: Septembre 2025
+    # give some points about what was your responsibilities at the company.
+    responsibilities:
+    - Implemented ETL pipelines for extracting, transforming, and loading data.
+    - Developed SaaS solutions for data extraction from third-party applications.
+    - Used Terraform for automating and managing cloud infrastructure.
+    - Monitored data flows and set up alert systems to ensure data quality and continuity.
+    - Documented data management processes and created guides to support maintenance and scalability.
+
+
+
+- company:
+    name: Google Gemini API Developper Contest
+    url: "https://ai.google.dev/competition/"
+    location: Paris, France
+    logo: /images/sections/experiences/Google_Gemini_logo.png
+    overview: "The Gemini API Developer Competition by Google invites developers to create apps using Gemini models, offering up to $260,000 in prizes for the best innovations."
+  positions:
+  - designation: Competitor
+    start: June 2024
+    end: August 2024
+    responsibilities:
+    - Collaborated with Fabien Houang to develop Vision Vendor, an AI-powered app for secondhand market reselling, utilizing Google Gemini models.
+    - Integrated camera functionalities with KPIs generation for price comparison, enhancing user experience in online reselling.
+    - Deployed the app's demo and code, available on [GitHub](https://github.com/fabienhouang/VisionVendor) and [YouTube](https://youtu.be/iCTtXtMeJf4).
+
+- company:
+    name: University I Oslo - Risk and Stochastics Department.
+    url: "https://www.uio.no/english/"
+    location: Oslo, Norway
+    logo: /images/sections/experiences/University_of_Oslo_seal.png
+    # Can optionally show a different logo for dark theme
+    # darkLogo: /images/sections/experiences/company3.jpg
+    overview: The Risk and Stochastics Department at the University of Oslo focuses on the study and application of risk modeling and stochastic processes, providing advanced research and training to equip engineers and scientists in handling uncertainty and complex systems.
+  positions:
+  - designation: Intern
+    start: May 2022
+    end: Aug 2022
+    responsibilities:
+    - Optimized geographic locations for wind and solar projects using quadratic optimization methods.
+    - Developed a Python script to solve optimization problems using a solver and display spatial results.
