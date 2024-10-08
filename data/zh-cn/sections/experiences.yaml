@@ -1,0 +1,58 @@
+# 部分信息
+section:
+  name: 工作经历
+  id: experiences
+  enable: true
+  weight: 3
+  showOnNavbar: true
+  # 可选隐藏部分标题
+  # hideTitle: true
+
+# 您的经历
+experiences:
+- company:
+    name: 威立雅
+    url: "https://www.veolia.com/fr"
+    location: 法国欧贝维利耶
+    logo: /images/sections/experiences/Veolia_logo.png
+    # 公司简介
+    overview: "威立雅是全球环境服务领域的领导者，提供水、废物和能源管理的创新解决方案，以促进可持续性和资源效率。"
+  positions:
+  - designation: 数据工程师学徒
+    start: 2023年9月
+    end: 2025年9月
+    responsibilities:
+    - 实施 ETL 管道，用于数据的提取、转换和加载。
+    - 开发用于从第三方应用程序提取数据的 SaaS 解决方案。
+    - 使用 Terraform 实现云基础设施的自动化管理。
+    - 监控数据流并建立警报系统，以确保数据质量和连续性。
+    - 记录数据管理流程并创建维护和可扩展性的指南。
+
+- company:
+    name: 谷歌 Gemini API 开发者大赛
+    url: "https://ai.google.dev/competition/"
+    location: 法国巴黎
+    logo: /images/sections/experiences/Google_Gemini_logo.png
+    overview: "谷歌 Gemini API 开发者大赛邀请开发者使用 Gemini 模型创建应用程序，最高奖励金额为 26 万美元。"
+  positions:
+  - designation: 参赛者
+    start: 2024年6月
+    end: 2024年8月
+    responsibilities:
+    - 与 Fabien Houang 合作开发 Vision Vendor，一款利用谷歌 Gemini 模型的二手市场转售 AI 应用。
+    - 集成相机功能并生成 KPI 用于价格比较，提升在线转售用户体验。
+    - 在 [GitHub](https://github.com/fabienhouang/VisionVendor) 和 [YouTube](https://youtu.be/iCTtXtMeJf4) 上发布应用的演示和代码。
+
+- company:
+    name: 奥斯陆大学 - 风险与随机过程系
+    url: "https://www.uio.no/english/"
+    location: 挪威奥斯陆
+    logo: /images/sections/experiences/University_of_Oslo_seal.png
+    overview: "奥斯陆大学的风险与随机过程系专注于风险建模和随机过程的研究与应用，提供先进的研究和培训，使工程师和科学家能够应对不确定性和复杂系统。"
+  positions:
+  - designation: 实习生
+    start: 2022年5月
+    end: 2022年8月
+    responsibilities:
+    - 使用二次优化方法优化风能和太阳能项目的地理位置。
+    - 开发 Python 脚本，使用求解器解决优化问题并显示空间结果。

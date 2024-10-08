@@ -1,0 +1,74 @@
+# 部分信息
+section:
+  name: 教育经历
+  id: education
+  template: sections/education.html # 使用 "sections/education-alt.html" 为备用模板
+  enable: true
+  weight: 4
+  showOnNavbar: true
+  # 可选隐藏部分标题
+  # hideTitle: true
+
+degrees:
+- name: "工程硕士，人工智能专业"
+  icon: fa-graduation-cap
+  timeframe: 2022-2025
+  institution:
+    name: 巴黎国立高等技术学院
+    url: "https://www.ensta-paris.fr/"
+    logo: /images/sections/education/Logo_ENSTA_Paris.jpg
+  grade: #(可选)
+    scale: GPA
+    achieved: 3.8
+    outOf: 4
+  takenCourses: #(可选)
+    # 若为 true，课程将显示为表格，否则显示为列表且成绩将隐藏。
+    collapseAfter: 3
+    courses:
+        - name: 逻辑与符号人工智能
+        - name: 概率模型与机器学习
+        - name: GPU 深度学习编程
+        - name: 强化学习
+        - name: 语言模型与结构化数据
+        - name: 深度学习 I
+        - name: 自然语言处理
+        - name: 约束编程
+        - name: 机器人学习
+        - name: 预测性维护
+        - name: 基于深度学习的计算机视觉
+  extracurricularActivities:
+    - TECHNIMAGE 成员，音像协会，为 ENSTA 制作并销售宣传视频以创收。
+    - ENSTRAID 财务主管，致力于为汽车提供可持续能源改装的协会。
+    - 代表校队参加法国大学体育联合会（FFSU）羽毛球比赛。
+
+- name: 高等理工科学预备班 PTSI - PT*
+  icon: fa-university
+  timeframe: 2022-2025
+  institution:
+    name: 让-巴蒂斯特·赛中学
+    url: "https://pia.ac-paris.fr/serail/jcms/s2_2939914/fr/accueil/"
+    logo: /images/sections/education/Lyce_Jean-Baptiste_Say.png
+  grade: #(可选)
+    scale: 班级排名
+    achieved: 7
+    outOf: 35
+  takenCourses: #(可选)
+    collapseAfter: 3
+    courses:
+    - name: TIPE (利用 Larsen 效应的物理和 Simulink 模型，研究助听器设计中的主要挑战)
+    - name: 数学 (代数、分析、几何)
+    - name: 物理 (力学、热力学、电磁学)
+    - name: 化学 (反应与转化)
+    - name: 工程工业科学 (力学、自动化、系统)
+    - name: 信息学 (编程与算法原理)
+
+- name: 理科工程师科学专业 - 计算机选修
+  timeframe: 2022-2025
+  institution:
+    name: 圣尼古拉高中
+    url: "https://www.lyceesaintnicolas.com/"
+    logo: /images/sections/education/lycee.png
+  grade: #(可选)
+    scale: 法国高考成绩
+    achieved: 16.5
+    outOf: 20
