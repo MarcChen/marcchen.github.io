@@ -26,6 +26,9 @@ languages:
   fr:
     languageName: Français
     weight: 2
+  zh-cn:
+    languageName: 简体中文
+    weight: 3
 
 # Force a locale to be use, really useful to develop the application ! Should be commented in production, the "weight" should rocks.
 # DefaultContentLanguage: bn
