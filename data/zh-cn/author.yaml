@@ -1,15 +1,19 @@
-greeting: "Bonjour, je suis"
+# 一些关于你的信息
+name: "陈家祥"
+nickname: "家祥"
+
+greeting: "你好，我是"
 image: "images/author/marc.png"
-# donnez vos informations de contact. Elles seront utilisées dans le pied de page
+# 提供你的联系方式。它们将显示在页脚中
 contactInfo:
   email: "chen987415@gmail.com"
   github: MarcChen
   linkedin: Marc Chen
-# téléphone: "+33 6 51 85 80 57"
+# 电话: "+33 6 51 85 80 57"
 
-# un résumé de ce que vous faites
+# 关于你所做工作的简介
 summary:
-  - Enchanté de vous rencontrer !
-  - Je suis data engineer.
-  - Bienvenue sur ma page.
-  - N'hésitez pas à me contacter !
+  - 很高兴见到你！
+  - 我是一名数据工程师。
+  - 欢迎来到我的页面。
+  - 请随时联系我！
