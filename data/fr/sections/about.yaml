@@ -1,0 +1,107 @@
+# informations de la section
+section:
+  name: À propos
+  id: about
+  enable: true
+  weight: 1
+  showOnNavbar: true
+  template: sections/about.html
+
+# votre titre
+designation: Ingénieur Data - Ingénieur IA & ML
+# informations sur votre entreprise
+#company:
+#  name: [SFEIR]
+#  url: "https://www.sfeir.com/"
+
+# votre CV. Ce chemin doit être relatif à votre répertoire "static"
+resourceLinks:
+- title: "Mon CV"
+  url: "files/MarcChen_s_Resume.pdf"
+
+# un résumé à propos de vous
+summary: "
+En tant qu'ingénieur Data / ML, j'accompagne les clients à exploiter les données et l'IA pour résoudre des problèmes complexes et générer de la valeur.\n\n
+
+Je possède la certification Google Cloud Professional Data Engineer (2024) et je prépare actuellement la certification Google Machine Learning Engineer, ce qui témoigne de mon expertise dans les solutions d'ingénierie des données basées sur le cloud et de mon engagement à progresser dans le domaine de l'IA.\n\n
+
+Je suis passionné par les données et l'IA et je cherche constamment à améliorer mes compétences dans ce domaine en évolution rapide. Connectons-nous et explorons ensemble les innovations passionnantes dans les données et l'IA !\n\n
+Connectons-nous et explorons ensemble les innovations dans les données et l'IA !"
+
+# vos liens sociaux
+# ajoutez autant que vous le souhaitez. utilisez font-awesome pour les icônes.
+socialLinks:
+- name: Email
+  icon: "fas fa-envelope"
+  url: "chen987415@gmail.com"
+
+- name: LinkedIn
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/chen-marc/"
+
+- name: Github
+  icon: "fab fa-github"
+  url: "https://github.com/MarcChen"
+
+# vos compétences générales
+# donnez un pourcentage entre 50 et 100 avec des intervalles de 5.
+# couleurs actuellement prises en charge : bleu, jaune, rose, vert, ciel, orange
+badges:
+- type: soft-skill-indicator
+  name: Français (Langue maternelle)
+  percentage: 100
+  color: "#27d912"
+
+- type: soft-skill-indicator
+  name: Anglais (C1)
+  percentage: 100
+  color: "#27d912"
+
+- type: soft-skill-indicator
+  name: Chinois (B2+)
+  percentage: 100
+  color: "#27d912"
+
+- type: certification
+  name: Google Cloud Certified Professional Data Engineer
+  url: "https://www.credly.com/badges/822e0dea-4499-48e0-b18b-9bc3681aa55f/public_url"
+  badge: "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/35560265"
+
+- type: soft-skill-indicator
+  name: 
+  url :
+  badge: 
+
+- type: certification
+  name: Google Cloud Certified Professional Machine Learning
+  badge: "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/71712460"
+
+- type: soft-skill-indicator
+  name: Travail en équipe
+  percentage: 100
+  color: "#00B4D8"
+  
+- type: soft-skill-indicator
+  name: Apprentissage rapide
+  percentage: 100
+  color: "#00B4D8"
+
+- type: soft-skill-indicator
+  name: Résolution de problèmes
+  percentage: 100
+  color: "#00B4D8"
+
+# - type: soft-skill-indicator
+#   name: Leadership
+#   percentage: 100
+#   color: blue
+
+# - type: soft-skill-indicator
+#   name: Communication
+#   percentage: 100
+#   color: pink
+
+#- type: soft-skill-indicator
+#  name: Travail acharné
+#  percentage: 100
+#  color: green

@@ -1,0 +1,15 @@
+greeting: "Bonjour, je suis"
+image: "images/author/marc.png"
+# donnez vos informations de contact. Elles seront utilisées dans le pied de page
+contactInfo:
+  email: "chen987415@gmail.com"
+  github: MarcChen
+  linkedin: Marc Chen
+# téléphone: "+33 6 51 85 80 57"
+
+# un résumé de ce que vous faites
+summary:
+  - Enchanté de vous rencontrer !
+  - Je suis data engineer.
+  - Bienvenue sur ma page.
+  - N'hésitez pas à me contacter !
