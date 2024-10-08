@@ -1,0 +1,92 @@
+# informations de la section
+section:
+  name: Éducation
+  id: education
+  template: sections/education.html # Utilisez "sections/education-alt.html" pour un modèle alternatif.
+  enable: true
+  weight: 4
+  showOnNavbar: true
+  # Vous pouvez éventuellement masquer le titre dans les sections
+  # hideTitle: true
+
+degrees:
+- name: "Diplôme d'Ingénieur, spécialisation en Intelligence Artificielle"
+  icon: fa-graduation-cap
+  timeframe: 2022-2025
+  institution:
+    name: ENSTA Paris
+    url: "https://www.ensta-paris.fr/"
+    logo: /images/sections/education/Logo_ENSTA_Paris.jpg
+    # Vous pouvez éventuellement afficher un logo différent pour le thème sombre
+    # darkLogo: /images/sections/education/university.jpg
+  grade: #(facultatif)
+    scale: GPA
+    achieved: 3.8
+    outOf: 4
+  takenCourses: #(facultatif)
+    # si true, les cours seront affichés sous forme de tableau, sinon ils seront affichés sous forme de liste et les notes seront masquées.
+    # showGrades: true
+    collapseAfter: 3
+    courses:
+        - name: Logique et Intelligence Artificielle Symbolique
+        - name: Modèles Probabilistes et Apprentissage Automatique
+        - name: Programmation avec GPU pour le Deep Learning
+        - name: Apprentissage par Renforcement
+        - name: Modèles de Langage et Données Structurées
+        - name: Deep Learning I
+        - name: Traitement Automatique du Langage (NLP)
+        - name: Programmation avec Contraintes
+        - name: Apprentissage en Robotique
+        - name: Maintenance Prédictive
+        - name: Vision par Ordinateur basée sur le Deep Learning
+
+  extracurricularActivities: 
+    - Membre de TECHNIMAGE, l'association audiovisuelle, où j'ai généré des revenus en produisant et en vendant des vidéos de communication à l'ENSTA. # exemples de travaux vidéo # Liens vers les publications - https://example-link-to-post-1.com
+    - Trésorier d'ENSTRAID, une association dédiée à la conversion de voitures pour des solutions énergétiques durables.
+    - Participant aux compétitions de badminton universitaire sous la Fédération Française du Sport Universitaire (FFSU).
+
+- name: Prépa PTSI - PT*
+  icon: fa-university
+  timeframe: 2022-2025
+  institution:
+    name: Lycée Jean Baptiste Say 
+    url: "https://pia.ac-paris.fr/serail/jcms/s2_2939914/fr/accueil/"
+    logo: /images/sections/education/Lyce_Jean-Baptiste_Say.png
+    # Vous pouvez éventuellement afficher un logo différent pour le thème sombre
+    # darkLogo: /images/sections/education/university.jpg
+  grade: #(facultatif)
+    scale: Classement
+    achieved: 7
+    outOf: 35
+  takenCourses: #(facultatif)
+    # si true, les cours seront affichés sous forme de tableau, sinon ils seront affichés sous forme de liste et les notes seront masquées.
+    # showGrades: true
+    collapseAfter: 3
+    courses:
+    - name: TIPE (Modélisation Physique et Simulink de l'effet Larsen pour étudier les principaux défis dans la conception d'une aide auditive)
+    - name: Mathématiques (Algèbre, Analyse, Géométrie)
+    - name: Physique (Mécanique, Thermodynamique, Électromagnétisme)
+    - name: Chimie (Réactions et Transformations)
+    - name: Sciences Industrielles de l'Ingénieur (Mécanique, Automatisation, Systèmes)
+    - name: Informatique (Programmation et Principes Algorithmiques)
+
+- name: Terminale S Sciences de l'Ingénieur - Option Informatique
+  timeframe: 2022-2025
+  institution:
+    name: Lycée Saint-Nicolas
+    url: "https://www.lyceesaintnicolas.com/"
+    logo: /images/sections/education/lycee.png
+    # Vous pouvez éventuellement afficher un logo différent pour le thème sombre
+    # darkLogo: /images/sections/education/university.jpg
+  grade: #(facultatif)
+    scale: BAC
+    achieved: 16.5
+    outOf: 20
+
+- name: Licence en Informatique & Ingénierie
+  icon: fa-school
+  timeframe: 2022-2025
+  institution:
+    name: Collège Saint Georges
+    url: "https://www.saint-georges-paris.fr/"
+    logo: /images/sections/education/logo-college.jpg
