@@ -1,0 +1,62 @@
+# informations de la section
+section:
+  name: Expériences
+  id: experiences
+  enable: true
+  weight: 3
+  showOnNavbar: true
+  # Vous pouvez éventuellement masquer le titre dans les sections
+  # hideTitle: true
+
+# Vos expériences
+experiences:
+- company:
+    name: Veolia 
+    url: "https://www.veolia.com/fr"
+    location: Aubervilliers, France
+    logo: /images/sections/experiences/Veolia_logo.png
+    # présentation de l'entreprise
+    overview: "Veolia est un leader mondial des services environnementaux, fournissant des solutions innovantes dans la gestion de l'eau, des déchets et de l'énergie pour promouvoir la durabilité et l'efficacité des ressources."
+  positions:
+  - designation: Apprenti Ingénieur Data
+    start: Septembre 2023
+    # ne fournissez pas de date de fin si vous y travaillez encore. Cela sera remplacé par "Présent"
+    end: Septembre 2025
+    # énumérez quelques responsabilités dans cette entreprise
+    responsibilities:
+    - Mise en œuvre de pipelines ETL pour l'extraction, la transformation et le chargement des données.
+    - Développement de solutions SaaS pour l'extraction de données à partir d'applications tierces.
+    - Utilisation de Terraform pour l'automatisation et la gestion de l'infrastructure cloud.
+    - Surveillance des flux de données et mise en place de systèmes d'alerte pour assurer la qualité et la continuité des données.
+    - Documentation des processus de gestion des données et création de guides pour soutenir la maintenance et l'évolutivité.
+
+- company:
+    name: Google Gemini API Developer Contest
+    url: "https://ai.google.dev/competition/"
+    location: Paris, France
+    logo: /images/sections/experiences/Google_Gemini_logo.png
+    overview: "Le concours Gemini API Developer de Google invite les développeurs à créer des applications utilisant les modèles Gemini, avec des prix allant jusqu'à 260 000 $ pour les meilleures innovations."
+  positions:
+  - designation: Participant
+    start: Juin 2024
+    end: Août 2024
+    responsibilities:
+    - Collaboration avec Fabien Houang pour développer Vision Vendor, une application alimentée par l'IA pour la revente sur le marché de seconde main, utilisant les modèles Google Gemini.
+    - Intégration de fonctionnalités de caméra avec la génération de KPI pour la comparaison de prix, améliorant ainsi l'expérience utilisateur dans la revente en ligne.
+    - Déploiement de la démo et du code de l'application, disponibles sur [GitHub](https://github.com/fabienhouang/VisionVendor) et [YouTube](https://youtu.be/iCTtXtMeJf4).
+
+- company:
+    name: Université d'Oslo - Département Risques et Stochastiques
+    url: "https://www.uio.no/english/"
+    location: Oslo, Norvège
+    logo: /images/sections/experiences/University_of_Oslo_seal.png
+    # Vous pouvez éventuellement afficher un logo différent pour le thème sombre
+    # darkLogo: /images/sections/experiences/company3.jpg
+    overview: "Le Département Risques et Stochastiques de l'Université d'Oslo se concentre sur l'étude et l'application de la modélisation des risques et des processus stochastiques, fournissant des recherches avancées et une formation pour équiper les ingénieurs et scientifiques dans la gestion de l'incertitude et des systèmes complexes."
+  positions:
+  - designation: Stagiaire
+    start: Mai 2022
+    end: Août 2022
+    responsibilities:
+    - Optimisation des emplacements géographiques pour des projets éoliens et solaires en utilisant des méthodes d'optimisation quadratique.
+    - Développement d'un script Python pour résoudre des problèmes d'optimisation à l'aide d'un solveur et afficher les résultats spatiaux.

@@ -1,41 +1,41 @@
-# section information
+# 部分信息
 section:
-  name: About
+  name: 关于
   id: about
   enable: true
   weight: 1
   showOnNavbar: true
   template: sections/about.html
 
-# your designation
-designation: Data Enginner - AI & ML Engineer 
-# your company information
+# 你的头衔
+designation: 数据工程师 - 人工智能与机器学习工程师
+# 你的公司信息
 #company:
 #  name: [SFEIR]
 #  url: "https://www.sfeir.com/"
 
-# your resume. this file path should be relative to you "static" directory
+# 你的简历。此路径应相对于你的 "static" 目录
 resourceLinks:
-- title: "My Resume"
-  url: "files/MarcChen_s_Resume_ENG.pdf"
+- title: "我的简历"
+  url: "files/MarcChen_s_Resume_CN.pdf"
 
-# a summary about you
+# 关于你的简介
 summary: "
-As a Data / ML Engineer, I assist clients in leveraging data and AI to tackle complex challenges and drive value creation.\n\n
+作为一名数据/机器学习工程师，我帮助客户利用数据和人工智能解决复杂问题并创造价值。\n\n
 
-I hold the Google Cloud Professional Data Engineer certification (2024) and am currently preparing for the Google Machine Learning Engineer certification, showcasing my expertise in cloud-based data engineering solutions and my dedication to advancing in the field of AI.\n\n
+我持有Google Cloud Professional Data Engineer认证（2024年），目前正在准备Google Machine Learning Engineer认证，展示了我在基于云的数据工程解决方案中的专业知识，并且我致力于在人工智能领域不断进步。\n\n
 
-I am passionate about data and AI and constantly strive to enhance my skills in this rapidly evolving domain. Let's connect and explore the exciting innovations in data and AI together!\n\n
-Let's connect and explore data and AI innovations together!"
+我对数据和人工智能充满热情，并且一直在快速发展的领域中不断提高我的技能。让我们连接起来，一起探索数据和人工智能的创新！\n\n
+让我们一起探索数据和人工智能的创新！"
 
-# your social links
-# give as many as you want. use font-awesome for the icons.
+# 你的社交链接
+# 可以添加任意数量的链接。使用font-awesome图标。
 socialLinks:
-- name: Email
+- name: 电子邮件
   icon: "fas fa-envelope"
   url: "marc.chen@ensta-paris.fr"
 
-- name: LinkedIn
+- name: 领英
   icon: "fab fa-linkedin"
   url: "https://www.linkedin.com/in/chen-marc/"
 
@@ -43,25 +43,24 @@ socialLinks:
   icon: "fab fa-github"
   url: "https://github.com/MarcChen"
 
-# your soft skills
-# give the percentage between 50 to 100 with 5 intervals.
-# currently supported colors: blue, yellow, pink, green, sky, orange
+# 你的软技能
+# 请给出一个50到100之间的百分比，间隔为5。
+# 支持的颜色：蓝色、黄色、粉色、绿色、天蓝色、橙色
 badges:
 - type: soft-skill-indicator
-  name: French (Native)
+  name: 法语 (母语)
   percentage: 100
   color: "#27d912"
 
 - type: soft-skill-indicator
-  name: English (C1)
+  name: 英语 (C1)
   percentage: 100
   color: "#27d912"
 
 - type: soft-skill-indicator
-  name: Chineese (B2+)
+  name: 中文 (B2+)
   percentage: 100
   color: "#27d912"
-
 
 - type: certification
   name: Google Cloud Certified Professional Data Engineer
@@ -70,39 +69,39 @@ badges:
 
 - type: soft-skill-indicator
   name: 
-  url :
-  badge: 
+  url:
+  badge:
 
 - type: certification
   name: Google Cloud Certified Professional Machine Learning
   badge: "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/71712460"
 
 - type: soft-skill-indicator
-  name: Team Work
+  name: 团队合作
   percentage: 100
   color: "#00B4D8"
   
 - type: soft-skill-indicator
-  name: Fast Learner
+  name: 快速学习
   percentage: 100
   color: "#00B4D8"
 
 - type: soft-skill-indicator
-  name: Problem Solving
+  name: 问题解决
   percentage: 100
   color: "#00B4D8"
 
 # - type: soft-skill-indicator
-#   name: Leadership
+#   name: 领导力
 #   percentage: 100
 #   color: blue
 
 # - type: soft-skill-indicator
-#   name: Communication
+#   name: 沟通能力
 #   percentage: 100
 #   color: pink
 
 #- type: soft-skill-indicator
-#  name: Hard Working
+#  name: 勤奋工作
 #  percentage: 100
 #  color: green

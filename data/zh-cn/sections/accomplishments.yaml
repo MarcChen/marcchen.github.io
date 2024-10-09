@@ -1,0 +1,43 @@
+# 部分信息
+section:
+  name: 成就
+  id: accomplishments
+  enable: true
+  weight: 6
+  showOnNavbar: true
+  # 可选隐藏部分标题
+  # hideTitle: true
+
+# 您的成就
+accomplishments:
+- name: Linux 和 Bash 数据工程课程
+  timeline: "2024年4月"
+  organization:
+    name: 杜克大学
+    url: https://www.coursera.org/learn/linux-and-bash-for-data-engineering-duke
+  courseOverview: 本课程涵盖了使用 Linux 进行数据工程任务的基础知识。您将学习如何配置和自定义 Bash 和 zsh shells，使用 Shell 脚本处理数据，并构建用于自动化的命令行工具。本课程还包括动手实验，使用 Bash 和其他相关工具（如 Makefiles 和 Dockerfiles）管理文件系统、搜索数据和控制权限。
+  certificateURL: "https://www.coursera.org/account/accomplishments/records/6JV7MXRUP8C5"
+
+- name: 专业数据工程师认证
+  timeline: "2024年5月"
+  organization:
+    name: 谷歌
+    url: https://cloud.google.com/learn/certification/data-engineer?hl=zh-cn
+  courseOverview: 此认证验证了在 Google Cloud 上设计和构建数据处理系统的专业知识。主题包括机器学习、数据管道创建、数据存储优化和安全实践。它强调了处理大规模数据系统和机器学习集成的最佳实践。
+  certificateURL: "https://www.credly.com/badges/822e0dea-4499-48e0-b18b-9bc3681aa55f/linked_in_profile"
+
+- name: 使用 Terraform 在 Google Cloud 上入门
+  timeline: "2024年3月"
+  organization:
+    name: 谷歌
+    url: https://www.coursera.org/learn/getting-started-with-terraform-for-google-cloud
+  courseOverview: 本课程提供了使用 Terraform 在 Google Cloud 上管理基础设施的动手介绍。它指导您设置云资源、管理基础设施配置，并高效自动化基础设施任务。您还将学习如何应对实际系统设计挑战的最佳实践。
+  certificateURL: "https://www.coursera.org/account/accomplishments/records/TWX8W5EC6BB4"
+
+- name: 项目管理 MOOC - 经典课程
+  timeline: "2017年11月 - 2018年3月"
+  organization:
+    name: 法国里尔中央理工学院
+    url: https://mooc.gestiondeprojet.pm/
+  courseOverview: 本课程提供了项目管理的基础技能，重点是有效地规划、组织和控制项目。参与者将学习应用工具和方法处理实际项目，强调敏捷方法和现代项目管理软件的使用。
+  certificateURL: "https://certification.gestiondeprojet.pm/GdP22AP/GdP22PC-CHCOwyncA.pdf"

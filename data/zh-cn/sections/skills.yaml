@@ -1,0 +1,101 @@
+# 部分信息
+section:
+  name: 技能
+  id: skills
+  enable: true
+  weight: 2
+  showOnNavbar: true
+  filter: true
+  # 可选隐藏部分标题
+  # hideTitle: true
+
+# 过滤按钮
+buttons:
+- name: 全部
+  filter: "all"
+- name: 基础
+  filter: "basic"
+- name: 编程语言
+  filter: "programming_language"
+- name: 云服务
+  filter: "cloud_services"
+
+# 您的技能
+# 为每项技能提供总结
+skills:
+- name: Python 开发
+  logo: "/images/sections/skills/Python_logo.svg"
+  summary: "作为主要的专业开发语言，能够编写可扩展、可测试、可维护的程序。"
+  categories: ["programming_language"]
+  url: "https://www.python.org/"
+
+- name: C++
+  logo: "/images/sections/skills/CXX_logo.svg"
+  summary: "熟悉 C/C++ 编程，主要用于学术阶段。"
+  categories: ["programming_language"]
+  url: "https://en.cppreference.com/"
+
+- name: SQL
+  logo: "/images/sections/skills/Sql_logo.png"
+  summary: "熟练掌握，用于创建复杂的数据转换工作流。"
+  categories: ["programming_language"]
+
+- name: MATLAB
+  logo: "/images/sections/skills/Matlab_Logo.png"
+  summary: "在学校期间用于多模式建模系统，计算复杂的物理方程，并可视化结果。"
+  categories: ["programming_language"]
+  url: "https://www.mathworks.com/products/matlab.html/"
+
+- name: LATEX
+  logo: "/images/sections/skills/LaTeX_logo.svg"
+  summary: "主要用于撰写报告和制作演示文稿。"
+  categories: ["basic"]
+  url: "https://fr.wikipedia.org/wiki/LaTeX/"
+
+- name: Terraform
+  logo: "/images/sections/skills/terraform.png"
+  summary: "熟练使用 Terraform 管理 Google Cloud 资源，专注于身份和访问管理（IAM）、云函数和其他数据服务。"
+  categories: ["programming_language"]
+  url: "https://www.terraform.io/"
+
+- name: Linux
+  logo: /images/sections/skills/Linux_logo.svg
+  summary: "作为主要的工作操作系统，能够编写 Bash/Shell 脚本。"
+  categories: ["basic"]
+  url: "https://www.linux.org/"
+
+- name: Git
+  logo: /images/sections/skills/Git_logo.svg
+  summary: "具备 Git 版本控制经验，主要使用 GitLab 进行敏捷开发和 CI/CD 部署，也熟悉 GitHub。"
+  categories: ["basic"]
+  url: "https://git-scm.com/"
+
+- name: BigQuery
+  logo: /images/sections/skills/bigquery-icon.png
+  summary: "精通查询和存储成本优化。"
+  categories: ["cloud_services"]
+  url: "https://git-scm.com/"
+
+- name: 云存储
+  logo: /images/sections/skills/Google_Storage-Logo.svg
+  summary: "具备管理非结构化数据可扩展对象存储的经验，优化存储成本并设置生命周期策略。"
+  categories: ["cloud_services"]
+  url: "https://git-scm.com/"
+
+- name: 云函数
+  logo: /images/sections/skills/cloud-functions.png
+  summary: "精通开发事件驱动的无服务器函数，用于自动化任务和集成云服务。"
+  categories: ["cloud_services"]
+  url: "https://git-scm.com/"
+
+- name: Appscript
+  logo: /images/sections/skills/Google_Apps_Script.png
+  summary: "熟练使用 Google Apps Script 自动化 Google Workspace 任务，开发自定义工作流，并集成第三方 API。"
+  categories: ["cloud_services"]
+  url: "https://git-scm.com/"
+
+- name: 云编排器（Apache Airflow）
+  logo: /images/sections/skills/Cloud_Composer.svg
+  summary: "用于使用 Apache Airflow 编排复杂工作流，管理依赖关系，确保数据管道的无缝执行。"
+  categories: ["cloud_services"]
+  url: "https://git-scm.com/"
