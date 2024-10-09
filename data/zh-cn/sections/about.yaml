@@ -17,7 +17,7 @@ designation: 数据工程师 - 人工智能与机器学习工程师
 # 你的简历。此路径应相对于你的 "static" 目录
 resourceLinks:
 - title: "我的简历"
-  url: "files/MarcChen_s_Resume.pdf"
+  url: "files/MarcChen_s_Resume_CN.pdf"
 
 # 关于你的简介
 summary: "
@@ -33,7 +33,7 @@ summary: "
 socialLinks:
 - name: 电子邮件
   icon: "fas fa-envelope"
-  url: "chen987415@gmail.com"
+  url: "marc.chen@ensta-paris.fr"
 
 - name: 领英
   icon: "fab fa-linkedin"

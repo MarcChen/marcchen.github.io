@@ -6,7 +6,7 @@ greeting: "你好，我是"
 image: "images/author/marc.png"
 # 提供你的联系方式。它们将显示在页脚中
 contactInfo:
-  email: "chen987415@gmail.com"
+  email: "marc.chen@ensta-paris.fr"
   github: MarcChen
   linkedin: chen-marc
 # 电话: "+33 6 51 85 80 57"

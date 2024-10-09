@@ -6,7 +6,7 @@ greeting: "Bonjour, je suis"
 image: "images/author/marc.png"
 # donnez vos informations de contact. Elles seront utilisées dans le pied de page
 contactInfo:
-  email: "chen987415@gmail.com"
+  email: "marc.chen@ensta-paris.fr"
   github: MarcChen
   linkedin: chen-marc
 # téléphone: "+33 6 51 85 80 57"
