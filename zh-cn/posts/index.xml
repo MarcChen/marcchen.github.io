@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Marc's Portfolio</title><link>https://marcchen.github.io/zh-cn/posts/</link><description>Recent content in Posts on Marc's Portfolio</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 26 Aug 2024 08:06:25 +0600</lastBuildDate><atom:link href="https://marcchen.github.io/zh-cn/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Gemini 开发者竞赛</title><link>https://marcchen.github.io/zh-cn/posts/gemini-developper-contest/</link><pubDate>Mon, 26 Aug 2024 08:06:25 +0600</pubDate><guid>https://marcchen.github.io/zh-cn/posts/gemini-developper-contest/</guid><description>&lt;h1 id="vision-vendor二手市场转售的突破">Vision Vendor：二手市场转售的突破&lt;/h1>
+&lt;p>随着人工智能领域的不断发展，&lt;strong>Google 的 Gemini API 开发者竞赛&lt;/strong>已成为开发者展示创新的全球舞台。从 2024 年 6 月到 2024 年 8 月，这场竞赛邀请了富有创造力的头脑利用 &lt;strong>Google Gemini 模型&lt;/strong>的力量，推动 AI 技术的边界。竞赛的总奖金高达 &lt;strong>260,000 美元&lt;/strong>，吸引了众多开发者渴望构建有影响力的解决方案。&lt;/p>
+&lt;h2 id="vision-vendor-的旅程">Vision Vendor 的旅程&lt;/h2>
+&lt;p>我的队友 &lt;strong>Fabien Houang&lt;/strong> 和我迎接了这个挑战，创建了 &lt;strong>Vision Vendor&lt;/strong>——一个旨在改变用户与二手市场互动方式的 AI 驱动应用程序。该应用利用 &lt;strong>Google Gemini 模型&lt;/strong>，通过集成 &lt;strong>相机功能&lt;/strong> 和 &lt;strong>KPI 生成&lt;/strong> 来实现 &lt;strong>价格对比&lt;/strong> 的无缝体验。&lt;/p>
+&lt;p>我们的目标很简单：通过提高在线转售的效率和透明度来赋能用户。使用 Vision Vendor 应用程序，任何人都可以拍摄物品的照片并立即收到定价信息，这为参与日益增长的二手经济的任何人提供了完美的工具。&lt;/p>
+&lt;h2 id="vision-vendor-的关键功能">Vision Vendor 的关键功能&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>AI 驱动的价格对比&lt;/strong>：用户可以通过我们应用的 AI 引擎生成的实时 KPI 来比较商品价格，从而做出更明智的购买和销售决策。&lt;/li>
+&lt;li>&lt;strong>集成的相机功能&lt;/strong>：只需拍摄照片，我们的应用程序使用图像识别和深度学习提供有价值的市场数据。&lt;/li>
+&lt;li>&lt;strong>用户友好的界面&lt;/strong>：直观的设计确保了所有用户，无论技术水平如何，都能获得顺畅和简单的体验。&lt;/li>
+&lt;/ul>
+&lt;h2 id="vision-vendor-对转售市场的影响">Vision Vendor 对转售市场的影响&lt;/h2>
+&lt;p>随着二手市场的兴起，Vision Vendor 通过价格透明度的核心关注脱颖而出。卖家可以了解他们商品的价值，而买家则可以确保自己获得公平的交易。通过利用 Google 的 Gemini 模型的先进功能，我们创建了一个平衡 &lt;strong>效率&lt;/strong> 和 &lt;strong>可访问性&lt;/strong> 的工具。&lt;/p></description></item></channel></rss>
