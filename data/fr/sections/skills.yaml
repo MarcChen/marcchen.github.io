@@ -1,0 +1,101 @@
+# informations de la section
+section:
+  name: Compétences
+  id: skills
+  enable: true
+  weight: 2
+  showOnNavbar: true
+  filter: true
+  # Vous pouvez éventuellement masquer le titre dans les sections
+  # hideTitle: true
+
+# boutons de filtrage
+buttons:
+- name: Tout
+  filter: "all"
+- name: Basique
+  filter: "basic"
+- name: Langage de programmation
+  filter: "programming_language"
+- name: Services Cloud
+  filter: "cloud_services"
+
+# Vos compétences.
+# Donnez un résumé de chaque compétence dans la section résumé.
+skills:
+- name: Développement Python
+  logo: "/images/sections/skills/Python_logo.svg"
+  summary: "Utilisé comme principal langage pour le développement professionnel. Capable d'écrire des programmes évolutifs, testables et maintenables."
+  categories: ["programming_language"]
+  url: "https://www.python.org/"
+
+- name: C++
+  logo: "/images/sections/skills/CXX_logo.svg"
+  summary: "Familiarisé avec la programmation C/C++, principalement utilisé durant mes études."
+  categories: ["programming_language"]
+  url: "https://en.cppreference.com/"
+
+- name: SQL
+  logo: "/images/sections/skills/Sql_logo.png"
+  summary: "Compétent, utilisé pour créer des flux de transformation complexes."
+  categories: ["programming_language"]
+
+- name: MATLAB
+  logo: "/images/sections/skills/Matlab_Logo.png"
+  summary: "Utilisé à l'école pour des systèmes de modélisation multimodaux, le calcul d'équations physiques complexes et la visualisation des résultats."
+  categories: ["programming_language"]
+  url: "https://www.mathworks.com/products/matlab.html/"
+
+- name: LATEX
+  logo: "/images/sections/skills/LaTeX_logo.svg"
+  summary: "Principalement utilisé pour rédiger des rapports et créer des présentations."
+  categories: ["basic"]
+  url: "https://fr.wikipedia.org/wiki/LaTeX/"
+
+- name: Terraform
+  logo: "/images/sections/skills/terraform.png"
+  summary: "Compétent dans la gestion des ressources Google Cloud à l'aide de Terraform, avec un focus sur la gestion des identités et des accès (IAM), Cloud Functions et d'autres services orientés données sur GCP."
+  categories: ["programming_language"]
+  url: "https://www.terraform.io/"
+
+- name: Linux
+  logo: /images/sections/skills/Linux_logo.svg
+  summary: "Utilisé comme principal système d'exploitation pour le travail. Capable d'écrire des scripts bash/shell."
+  categories: ["basic"]
+  url: "https://www.linux.org/"
+
+- name: Git
+  logo: /images/sections/skills/Git_logo.svg
+  summary: "Expérimenté dans le développement basé sur Git, principalement avec GitLab pour les workflows Agile et les déploiements CI/CD. J'ai également de l'expérience avec GitHub."
+  categories: ["basic"]
+  url: "https://git-scm.com/"
+
+- name: BigQuery
+  logo: /images/sections/skills/bigquery-icon.png
+  summary: "Compétent dans l'optimisation des requêtes et des coûts de stockage."
+  categories: ["cloud_services"]
+  url: "https://git-scm.com/"
+
+- name: Cloud Storage
+  logo: /images/sections/skills/Google_Storage-Logo.svg
+  summary: "Expérimenté dans la gestion du stockage d'objets évolutif pour les données non structurées et dans l'optimisation des coûts de stockage grâce aux politiques de cycle de vie."
+  categories: ["cloud_services"]
+  url: "https://git-scm.com/"
+
+- name: Cloud Functions
+  logo: /images/sections/skills/cloud-functions.png
+  summary: "Compétent dans le développement de fonctions serverless pilotées par des événements pour automatiser des tâches et intégrer des services cloud."
+  categories: ["cloud_services"]
+  url: "https://git-scm.com/"
+
+- name: Appscript
+  logo: /images/sections/skills/Google_Apps_Script.png
+  summary: "Compétent dans l'automatisation des tâches Google Workspace, le développement de workflows personnalisés et l'intégration d'API tierces avec Google Apps Script."
+  categories: ["cloud_services"]
+  url: "https://git-scm.com/"
+
+- name: Cloud Composer (Apache Airflow)
+  logo: /images/sections/skills/Cloud_Composer.svg
+  summary: "Utilisé pour orchestrer des workflows complexes avec Apache Airflow, gérer les dépendances et assurer une exécution fluide des pipelines de données."
+  categories: ["cloud_services"]
+  url: "https://git-scm.com/"

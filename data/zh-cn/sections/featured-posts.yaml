@@ -1,0 +1,11 @@
+section:
+  name: 精选文章
+  id: featured-posts
+  enable: true
+  weight: 7
+  showOnNavbar: true
+  hideTitle: false
+
+# 精选文章
+posts:
+  - Gemini-Developper-Contest

@@ -1,0 +1,29 @@
+# informations de la section
+section:
+  name: Réalisations
+  id: achievements
+  enable: false
+  weight: 8
+  showOnNavbar: true
+  # Vous pouvez éventuellement masquer le titre dans les sections
+  # hideTitle: true
+
+# Vos réalisations
+achievements:
+- title: Diplômé de l'EPITA
+  image: /images/sections/achievements/graduation.jpg
+  summary: Obtention d'un Master of Science (M.Sc.) en Informatique et Ingénierie à l'Université EPITA en France, 2019.
+
+# - title: Ingénieur Data Professionnel Certifié
+#   image: /images/sections/achievements/Certif_GCP_DataEngineer_FH.png
+#   url: https://www.credential.net/b60c9856-51a3-4186-b283-12c31e2040af
+#   summary: Certification d'Ingénieur Data Professionnel sur Google Cloud en 2021.
+
+# - title: Architecte Cloud Professionnel Certifié
+#   image: /images/sections/achievements/Certif_GCP_CloudArchitect_FH.png
+#   url: https://www.credential.net/a1730ca9-dc69-49b7-ad0a-406da147eedd
+#   summary: Certification d'Architecte Cloud Professionnel sur Google Cloud en 2022.
+
+# - title: Compétition IronCar France
+#   image: /images/sections/achievements/
+#   summary: Classé 3ème/20 à l'IronCar France, Summer Race (voiture autonome) en 2018.

@@ -1,0 +1,11 @@
+section:
+  name: Articles en vedette # Titre de la section (par défaut : "")
+  id: featured-posts # id/url de la section *Obligatoire*
+  enable: true # Booléen pour déterminer si cette section est activée (par défaut : false)
+  weight: 7 # Ordre d'affichage de la section (par défaut : alphabétique suivi du poids)
+  showOnNavbar: true # Booléen pour déterminer si un lien doit être affiché pour cette section dans la barre de navigation
+  hideTitle: false # Peut éventuellement masquer le titre dans les sections (par défaut : false)
+
+# articles à mettre en avant
+posts:
+  - Gemini-Developper-Contest

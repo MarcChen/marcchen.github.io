@@ -1,0 +1,43 @@
+# informations de la section
+section:
+  name: Réalisations
+  id: accomplishments
+  enable: true
+  weight: 6
+  showOnNavbar: true
+  # Vous pouvez éventuellement masquer le titre dans les sections
+  # hideTitle: true
+
+# Vos réalisations
+accomplishments:
+- name: Linux et Bash pour l'ingénierie des données
+  timeline: "Avril 2024"
+  organization:
+    name: Université de Duke
+    url: https://www.coursera.org/learn/linux-and-bash-for-data-engineering-duke
+  courseOverview: Ce cours couvre les bases de l'utilisation de Linux pour les tâches d'ingénierie des données. Vous apprendrez à configurer et personnaliser les shells Bash et zsh, à manipuler des données à l'aide de scripts shell, et à créer des outils en ligne de commande pour l'automatisation. Il comprend également des laboratoires pratiques pour gérer les systèmes de fichiers, rechercher des données et contrôler les permissions à l'aide de Bash et d'autres outils adjacents tels que les Makefiles et Dockerfiles.
+  certificateURL: "https://www.coursera.org/account/accomplishments/records/6JV7MXRUP8C5"
+
+- name: Certification Professionnelle Data Engineer
+  timeline: "Mai 2024"
+  organization:
+    name: Google
+    url: https://cloud.google.com/learn/certification/data-engineer?hl=fr
+  courseOverview: Cette certification valide l'expertise dans la conception et la construction de systèmes de traitement de données sur Google Cloud. Les sujets incluent l'apprentissage automatique, la création de pipelines de données, l'optimisation du stockage des données et les pratiques de sécurité. Elle met l'accent sur les meilleures pratiques dans la gestion de systèmes de données à grande échelle et l'intégration de l'apprentissage automatique.
+  certificateURL: "https://www.credly.com/badges/822e0dea-4499-48e0-b18b-9bc3681aa55f/linked_in_profile"
+
+- name: Débuter avec Terraform pour Google Cloud
+  timeline: "Mars 2024"
+  organization:
+    name: Google
+    url: https://www.coursera.org/learn/getting-started-with-terraform-for-google-cloud
+  courseOverview: Ce cours offre une introduction pratique à la gestion de l'infrastructure en tant que code en utilisant Terraform sur Google Cloud. Il vous guide dans la mise en place de ressources cloud, la gestion des configurations d'infrastructure, et l'automatisation des tâches d'infrastructure de manière efficace. Vous apprendrez également les meilleures pratiques pour faire face aux défis réels de la conception de systèmes.
+  certificateURL: "https://www.coursera.org/account/accomplishments/records/TWX8W5EC6BB4"
+
+- name: MOOC Gestion de Projet - Parcours CLASSIQUE
+  timeline: "Nov 2017 - Mar 2018"
+  organization:
+    name: Centrale Lille
+    url: https://mooc.gestiondeprojet.pm/
+  courseOverview: Ce cours fournit des compétences fondamentales en gestion de projet, en se concentrant sur la planification, l'organisation et le contrôle des projets de manière efficace. Les participants apprennent à appliquer des outils et des méthodologies pour gérer des projets concrets, en mettant l'accent sur les méthodologies Agile et l'utilisation de logiciels modernes de gestion de projet.
+  certificateURL: "https://certification.gestiondeprojet.pm/GdP22AP/GdP22PC-CHCOwyncA.pdf"

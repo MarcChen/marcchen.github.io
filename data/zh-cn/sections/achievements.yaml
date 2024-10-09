@@ -1,0 +1,15 @@
+# 部分信息
+section:
+  name: 成就
+  id: achievements
+  enable: false
+  weight: 8
+  showOnNavbar: true
+  # 可选隐藏部分标题
+  # hideTitle: true
+
+# 您的成就
+achievements:
+- title: 从 EPITA 毕业
+  image: /images/sections/achievements/graduation.jpg
+  summary: 2019年获得法国 EPITA 大学计算机科学与工程硕士学位 (M.Sc.)。
