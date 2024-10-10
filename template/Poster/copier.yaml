@@ -1,0 +1,17 @@
+_templates_suffix: .tmpl
+
+# Questions to ask the user
+poster_title:
+  type: str
+  help: What is the Poster Name?
+  # default: "Default Poster Title"  # Default value for testing
+
+description:
+  type: str
+  help: Description of the Poster?
+  # default: "Default description"  # Default value for testing
+
+logo_file_name:
+  type: str
+  help: What's the logo file name? Don't forget extension!
+  # default: "default_logo.png"  # Default value for testing
