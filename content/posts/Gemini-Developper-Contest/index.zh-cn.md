@@ -4,7 +4,7 @@ date: 2024-08-26T08:06:25+06:00
 description: 介绍 Gemini 开发者竞赛
 menu:
   sidebar:
-    name: Gemini
+    name: Gemini 开发者竞赛
     identifier: gemini
     weight: 10
 hero: Google_Gemini_logo.png
