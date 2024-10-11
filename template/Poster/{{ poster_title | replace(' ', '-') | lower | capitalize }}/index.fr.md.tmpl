@@ -4,7 +4,7 @@ date: {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
 description: {{ description }}
 menu:
   sidebar:
-    name: {{ poster_title | replace(' ', '-') | upper }}
+    name: {{ poster_title }}
     identifier: {{ poster_title | replace(' ', '-') | lower }}
     weight: 10
 hero: {{ logo_file_name }}
