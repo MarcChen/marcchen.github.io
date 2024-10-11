@@ -9,3 +9,10 @@ menu:
     weight: 10
 hero: trip.png
 ---
+
+GIF Annimation + Photo of the bike + What we learnt from it + GPX ?  
+Second trip ? : Strava : 
+
+{{< youtube 6DUGFoYhUSs >}}
+
+{{< vs >}}
