@@ -6,6 +6,7 @@ menu:
   sidebar:
     name: Enstraid
     identifier: enstraid
+    parent: ensta-id
     weight: 10
 hero: ENSTRAID.png
 ---

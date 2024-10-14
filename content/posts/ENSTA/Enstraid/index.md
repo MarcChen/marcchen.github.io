@@ -6,8 +6,13 @@ menu:
   sidebar:
     name: Enstraid
     identifier: enstraid
+    parent: ensta-id
     weight: 10
-hero: ENSTRAID.png 
+hero: ENSTRAID.png
+tags:
+- Markdown
+- Content Organization
+- Multi-lingual
 ---
 
 ## ENSTRAID: Transforming the Future of Mobility

@@ -6,8 +6,9 @@ menu:
   sidebar:
     name: Technimage
     identifier: technimage
+    parent: ensta-id
     weight: 10
-hero: technimage.png
+hero: Technimage.png
 ---
 
 # Technimage - ENSTA Paris Audiovisual Association
