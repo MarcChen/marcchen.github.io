@@ -4,10 +4,18 @@ date: 2024-08-26T08:06:25+06:00
 description: 介绍 Gemini 开发者竞赛
 menu:
   sidebar:
-    name: Gemini
+    name: Gemini 开发者竞赛
     identifier: gemini
     weight: 10
 hero: Google_Gemini_logo.png
+tags:
+- 人工智能
+- 二手市场
+- 价格对比
+- 图像识别
+- Google Gemini
+- 开发者竞赛
+
 ---
 
 # Vision Vendor：二手市场转售的突破
@@ -44,7 +52,7 @@ hero: Google_Gemini_logo.png
 
 如需快速了解，请观看我们的 YouTube 演示视频：
 
-[观看 YouTube 上的 Vision Vendor 演示](https://www.youtube.com/watch?v=iCTtXtMeJf4&feature=youtu.be)
+{{< youtube iCTtXtMeJf4 >}}
 
 此外，Vision Vendor 已正式列在 **Google 的 AI 开发者竞赛**平台上，在其他令人难以置信的项目中展示了我们的产品：
 
