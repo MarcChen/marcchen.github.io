@@ -4,10 +4,18 @@ date: 2024-08-26T08:06:25+06:00
 description: Explaining the Gemini Developper Contest
 menu:
   sidebar:
-    name: Gemini
+    name: Gemini Developper contest
     identifier: gemini
     weight: 10
 hero: Google_Gemini_logo.png
+tags:
+- AI
+- Secondhand Market
+- Price Comparison
+- Image Recognition
+- Google Gemini
+- Developer Contest
+
 ---
 
 
@@ -45,7 +53,7 @@ Our work is publicly available for anyone who wants to explore the source code, 
 
 For a quick overview, feel free to watch our demo video on YouTube:
 
-[Watch Vision Vendor Demo on YouTube](https://www.youtube.com/watch?v=iCTtXtMeJf4&feature=youtu.be)
+{{< youtube iCTtXtMeJf4 >}}
 
 Moreover, Vision Vendor is officially listed on **Google’s AI Developer Competition** platform, showcasing our product among other incredible projects:
 
