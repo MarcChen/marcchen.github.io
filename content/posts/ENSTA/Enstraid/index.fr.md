@@ -9,6 +9,14 @@ menu:
     parent: ensta-id
     weight: 10
 hero: ENSTRAID.png
+tags:
+- Rétrofit
+- Véhicules Électriques
+- Durabilité
+- Ingénierie
+- Association Étudiante
+- ENSTA Paris
+
 ---
 
 ## ENSTRAID : Transformer l'avenir de la mobilité

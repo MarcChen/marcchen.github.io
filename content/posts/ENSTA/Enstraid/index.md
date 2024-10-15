@@ -10,9 +10,13 @@ menu:
     weight: 10
 hero: ENSTRAID.png
 tags:
-- Markdown
-- Content Organization
-- Multi-lingual
+- Retrofit
+- Electric Vehicles
+- Sustainability
+- Engineering
+- Student Association
+- ENSTA Paris
+
 ---
 
 ## ENSTRAID: Transforming the Future of Mobility

@@ -9,6 +9,14 @@ menu:
     parent: ensta-id
     weight: 10
 hero: ENSTRAID.png
+tags:
+- 改装
+- 电动汽车
+- 可持续性
+- 工程
+- 学生协会
+- ENSTA巴黎
+
 ---
 
 ## ENSTRAID：改变未来出行方式

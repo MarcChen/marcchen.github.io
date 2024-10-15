@@ -4,11 +4,15 @@ date: 2024-10-10 22:33:01
 description: Récit de plusieurs aventures à vélo à travers la France, en explorant différents itinéraires et en partageant mes apprentissages et découvertes.
 menu:
   sidebar:
-    name: BIKE-600KM-ROADTRIP
+    name: Bike roadtrips
     identifier: bike-600km-roadtrip
-    weight: 10
+    weight: 12
 hero: /images/bike_V2.JPG
 mermaid: true
+tags:
+- Vélo
+- Bikepacking
+- Leçons Apprises
 ---
 ## Mes aventures à vélo : un voyage d'apprentissages et de découvertes
 
@@ -33,7 +37,7 @@ Voici quelques photos :
 
 #### Galerie
 
- {{< img src="/posts/bike/images/profile.png" align="center" title="Profil du trajet" >}}
+ {{< img src="/posts/bike/images/profile.jpg" align="center" title="Trip profile" >}}
 
 <div class="custom-image-grid">
   {{< img src="/posts/bike/images/bike.jpg" height="400" width="300" align="center" title="Mon 1er vélo pour ce genre de voyage" >}}

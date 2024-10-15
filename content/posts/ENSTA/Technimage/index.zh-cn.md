@@ -8,7 +8,15 @@ menu:
     identifier: technimage
     parent: ensta-id
     weight: 10
-hero: Technimage.png
+hero: technimage.jpg
+tags:
+- 视听
+- 视频制作
+- 学生协会
+- 活动
+- ENSTA巴黎
+- 电影制作
+
 ---
 
 # Technimage - ENSTA巴黎的视听协会

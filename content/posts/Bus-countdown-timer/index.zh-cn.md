@@ -6,8 +6,17 @@ menu:
   sidebar:  
     name: 公交倒计时器  
     identifier: bus-countdown-timer  
-    weight: 10  
+    weight: 11  
 hero: devboard.jpg  
+tags:
+- 物联网
+- 公共交通
+- ESP32
+- API集成
+- 电量优化
+- Wi-Fi
+- 智慧城市
+
 ---
 
 ## 公交车站项目：通过物联网改善公共交通

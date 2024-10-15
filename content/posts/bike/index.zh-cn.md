@@ -4,10 +4,15 @@ date: 2024-10-10 22:33:01
 description: 通过多次自行车旅行探索法国的不同路线，分享我的经历与收获。
 menu:
   sidebar:
-    name: BIKE-600KM-ROADTRIP
+    name: 骑行之旅
     identifier: bike-600km-roadtrip
-    weight: 10
+    weight: 12
 hero: /images/bike_V2.JPG
+tags:
+- 自行车
+- 长途骑行
+- 经验分享
+
 ---
 ## 我的骑行冒险：一次学习与探索的旅程
 
@@ -32,7 +37,7 @@ hero: /images/bike_V2.JPG
 
 #### 相册
 
- {{< img src="/posts/bike/images/profile.png" align="center" title="行程概况" >}}
+ {{< img src="/posts/bike/images/profile.jpg" align="center" title="行程概况" >}}
 
 <div class="custom-image-grid">
   {{< img src="/posts/bike/images/bike.jpg" height="400" width="300" align="center" title="我的第一辆旅行自行车" >}}

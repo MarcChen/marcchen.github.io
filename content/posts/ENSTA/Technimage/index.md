@@ -8,7 +8,15 @@ menu:
     identifier: technimage
     parent: ensta-id
     weight: 10
-hero: Technimage.png
+hero: technimage.jpg
+tags:
+- Audiovisual
+- Video Production
+- Student Association
+- Events
+- ENSTA Paris
+- Filmmaking
+
 ---
 
 # Technimage - ENSTA Paris Audiovisual Association

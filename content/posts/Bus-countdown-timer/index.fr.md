@@ -6,8 +6,17 @@ menu:
   sidebar:  
     name: Affichage de temps de bus
     identifier: bus-countdown-timer  
-    weight: 10  
+    weight: 11  
 hero: devboard.jpg  
+tags:
+- IoT
+- Transport Public
+- ESP32
+- Intégration API
+- Optimisation Énergétique
+- Wi-Fi
+- Villes Intelligentes
+
 ---
 
 ## Projet de Station de Bus : Améliorer le Transport Public avec l’IoT
