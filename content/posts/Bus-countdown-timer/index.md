@@ -6,8 +6,17 @@ menu:
   sidebar:  
     name: Bus Countdown Timer  
     identifier: bus-countdown-timer  
-    weight: 10  
+    weight: 11  
 hero: devboard.jpg  
+tags:
+- IoT
+- Public Transport
+- ESP32
+- API Integration
+- Power Optimization
+- Wi-Fi
+- Smart Cities
+
 ---
 
 ## Bus Station Project: Enhancing Public Transport with IoT

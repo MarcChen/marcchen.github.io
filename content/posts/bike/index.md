@@ -4,10 +4,15 @@ date: 2024-10-10 22:33:01
 description: A journey through several cycling adventures across France, exploring different routes and sharing my experiences and lessons learned.
 menu:
   sidebar:
-    name: Bike 600km roadtrip
+    name: Bike roadtrips
     identifier: bike-600km-roadtrip
-    weight: 10
+    weight: 12
 hero: /images/bike_V2.JPG
+tags:
+- Cycling
+- Bikepacking
+- Lessons Learned
+
 ---
 ## My Cycling Adventures: A Journey of Lessons and Exploration
 
@@ -32,7 +37,7 @@ Here are some photos:
 
 #### Gallery
 
- {{< img src="/posts/bike/images/profile.png" align="center" title="Trip profile" >}}
+ {{< img src="/posts/bike/images/profile.jpg" align="center" title="Trip profile" >}}
 
 <div class="custom-image-grid">
   {{< img src="/posts/bike/images/bike.jpg" height="400" width="300" align="center" title="My first bike for such a trip" >}}

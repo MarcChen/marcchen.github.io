@@ -4,10 +4,18 @@ date: 2024-08-26T08:06:25+06:00
 description: Explication du concours Développeur Gemini
 menu:
   sidebar:
-    name: Gemini
+    name: Concours AI Gemini
     identifier: gemini
     weight: 10
 hero: Google_Gemini_logo.png
+tags:
+- IA
+- Marché Seconde Main
+- Comparaison des Prix
+- Reconnaissance d'Image
+- Google Gemini
+- Concours Développeur
+
 ---
 
 # Vision Vendor : Une Révolution dans la Revente de Marché de Seconde Main
@@ -44,7 +52,7 @@ Notre travail est accessible publiquement pour quiconque souhaite explorer le co
 
 Pour un aperçu rapide, n'hésitez pas à regarder notre vidéo de démonstration sur YouTube :
 
-[Regarder la démo de Vision Vendor sur YouTube](https://www.youtube.com/watch?v=iCTtXtMeJf4&feature=youtu.be)
+{{< youtube iCTtXtMeJf4 >}}
 
 De plus, Vision Vendor est officiellement répertorié sur la plateforme **Concours Développeur IA de Google**, présentant notre produit parmi d'autres projets incroyables :
 
