@@ -1,3 +1,67 @@
+// themes
+$themes: (
+  'light': (
+    // cyan 600
+    'accent-color': #0891b2,
+    // cyan 500
+    'hover-over-accent-color': #06b6d4,
+    // zinc 200
+    'text-over-accent-color': #e4e4e7,
+    // slate 50
+    'bg-primary': #f8fafc,
+    // slate 900
+    'bg-primary-inverse': #0f172a,
+    // slate 200
+    'bg-secondary': #e2e8f0,
+    'bg-card': #fff,
+    // slate 800
+    'heading-color': #1e293b,
+    // slate 700
+    'text-color': #334155,
+    // slate 300
+    'inverse-text-color': #cbd5e1,
+    // slate 500
+    'muted-text-color': #64748b,
+    // red 600
+    'inline-code-color': #dc2626,
+    // amber 200
+    'highlight-color': #fde68a,
+    // slate 900
+    'footer-color': #0f172a,
+  ),
+  'dark': (
+    // cyan 600
+    'accent-color': #0891b2,
+    // cyan 500
+    'hover-over-accent-color': #06b6d4,
+    // zinc 200
+    'text-over-accent-color': #e4e4e7,
+    // gray-800
+    'bg-primary': #1f2937,
+    // slate 900
+    'bg-primary-inverse': #0f172a,
+    // gray 900
+    'bg-secondary': #111827,
+    // slate 800
+    'bg-card': #1e293b,
+    // slate 100
+    'heading-color': #f1f5f9,
+    // slate 300
+    'text-color': #cbd5e1,
+    // slate 900
+    'inverse-text-color': #0f172a,
+    // slate 500
+    'muted-text-color': #64748b,
+    // red 600
+    'inline-code-color': #dc2626,
+    // amber 200
+    'highlight-color': #fde68a,
+    // slate 900
+    'footer-color': #0f172a,
+  ),
+);
+
+
 /* Custom CSS for displaying images in a grid */
 .custom-image-grid {
     display: grid;
@@ -35,3 +99,93 @@
     height: 100%;
     object-fit: cover; /* Ensures the video covers the entire container */
 }
+
+@each $theme-name, $theme-map in $themes {
+    [data-theme="#{$theme-name}"] {
+      .cookie-consent-banner {
+        position: fixed;
+        bottom: 20px; // Adds a gap from the bottom for floating effect
+        left: 20px;
+        right: 20px;
+        background-color: rgba(0, 0, 0, 0.532);
+        color: map-get($theme-map, 'bg-primary-inverse');
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.751); // Larger shadow for floating effect
+        border-radius: 8px; // Rounded corners for smooth appearance
+        padding: 15px;
+        font-size: 14px;
+        text-align: center;
+        text-decoration-color: #06b6d4;
+        z-index: 9999; // Ensure the banner stays on top
+      }
+
+      .cookie-consent-banner p  {
+        font-size: 14px;
+        color: #cbd5e1;
+        margin-bottom: 10px; /* Add some margin if needed */
+        line-height: 1.5; /* Adjust line spacing */
+        text-align: center;
+      }
+      .cookie-consent-banner h3  {
+        font-size: 30px;
+        color: #cbd5e1;
+        margin-bottom: 10px; /* Add some margin if needed */
+        line-height: 1.5; /* Adjust line spacing */
+        text-align: center;
+      }
+  
+      .cookie-consent-button {
+        border: none;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 4px 2px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+  
+      .cookie-consent-button.btn-success {
+        // background-color: map-get($theme-map, 'button-success-bg');
+        background-color: map-get($theme-map, 'accent-color');
+        color: map-get($theme-map, 'text-color');
+      }
+  
+      .cookie-consent-button.btn-grayscale {
+        background-color: map-get($theme-map, 'bg-secondary');
+        color: map-get($theme-map, 'text-color');
+      }
+  
+      .cookie-consent-button.btn-outline {
+        background-color: map-get($theme-map, 'bg-secondary');
+        color: map-get($theme-map, 'text-color');
+      }
+  
+      .cookie-consent-button:hover {
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.603);
+      }
+  
+      .cookie-consent-button:active {
+        opacity: 0.5;
+      }
+  
+      .cookie-consent-options {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+  
+      .cookie-consent-options label {
+        margin: 0 10px;
+        font-size: 14px;
+        color: #cbd5e1;
+      }
+  
+      .cookie-consent-options input {
+        margin-right: 5px;
+        color: #cbd5e1;
+      }
+    }
+  }
