@@ -155,13 +155,10 @@ params:
         #   autoInit: true
         #   hideDeleted: false
 
-    # Enable Analytics
-    analytics:
-      enabled: true
       services:
         # Google Analytics
         google:
-          id: G-NGG8WWXKN6
+          id: G-W2DZCT2HCH
         # # CounterDev
         # counterDev:
         #   id: <your counterdev id>
@@ -296,3 +293,24 @@ params:
     # Show/hide disclaimer notice in the footer. Default is "false".
     disclaimer:
       enable: false
+
+  privacy:
+  disqus:
+    disable: false
+  googleAnalytics:
+    disable: false
+    respectDoNotTrack: false
+  instagram:
+    disable: false
+    simple: false
+  twitter:
+    disable: false
+    enableDNT: false
+    simple: false
+  vimeo:
+    disable: false
+    enableDNT: false
+    simple: false
+  youtube:
+    disable: false
+    privacyEnhanced: false
