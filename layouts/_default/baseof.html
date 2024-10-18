@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
   <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W2DZCT2HCH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-W2DZCT2HCH');
-</script>
     <title>{{ .Page.Title }}</title>
     <!------ ADD COMMON HEADERS -------->
     {{- partial "header.html" . -}}
@@ -17,14 +8,6 @@
     {{ template "_internal/twitter_cards.html" . }}
     <!------ ADD PAGE SPECIFIC HEADERS ------->
     {{ block "header" . }} {{ end }}
-
-    <script>
-      console.log('Test script loaded successfully');
-    </script>
-        {{ $script := resources.Get "scripts/cookie-consent-V2.js" }}
-        <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}">
-  
-        </script>
 
     <!--================= add analytics if enabled =========================-->
     {{- partial "analytics.html" . -}}
@@ -69,5 +52,6 @@
     <!------ IF WANTED, ADD SUPPORT LINKS -------->
     {{- partial "misc/support.html" . -}}
 
+    {{- partial "analytics_body.html" . -}}
   </body>
 </html>

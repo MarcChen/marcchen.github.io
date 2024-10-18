@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
   <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W2DZCT2HCH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-W2DZCT2HCH');
-</script>
     <title>{{- .Site.Title -}}</title>
     {{ $siteDescription := .Site.Params.description }}
     {{ if (index .Site.Data .Site.Language.Lang).site }}
@@ -23,12 +14,6 @@
     <!-- import common headers -->
     {{- partial "header.html" . -}}
     {{- partial "opengraph.html" . -}}
-
-    <script>
-      console.log('Test script loaded successfully');
-    </script>
-        {{ $script := resources.Get "scripts/cookie-consent.js" }}
-        <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
     
     <!--================= add analytics if enabled =========================-->
     {{- partial "analytics.html" . -}}
@@ -44,7 +29,6 @@
       document.documentElement.setAttribute('data-theme', theme);
     </script>
   </head>
-
   <body data-bs-spy="scroll" data-bs-target="#top-navbar" data-bs-offset="100">
 
     <!--- NAVBAR ------------------------->
@@ -83,6 +67,8 @@
     <!--- ADD FOOTER ----------------------->
     {{ $footerTemplate:= site.Params.footer.template | default "footer.html" }}
     {{- partial $footerTemplate . -}}
+
+    {{- partial "analytics_body.html" . -}}
 
     <!--- ADD COMMON SCRIPTS --------------->
     {{ partial "scripts.html" . }}
