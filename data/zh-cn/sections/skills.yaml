@@ -74,28 +74,28 @@ skills:
   logo: /images/sections/skills/bigquery-icon.png
   summary: "精通查询和存储成本优化。"
   categories: ["cloud_services"]
-  url: "https://git-scm.com/"
+  url: "https://cloud.google.com/bigquery"
 
 - name: 云存储
   logo: /images/sections/skills/Google_Storage-Logo.svg
   summary: "具备管理非结构化数据可扩展对象存储的经验，优化存储成本并设置生命周期策略。"
   categories: ["cloud_services"]
-  url: "https://git-scm.com/"
+  url: "https://cloud.google.com/storage"
 
 - name: 云函数
   logo: /images/sections/skills/cloud-functions.png
   summary: "精通开发事件驱动的无服务器函数，用于自动化任务和集成云服务。"
   categories: ["cloud_services"]
-  url: "https://git-scm.com/"
+  url: "https://cloud.google.com/functions"
 
 - name: Appscript
   logo: /images/sections/skills/Google_Apps_Script.png
   summary: "熟练使用 Google Apps Script 自动化 Google Workspace 任务，开发自定义工作流，并集成第三方 API。"
   categories: ["cloud_services"]
-  url: "https://git-scm.com/"
+  url: "https://developers.google.com/apps-script"
 
 - name: 云编排器（Apache Airflow）
   logo: /images/sections/skills/Cloud_Composer.svg
   summary: "用于使用 Apache Airflow 编排复杂工作流，管理依赖关系，确保数据管道的无缝执行。"
   categories: ["cloud_services"]
-  url: "https://git-scm.com/"
+  url: "https://cloud.google.com/composer"

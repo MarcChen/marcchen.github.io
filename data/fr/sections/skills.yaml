@@ -74,28 +74,28 @@ skills:
   logo: /images/sections/skills/bigquery-icon.png
   summary: "Compétent dans l'optimisation des requêtes et des coûts de stockage."
   categories: ["cloud_services"]
-  url: "https://git-scm.com/"
+  url: "https://cloud.google.com/bigquery"
 
 - name: Cloud Storage
   logo: /images/sections/skills/Google_Storage-Logo.svg
   summary: "Expérimenté dans la gestion du stockage d'objets évolutif pour les données non structurées et dans l'optimisation des coûts de stockage grâce aux politiques de cycle de vie."
   categories: ["cloud_services"]
-  url: "https://git-scm.com/"
+  url: "https://cloud.google.com/storage"
 
 - name: Cloud Functions
   logo: /images/sections/skills/cloud-functions.png
   summary: "Compétent dans le développement de fonctions serverless pilotées par des événements pour automatiser des tâches et intégrer des services cloud."
   categories: ["cloud_services"]
-  url: "https://git-scm.com/"
+  url: "https://cloud.google.com/functions"
 
 - name: Appscript
   logo: /images/sections/skills/Google_Apps_Script.png
   summary: "Compétent dans l'automatisation des tâches Google Workspace, le développement de workflows personnalisés et l'intégration d'API tierces avec Google Apps Script."
   categories: ["cloud_services"]
-  url: "https://git-scm.com/"
+  url: "https://developers.google.com/apps-script"
 
 - name: Cloud Composer (Apache Airflow)
   logo: /images/sections/skills/Cloud_Composer.svg
   summary: "Utilisé pour orchestrer des workflows complexes avec Apache Airflow, gérer les dépendances et assurer une exécution fluide des pipelines de données."
   categories: ["cloud_services"]
-  url: "https://git-scm.com/"
+  url: "https://cloud.google.com/composer"
