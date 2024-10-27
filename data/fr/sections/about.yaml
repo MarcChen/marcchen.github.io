@@ -17,7 +17,7 @@ designation: Ingénieur Data - Ingénieur IA & ML
 # votre CV. Ce chemin doit être relatif à votre répertoire "static"
 resourceLinks:
 - title: "Mon CV"
-  url: "files/MarcChen_s_Resume.pdf"
+  url: "files/MarcChen_FR.pdf"
 
 # un résumé à propos de vous
 summary: "
