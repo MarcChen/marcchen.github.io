@@ -38,3 +38,19 @@ Pour plus de détails, vous pouvez consulter nos progrès et réalisations :
 
 ![Étudiants de l'ENSTA travaillant sur le projet](motor.jpg)
 *Installation du moteur pour la conversion électrique du véhicule.*
+
+---
+
+## **Mise à jour (2024-12-05) : Véhicule final et vidéo**
+
+Nous sommes ravis d'annoncer l'achèvement de notre projet ! La Peugeot 205 convertie est désormais entièrement fonctionnelle en tant que véhicule électrique. Ce jalon représente des mois d'efforts, de collaboration et de résolution de problèmes par l'équipe d'ENSTRAID.
+
+Pour présenter la version finale, nous avons créé une vidéo résumant le parcours de conversion de la Peugeot 205. Découvrez-la ci-dessous :
+
+<div style="display: flex; justify-content: center;">
+  {{< instagram DDweLFRI8Gf >}}
+</div>
+
+Cette vidéo met en lumière le processus d'ingénierie, les défis et le succès de cet incroyable projet. Merci à tous ceux qui ont soutenu ENSTRAID tout au long du chemin !
+
+---
