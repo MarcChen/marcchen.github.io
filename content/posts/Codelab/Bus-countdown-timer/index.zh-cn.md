@@ -6,6 +6,7 @@ menu:
   sidebar:  
     name: 公交倒计时器  
     identifier: bus-countdown-timer  
+    parent: Codelab-id
     weight: 11  
 hero: devboard.jpg  
 tags:

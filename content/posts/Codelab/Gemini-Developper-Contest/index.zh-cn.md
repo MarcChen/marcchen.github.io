@@ -6,6 +6,7 @@ menu:
   sidebar:
     name: Gemini 开发者竞赛
     identifier: gemini
+    parent: Codelab-id
     weight: 10
 hero: Google_Gemini_logo.png
 tags:

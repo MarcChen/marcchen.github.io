@@ -6,6 +6,7 @@ menu:
   sidebar:  
     name: Bus Countdown Timer  
     identifier: bus-countdown-timer  
+    parent: Codelab-id
     weight: 11  
 hero: devboard.jpg  
 tags:
