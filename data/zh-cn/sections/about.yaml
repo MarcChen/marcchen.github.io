@@ -23,7 +23,7 @@ resourceLinks:
 summary: "
 作为一名数据/机器学习工程师，我帮助客户利用数据和人工智能解决复杂问题并创造价值。\n\n
 
-我持有Google Cloud Professional Data Engineer认证（2024年），目前正在准备Google Machine Learning Engineer认证，展示了我在基于云的数据工程解决方案中的专业知识，并且我致力于在人工智能领域不断进步。\n\n
+我持有 Google Cloud Professional Data Engineer 认证（2024年）、Github Foundations 认证（2024年），目前正在准备 Google Machine Learning Engineer 认证，展示了我在基于云的数据工程解决方案中的专业知识，并且我致力于在人工智能领域不断进步。\n\n
 
 我对数据和人工智能充满热情，并且一直在快速发展的领域中不断提高我的技能。让我们连接起来，一起探索数据和人工智能的创新！\n\n
 让我们一起探索数据和人工智能的创新！"
@@ -65,16 +65,16 @@ badges:
 - type: certification
   name: Google Cloud Certified Professional Data Engineer
   url: "https://www.credly.com/badges/822e0dea-4499-48e0-b18b-9bc3681aa55f/public_url"
-  badge: "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/35560265"
+  badge: "https://images.credly.com/size/340x340/images/2d613ff8-8879-430b-b2d8-925fa29785e8/image.png"
 
-- type: soft-skill-indicator
-  name: 
-  url:
-  badge:
+- type: certification
+  name: GitHub Foundations
+  url : https://www.credly.com/badges/7ac429b6-57ba-4200-b253-34c1804be6d5/public_url
+  badge: "https://images.credly.com/size/340x340/images/024d0122-724d-4c5a-bd83-cfe3c4b7a073/image.png"
 
 - type: certification
   name: Google Cloud Certified Professional Machine Learning
-  badge: "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/71712460"
+  badge: "https://images.credly.com/size/340x340/images/05e71e7e-92a1-4821-8530-4176b2e3c4b4/image.png"
 
 - type: soft-skill-indicator
   name: 团队合作
