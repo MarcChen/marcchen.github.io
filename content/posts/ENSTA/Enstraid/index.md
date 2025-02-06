@@ -16,7 +16,6 @@ tags:
 - Engineering
 - Student Association
 - ENSTA Paris
-
 ---
 
 ## ENSTRAID: Transforming the Future of Mobility
@@ -31,10 +30,28 @@ For more details, you can read about our progress and achievements:
 - [Retrofitting a Peugeot 205 into a 100% electric vehicle](https://www.ensta.org/fr/news/retrofit-transformer-une-peugeot-205-thermique-en-vehicule-100-electrique-537)
 - [ENSTRAID’s role in ecological transition at ENSTA Paris](https://www.ensta-paris.fr/fr/enstraid-transition-ecologique-sur-bonne-voie)
 
-## Some photos
+---
+
+## Some Photos
 
 ![Peugeot 205 before retrofit](peugeot205.jpg)
 *The Peugeot 205 before the electric conversion.*
 
 ![ENSTA students working on the project](motor.jpg)
 *Motor installation for the vehicle’s electric conversion.*
+
+---
+
+## **Update (2024-12-05): Final Build and Video**
+
+We are thrilled to announce the completion of our project! The retrofitted Peugeot 205 is now fully functional as an electric vehicle. This milestone represents months of dedicated effort, collaboration, and problem-solving by the ENSTRAID team.
+
+To showcase the final build, we have created a video summarizing the journey of converting the Peugeot 205. Check it out below:
+
+<div style="display: flex; justify-content: center;">
+  {{< instagram DDweLFRI8Gf >}}
+</div>
+
+This video highlights the engineering process, challenges, and success of this incredible project. Thank you to everyone who supported ENSTRAID along the way!
+
+---

@@ -21,9 +21,9 @@ resourceLinks:
 
 # un résumé à propos de vous
 summary: "
-En tant qu'ingénieur Data / ML, j'accompagne les clients à exploiter les données et l'IA pour résoudre des problèmes complexes et générer de la valeur.\n\n
+En tant qu'Ingénieur Data / ML, j'accompagne les clients dans l'exploitation des données et de l'IA pour relever des défis complexes et créer de la valeur.\n\n
 
-Je possède la certification Google Cloud Professional Data Engineer (2024) et je prépare actuellement la certification Google Machine Learning Engineer, ce qui témoigne de mon expertise dans les solutions d'ingénierie des données basées sur le cloud et de mon engagement à progresser dans le domaine de l'IA.\n\n
+Je suis titulaire de la certification Google Cloud Professional Data Engineer (2024), de la certification Github Foundations (2024) et je prépare actuellement la certification Google Machine Learning Engineer, démontrant mon expertise dans les solutions d'ingénierie des données basées sur le cloud et mon engagement dans le domaine de l'IA.\n\n
 
 Je suis passionné par les données et l'IA et je cherche constamment à améliorer mes compétences dans ce domaine en évolution rapide. Connectons-nous et explorons ensemble les innovations passionnantes dans les données et l'IA !\n\n
 Connectons-nous et explorons ensemble les innovations dans les données et l'IA !"
@@ -65,16 +65,16 @@ badges:
 - type: certification
   name: Google Cloud Certified Professional Data Engineer
   url: "https://www.credly.com/badges/822e0dea-4499-48e0-b18b-9bc3681aa55f/public_url"
-  badge: "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/35560265"
+  badge: "https://images.credly.com/size/340x340/images/2d613ff8-8879-430b-b2d8-925fa29785e8/image.png"
 
-- type: soft-skill-indicator
-  name: 
-  url :
-  badge: 
+- type: certification
+  name: GitHub Foundations
+  url : https://www.credly.com/badges/7ac429b6-57ba-4200-b253-34c1804be6d5/public_url
+  badge: "https://images.credly.com/size/340x340/images/024d0122-724d-4c5a-bd83-cfe3c4b7a073/image.png"
 
 - type: certification
   name: Google Cloud Certified Professional Machine Learning
-  badge: "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/71712460"
+  badge: "https://images.credly.com/size/340x340/images/05e71e7e-92a1-4821-8530-4176b2e3c4b4/image.png"
 
 - type: soft-skill-indicator
   name: Travail en équipe

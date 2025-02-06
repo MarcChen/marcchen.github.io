@@ -1,0 +1,24 @@
+{{/* Initialize variables */}}
+{{ $languageCode := .Lang }}
+{{ $countryCode := $languageCode }}
+
+{{/* Map specific languages to their corresponding country codes */}}
+{{ if eq $languageCode "en" }}
+    {{ $countryCode = "gb" }}
+{{ else if eq $languageCode "bn" }}
+    {{ $countryCode = "bd" }}
+{{ else if eq $languageCode "zh-cn" }}
+    {{ $countryCode = "cn" }}
+{{ else if eq $languageCode "hi" }}
+    {{ $countryCode = "in" }}
+{{ end }}
+
+{{/* Allow user-defined overwrites */}}
+{{ range site.Params.features.flags.flagOverwrites }}
+    {{ if eq $languageCode .languageCode }}
+        {{ $countryCode = .countryCode }}
+    {{ end }}
+{{ end }}
+
+{{/* Return the resolved country code */}}
+{{ return $countryCode }}
