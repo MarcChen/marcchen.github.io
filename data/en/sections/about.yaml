@@ -23,7 +23,7 @@ resourceLinks:
 summary: "
 As a Data / ML Engineer, I assist clients in leveraging data and AI to tackle complex challenges and drive value creation.\n\n
 
-I hold the Google Cloud Professional Data Engineer certification (2024) and am currently preparing for the Google Machine Learning Engineer certification, showcasing my expertise in cloud-based data engineering solutions and my dedication to advancing in the field of AI.\n\n
+I hold the Google Cloud Professional Data Engineer certification (2024), Github Foundations certification (2024) and am currently preparing for the Google Machine Learning Engineer certification, showcasing my expertise in cloud-based data engineering solutions and my dedication to advancing in the field of AI.\n\n
 
 I am passionate about data and AI and constantly strive to enhance my skills in this rapidly evolving domain. Let's connect and explore the exciting innovations in data and AI together!\n\n
 Let's connect and explore data and AI innovations together!"
@@ -66,16 +66,16 @@ badges:
 - type: certification
   name: Google Cloud Certified Professional Data Engineer
   url: "https://www.credly.com/badges/822e0dea-4499-48e0-b18b-9bc3681aa55f/public_url"
-  badge: "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/35560265"
+  badge: "https://images.credly.com/size/340x340/images/2d613ff8-8879-430b-b2d8-925fa29785e8/image.png"
 
-- type: soft-skill-indicator
-  name: 
-  url :
-  badge: 
+- type: certification
+  name: GitHub Foundations
+  url : https://www.credly.com/badges/7ac429b6-57ba-4200-b253-34c1804be6d5/public_url
+  badge: "https://images.credly.com/size/340x340/images/024d0122-724d-4c5a-bd83-cfe3c4b7a073/image.png"
 
 - type: certification
   name: Google Cloud Certified Professional Machine Learning
-  badge: "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/71712460"
+  badge: "https://images.credly.com/size/340x340/images/05e71e7e-92a1-4821-8530-4176b2e3c4b4/image.png"
 
 - type: soft-skill-indicator
   name: Team Work
