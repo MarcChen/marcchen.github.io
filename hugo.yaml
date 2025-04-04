@@ -57,7 +57,8 @@ enableEmoji: true
 # Site parameters
 params:
   # Background image of the landing page
-  background: /images/site/background.jpg
+  background: /images/site/bg_light.png
+  darkBackground: /images/site/bg_dark.jpg
 
   flags:
     enable: true
