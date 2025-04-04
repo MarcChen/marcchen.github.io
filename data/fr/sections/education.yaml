@@ -16,7 +16,7 @@ degrees:
   institution:
     name: ENSTA Paris
     url: "https://www.ensta-paris.fr/"
-    logo: /images/sections/education/Logo_ENSTA_Paris.jpg
+    logo: /images/sections/education/Logo_ENSTA_Paris.png
     # Vous pouvez éventuellement afficher un logo différent pour le thème sombre
     # darkLogo: /images/sections/education/university.jpg
   grade: #(facultatif)
@@ -72,6 +72,7 @@ degrees:
 
 - name: Terminale S Sciences de l'Ingénieur - Option Informatique
   timeframe: 2022-2025
+  icon: fa-chalkboard-teacher
   institution:
     name: Lycée Saint-Nicolas
     url: "https://www.lyceesaintnicolas.com/"
@@ -83,10 +84,10 @@ degrees:
     achieved: 16.5
     outOf: 20
 
-- name: Licence en Informatique & Ingénierie
-  icon: fa-school
-  timeframe: 2022-2025
+- name: Collège
+  icon: fa-book
+  timeframe: 2014-2018
   institution:
     name: Collège Saint Georges
     url: "https://www.saint-georges-paris.fr/"
-    logo: /images/sections/education/logo-college.jpg
+    logo: /images/sections/education/logo-college.png

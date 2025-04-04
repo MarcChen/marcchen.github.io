@@ -16,7 +16,7 @@ degrees:
   institution:
     name: 巴黎国立高等技术学院
     url: "https://www.ensta-paris.fr/"
-    logo: /images/sections/education/Logo_ENSTA_Paris.jpg
+    logo: /images/sections/education/Logo_ENSTA_Paris.png
   grade: #(可选)
     scale: GPA
     achieved: 3.8
@@ -63,6 +63,7 @@ degrees:
     - name: 信息学 (编程与算法原理)
 
 - name: 理科工程师科学专业 - 计算机选修
+  icon: fa-chalkboard-teacher
   timeframe: 2022-2025
   institution:
     name: 圣尼古拉高中
@@ -72,3 +73,11 @@ degrees:
     scale: 法国高考成绩
     achieved: 16.5
     outOf: 20
+
+- name: 初中
+  icon: fa-book
+  timeframe: 2014-2018
+  institution:
+    name: 圣乔治中学
+    url: "https://www.saint-georges-paris.fr/"
+    logo: /images/sections/education/logo-college.png
