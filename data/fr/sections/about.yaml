@@ -76,15 +76,20 @@ badges:
   name: Google Cloud Certified Professional Machine Learning
   badge: "https://images.credly.com/size/340x340/images/05e71e7e-92a1-4821-8530-4176b2e3c4b4/image.png"
 
-- type: soft-skill-indicator
-  name: Travail en équipe
-  percentage: 100
-  color: "#00B4D8"
+# - type: soft-skill-indicator
+#   name: Travail en équipe
+#   percentage: 100
+#   color: "#00B4D8"
   
 - type: soft-skill-indicator
   name: Apprentissage rapide
   percentage: 100
   color: "#00B4D8"
+
+- type: certification
+  name: Terraform Associate (003)
+  url : https://www.credly.com/badges/d4ad6caa-4ece-4c2f-bd06-0ec8a434785f/public_url
+  badge: "https://images.credly.com/size/680x680/images/ed4be915-68f8-428a-b332-40ded9084ee5/blob"
 
 - type: soft-skill-indicator
   name: Résolution de problèmes
