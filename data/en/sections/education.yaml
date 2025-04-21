@@ -79,6 +79,9 @@ degrees:
     - name: Chemistry (Reactions and Transformations)
     - name: Sciences Industrielles de l'Ingénieur (Mechanics, Automation, Systems)
     - name: Informatics (Programming and Algorithmic Principles)
+  gradesReport:
+    name: "View Prepa Grades"
+    url: "/files/notes-prepa.pdf"
 
 
 - name: Terminal S Science de l'ingénieur - Option Informatique
@@ -94,6 +97,9 @@ degrees:
     scale: BAC
     achieved: 16.5
     outOf: 20
+  gradesReport:
+    name: "View BAC Results"
+    url: "/files/note-bac.pdf"
 
 - name: Middle School
   icon: fa-book
