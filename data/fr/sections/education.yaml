@@ -69,6 +69,9 @@ degrees:
     - name: Chimie (Réactions et Transformations)
     - name: Sciences Industrielles de l'Ingénieur (Mécanique, Automatisation, Systèmes)
     - name: Informatique (Programmation et Principes Algorithmiques)
+  gradesReport:
+    name: "Voir les notes de prépa"
+    url: "/files/notes-prepa.pdf"
 
 - name: Terminale S Sciences de l'Ingénieur - Option Informatique
   timeframe: 2022-2025
@@ -83,6 +86,9 @@ degrees:
     scale: BAC
     achieved: 16.5
     outOf: 20
+  gradesReport:
+    name: "Voir les résultats du BAC"
+    url: "/files/note-bac.pdf"
 
 - name: Collège
   icon: fa-book
