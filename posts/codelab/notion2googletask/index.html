@@ -1,5 +1,4 @@
-<!doctype html><html lang=en><head><title>Notion2GoogleTask</title>
-<meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><link rel=stylesheet href=/application.10b3ff931dfa8d5d5f605971a2819229d821779b85c53d569424e5dd6218e579.css integrity="sha256-ELP/kx36jV1fYFlxooGSKdghd5uFxT1WlCTl3WIY5Xk="><link rel=icon type=image/png href=/images/site/favicon_hu_df94f3baa91c0e26.png><meta property="og:title" content="Marc's Portfolio"><meta property="og:type" content="website"><meta property="og:description" content="Portfolio and personal blog of Marc Chen."><meta property="og:image" content="/images/author/marc.png"><meta property="og:url" content="https://marcchen.github.io/"><meta name=twitter:card content="summary"><meta name=twitter:title content="Notion2GoogleTask"><meta name=twitter:description content="A powerful microservice that enables seamless synchronization between Notion and Google Tasks, ensuring your task management is always up-to-date across both platforms."><meta name=twitter:card content="summary"><meta name=twitter:title content="Notion2GoogleTask"><meta name=twitter:description content="A powerful microservice that enables seamless synchronization between Notion and Google Tasks, ensuring your task management is always up-to-date across both platforms."><meta name=description content="A powerful microservice that enables seamless synchronization between Notion and Google Tasks, ensuring your task management is always up-to-date across both platforms."><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}localStorage.getItem("consentMode")===null?gtag("consent","default",{ad_storage:"denied",analytics_storage:"denied",personalization_storage:"denied",functionality_storage:"denied",security_storage:"denied"}):gtag("consent","default",JSON.parse(localStorage.getItem("consentMode"))),localStorage.getItem("userId")!=null&&window.dataLayer.push({user_id:localStorage.getItem("userId")})</script><script>(function(e,t,n,s,o){e[s]=e[s]||[],e[s].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var a=t.getElementsByTagName(n)[0],i=t.createElement(n),r=s!="dataLayer"?"&l="+s:"";i.async=!0,i.src="https://www.googletagmanager.com/gtm.js?id="+o+r,a.parentNode.insertBefore(i,a)})(window,document,"script","dataLayer","GTM-PHL7CN6F")</script><script data-goatcounter=https://10928414.goatcounter.com/count async src=//gc.zgo.at/count.js></script><script>theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light",theme=="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-posts kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar shadow" id=top-navbar><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button>
+<!doctype html><html lang=en><head><title>Notion2GoogleTask</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><link rel=stylesheet href=/application.10b3ff931dfa8d5d5f605971a2819229d821779b85c53d569424e5dd6218e579.css integrity="sha256-ELP/kx36jV1fYFlxooGSKdghd5uFxT1WlCTl3WIY5Xk="><link rel=icon type=image/png href=/images/site/favicon_hu_df94f3baa91c0e26.png><meta property="og:title" content="Marc's Portfolio"><meta property="og:type" content="website"><meta property="og:description" content="Portfolio and personal blog of Marc Chen."><meta property="og:image" content="/images/author/marc.png"><meta property="og:url" content="https://marcchen.github.io/"><meta name=twitter:card content="summary"><meta name=twitter:title content="Notion2GoogleTask"><meta name=twitter:description content="A powerful microservice that enables seamless synchronization between Notion and Google Tasks, ensuring your task management is always up-to-date across both platforms."><meta name=twitter:card content="summary"><meta name=twitter:title content="Notion2GoogleTask"><meta name=twitter:description content="A powerful microservice that enables seamless synchronization between Notion and Google Tasks, ensuring your task management is always up-to-date across both platforms."><meta name=description content="A powerful microservice that enables seamless synchronization between Notion and Google Tasks, ensuring your task management is always up-to-date across both platforms."><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}localStorage.getItem("consentMode")===null?gtag("consent","default",{ad_storage:"denied",analytics_storage:"denied",personalization_storage:"denied",functionality_storage:"denied",security_storage:"denied"}):gtag("consent","default",JSON.parse(localStorage.getItem("consentMode"))),localStorage.getItem("userId")!=null&&window.dataLayer.push({user_id:localStorage.getItem("userId")})</script><script>(function(e,t,n,s,o){e[s]=e[s]||[],e[s].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var a=t.getElementsByTagName(n)[0],i=t.createElement(n),r=s!="dataLayer"?"&l="+s:"";i.async=!0,i.src="https://www.googletagmanager.com/gtm.js?id="+o+r,a.parentNode.insertBefore(i,a)})(window,document,"script","dataLayer","GTM-PHL7CN6F")</script><script data-goatcounter=https://10928414.goatcounter.com/count async src=//gc.zgo.at/count.js></script><script>theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light",theme=="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-posts kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar shadow" id=top-navbar><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button>
 <i data-feather=sidebar></i>
 </button>
 <a class=navbar-brand href=/><img src=/images/site/main-logo_hu_fddf2cbd90cf8048.png id=logo alt=Logo>
@@ -34,7 +33,7 @@ TASK2111 --> X
 TASK3 --> TASK31{Are they marked as Done in Notion?}
 TASK31 --> |Yes| TASK311[Mark Task as completed in Google Tasks]
 TASK31 --> |No| TASK312[Skip & log skipped task]
-    TASK311 --> X
+TASK311 --> X
 TASK312 --> X
 X --> |Yes| D
 X --> |No| Y{More task lists?}
@@ -42,23 +41,23 @@ Y --> |Yes| C
 Y --> |No| Z((End of Sync))</div><p>In this process, the tool retrieves tasks from Google, identifies changes since the last run, and ensures that any completed or new tasks are properly reflected in Notion.</p><h3 id=notion-to-google-sync-diagram>Notion to Google Sync Diagram</h3><div class=mermaid align=center style=background-color:none;border-radius:5px>graph TD
 A1[Retrieve Notion Pages] --> B1{Pages Retrieved?}
 B1 -->|No| D1[Log Error & Exit]
-   B1 -->|Yes| E1[Parse Notion Pages]
+B1 -->|Yes| E1[Parse Notion Pages]
 E1 --> F1[Fetch Google Task Lists]
 F1 --> G1[Initialize Progress Bar]
 G1 --> H1[Iterate Over Parsed Pages]
 H1 --> I1{Task Exists in Google Tasks?}
 I1 -->|Yes| J1[Log & Skip Page]
-   I1 -->|No| K1[Ensure Task List Exists]
+I1 -->|No| K1[Ensure Task List Exists]
 K1 --> L1{Error Ensuring Task List?}
 L1 -->|Yes| M1[Create a new tasklist based on page tag]
 L1 -->|No| N1[Build Task Description]
 M1 --> N1
 N1 --> O1{Error Building Description?}
 O1 -->|Yes| P1[Log Error & Skip Page]
-   O1 -->|No| newLines1[Create Task in Google Tasks]
+O1 -->|No| newLines1[Create Task in Google Tasks]
 newLines1 --> R1{Error Creating Task?}
 R1 -->|Yes| S1[Log Error & Skip]
-   R1 -->|No| T1[Log Success]
+R1 -->|No| T1[Log Success]
 J1 --> U1[Update Progress Bar]
 P1 --> U1
 S1 --> U1
