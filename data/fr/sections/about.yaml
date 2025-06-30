@@ -21,12 +21,12 @@ resourceLinks:
 
 # un résumé à propos de vous
 summary: "
-En tant qu'Ingénieur Data / ML, j'accompagne les clients dans l'exploitation des données et de l'IA pour relever des défis complexes et créer de la valeur.\n\n
+En tant que Junior Data Engineer et Data Scientist, je suis enthousiaste à l'idée d'exploiter les données, l'IA et les technologies cloud pour résoudre des problèmes complexes et stimuler l'innovation. Ma passion pour le développement et l'informatique en nuage alimente mon apprentissage continu et mon exploration dans ces domaines dynamiques.\n\n
 
-Je suis titulaire de la certification Google Cloud Professional Data Engineer (2024), de la certification Github Foundations (2024) et je prépare actuellement la certification Google Machine Learning Engineer, démontrant mon expertise dans les solutions d'ingénierie des données basées sur le cloud et mon engagement dans le domaine de l'IA.\n\n
+Je suis titulaire de certifications telles que Google Cloud Professional Data Engineer (2024), Google Cloud Professional Machine Learning Engineer (2024), GitHub Foundations (2024) et Terraform Associate, démontrant mon expertise dans les solutions et infrastructures basées sur le cloud. Ces certifications reflètent mon engagement à maîtriser les technologies de pointe et à fournir des solutions impactantes.\n\n
 
-Je suis passionné par les données et l'IA et je cherche constamment à améliorer mes compétences dans ce domaine en évolution rapide. Connectons-nous et explorons ensemble les innovations passionnantes dans les données et l'IA !\n\n
-Connectons-nous et explorons ensemble les innovations dans les données et l'IA !"
+Avec un fort engagement envers la croissance et la collaboration, je suis impatient de me connecter avec des professionnels partageant les mêmes idées et de contribuer à des projets passionnants dans les domaines des données, de l'IA et de l'informatique en nuage. Innovons et créons ensemble des solutions impactantes !
+"
 
 # vos liens sociaux
 # ajoutez autant que vous le souhaitez. utilisez font-awesome pour les icônes.
@@ -75,6 +75,7 @@ badges:
 - type: certification
   name: Google Cloud Certified Professional Machine Learning
   badge: "https://images.credly.com/size/340x340/images/05e71e7e-92a1-4821-8530-4176b2e3c4b4/image.png"
+  url: https://www.credly.com/badges/74d477f8-9a5d-4ee7-998f-983f84b4c34d/public_url
 
 # - type: soft-skill-indicator
 #   name: Travail en équipe
