@@ -21,13 +21,12 @@ resourceLinks:
 
 # a summary about you
 summary: "
-As a Data / ML Engineer, I assist clients in leveraging data and AI to tackle complex challenges and drive value creation.\n\n
+As a Junior Data Engineer and Scientist, I am enthusiastic about leveraging data, AI, and cloud technologies to solve complex problems and drive innovation. My passion for development and cloud computing fuels my continuous learning and exploration in these dynamic fields.\n\n
 
-I hold the Google Cloud Professional Data Engineer certification (2024), Github Foundations certification (2024) and am currently preparing for the Google Machine Learning Engineer certification, showcasing my expertise in cloud-based data engineering solutions and my dedication to advancing in the field of AI.\n\n
+I hold certifications such as Google Cloud Professional Data Engineer (2024), Google Cloud Professional Machine Learning Engineer (2024), GitHub Foundations (2024), and Terraform Associate, demonstrating my expertise in cloud-based solutions and infrastructure. These certifications reflect my commitment to mastering cutting-edge technologies and delivering impactful solutions.\n\n
 
-I am passionate about data and AI and constantly strive to enhance my skills in this rapidly evolving domain. Let's connect and explore the exciting innovations in data and AI together!\n\n
-Let's connect and explore data and AI innovations together!"
-
+With a strong commitment to growth and collaboration, I am eager to connect with like-minded professionals and contribute to exciting projects in data, AI, and cloud computing. Let's innovate and create impactful solutions together!
+"
 # your social links
 # give as many as you want. use font-awesome for the icons.
 socialLinks:
@@ -76,6 +75,7 @@ badges:
 - type: certification
   name: Google Cloud Certified Professional Machine Learning
   badge: "https://images.credly.com/size/340x340/images/05e71e7e-92a1-4821-8530-4176b2e3c4b4/image.png"
+  url: https://www.credly.com/badges/74d477f8-9a5d-4ee7-998f-983f84b4c34d/public_url
 
 # - type: soft-skill-indicator
   # name: Team Work
