@@ -1,72 +1,72 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Codelab on Marc's Portfolio</title><link>https://marcchen.github.io/zh-cn/posts/codelab/</link><description>Recent content in Codelab on Marc's Portfolio</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 09 Jan 2025 10:52:23 +0000</lastBuildDate><atom:link href="https://marcchen.github.io/zh-cn/posts/codelab/index.xml" rel="self" type="application/rss+xml"/><item><title>Notion2GoogleTask</title><link>https://marcchen.github.io/zh-cn/posts/codelab/notion2googletask/</link><pubDate>Thu, 09 Jan 2025 10:52:23 +0000</pubDate><guid>https://marcchen.github.io/zh-cn/posts/codelab/notion2googletask/</guid><description>&lt;h1 id="介绍-notion2googletasks跨平台自动化任务管理">介绍 Notion2GoogleTasks：跨平台自动化任务管理&lt;/h1>
-&lt;p>在当今快节奏的世界里，跨多个工具管理任务往往让人感到应接不暇。因此，我创建了 &lt;strong>Notion2GoogleTasks&lt;/strong> —— 一个强大的微服务，它打通了 Notion 和 Google Tasks 之间的壁垒，确保无论你使用哪个平台，你的任务列表始终保持同步和最新状态。&lt;/p>
-&lt;p>想象一下，再也不用担心 Notion 中完成的任务是否已经在 Google Tasks 中得到反映，反之亦然。有了 Notion2GoogleTasks，你将享受到基于你设定计划运行的&lt;strong>双向同步&lt;/strong> —— 无论你使用 GitHub Actions、cron 任务还是其他调度工具，都能帮助你专注于最重要的事情：完成任务。&lt;/p>
-&lt;h2 id="为什么选择-notion2googletasks">为什么选择 Notion2GoogleTasks？&lt;/h2>
-&lt;p>我开发这个项目的原因有很多：&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>无缝集成：&lt;/strong> 无论你偏好 Notion 的灵活性还是 Google Tasks 的简洁性，该工具都能确保两个平台之间的完美协调。&lt;/li>
-&lt;li>&lt;strong>自动调度：&lt;/strong> 一次设置，自动运行！同步过程可以按照预定间隔自动执行，确保你总能获得最新更新，无需手动干预。&lt;/li>
-&lt;li>&lt;strong>灵活且可扩展：&lt;/strong> 设计上考虑了高度的自定义性，你可以根据个人工作流程调整配置。&lt;/li>
-&lt;/ul>
-&lt;p>通过自动化任务管理，Notion2GoogleTasks 帮助你简化日常规划，确保没有任务被遗漏。&lt;/p>
-&lt;h2 id="工作原理">工作原理&lt;/h2>
-&lt;p>Notion2GoogleTasks 的核心在于它执行的一系列智能同步操作，将 Notion 和 Google Tasks 之间的数据保持一致。以下是其中一个核心工作流程的概览：&lt;/p>
-&lt;h3 id="google-到-notion-的同步流程图">Google 到 Notion 的同步流程图&lt;/h3>
-&lt;div class="mermaid" align="center" style="background-color: none; border-radius: 5px;">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Codelab on Marc's Portfolio</title><link>https://marcchen.github.io/zh-cn/posts/codelab/</link><description>Recent content in Codelab on Marc's Portfolio</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 09 Jan 2025 10:52:23 +0000</lastBuildDate><atom:link href="https://marcchen.github.io/zh-cn/posts/codelab/index.xml" rel="self" type="application/rss+xml"/><item><title>Notion2GoogleTask</title><link>https://marcchen.github.io/zh-cn/posts/codelab/notion2googletask/</link><pubDate>Thu, 09 Jan 2025 10:52:23 +0000</pubDate><guid>https://marcchen.github.io/zh-cn/posts/codelab/notion2googletask/</guid><description>&lt;h1 id="介绍-notion2googletasks跨平台自动化任务管理"&gt;介绍 Notion2GoogleTasks：跨平台自动化任务管理&lt;/h1&gt;
+&lt;p&gt;在当今快节奏的世界里，跨多个工具管理任务往往让人感到应接不暇。因此，我创建了 &lt;strong&gt;Notion2GoogleTasks&lt;/strong&gt; —— 一个强大的微服务，它打通了 Notion 和 Google Tasks 之间的壁垒，确保无论你使用哪个平台，你的任务列表始终保持同步和最新状态。&lt;/p&gt;
+&lt;p&gt;想象一下，再也不用担心 Notion 中完成的任务是否已经在 Google Tasks 中得到反映，反之亦然。有了 Notion2GoogleTasks，你将享受到基于你设定计划运行的&lt;strong&gt;双向同步&lt;/strong&gt; —— 无论你使用 GitHub Actions、cron 任务还是其他调度工具，都能帮助你专注于最重要的事情：完成任务。&lt;/p&gt;
+&lt;h2 id="为什么选择-notion2googletasks"&gt;为什么选择 Notion2GoogleTasks？&lt;/h2&gt;
+&lt;p&gt;我开发这个项目的原因有很多：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;无缝集成：&lt;/strong&gt; 无论你偏好 Notion 的灵活性还是 Google Tasks 的简洁性，该工具都能确保两个平台之间的完美协调。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动调度：&lt;/strong&gt; 一次设置，自动运行！同步过程可以按照预定间隔自动执行，确保你总能获得最新更新，无需手动干预。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;灵活且可扩展：&lt;/strong&gt; 设计上考虑了高度的自定义性，你可以根据个人工作流程调整配置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;通过自动化任务管理，Notion2GoogleTasks 帮助你简化日常规划，确保没有任务被遗漏。&lt;/p&gt;
+&lt;h2 id="工作原理"&gt;工作原理&lt;/h2&gt;
+&lt;p&gt;Notion2GoogleTasks 的核心在于它执行的一系列智能同步操作，将 Notion 和 Google Tasks 之间的数据保持一致。以下是其中一个核心工作流程的概览：&lt;/p&gt;
+&lt;h3 id="google-到-notion-的同步流程图"&gt;Google 到 Notion 的同步流程图&lt;/h3&gt;
+&lt;div class="mermaid" align="center" style="background-color: none; border-radius: 5px;"&gt;
 graph TD
-A((启动同步流程)) --> B[获取 Google 任务列表]
-B --> C[遍历任务列表]
-C --> D[处理任务同步]
-D --> TASK1[获取上次执行后已完成的任务]
-D --> TASK2[获取上次执行后新创建的任务]
-D --> TASK3[获取 Google 活动任务的 ID]
-DB1[(Github API)] --> DB2[获取上次成功的工作流执行记录]
-DB2 --> TASK1
-DB2 --> TASK2
-TASK1 --> TASK11[将 Notion 页面标记为已完成]
-TASK11 --> X{还有更多任务？}
-TASK2 --> TASK21[创建 Notion 页面]
-TASK21 --> TASK211[获取创建页面的 ID]
-TASK211 --> TASK2111[重命名 Google Tasks 中的任务]
-TASK2111 --> X
-TASK3 --> TASK31{Notion 中是否标记为已完成？}
-TASK31 --> |是| TASK311[在 Google Tasks 中标记任务为已完成]
-TASK31 --> |否| TASK312[跳过并记录被忽略的任务]
-TASK311 --> X
-TASK312 --> X
-X --> |是| D
-X --> |否| Y{还有更多任务列表？}
-Y --> |是| C
-Y --> |否| Z((同步结束))
-&lt;/div>
-&lt;p>在此过程中，工具会从 Google 中获取任务，识别自上次运行以来的变更，并确保所有已完成或新增的任务都能在 Notion 中得到正确反映。&lt;/p></description></item><item><title>公交倒计时器</title><link>https://marcchen.github.io/zh-cn/posts/codelab/bus-countdown-timer/</link><pubDate>Thu, 10 Oct 2024 22:30:28 +0000</pubDate><guid>https://marcchen.github.io/zh-cn/posts/codelab/bus-countdown-timer/</guid><description>&lt;h2 id="公交车站项目通过物联网改善公共交通">公交车站项目：通过物联网改善公共交通&lt;/h2>
-&lt;p>&lt;strong>公交车站项目&lt;/strong>最初是我在巴黎-萨克雷大学学习时为解决个人问题而设计的。当时，校园中只有公交车能在各个地点之间往返，而我经常在玛格丽特·佩里广场（Place Marguerite Pery）的公交车站（位于巴黎电信学院前）等车，却无法得知公交车的预计到达时间（ETA）。为了知道什么时候离开家前往车站，我每次都得先在手机上查一下公交车时刻表。这促使我产生了设计一个能够提供实时公交车到达时间的系统的想法，使我的出行更加可预测和高效。&lt;/p>
-&lt;p>该项目专注于为我本地的公交车站开发一个物联网系统，旨在提供实时公交车到达信息，帮助更好地规划出行。主要的挑战并不是API的集成，因为RATP的API文档非常完善，而是如何将ESP32微控制器连接到我学生宿舍的公共Wi-Fi网络。该Wi-Fi网络有一个门户页面登录步骤，这使得连接变得复杂。我使用&lt;strong>Wireshark&lt;/strong>来捕捉电脑连接到门户页面时的网络通信数据，并在ESP32上复制了相同的过程，成功连接了Wi-Fi。&lt;/p>
-&lt;h2 id="开发概览">开发概览&lt;/h2>
-&lt;p>该项目包括多个组件：&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>API集成&lt;/strong>：最初，我们通过&lt;strong>RATP API&lt;/strong>模拟了实时数据来获取公交车到达时间，未来可以替换为来自真实公交车站的传感器数据。&lt;/li>
-&lt;li>&lt;strong>数据处理&lt;/strong>：收集的数据经过处理，用于预测公交车的到达时间。我们还设计了一个倒计时机制，以减少API请求的频率，从而优化电量消耗。&lt;/li>
-&lt;/ul>
-&lt;h2 id="主要贡献">主要贡献&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>电量优化&lt;/strong>：一项关键的改进是实施了一个倒计时机制来有效管理API请求，减少不必要的电量消耗。&lt;/li>
-&lt;/ol>
-&lt;h2 id="未来潜力">未来潜力&lt;/h2>
-&lt;p>未来的一个改进方向是实现一个时间表，自动在工作时间关闭系统，因为此时系统不会被使用。这样可以确保电力只在系统实际提供信息时消耗。&lt;/p>
-&lt;p>如需更多详细信息，您可以关注我们项目的进展：&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/MarcChen/affichage-temps-bus-ratp" target="_blank" rel="noopener">项目在Github上提供&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Gemini 开发者竞赛</title><link>https://marcchen.github.io/zh-cn/posts/codelab/gemini-developper-contest/</link><pubDate>Mon, 26 Aug 2024 08:06:25 +0600</pubDate><guid>https://marcchen.github.io/zh-cn/posts/codelab/gemini-developper-contest/</guid><description>&lt;h1 id="vision-vendor二手市场转售的突破">Vision Vendor：二手市场转售的突破&lt;/h1>
-&lt;p>随着人工智能领域的不断发展，&lt;strong>Google 的 Gemini API 开发者竞赛&lt;/strong>已成为开发者展示创新的全球舞台。从 2024 年 6 月到 2024 年 8 月，这场竞赛邀请了富有创造力的头脑利用 &lt;strong>Google Gemini 模型&lt;/strong>的力量，推动 AI 技术的边界。竞赛的总奖金高达 &lt;strong>260,000 美元&lt;/strong>，吸引了众多开发者渴望构建有影响力的解决方案。&lt;/p>
-&lt;h2 id="vision-vendor-的旅程">Vision Vendor 的旅程&lt;/h2>
-&lt;p>我的队友 &lt;strong>Fabien Houang&lt;/strong> 和我迎接了这个挑战，创建了 &lt;strong>Vision Vendor&lt;/strong>——一个旨在改变用户与二手市场互动方式的 AI 驱动应用程序。该应用利用 &lt;strong>Google Gemini 模型&lt;/strong>，通过集成 &lt;strong>相机功能&lt;/strong> 和 &lt;strong>KPI 生成&lt;/strong> 来实现 &lt;strong>价格对比&lt;/strong> 的无缝体验。&lt;/p>
-&lt;p>我们的目标很简单：通过提高在线转售的效率和透明度来赋能用户。使用 Vision Vendor 应用程序，任何人都可以拍摄物品的照片并立即收到定价信息，这为参与日益增长的二手经济的任何人提供了完美的工具。&lt;/p>
-&lt;h2 id="vision-vendor-的关键功能">Vision Vendor 的关键功能&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>AI 驱动的价格对比&lt;/strong>：用户可以通过我们应用的 AI 引擎生成的实时 KPI 来比较商品价格，从而做出更明智的购买和销售决策。&lt;/li>
-&lt;li>&lt;strong>集成的相机功能&lt;/strong>：只需拍摄照片，我们的应用程序使用图像识别和深度学习提供有价值的市场数据。&lt;/li>
-&lt;li>&lt;strong>用户友好的界面&lt;/strong>：直观的设计确保了所有用户，无论技术水平如何，都能获得顺畅和简单的体验。&lt;/li>
-&lt;/ul>
-&lt;h2 id="vision-vendor-对转售市场的影响">Vision Vendor 对转售市场的影响&lt;/h2>
-&lt;p>随着二手市场的兴起，Vision Vendor 通过价格透明度的核心关注脱颖而出。卖家可以了解他们商品的价值，而买家则可以确保自己获得公平的交易。通过利用 Google 的 Gemini 模型的先进功能，我们创建了一个平衡 &lt;strong>效率&lt;/strong> 和 &lt;strong>可访问性&lt;/strong> 的工具。&lt;/p></description></item></channel></rss>
+A((启动同步流程)) --&gt; B[获取 Google 任务列表]
+B --&gt; C[遍历任务列表]
+C --&gt; D[处理任务同步]
+D --&gt; TASK1[获取上次执行后已完成的任务]
+D --&gt; TASK2[获取上次执行后新创建的任务]
+D --&gt; TASK3[获取 Google 活动任务的 ID]
+DB1[(Github API)] --&gt; DB2[获取上次成功的工作流执行记录]
+DB2 --&gt; TASK1
+DB2 --&gt; TASK2
+TASK1 --&gt; TASK11[将 Notion 页面标记为已完成]
+TASK11 --&gt; X{还有更多任务？}
+TASK2 --&gt; TASK21[创建 Notion 页面]
+TASK21 --&gt; TASK211[获取创建页面的 ID]
+TASK211 --&gt; TASK2111[重命名 Google Tasks 中的任务]
+TASK2111 --&gt; X
+TASK3 --&gt; TASK31{Notion 中是否标记为已完成？}
+TASK31 --&gt; |是| TASK311[在 Google Tasks 中标记任务为已完成]
+TASK31 --&gt; |否| TASK312[跳过并记录被忽略的任务]
+TASK311 --&gt; X
+TASK312 --&gt; X
+X --&gt; |是| D
+X --&gt; |否| Y{还有更多任务列表？}
+Y --&gt; |是| C
+Y --&gt; |否| Z((同步结束))
+&lt;/div&gt;
+&lt;p&gt;在此过程中，工具会从 Google 中获取任务，识别自上次运行以来的变更，并确保所有已完成或新增的任务都能在 Notion 中得到正确反映。&lt;/p&gt;</description></item><item><title>公交倒计时器</title><link>https://marcchen.github.io/zh-cn/posts/codelab/bus-countdown-timer/</link><pubDate>Thu, 10 Oct 2024 22:30:28 +0000</pubDate><guid>https://marcchen.github.io/zh-cn/posts/codelab/bus-countdown-timer/</guid><description>&lt;h2 id="公交车站项目通过物联网改善公共交通"&gt;公交车站项目：通过物联网改善公共交通&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;公交车站项目&lt;/strong&gt;最初是我在巴黎-萨克雷大学学习时为解决个人问题而设计的。当时，校园中只有公交车能在各个地点之间往返，而我经常在玛格丽特·佩里广场（Place Marguerite Pery）的公交车站（位于巴黎电信学院前）等车，却无法得知公交车的预计到达时间（ETA）。为了知道什么时候离开家前往车站，我每次都得先在手机上查一下公交车时刻表。这促使我产生了设计一个能够提供实时公交车到达时间的系统的想法，使我的出行更加可预测和高效。&lt;/p&gt;
+&lt;p&gt;该项目专注于为我本地的公交车站开发一个物联网系统，旨在提供实时公交车到达信息，帮助更好地规划出行。主要的挑战并不是API的集成，因为RATP的API文档非常完善，而是如何将ESP32微控制器连接到我学生宿舍的公共Wi-Fi网络。该Wi-Fi网络有一个门户页面登录步骤，这使得连接变得复杂。我使用&lt;strong&gt;Wireshark&lt;/strong&gt;来捕捉电脑连接到门户页面时的网络通信数据，并在ESP32上复制了相同的过程，成功连接了Wi-Fi。&lt;/p&gt;
+&lt;h2 id="开发概览"&gt;开发概览&lt;/h2&gt;
+&lt;p&gt;该项目包括多个组件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;API集成&lt;/strong&gt;：最初，我们通过&lt;strong&gt;RATP API&lt;/strong&gt;模拟了实时数据来获取公交车到达时间，未来可以替换为来自真实公交车站的传感器数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据处理&lt;/strong&gt;：收集的数据经过处理，用于预测公交车的到达时间。我们还设计了一个倒计时机制，以减少API请求的频率，从而优化电量消耗。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="主要贡献"&gt;主要贡献&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;电量优化&lt;/strong&gt;：一项关键的改进是实施了一个倒计时机制来有效管理API请求，减少不必要的电量消耗。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="未来潜力"&gt;未来潜力&lt;/h2&gt;
+&lt;p&gt;未来的一个改进方向是实现一个时间表，自动在工作时间关闭系统，因为此时系统不会被使用。这样可以确保电力只在系统实际提供信息时消耗。&lt;/p&gt;
+&lt;p&gt;如需更多详细信息，您可以关注我们项目的进展：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/MarcChen/affichage-temps-bus-ratp" target="_blank" rel="noopener"&gt;项目在Github上提供&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Gemini 开发者竞赛</title><link>https://marcchen.github.io/zh-cn/posts/codelab/gemini-developper-contest/</link><pubDate>Mon, 26 Aug 2024 08:06:25 +0600</pubDate><guid>https://marcchen.github.io/zh-cn/posts/codelab/gemini-developper-contest/</guid><description>&lt;h1 id="vision-vendor二手市场转售的突破"&gt;Vision Vendor：二手市场转售的突破&lt;/h1&gt;
+&lt;p&gt;随着人工智能领域的不断发展，&lt;strong&gt;Google 的 Gemini API 开发者竞赛&lt;/strong&gt;已成为开发者展示创新的全球舞台。从 2024 年 6 月到 2024 年 8 月，这场竞赛邀请了富有创造力的头脑利用 &lt;strong&gt;Google Gemini 模型&lt;/strong&gt;的力量，推动 AI 技术的边界。竞赛的总奖金高达 &lt;strong&gt;260,000 美元&lt;/strong&gt;，吸引了众多开发者渴望构建有影响力的解决方案。&lt;/p&gt;
+&lt;h2 id="vision-vendor-的旅程"&gt;Vision Vendor 的旅程&lt;/h2&gt;
+&lt;p&gt;我的队友 &lt;strong&gt;Fabien Houang&lt;/strong&gt; 和我迎接了这个挑战，创建了 &lt;strong&gt;Vision Vendor&lt;/strong&gt;——一个旨在改变用户与二手市场互动方式的 AI 驱动应用程序。该应用利用 &lt;strong&gt;Google Gemini 模型&lt;/strong&gt;，通过集成 &lt;strong&gt;相机功能&lt;/strong&gt; 和 &lt;strong&gt;KPI 生成&lt;/strong&gt; 来实现 &lt;strong&gt;价格对比&lt;/strong&gt; 的无缝体验。&lt;/p&gt;
+&lt;p&gt;我们的目标很简单：通过提高在线转售的效率和透明度来赋能用户。使用 Vision Vendor 应用程序，任何人都可以拍摄物品的照片并立即收到定价信息，这为参与日益增长的二手经济的任何人提供了完美的工具。&lt;/p&gt;
+&lt;h2 id="vision-vendor-的关键功能"&gt;Vision Vendor 的关键功能&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI 驱动的价格对比&lt;/strong&gt;：用户可以通过我们应用的 AI 引擎生成的实时 KPI 来比较商品价格，从而做出更明智的购买和销售决策。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;集成的相机功能&lt;/strong&gt;：只需拍摄照片，我们的应用程序使用图像识别和深度学习提供有价值的市场数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用户友好的界面&lt;/strong&gt;：直观的设计确保了所有用户，无论技术水平如何，都能获得顺畅和简单的体验。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="vision-vendor-对转售市场的影响"&gt;Vision Vendor 对转售市场的影响&lt;/h2&gt;
+&lt;p&gt;随着二手市场的兴起，Vision Vendor 通过价格透明度的核心关注脱颖而出。卖家可以了解他们商品的价值，而买家则可以确保自己获得公平的交易。通过利用 Google 的 Gemini 模型的先进功能，我们创建了一个平衡 &lt;strong&gt;效率&lt;/strong&gt; 和 &lt;strong&gt;可访问性&lt;/strong&gt; 的工具。&lt;/p&gt;</description></item></channel></rss>
