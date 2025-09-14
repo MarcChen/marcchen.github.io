@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # checkout to the commit that has been pushed
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v3
@@ -23,7 +23,7 @@ jobs:
       run: hugo mod tidy
 
     - name: Setup Node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
         node-version: 20
 
