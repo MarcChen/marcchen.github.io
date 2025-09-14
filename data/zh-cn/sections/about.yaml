@@ -42,6 +42,10 @@ socialLinks:
   icon: "fab fa-github"
   url: "https://github.com/MarcChen"
 
+- name: 预约会议
+  icon: "far fa-calendar-alt"
+  url: "https://cal.com/marc-chen-btj4st"
+
 # 你的软技能
 # 请给出一个50到100之间的百分比，间隔为5。
 # 支持的颜色：蓝色、黄色、粉色、绿色、天蓝色、橙色
@@ -89,12 +93,13 @@ badges:
 - type: certification
   name: Terraform Associate (003)
   url : https://www.credly.com/badges/d4ad6caa-4ece-4c2f-bd06-0ec8a434785f/public_url
-  badge: "https://images.credly.com/size/680x680/images/ed4be915-68f8-428a-b332-40ded9084ee5/blob"
+  badge: "https://images.credly.com/size/220x220/images/0dc62494-dc94-469a-83af-e35309f27356/blob"
 
-- type: soft-skill-indicator
-  name: 问题解决
-  percentage: 100
-  color: "#00B4D8"
+- type: certification
+  name: Google Cloud - Build with Vertex Technical Expert Badge
+  badge: "https://images.credly.com/size/220x220/images/b3731487-41d9-4732-8732-df5e8dd70ffb/blob"
+  url: "https://www.credly.com/badges/89acb458-eaaa-4667-9cb7-1faf830c9b31/public_url"
+
 
 # - type: soft-skill-indicator
 #   name: 领导力
