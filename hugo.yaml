@@ -159,7 +159,6 @@ params:
         #   autoInit: true
         #   hideDeleted: false
 
-      services:
         # Google Analytics
         google:
           id: G-W2DZCT2HCH
