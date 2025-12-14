@@ -11,12 +11,27 @@ section:
 # Your experiences
 experiences:
 - company:
-    name: Veolia 
+    name: Veolia Headquarters
     url: "https://www.veolia.com/fr"
     location: Aubervilliers, France
     logo: /images/sections/experiences/Veolia_logo.png
     # company overview
     overview: "Veolia is a global leader in environmental services, providing innovative solutions in water, waste, and energy management to promote sustainability and resource efficiency."
+  positions:
+  - designation: Junior Data Scientist
+    start: Septembre 2025
+    # don't provide end date if you are currently working there. It will be replaced by "Present"
+    end: Now
+    # give some points about what was your responsibilities at the company.
+    responsibilities:
+      - Developed a full stack forecasting tools for time series prediction that features parallelized jobs executions and ensuring a always backtest policy.
+      - Experimented and put into productions electricty loads forecasting using our internal tool.
+
+- company:
+    name: Veolia Headquarters
+    url: "https://www.veolia.com/fr"
+    location: Aubervilliers, France
+    logo: /images/sections/experiences/Veolia_logo.png
   positions:
   - designation: Data Engineer Apprentice
     start: Septembre 2023
@@ -25,11 +40,10 @@ experiences:
     # give some points about what was your responsibilities at the company.
     responsibilities:
     - Implemented ETL pipelines for extracting, transforming, and loading data.
-    - Developed SaaS solutions for data extraction from third-party applications.
+    - Designed Python connectors leveraging Cloud tools to ingest data from external applications.
     - Used Terraform for automating and managing cloud infrastructure.
     - Monitored data flows and set up alert systems to ensure data quality and continuity.
     - Documented data management processes and created guides to support maintenance and scalability.
-
 
 
 - company:
