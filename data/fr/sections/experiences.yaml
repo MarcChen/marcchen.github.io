@@ -11,12 +11,27 @@ section:
 # Vos expériences
 experiences:
 - company:
-    name: Veolia 
+    name: Veolia siège
     url: "https://www.veolia.com/fr"
     location: Aubervilliers, France
     logo: /images/sections/experiences/Veolia_logo.png
     # présentation de l'entreprise
     overview: "Veolia est un leader mondial des services environnementaux, fournissant des solutions innovantes dans la gestion de l'eau, des déchets et de l'énergie pour promouvoir la durabilité et l'efficacité des ressources."
+  positions:
+  - designation: Junior Data Scientist
+    start: Septembre 2025
+    # ne fournissez pas de date de fin si vous y travaillez encore. Cela sera remplacé par "Présent"
+    end: Aujourd'hui
+    # énumérez quelques responsabilités dans cette entreprise
+    responsibilities:
+      - Développé un outil de forecasting full stack pour la prédiction des séries temporelles avec des exécutions parallélisées et une politique de backtesting continue.
+      - Expérimenté et déployé en production une prévision des charges électriques à l’aide de notre outil interne.
+
+- company:
+    name: Veolia siège
+    url: "https://www.veolia.com/fr"
+    location: Aubervilliers, France
+    logo: /images/sections/experiences/Veolia_logo.png
   positions:
   - designation: Apprenti Ingénieur Data
     start: Septembre 2023
@@ -25,7 +40,7 @@ experiences:
     # énumérez quelques responsabilités dans cette entreprise
     responsibilities:
     - Mise en œuvre de pipelines ETL pour l'extraction, la transformation et le chargement des données.
-    - Développement de solutions SaaS pour l'extraction de données à partir d'applications tierces.
+    - Conception de connecteurs (python) en exploitant des outils Cloud pour ingérer des données d’applications externes.
     - Utilisation de Terraform pour l'automatisation et la gestion de l'infrastructure cloud.
     - Surveillance des flux de données et mise en place de systèmes d'alerte pour assurer la qualité et la continuité des données.
     - Documentation des processus de gestion des données et création de guides pour soutenir la maintenance et l'évolutivité.
