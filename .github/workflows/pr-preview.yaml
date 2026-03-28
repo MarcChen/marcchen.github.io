@@ -2,11 +2,7 @@ name: Deploy PR previews
 
 on:
   pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - closed
+    types: [opened, reopened, synchronize, closed]
 
 concurrency: preview-${{ github.ref }}
 
@@ -48,9 +44,15 @@ jobs:
         if: github.event.action != 'closed'
         env:
           HUGO_ENV: production
-        run: hugo --minify --baseURL "https://marcchen.github.io/pr-preview/pr-${{ github.event.number }}/"
+        run: |
+          hugo --minify \
+            --baseURL "https://marcchen.github.io/pr-preview/pr-${{ github.event.number }}/"
 
       - name: Deploy PR Preview
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: ./public
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          pages-base-url: marcchen.github.io
+          action: auto
