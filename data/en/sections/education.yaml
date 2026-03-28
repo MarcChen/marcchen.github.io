@@ -45,7 +45,11 @@ degrees:
   #   url: "#"
   # - title: Fusce eu augue ut odio porttitor pulvinar.
   #   url: "#"
-  extracurricularActivities: 
+  gradesReport:
+    name: "View ENSTA Grades"
+    url: "/files/grades-ensta.pdf"
+
+  extracurricularActivities:
     - Member of TECHNIMAGE, the audiovisual association, where I generated revenue by producing and selling communication videos to ENSTA. # showcasing examples of video work. #Links to the posts - https://example-link-to-post-1.com
     - Treasurer of ENSTRAID, an association focused on retrofitting cars for sustainable energy solutions.
     - Competitor in university-level badminton competitions under the French Federation of University Sports (FFSU).
@@ -59,13 +63,13 @@ degrees:
   icon: fa-university
   timeframe: 2022-2025
   institution:
-    name: Lycée Jean Baptiste Say 
+    name: Lycée Jean Baptiste Say
     url: "https://pia.ac-paris.fr/serail/jcms/s2_2939914/fr/accueil/"
     logo: /images/sections/education/Lyce_Jean-Baptiste_Say.png
     # Can optionally show a different logo for dark theme
     # darkLogo: /images/sections/education/university.jpg
   grade: #(optional)
-    scale: Class Ranking  
+    scale: Class Ranking
     achieved: 7
     outOf: 35
   takenCourses: #(optional)
