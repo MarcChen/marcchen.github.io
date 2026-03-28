@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Marc's Portfolio</title><link>https://marcchen.github.io/pr-preview/pr-23/zh-cn/posts/</link><description>Recent content in Posts on Marc's Portfolio</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 09 Jan 2025 10:52:23 +0000</lastBuildDate><atom:link href="https://marcchen.github.io/pr-preview/pr-23/zh-cn/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Notion2GoogleTask</title><link>https://marcchen.github.io/pr-preview/pr-23/zh-cn/posts/codelab/notion2googletask/</link><pubDate>Thu, 09 Jan 2025 10:52:23 +0000</pubDate><guid>https://marcchen.github.io/pr-preview/pr-23/zh-cn/posts/codelab/notion2googletask/</guid><description>&lt;h1 id="介绍-notion2googletasks跨平台自动化任务管理"&gt;介绍 Notion2GoogleTasks：跨平台自动化任务管理&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Marc's Portfolio</title><link>https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/zh-cn/posts/</link><description>Recent content in Posts on Marc's Portfolio</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 09 Jan 2025 10:52:23 +0000</lastBuildDate><atom:link href="https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/zh-cn/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Notion2GoogleTask</title><link>https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/zh-cn/posts/codelab/notion2googletask/</link><pubDate>Thu, 09 Jan 2025 10:52:23 +0000</pubDate><guid>https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/zh-cn/posts/codelab/notion2googletask/</guid><description>&lt;h1 id="介绍-notion2googletasks跨平台自动化任务管理"&gt;介绍 Notion2GoogleTasks：跨平台自动化任务管理&lt;/h1&gt;
 &lt;p&gt;在当今快节奏的世界里，跨多个工具管理任务往往让人感到应接不暇。因此，我创建了 &lt;strong&gt;Notion2GoogleTasks&lt;/strong&gt; —— 一个强大的微服务，它打通了 Notion 和 Google Tasks 之间的壁垒，确保无论你使用哪个平台，你的任务列表始终保持同步和最新状态。&lt;/p&gt;
 &lt;p&gt;想象一下，再也不用担心 Notion 中完成的任务是否已经在 Google Tasks 中得到反映，反之亦然。有了 Notion2GoogleTasks，你将享受到基于你设定计划运行的&lt;strong&gt;双向同步&lt;/strong&gt; —— 无论你使用 GitHub Actions、cron 任务还是其他调度工具，都能帮助你专注于最重要的事情：完成任务。&lt;/p&gt;
 &lt;h2 id="为什么选择-notion2googletasks"&gt;为什么选择 Notion2GoogleTasks？&lt;/h2&gt;
@@ -39,7 +39,7 @@ X --&gt; |否| Y{还有更多任务列表？}
 Y --&gt; |是| C
 Y --&gt; |否| Z((同步结束))
 &lt;/div&gt;
-&lt;p&gt;在此过程中，工具会从 Google 中获取任务，识别自上次运行以来的变更，并确保所有已完成或新增的任务都能在 Notion 中得到正确反映。&lt;/p&gt;</description></item><item><title>Bike 600km roadtrip</title><link>https://marcchen.github.io/pr-preview/pr-23/zh-cn/posts/bike/</link><pubDate>Thu, 10 Oct 2024 22:33:01 +0000</pubDate><guid>https://marcchen.github.io/pr-preview/pr-23/zh-cn/posts/bike/</guid><description>&lt;h2 id="我的骑行冒险一次学习与探索的旅程"&gt;我的骑行冒险：一次学习与探索的旅程&lt;/h2&gt;
+&lt;p&gt;在此过程中，工具会从 Google 中获取任务，识别自上次运行以来的变更，并确保所有已完成或新增的任务都能在 Notion 中得到正确反映。&lt;/p&gt;</description></item><item><title>Bike 600km roadtrip</title><link>https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/zh-cn/posts/bike/</link><pubDate>Thu, 10 Oct 2024 22:33:01 +0000</pubDate><guid>https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/zh-cn/posts/bike/</guid><description>&lt;h2 id="我的骑行冒险一次学习与探索的旅程"&gt;我的骑行冒险：一次学习与探索的旅程&lt;/h2&gt;
 &lt;p&gt;这篇文章的目的是分享我在自行车旅行中的经历、遇到的挑战以及从中学到的经验。&lt;/p&gt;
 &lt;h3 id="第一篇巴黎---卡堡"&gt;第一篇：巴黎 - 卡堡&lt;/h3&gt;
 &lt;p&gt;我的第一次旅行，巴黎到卡堡（240公里，2天），是在完全没有准备的情况下进行的。我们带了太多的绑带在自行车上——这是第一个错误。第二个错误在第二天早上就显现出来了：屁股疼。建议：这种长途骑行一定要穿骑行短裤！&lt;/p&gt;
@@ -54,30 +54,30 @@ Y --&gt; |否| Z((同步结束))
 &lt;p&gt;这次旅行比第一次愉快得多，我很享受探索诺曼底的登陆海滩，这是我从未去过的地方，也借此机会回顾了一些历史。我们这次同样带了和上次一样的装备，但穿了骑行短裤，因此骑行没有任何问题。整个行程中我们只遇到了一次爆胎。&lt;/p&gt;
 &lt;p&gt;以下是一些照片：&lt;/p&gt;
 &lt;h4 id="相册"&gt;相册&lt;/h4&gt;
-&lt;img src="https://marcchen.github.io/pr-preview/pr-23/posts/bike/images/profile.jpg"
+&lt;img src="https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/posts/bike/images/profile.jpg"
 alt="行程概况"
 class="center"
 &gt;
 &lt;div class="custom-image-grid"&gt;
-&lt;img src="https://marcchen.github.io/pr-preview/pr-23/posts/bike/images/bike.jpg"
+&lt;img src="https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/posts/bike/images/bike.jpg"
 alt="我的第一辆旅行自行车"
 width="300"
 height="400"
 class="center"
 &gt;
-&lt;img src="https://marcchen.github.io/pr-preview/pr-23/posts/bike/images/campement.JPG"
+&lt;img src="https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/posts/bike/images/campement.JPG"
 alt="海边的营地"
 width="300"
 height="400"
 class="center"
 &gt;
-&lt;img src="https://marcchen.github.io/pr-preview/pr-23/posts/bike/images/mont-st-michel.JPG"
+&lt;img src="https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/posts/bike/images/mont-st-michel.JPG"
 alt="圣米歇尔山"
 width="300"
 height="400"
 class="center"
 &gt;
-&lt;img src="https://marcchen.github.io/pr-preview/pr-23/posts/bike/images/memorial.JPG"
+&lt;img src="https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/posts/bike/images/memorial.JPG"
 alt="纪念馆"
 width="300"
 height="400"
@@ -89,23 +89,23 @@ class="center"
 &lt;p&gt;以下是我新装备的照片，以及旅行中的一些美景。&lt;/p&gt;
 &lt;h4 id="相册-1"&gt;相册&lt;/h4&gt;
 &lt;div class="custom-image-grid"&gt;
-&lt;img src="https://marcchen.github.io/pr-preview/pr-23/posts/bike/images/trip3-trajet.png"
+&lt;img src="https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/posts/bike/images/trip3-trajet.png"
 alt="第三次旅行概况"
 class="center"
 &gt;
-&lt;img src="https://marcchen.github.io/pr-preview/pr-23/posts/bike/images/orleans.JPG"
+&lt;img src="https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/posts/bike/images/orleans.JPG"
 alt="奥尔良大教堂"
 width="300"
 height="400"
 class="center"
 &gt;
-&lt;img src="https://marcchen.github.io/pr-preview/pr-23/posts/bike/images/orleans_bis.JPG"
+&lt;img src="https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/posts/bike/images/orleans_bis.JPG"
 alt="教堂内部"
 width="300"
 height="400"
 class="center"
 &gt;
-&lt;img src="https://marcchen.github.io/pr-preview/pr-23/posts/bike/images/bike_V2.JPG"
+&lt;img src="https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/posts/bike/images/bike_V2.JPG"
 alt="新款Gravel Triban GRVL520"
 width="300"
 height="400"
@@ -114,10 +114,10 @@ class="center"
 &lt;/div&gt;
 &lt;div class="custom-video-container"&gt;
 &lt;video controls&gt;
-&lt;source src="https://marcchen.github.io/pr-preview/pr-23/posts/bike/images/loire.mp4" type="video/mp4"&gt;
+&lt;source src="https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/posts/bike/images/loire.mp4" type="video/mp4"&gt;
 Your browser does not support the video tag.
 &lt;/video&gt;
-&lt;/div&gt;</description></item><item><title>ENSTRAID</title><link>https://marcchen.github.io/pr-preview/pr-23/zh-cn/posts/ensta/enstraid/</link><pubDate>Thu, 10 Oct 2024 22:32:23 +0000</pubDate><guid>https://marcchen.github.io/pr-preview/pr-23/zh-cn/posts/ensta/enstraid/</guid><description>&lt;h2 id="enstraid改变未来出行方式"&gt;ENSTRAID：改变未来出行方式&lt;/h2&gt;
+&lt;/div&gt;</description></item><item><title>ENSTRAID</title><link>https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/zh-cn/posts/ensta/enstraid/</link><pubDate>Thu, 10 Oct 2024 22:32:23 +0000</pubDate><guid>https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/zh-cn/posts/ensta/enstraid/</guid><description>&lt;h2 id="enstraid改变未来出行方式"&gt;ENSTRAID：改变未来出行方式&lt;/h2&gt;
 &lt;p&gt;ENSTRAID 是一个由 ENSTA Paris 学生领导的创新协会，专注于将传统燃油汽车改装为全电动汽车。我们的旗舰项目是将一辆经典的标致 205 改装为 100% 电动汽车，展示了绿色能源解决方案在汽车行业的潜力。该项目不仅为生态转型作出贡献，还为学生提供了宝贵的工程实践经验。&lt;/p&gt;
 &lt;p&gt;作为 ENSTRAID 创始期间的 &lt;strong&gt;财务主管&lt;/strong&gt;，我负责财务管理，确保项目在预算内进行，并获得了必要的资金支持。我们成功筹集了 &lt;strong&gt;10,000 欧元&lt;/strong&gt;，主要来自 ENSTA 和 IP Paris 的校友，这对项目的推进至关重要。&lt;/p&gt;
 &lt;p&gt;通过与合作伙伴和学生的合作，ENSTRAID 展现了可持续性与技术专业性的结合，积极为减少旧车的环境影响贡献力量。&lt;/p&gt;
@@ -127,9 +127,9 @@ Your browser does not support the video tag.
 &lt;li&gt;&lt;a href="https://www.ensta-paris.fr/fr/enstraid-transition-ecologique-sur-bonne-voie" target="_blank" rel="noopener"&gt;ENSTRAID 在 ENSTA Paris 生态转型中的作用&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="一些照片"&gt;一些照片&lt;/h2&gt;
-&lt;p&gt;&lt;img src="https://marcchen.github.io/pr-preview/pr-23/posts/ensta/enstraid/peugeot205.jpg" alt="改装前的标致 205"&gt;
+&lt;p&gt;&lt;img src="https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/posts/ensta/enstraid/peugeot205.jpg" alt="改装前的标致 205"&gt;
 &lt;em&gt;改装前的标致 205。&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://marcchen.github.io/pr-preview/pr-23/posts/ensta/enstraid/motor.jpg" alt="ENSTA 学生参与项目"&gt;
+&lt;p&gt;&lt;img src="https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/posts/ensta/enstraid/motor.jpg" alt="ENSTA 学生参与项目"&gt;
 &lt;em&gt;为车辆电动改装安装电动机。&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="更新-2024-12-05--最终车辆及视频"&gt;&lt;strong&gt;更新 (2024-12-05) : 最终车辆及视频&lt;/strong&gt;&lt;/h2&gt;
@@ -367,7 +367,7 @@ width: 144px;
 &lt;/div&gt;
 &lt;/blockquote&gt;&lt;script async src="https://www.instagram.com/embed.js"&gt;&lt;/script&gt;
 &lt;/div&gt;
-&lt;p&gt;这段视频突出了工程过程、挑战和这个不可思议项目的成功。感谢所有支持 ENSTRAID 的人！&lt;/p&gt;</description></item><item><title>Technimage</title><link>https://marcchen.github.io/pr-preview/pr-23/zh-cn/posts/ensta/technimage/</link><pubDate>Thu, 10 Oct 2024 22:31:20 +0000</pubDate><guid>https://marcchen.github.io/pr-preview/pr-23/zh-cn/posts/ensta/technimage/</guid><description>&lt;h1 id="technimage---ensta巴黎的视听协会"&gt;Technimage - ENSTA巴黎的视听协会&lt;/h1&gt;
+&lt;p&gt;这段视频突出了工程过程、挑战和这个不可思议项目的成功。感谢所有支持 ENSTRAID 的人！&lt;/p&gt;</description></item><item><title>Technimage</title><link>https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/zh-cn/posts/ensta/technimage/</link><pubDate>Thu, 10 Oct 2024 22:31:20 +0000</pubDate><guid>https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/zh-cn/posts/ensta/technimage/</guid><description>&lt;h1 id="technimage---ensta巴黎的视听协会"&gt;Technimage - ENSTA巴黎的视听协会&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;Technimage&lt;/strong&gt; 是 ENSTA 巴黎的视听协会。我们的任务是通过各种视频格式捕捉和播出学校学生和社团生活中的关键时刻：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;播出“Channels”&lt;/strong&gt;：学校的新闻频道。&lt;/li&gt;
@@ -397,7 +397,7 @@ width: 144px;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div style="margin-top: rem;"&gt;&lt;/div&gt;
-&lt;p&gt;在 &lt;strong&gt;Technimage&lt;/strong&gt; 的参与使我能够发展导演、剪辑和视频制作的技能，同时积极为 ENSTA 巴黎的社团和学术生活推广做出贡献。&lt;/p&gt;</description></item><item><title>公交倒计时器</title><link>https://marcchen.github.io/pr-preview/pr-23/zh-cn/posts/codelab/bus-countdown-timer/</link><pubDate>Thu, 10 Oct 2024 22:30:28 +0000</pubDate><guid>https://marcchen.github.io/pr-preview/pr-23/zh-cn/posts/codelab/bus-countdown-timer/</guid><description>&lt;h2 id="公交车站项目通过物联网改善公共交通"&gt;公交车站项目：通过物联网改善公共交通&lt;/h2&gt;
+&lt;p&gt;在 &lt;strong&gt;Technimage&lt;/strong&gt; 的参与使我能够发展导演、剪辑和视频制作的技能，同时积极为 ENSTA 巴黎的社团和学术生活推广做出贡献。&lt;/p&gt;</description></item><item><title>公交倒计时器</title><link>https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/zh-cn/posts/codelab/bus-countdown-timer/</link><pubDate>Thu, 10 Oct 2024 22:30:28 +0000</pubDate><guid>https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/zh-cn/posts/codelab/bus-countdown-timer/</guid><description>&lt;h2 id="公交车站项目通过物联网改善公共交通"&gt;公交车站项目：通过物联网改善公共交通&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;公交车站项目&lt;/strong&gt;最初是我在巴黎-萨克雷大学学习时为解决个人问题而设计的。当时，校园中只有公交车能在各个地点之间往返，而我经常在玛格丽特·佩里广场（Place Marguerite Pery）的公交车站（位于巴黎电信学院前）等车，却无法得知公交车的预计到达时间（ETA）。为了知道什么时候离开家前往车站，我每次都得先在手机上查一下公交车时刻表。这促使我产生了设计一个能够提供实时公交车到达时间的系统的想法，使我的出行更加可预测和高效。&lt;/p&gt;
 &lt;p&gt;该项目专注于为我本地的公交车站开发一个物联网系统，旨在提供实时公交车到达信息，帮助更好地规划出行。主要的挑战并不是API的集成，因为RATP的API文档非常完善，而是如何将ESP32微控制器连接到我学生宿舍的公共Wi-Fi网络。该Wi-Fi网络有一个门户页面登录步骤，这使得连接变得复杂。我使用&lt;strong&gt;Wireshark&lt;/strong&gt;来捕捉电脑连接到门户页面时的网络通信数据，并在ESP32上复制了相同的过程，成功连接了Wi-Fi。&lt;/p&gt;
 &lt;h2 id="开发概览"&gt;开发概览&lt;/h2&gt;
@@ -415,7 +415,7 @@ width: 144px;
 &lt;p&gt;如需更多详细信息，您可以关注我们项目的进展：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/MarcChen/affichage-temps-bus-ratp" target="_blank" rel="noopener"&gt;项目在Github上提供&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Gemini 开发者竞赛</title><link>https://marcchen.github.io/pr-preview/pr-23/zh-cn/posts/codelab/gemini-developper-contest/</link><pubDate>Mon, 26 Aug 2024 08:06:25 +0600</pubDate><guid>https://marcchen.github.io/pr-preview/pr-23/zh-cn/posts/codelab/gemini-developper-contest/</guid><description>&lt;h1 id="vision-vendor二手市场转售的突破"&gt;Vision Vendor：二手市场转售的突破&lt;/h1&gt;
+&lt;/ul&gt;</description></item><item><title>Gemini 开发者竞赛</title><link>https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/zh-cn/posts/codelab/gemini-developper-contest/</link><pubDate>Mon, 26 Aug 2024 08:06:25 +0600</pubDate><guid>https://MarcChen.github.io/marcchen.github.io/pr-preview/pr-23/zh-cn/posts/codelab/gemini-developper-contest/</guid><description>&lt;h1 id="vision-vendor二手市场转售的突破"&gt;Vision Vendor：二手市场转售的突破&lt;/h1&gt;
 &lt;p&gt;随着人工智能领域的不断发展，&lt;strong&gt;Google 的 Gemini API 开发者竞赛&lt;/strong&gt;已成为开发者展示创新的全球舞台。从 2024 年 6 月到 2024 年 8 月，这场竞赛邀请了富有创造力的头脑利用 &lt;strong&gt;Google Gemini 模型&lt;/strong&gt;的力量，推动 AI 技术的边界。竞赛的总奖金高达 &lt;strong&gt;260,000 美元&lt;/strong&gt;，吸引了众多开发者渴望构建有影响力的解决方案。&lt;/p&gt;
 &lt;h2 id="vision-vendor-的旅程"&gt;Vision Vendor 的旅程&lt;/h2&gt;
 &lt;p&gt;我的队友 &lt;strong&gt;Fabien Houang&lt;/strong&gt; 和我迎接了这个挑战，创建了 &lt;strong&gt;Vision Vendor&lt;/strong&gt;——一个旨在改变用户与二手市场互动方式的 AI 驱动应用程序。该应用利用 &lt;strong&gt;Google Gemini 模型&lt;/strong&gt;，通过集成 &lt;strong&gt;相机功能&lt;/strong&gt; 和 &lt;strong&gt;KPI 生成&lt;/strong&gt; 来实现 &lt;strong&gt;价格对比&lt;/strong&gt; 的无缝体验。&lt;/p&gt;
