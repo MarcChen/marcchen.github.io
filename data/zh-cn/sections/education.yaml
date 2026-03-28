@@ -36,6 +36,10 @@ degrees:
         - name: 机器人学习
         - name: 预测性维护
         - name: 基于深度学习的计算机视觉
+  gradesReport:
+    name: "查看 ENSTA 成绩"
+    url: "/files/grades-ensta.pdf"
+
   extracurricularActivities:
     - TECHNIMAGE 成员，音像协会，为 ENSTA 制作并销售宣传视频以创收。
     - ENSTRAID 财务主管，致力于为汽车提供可持续能源改装的协会。
