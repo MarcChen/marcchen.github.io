@@ -1,1 +1,26 @@
-{{ template "_internal/pagination.html" . }}
+{{ $pag := $.Paginator }}
+{{ if gt $pag.TotalPages 1 }}
+<ul class="pagination pagination-default">
+  {{ with $pag.First }}
+  <li class="page-item{{ if not $pag.HasPrev }} disabled{{ end }}">
+    <a href="{{ .URL }}" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  {{ end }}
+  <li class="page-item{{ if not $pag.HasPrev }} disabled{{ end }}">
+    <a href="{{ if $pag.HasPrev }}{{ $pag.Prev.URL }}{{ end }}" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  {{ range $pag.Pagers }}
+  <li class="page-item{{ if eq . $pag }} active{{ end }}">
+    <a href="{{ .URL }}" aria-label="Page {{ .PageNumber }}" class="page-link" role="button">{{ .PageNumber }}</a>
+  </li>
+  {{ end }}
+  <li class="page-item{{ if not $pag.HasNext }} disabled{{ end }}">
+    <a href="{{ if $pag.HasNext }}{{ $pag.Next.URL }}{{ end }}" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  {{ with $pag.Last }}
+  <li class="page-item{{ if not $pag.HasNext }} disabled{{ end }}">
+    <a href="{{ .URL }}" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+  {{ end }}
+</ul>
+{{ end }}
