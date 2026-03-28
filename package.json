@@ -4,7 +4,6 @@
     "devDependencies": {
       "@fontsource/mulish": "github.com/hugo-toha/toha/v4",
       "@fortawesome/fontawesome-free": "github.com/hugo-toha/toha/v4",
-      "autoprefixer": "github.com/hugo-toha/toha/v4",
       "bootstrap": "github.com/hugo-toha/toha/v4",
       "eslint": "github.com/hugo-toha/toha/v4",
       "eslint-config-prettier": "github.com/hugo-toha/toha/v4",
@@ -20,21 +19,18 @@
       "highlight.js": "github.com/hugo-toha/toha/v4",
       "imagesloaded": "github.com/hugo-toha/toha/v4",
       "include-media": "github.com/hugo-toha/toha/v4",
-      "ityped": "github.com/hugo-toha/toha/v4",
       "katex": "github.com/hugo-toha/toha/v4",
       "mark.js": "github.com/hugo-toha/toha/v4",
       "mermaid": "github.com/hugo-toha/toha/v4",
       "plyr": "github.com/hugo-toha/toha/v4",
       "popper.js": "github.com/hugo-toha/toha/v4",
-      "postcss": "github.com/hugo-toha/toha/v4",
-      "postcss-cli": "github.com/hugo-toha/toha/v4"
+      "typeit": "github.com/hugo-toha/toha/v4"
     }
   },
   "dependencies": {},
   "devDependencies": {
     "@fontsource/mulish": "4.5.13",
     "@fortawesome/fontawesome-free": "^6.6.0",
-    "autoprefixer": "^10.4.20",
     "bootstrap": "^5.3.3",
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.6.0",
@@ -50,14 +46,12 @@
     "highlight.js": "^11.6.0",
     "imagesloaded": "^5.0.0",
     "include-media": "^1.4.10",
-    "ityped": "^1.0.3",
     "katex": "^0.16.11",
     "mark.js": "^8.11.1",
-    "mermaid": "^11.9.0",
+    "mermaid": "^11.10.0",
     "plyr": "^3.7.2",
     "popper.js": "^1.16.1",
-    "postcss": "^8.4.41",
-    "postcss-cli": "^11.0.0"
+    "typeit": "^8.8.7"
   },
   "name": "new",
   "version": "0.1.0"
