@@ -40,7 +40,10 @@ degrees:
         - name: Maintenance Prédictive
         - name: Vision par Ordinateur basée sur le Deep Learning
 
-  extracurricularActivities: 
+  gradesReport:
+    name: "Voir les notes de l'ENSTA"
+    url: "/files/grades-ensta.pdf"
+  extracurricularActivities:
     - Membre de TECHNIMAGE, l'association audiovisuelle, où j'ai généré des revenus en produisant et en vendant des vidéos de communication à l'ENSTA. # exemples de travaux vidéo # Liens vers les publications - https://example-link-to-post-1.com
     - Trésorier d'ENSTRAID, une association dédiée à la conversion de voitures pour des solutions énergétiques durables.
     - Participant aux compétitions de badminton universitaire sous la Fédération Française du Sport Universitaire (FFSU).
@@ -49,7 +52,7 @@ degrees:
   icon: fa-university
   timeframe: 2022-2025
   institution:
-    name: Lycée Jean Baptiste Say 
+    name: Lycée Jean Baptiste Say
     url: "https://pia.ac-paris.fr/serail/jcms/s2_2939914/fr/accueil/"
     logo: /images/sections/education/Lyce_Jean-Baptiste_Say.png
     # Vous pouvez éventuellement afficher un logo différent pour le thème sombre

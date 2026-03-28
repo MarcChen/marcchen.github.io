@@ -2,7 +2,7 @@
 section:
   name: Achievements
   id: achievements
-  enable: false
+  enable: true
   weight: 8
   showOnNavbar: true
   # Can optionally hide the title in sections
@@ -10,9 +10,9 @@ section:
 
 # Your achievements achievements
 achievements:
-- title: Graduated from EPITA
-  image: /images/sections/achievements/graduation.jpg
-  summary: Received Master of Science (M.Sc.) in Computer Science and Engineering from EPITA University in France, 2019.
+- title: Graduated from ENSTA Paris
+  image: /images/sections/achievements/photo-de-promo.jpg
+  summary: Received Master of Science (M.Sc.) in Computer Science and Engineering from ENSTA Paris in France, 2025.
 
 # - title: Certified Professional Data Engineer
 #   image: /images/sections/achievements/Certif_GCP_DataEngineer_FH.png
