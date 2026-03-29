@@ -1,0 +1,176 @@
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: var(--space-12);
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    hsl(var(--accent)),
+    var(--border-color)
+  );
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: var(--space-10);
+}
+
+.timelineDot {
+  position: absolute;
+  left: calc(-1 * var(--space-12) + 12px);
+  top: var(--space-6);
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  background: hsl(var(--accent));
+  border: 3px solid var(--bg-primary);
+  box-shadow: 0 0 0 3px hsl(var(--accent) / 0.3);
+  z-index: 1;
+}
+
+.timelineCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  transition: all var(--duration-normal) var(--ease-default);
+}
+
+.timelineCard:hover {
+  border-color: hsl(var(--accent) / 0.3);
+  box-shadow: var(--shadow-lg);
+}
+
+.companyHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.companyLogo {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.companyInfo {
+  flex: 1;
+}
+
+.companyName {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: var(--space-1);
+}
+
+.companyName a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.companyName a:hover {
+  color: hsl(var(--accent));
+}
+
+.companyLocation {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.companyOverview {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-4);
+  font-style: italic;
+}
+
+.position {
+  margin-bottom: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-color);
+}
+
+.position:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.positionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.positionTitle {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: hsl(var(--accent));
+}
+
+.positionDate {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.responsibilities {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.responsibilities li {
+  position: relative;
+  padding-left: var(--space-6);
+  font-size: var(--text-sm);
+  color: var(--text-body);
+  line-height: var(--leading-relaxed);
+}
+
+.responsibilities li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: hsl(var(--accent));
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: var(--space-8);
+  }
+
+  .timeline::before {
+    left: 12px;
+  }
+
+  .timelineDot {
+    left: calc(-1 * var(--space-8) + 4px);
+  }
+
+  .positionHeader {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+}

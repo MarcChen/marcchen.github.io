@@ -1,0 +1,81 @@
+.accomplishmentsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+.accomplishmentCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: all var(--duration-normal) var(--ease-default);
+}
+
+.accomplishmentCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: hsl(var(--accent) / 0.3);
+}
+
+.accomplishmentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: var(--space-3);
+}
+
+.accomplishmentName {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 0;
+}
+
+.accomplishmentTimeline {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.orgName {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: hsl(var(--accent));
+  text-decoration: none;
+}
+
+.orgName:hover {
+  text-decoration: underline;
+}
+
+.overview {
+  font-size: var(--text-sm);
+  color: var(--text-body);
+  line-height: var(--leading-relaxed);
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.certLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: hsl(var(--accent));
+  text-decoration: none;
+}
+
+.certLink:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .accomplishmentsGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,184 @@
+.postPage {
+  padding-top: calc(var(--nav-height) + var(--space-12));
+  padding-bottom: var(--space-16);
+}
+
+.postContainer {
+  max-width: var(--max-width-prose);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: var(--space-8);
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.backLink:hover {
+  color: hsl(var(--accent));
+}
+
+.postHeader {
+  margin-bottom: var(--space-10);
+}
+
+.postTitle {
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-tight);
+}
+
+.postMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+}
+
+.postDate {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.postTags {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+/* ─── Markdown / Prose Content ─── */
+
+.prose {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text-body);
+}
+
+.prose h1 {
+  font-size: var(--text-3xl);
+  margin-top: var(--space-12);
+  margin-bottom: var(--space-4);
+}
+
+.prose h2 {
+  font-size: var(--text-2xl);
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.prose h3 {
+  font-size: var(--text-xl);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-3);
+}
+
+.prose h4 {
+  font-size: var(--text-lg);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-2);
+}
+
+.prose p {
+  margin-bottom: var(--space-4);
+}
+
+.prose a {
+  color: hsl(var(--accent));
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  color: hsl(var(--accent-hover));
+}
+
+.prose ul,
+.prose ol {
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+.prose ul {
+  list-style: disc;
+}
+
+.prose ol {
+  list-style: decimal;
+}
+
+.prose li {
+  margin-bottom: var(--space-2);
+  padding-left: var(--space-2);
+}
+
+.prose blockquote {
+  border-left: 4px solid hsl(var(--accent));
+  padding: var(--space-4) var(--space-6);
+  margin: var(--space-6) 0;
+  background: hsl(var(--accent) / 0.05);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  color: var(--text-body);
+  font-style: italic;
+}
+
+.prose img {
+  border-radius: var(--radius-lg);
+  margin: var(--space-6) auto;
+  box-shadow: var(--shadow-md);
+}
+
+.prose pre {
+  margin: var(--space-6) 0;
+  border: 1px solid var(--border-color);
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-6) 0;
+}
+
+.prose th,
+.prose td {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.prose th {
+  background: var(--bg-secondary);
+  font-weight: 600;
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: var(--space-10) 0;
+}
+
+/* ─── Giscus ─── */
+
+.comments {
+  margin-top: var(--space-16);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--border-color);
+}
+
+.commentsTitle {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: var(--space-6);
+}

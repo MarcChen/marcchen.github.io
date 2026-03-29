@@ -1,0 +1,159 @@
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.profileCard {
+  text-align: center;
+}
+
+.designation {
+  font-size: var(--text-lg);
+  color: hsl(var(--accent));
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+}
+
+.socialLinks {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.socialBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-body);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+.socialBtn:hover {
+  border-color: hsl(var(--accent) / 0.3);
+  color: hsl(var(--accent));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.summary {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text-body);
+  margin-bottom: var(--space-8);
+}
+
+.summary p {
+  margin-bottom: var(--space-4);
+}
+
+/* ─── Badges ─── */
+
+.badgeSection {
+  margin-top: var(--space-8);
+}
+
+.badgeTitle {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  margin-bottom: var(--space-4);
+}
+
+.languageBadges {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.langBadge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.langName {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-body);
+  min-width: 120px;
+}
+
+.langBar {
+  flex: 1;
+  height: 6px;
+  background: var(--border-color);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.langBarFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 1s var(--ease-default);
+}
+
+/* ─── Certifications ─── */
+
+.certGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.certCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+.certCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: hsl(var(--accent) / 0.3);
+}
+
+.certImage {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.certName {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-align: center;
+  font-weight: 500;
+  line-height: var(--leading-tight);
+}
+
+@media (max-width: 768px) {
+  .aboutGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .certGrid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}

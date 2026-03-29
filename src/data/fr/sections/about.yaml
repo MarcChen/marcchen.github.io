@@ -1,0 +1,118 @@
+# informations de la section
+section:
+  name: À propos
+  id: about
+  enable: true
+  weight: 1
+  showOnNavbar: true
+  template: sections/about.html
+
+# votre titre
+designation: Ingénieur Data - Ingénieur IA & ML
+# informations sur votre entreprise
+#company:
+#  name: [SFEIR]
+#  url: "https://www.sfeir.com/"
+
+# votre CV. Ce chemin doit être relatif à votre répertoire "static"
+resourceLinks:
+- title: "Mon CV"
+  url: "files/MarcChen_FR.pdf"
+
+# un résumé à propos de vous
+summary: "
+En tant que Junior Data Engineer et Data Scientist, je suis enthousiaste à l'idée d'exploiter les données, l'IA et les technologies cloud pour résoudre des problèmes complexes et stimuler l'innovation. Ma passion pour le développement et l'informatique en nuage alimente mon apprentissage continu et mon exploration dans ces domaines dynamiques.\n\n
+
+Je suis titulaire de certifications telles que Google Cloud Professional Data Engineer (2024), Google Cloud Professional Machine Learning Engineer (2024), GitHub Foundations (2024) et Terraform Associate, démontrant mon expertise dans les solutions et infrastructures basées sur le cloud. Ces certifications reflètent mon engagement à maîtriser les technologies de pointe et à fournir des solutions impactantes.\n\n
+
+Avec un fort engagement envers la croissance et la collaboration, je suis impatient de me connecter avec des professionnels partageant les mêmes idées et de contribuer à des projets passionnants dans les domaines des données, de l'IA et de l'informatique en nuage. Innovons et créons ensemble des solutions impactantes !
+"
+
+# vos liens sociaux
+# ajoutez autant que vous le souhaitez. utilisez font-awesome pour les icônes.
+socialLinks:
+- name: Email
+  icon: "fas fa-envelope"
+  url: "marc.chen@ensta-paris.fr"
+
+- name: LinkedIn
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/chen-marc/"
+
+- name: Github
+  icon: "fab fa-github"
+  url: "https://github.com/MarcChen"
+
+- name: Book a meeting
+  icon: "far fa-calendar-alt"
+  url: "https://cal.com/marc-chen"
+
+# vos compétences générales
+# donnez un pourcentage entre 50 et 100 avec des intervalles de 5.
+# couleurs actuellement prises en charge : bleu, jaune, rose, vert, ciel, orange
+badges:
+- type: soft-skill-indicator
+  name: Français (Langue maternelle)
+  percentage: 100
+  color: "#27d912"
+
+- type: soft-skill-indicator
+  name: Anglais (C1)
+  percentage: 100
+  color: "#27d912"
+
+- type: soft-skill-indicator
+  name: Chinois (B2+)
+  percentage: 100
+  color: "#27d912"
+
+- type: certification
+  name: Google Cloud Certified Professional Data Engineer
+  url: "https://www.credly.com/badges/822e0dea-4499-48e0-b18b-9bc3681aa55f/public_url"
+  badge: "https://images.credly.com/size/340x340/images/2d613ff8-8879-430b-b2d8-925fa29785e8/image.png"
+
+- type: certification
+  name: GitHub Foundations
+  url : https://www.credly.com/badges/7ac429b6-57ba-4200-b253-34c1804be6d5/public_url
+  badge: "https://images.credly.com/size/340x340/images/024d0122-724d-4c5a-bd83-cfe3c4b7a073/image.png"
+
+- type: certification
+  name: Google Cloud Certified Professional Machine Learning
+  badge: "https://images.credly.com/size/340x340/images/05e71e7e-92a1-4821-8530-4176b2e3c4b4/image.png"
+  url: https://www.credly.com/badges/74d477f8-9a5d-4ee7-998f-983f84b4c34d/public_url
+
+# - type: soft-skill-indicator
+#   name: Travail en équipe
+#   percentage: 100
+#   color: "#00B4D8"
+  
+- type: soft-skill-indicator
+  name: Apprentissage rapide
+  percentage: 100
+  color: "#00B4D8"
+
+- type: certification
+  name: Terraform Associate (003)
+  url : https://www.credly.com/badges/d4ad6caa-4ece-4c2f-bd06-0ec8a434785f/public_url
+  badge: "https://images.credly.com/size/220x220/images/0dc62494-dc94-469a-83af-e35309f27356/blob"
+
+- type: certification
+  name: Google Cloud - Build with Vertex Technical Expert Badge
+  badge: "https://images.credly.com/size/220x220/images/b3731487-41d9-4732-8732-df5e8dd70ffb/blob"
+  url: "https://www.credly.com/badges/89acb458-eaaa-4667-9cb7-1faf830c9b31/public_url"
+
+
+# - type: soft-skill-indicator
+#   name: Leadership
+#   percentage: 100
+#   color: blue
+
+# - type: soft-skill-indicator
+#   name: Communication
+#   percentage: 100
+#   color: pink
+
+#- type: soft-skill-indicator
+#  name: Travail acharné
+#  percentage: 100
+#  color: green
