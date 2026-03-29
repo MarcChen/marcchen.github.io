@@ -1,0 +1,38 @@
+# section information
+section:
+  name: Projects
+  id: projects
+  enable: true
+  weight: 5
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# filter buttons
+buttons:
+- name: All
+  filter: "all"
+- name: Professional
+  filter: "professional"
+- name: Academic
+  filter: "academic"
+- name: Hobby
+  filter: "hobby"
+
+# your projects
+projects:
+- name: Vision Vendor
+  logo: /images/sections/projects/visionvendor.png
+  role: 联合创始人
+  timeline: "2024年6月 - 2024年8月"
+  repo: https://github.com/fabienhouang/VisionVendor # If your project is a public repo on GitHub, then provide this link. it will show star count.
+  #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+  summary: "一款提升在线转售体验的移动应用程序。已提交至 [Gemini API Developer Competition 2024](https://ai.google.dev/competition/projects/vision-vendor)。"
+  tags: ["hobby", "mobile", "flutter", "dart", "GCP", "Gemini AI"]
+
+- name: RBM Binary AlphaDigits
+  role: 作者
+  timeline: "2024"
+  repo: https://github.com/MarcChen/RBM_BinaryAlphaDigits
+  summary: "使用对比散度在二元AlphaDigits数据集上训练的受限玻尔兹曼机（RBM）的实现。涵盖图像生成、超参数调整以及跨多个Jupyter笔记本的字符数影响实验。包括一份补充研究报告（Chen & Sebti）。"
+  tags: ["academic", "machine-learning", "deep-learning", "RBM", "MNIST"]

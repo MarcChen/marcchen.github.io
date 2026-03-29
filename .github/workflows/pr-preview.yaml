@@ -17,41 +17,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Hugo
-        if: github.event.action != 'closed'
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: 'latest'
-          extended: true
-
-      - name: Update Hugo Modules
-        if: github.event.action != 'closed'
-        run: hugo mod tidy
-
       - name: Setup Node
         if: github.event.action != 'closed'
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
 
       - name: Install node modules
         if: github.event.action != 'closed'
-        run: |
-          hugo mod npm pack
-          npm install
+        run: npm ci
 
-      - name: Build Hugo site
+      - name: Build Next.js site
         if: github.event.action != 'closed'
         env:
-          HUGO_ENV: production
-        run: |
-          hugo --minify \
-            --baseURL "https://marcchen.github.io/pr-preview/pr-${{ github.event.number }}/"
+          NEXT_PUBLIC_BASE_PATH: /pr-preview/pr-${{ github.event.number }}
+        run: npx next build
 
       - name: Deploy PR Preview
         uses: rossjrw/pr-preview-action@v1
         with:
-          source-dir: ./public
+          source-dir: ./out
           preview-branch: gh-pages
           umbrella-dir: pr-preview
           pages-base-url: marcchen.github.io
