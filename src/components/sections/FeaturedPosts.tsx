@@ -64,7 +64,7 @@ export default function FeaturedPosts({
                 <div className={styles.imageContainer}>
                   {post.hero ? (
                     <Image
-                      src={post.hero}
+                      src={post.hero.startsWith("http") || post.hero.startsWith("/") ? post.hero : `/images/posts/${post.slug}/${post.hero}`}
                       alt={post.title}
                       fill
                       sizes={isFeatured ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}

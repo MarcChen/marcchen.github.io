@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, Globe, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { EnabledSection } from "@/lib/data";
@@ -20,6 +21,11 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("dark");
+  
+  const pathname = usePathname();
+  const router = useRouter();
+  
+  const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`;
 
   const navSections = sections.filter((s) => s.showOnNavbar);
 
@@ -64,9 +70,13 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
 
   const scrollToSection = (id: string) => {
     setIsMobileOpen(false);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+    if (isHomePage) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      router.push(`/${locale}#${id}`);
     }
   };
 
