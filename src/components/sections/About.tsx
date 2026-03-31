@@ -82,26 +82,6 @@ export default function About({ data, alternate, locale }: AboutProps) {
           </div>
         </GlassCard>
 
-        {/* Small Resource Links Bento */}
-        {data.resourceLinks && data.resourceLinks.length > 0 && (
-          <GlassCard className={styles.resourceCard} glowOnHover delay={0.2}>
-             <h3 className={styles.cardTitle}>Resources</h3>
-             <div className={styles.resourceList}>
-               {data.resourceLinks.map((link) => (
-                 <MagneticButton 
-                   key={link.title} 
-                   href={link.url} 
-                   variant="outline" 
-                   target="_blank" 
-                   icon={ArrowUpRight}
-                   className={styles.resourceLinkBtn}
-                 >
-                   {link.title}
-                 </MagneticButton>
-               ))}
-             </div>
-          </GlassCard>
-        )}
 
         {/* Languages/Soft Skills Bento */}
         {softSkills.length > 0 && (
@@ -115,11 +95,11 @@ export default function About({ data, alternate, locale }: AboutProps) {
                     <span className={styles.skillPerc}>{badge.percentage}%</span>
                   </div>
                   <div className={styles.skillTrack}>
-                    <div 
+                    <div
                       className={styles.skillFill}
-                      style={{ 
+                      style={{
                         width: `${badge.percentage || 0}%`,
-                        backgroundColor: badge.color ? badge.color : "hsl(var(--accent))" 
+                        backgroundColor: badge.color ? badge.color : "hsl(var(--accent))"
                       }}
                     />
                   </div>
