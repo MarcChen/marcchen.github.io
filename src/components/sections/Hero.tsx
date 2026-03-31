@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
-import { ChevronDown, FileText, ArrowRight } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 import type { Author } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
 import { t } from "@/lib/i18n";
@@ -31,12 +31,6 @@ export default function Hero({ locale, author }: HeroProps) {
     if (firstSection) {
       firstSection.scrollIntoView({ behavior: "smooth" });
     }
-  };
-
-  const resumeUrls: Record<string, string> = {
-    en: "/files/MarcChen_ENG.pdf",
-    fr: "/files/MarcChen_FR.pdf",
-    "zh-cn": "/files/MarcChen_CN.pdf",
   };
 
   const containerVariants: Variants = {
@@ -107,15 +101,6 @@ export default function Hero({ locale, author }: HeroProps) {
           </motion.p>
 
           <motion.div variants={itemVariants} className={styles.heroActions}>
-            <MagneticButton 
-              href={resumeUrls[locale] || resumeUrls.en}
-              target="_blank"
-              rel="noopener noreferrer"
-              icon={FileText}
-            >
-              {t(locale, "my_resume")}
-            </MagneticButton>
-            
             <MagneticButton 
               onClick={scrollToContent} 
               variant="outline"
