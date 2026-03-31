@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import Script from "next/script";
+import CursorGlow from "@/components/layout/CursorGlow";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
@@ -40,7 +47,7 @@ export default function RootLayout({
   return (
     <html
       suppressHydrationWarning
-      className={`${inter.variable} ${jetbrains.variable}`}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}
     >
       <head>
         {/* Inline theme script to prevent flash */}
@@ -48,7 +55,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                var theme = localStorage.getItem('theme-scheme') || 'system';
+                var theme = localStorage.getItem('theme-scheme') || 'dark';
                 if (theme === 'system') {
                   theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                 }
@@ -59,6 +66,7 @@ export default function RootLayout({
         />
       </head>
       <body style={{ fontFamily: "var(--font-sans)" }}>
+        <CursorGlow />
         {children}
 
         {/* Google Analytics */}

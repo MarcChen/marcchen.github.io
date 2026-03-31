@@ -1,49 +1,141 @@
-.achievementsGrid {
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--space-16);
+}
+
+.galleryGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--space-6);
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--space-8);
+  padding: var(--space-8) 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.galleryItemWrapper {
+  /* Provides height context and allows the motion.div to float inside its track */
+  height: 400px; 
+}
+
+/* On desktop, stagger the layout naturally */
+@media (min-width: 769px) {
+  .galleryItemWrapper:nth-child(even) {
+    margin-top: 80px;
+  }
 }
 
 .achievementCard {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-xl);
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-2xl);
   overflow: hidden;
-  transition: all var(--duration-normal) var(--ease-default);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  cursor: pointer;
 }
 
-.achievementCard:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border-color: hsl(var(--accent) / 0.3);
+a.achievementCard:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-2xl);
+  border-color: hsl(var(--accent)/0.5);
+}
+
+div.achievementCard {
+  cursor: default;
+}
+
+.imageContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .achievementImage {
-  width: 100%;
-  height: 220px;
   object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+a.achievementCard:hover .achievementImage {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.2) 40%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
 }
 
 .achievementContent {
-  padding: var(--space-5);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: var(--space-6);
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+a.achievementCard:hover .achievementContent {
+  transform: translateY(0);
 }
 
 .achievementTitle {
-  font-size: var(--text-base);
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
   font-weight: 700;
-  color: var(--text-heading);
+  color: #fff;
   margin-bottom: var(--space-2);
+  line-height: var(--leading-tight);
 }
 
 .achievementSummary {
-  font-size: var(--text-sm);
-  color: var(--text-muted);
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.8);
   line-height: var(--leading-relaxed);
-  margin-bottom: 0;
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+}
+
+div.achievementCard .achievementSummary {
+  /* Alwyas show for non-links since there is no hover interaction */
+  opacity: 1;
+  max-height: 100px;
+  transform: translateY(0);
+}
+
+a.achievementCard:hover .achievementSummary {
+  opacity: 1;
+  max-height: 100px;
 }
 
 @media (max-width: 768px) {
-  .achievementsGrid {
+  .galleryGrid {
     grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .galleryItemWrapper {
+    height: 300px;
+  }
+  
+  .achievementContent {
+    transform: translateY(0);
+  }
+  
+  .achievementSummary {
+    opacity: 1;
+    max-height: 100px;
   }
 }

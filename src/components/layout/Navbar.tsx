@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { Menu, X, Sun, Moon, ChevronDown } from "lucide-react";
+import { Menu, X, Globe, Sun, Moon } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import type { EnabledSection } from "@/lib/data";
 import { locales, localeNames, localeFlags, type Locale } from "@/lib/i18n";
 import styles from "@/styles/components/Navbar.module.css";
@@ -14,168 +15,210 @@ interface NavbarProps {
 }
 
 export default function Navbar({ locale, sections, siteName }: NavbarProps) {
+  const [activeSection, setActiveSection] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
 
-  // Track scroll position
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const navSections = sections.filter((s) => s.showOnNavbar);
 
-  // Initialize theme from localStorage
+  // Initialize theme 
   useEffect(() => {
-    const stored = localStorage.getItem("theme-scheme") || "system";
-    let resolved: "light" | "dark" = "light";
-    if (stored === "dark") resolved = "dark";
-    else if (stored === "system") {
-      resolved = window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-    }
-    setTheme(resolved);
-    document.documentElement.setAttribute("data-theme", resolved);
+    const stored = localStorage.getItem("theme-scheme");
+    let initialTheme: "light" | "dark" = "dark";
+    if (stored === "light") initialTheme = "light";
+    setTheme(initialTheme);
   }, []);
 
   const toggleTheme = useCallback(() => {
-    const next = theme === "light" ? "dark" : "light";
+    const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
     document.documentElement.setAttribute("data-theme", next);
     localStorage.setItem("theme-scheme", next);
   }, [theme]);
 
-  const scrollToSection = useCallback(
-    (id: string) => {
-      setIsMobileOpen(false);
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      }
-    },
-    []
-  );
+  // Handle scroll detection for active section and minimised nav
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 80);
 
-  const navSections = sections.filter((s) => s.showOnNavbar);
+      // Simple active section detection
+      let current = "";
+      for (const section of navSections) {
+        const el = document.getElementById(section.id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 200 && rect.bottom >= 200) {
+            current = section.id;
+            break;
+          }
+        }
+      }
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [navSections]);
+
+  const scrollToSection = (id: string) => {
+    setIsMobileOpen(false);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
-      <nav
-        className={`${styles.navbar} ${isScrolled ? styles.solid : styles.transparent}`}
+      <motion.header
+        className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ type: "spring", stiffness: 100, damping: 20 }}
       >
-        <div className={styles.navContent}>
-          <Link href={`/${locale}/`} className={styles.logo}>
-            {siteName}
-          </Link>
+        <div className={styles.navContainer}>
+          <div className={styles.pillContainer}>
+            <Link href={`/${locale}/`} className={styles.logo}>
+              <div className={styles.logoDot} />
+              {siteName}
+            </Link>
 
-          {/* Desktop nav links */}
-          <ul className={styles.navLinks}>
-            {navSections.map((section) => (
-              <li key={section.id}>
+            {/* Desktop Links */}
+            <nav className={styles.desktopNav}>
+              {navSections.map((section) => (
                 <button
-                  className={styles.navLink}
+                  key={section.id}
+                  className={`${styles.navLink} ${activeSection === section.id ? styles.active : ""}`}
                   onClick={() => scrollToSection(section.id)}
                 >
-                  {section.name}
+                  {activeSection === section.id && (
+                    <motion.span
+                      layoutId="activePill"
+                      className={styles.activePillBackground}
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                  <span className={styles.linkText}>{section.name}</span>
                 </button>
-              </li>
-            ))}
-            <li>
+              ))}
               <Link
                 href={`/${locale}/blog/`}
                 className={styles.navLink}
               >
-                Blog
+                <span className={styles.linkText}>Blog</span>
               </Link>
-            </li>
-          </ul>
+            </nav>
 
-          <div className={styles.navActions}>
-            {/* Language Switcher */}
-            <div className={styles.langSwitcher}>
-              <button
-                className={styles.langBtn}
-                onClick={() => setIsLangOpen(!isLangOpen)}
-                aria-label="Switch language"
-              >
-                <span>{localeFlags[locale]}</span>
-                <ChevronDown size={14} />
-              </button>
-              {isLangOpen && (
-                <div className={styles.langDropdown}>
-                  {locales.map((loc) => (
-                    <Link
-                      key={loc}
-                      href={`/${loc}/`}
-                      className={`${styles.langOption} ${loc === locale ? styles.activeLang : ""}`}
-                      onClick={() => setIsLangOpen(false)}
+            <div className={styles.actions}>
+              {/* Language Switcher */}
+              <div className={styles.langContainer} onMouseLeave={() => setIsLangOpen(false)}>
+                <button
+                  className={styles.iconBtn}
+                  onMouseEnter={() => setIsLangOpen(true)}
+                  onClick={() => setIsLangOpen(!isLangOpen)}
+                  aria-label="Switch language"
+                >
+                  <Globe size={18} />
+                </button>
+                <AnimatePresence>
+                  {isLangOpen && (
+                    <motion.div
+                      className={styles.langDropdown}
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 5, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
                     >
-                      <span>{localeFlags[loc]}</span>
-                      <span>{localeNames[loc]}</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
+                      {locales.map((loc) => (
+                        <Link
+                          key={loc}
+                          href={`/${loc}/`}
+                          className={`${styles.langOption} ${loc === locale ? styles.activeLang : ""}`}
+                          onClick={() => setIsLangOpen(false)}
+                        >
+                          <span className={styles.flag}>{localeFlags[loc]}</span>
+                          {localeNames[loc]}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Theme Toggle */}
+              <button
+                className={styles.iconBtn}
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
+              >
+                {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
+              </button>
+
+              {/* Mobile Toggle */}
+              <button
+                className={styles.mobileToggle}
+                onClick={() => setIsMobileOpen(!isMobileOpen)}
+              >
+                {isMobileOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
             </div>
-
-            {/* Theme Toggle */}
-            <button
-              className={styles.themeBtn}
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-            >
-              {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
-            </button>
-
-            {/* Mobile Menu Toggle */}
-            <button
-              className={styles.menuToggle}
-              onClick={() => setIsMobileOpen(!isMobileOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
           </div>
         </div>
-      </nav>
+      </motion.header>
 
       {/* Mobile Menu */}
-      <div
-        className={`${styles.mobileMenu} ${isMobileOpen ? styles.open : ""}`}
-      >
-        {navSections.map((section) => (
-          <button
-            key={section.id}
-            className={styles.mobileNavLink}
-            onClick={() => scrollToSection(section.id)}
+      <AnimatePresence>
+        {isMobileOpen && (
+          <motion.div
+            className={styles.mobileMenu}
+            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
+            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            transition={{ duration: 0.3 }}
           >
-            {section.name}
-          </button>
-        ))}
-        <Link
-          href={`/${locale}/blog/`}
-          className={styles.mobileNavLink}
-          onClick={() => setIsMobileOpen(false)}
-        >
-          Blog
-        </Link>
-        <div className={styles.mobileDivider} />
-        <div className={styles.mobileActions}>
-          {locales.map((loc) => (
-            <Link
-              key={loc}
-              href={`/${loc}/`}
-              className={`${styles.langOption} ${loc === locale ? styles.activeLang : ""}`}
-              onClick={() => setIsMobileOpen(false)}
+            <motion.div 
+              className={styles.mobileMenuInner}
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.1 }}
             >
-              {localeFlags[loc]} {localeNames[loc]}
-            </Link>
-          ))}
-        </div>
-      </div>
+              {navSections.map((section) => (
+                <button
+                  key={section.id}
+                  className={styles.mobileNavLink}
+                  onClick={() => scrollToSection(section.id)}
+                >
+                  {section.name}
+                </button>
+              ))}
+              <Link
+                href={`/${locale}/blog/`}
+                className={styles.mobileNavLink}
+                onClick={() => setIsMobileOpen(false)}
+              >
+                Blog
+              </Link>
+              
+              <div className={styles.mobileDivider} />
+              
+              <div className={styles.mobileLangSelector}>
+                {locales.map((loc) => (
+                  <Link
+                    key={loc}
+                    href={`/${loc}/`}
+                    className={`${styles.mobileLangOption} ${loc === locale ? styles.activeLangMobile : ""}`}
+                    onClick={() => setIsMobileOpen(false)}
+                  >
+                    {localeFlags[loc]} {localeNames[loc]}
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
