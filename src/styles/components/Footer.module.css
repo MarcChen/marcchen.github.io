@@ -4,7 +4,6 @@
   background: var(--bg-tertiary);
   margin-top: var(--space-32);
   padding-bottom: var(--space-8);
-  overflow: hidden;
 }
 
 .footerGlow {
