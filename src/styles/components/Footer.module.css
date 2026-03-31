@@ -1,114 +1,200 @@
 .footer {
-  background: var(--footer-bg);
-  color: var(--footer-text);
-  padding: var(--space-16) 0 var(--space-8);
+  position: relative;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-tertiary);
+  margin-top: var(--space-32);
+  padding-bottom: var(--space-8);
+  overflow: hidden;
 }
 
-.footerContent {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: var(--space-12);
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--space-6);
+.footerGlow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 600px;
+  height: 200px;
+  background: radial-gradient(ellipse at center, hsl(var(--accent)/0.1) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* ─── Call to Action Card ─── */
+.ctaSection {
+  transform: translateY(calc(var(--space-16) * -1));
+  display: flex;
+  justify-content: center;
+}
+
+.ctaCard {
+  width: 100%;
+  max-width: 900px;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color-strong);
+  border-radius: var(--radius-3xl);
+  padding: var(--space-12) var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.ctaHeadingOverride {
+  margin-bottom: var(--space-8) !important;
+  text-align: left !important;
+}
+.ctaHeadingOverride h2 {
+  justify-content: flex-start !important;
+}
+
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.ctaVisual {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.ctaBlob {
+  position: absolute;
+  right: -100px;
+  top: -50px;
+  width: 400px;
+  height: 400px;
+  background: var(--gradient-primary);
+  filter: blur(60px);
+  opacity: 0.15;
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.ctaGrid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, var(--border-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(to left, black, transparent);
+  -webkit-mask-image: linear-gradient(to left, black, transparent);
+  opacity: 0.3;
+}
+
+/* ─── Footer Bottom ─── */
+.footerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  padding-top: var(--space-4);
+  margin-top: calc(var(--space-8) * -1); /* Offset CTA negative margin */
 }
 
 .footerBrand h3 {
-  color: #f1f5f9;
-  font-size: var(--text-xl);
-  margin-bottom: var(--space-4);
-}
-
-.footerBrand p {
-  color: var(--footer-text);
-  font-size: var(--text-sm);
-  line-height: var(--leading-relaxed);
-  max-width: 300px;
+  font-size: var(--text-2xl);
+  color: var(--text-heading);
+  margin-bottom: var(--space-1);
 }
 
 .socialLinks {
   display: flex;
-  gap: var(--space-3);
-  margin-top: var(--space-4);
-}
-
-.socialLink {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--footer-text);
-  transition: all var(--duration-fast) var(--ease-default);
-  text-decoration: none;
-}
-
-.socialLink:hover {
-  background: hsl(var(--accent) / 0.2);
-  border-color: hsl(var(--accent) / 0.3);
-  color: hsl(var(--accent));
-  transform: translateY(-2px);
-}
-
-.footerSection h4 {
-  color: #f1f5f9;
-  font-size: var(--text-sm);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
-  margin-bottom: var(--space-4);
-}
-
-.footerLinks {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
   gap: var(--space-2);
 }
 
-.footerLinks a {
-  color: var(--footer-text);
-  font-size: var(--text-sm);
-  text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-default);
-}
-
-.footerLinks a:hover {
-  color: hsl(var(--accent));
-}
-
-.footerBottom {
-  max-width: var(--max-width);
-  margin: var(--space-12) auto 0;
-  padding: var(--space-6) var(--space-6) 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  justify-content: space-between;
+.socialBtn {
+  display: inline-flex;
   align-items: center;
-  font-size: var(--text-sm);
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.footerBottom a {
+.socialBtn:hover {
+  background: hsl(var(--accent)/0.1);
   color: hsl(var(--accent));
-  text-decoration: none;
+  border-color: hsl(var(--accent)/0.3);
+  transform: translateY(-4px) scale(1.05);
 }
 
-.footerBottom a:hover {
-  color: hsl(var(--accent-hover));
+.footerMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+}
+
+.separator {
+  color: var(--border-color-strong);
+}
+
+.metaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--text-heading);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--border-color-strong);
+  text-underline-offset: 4px;
+}
+
+.metaLink:hover {
+  color: hsl(var(--accent));
+  text-decoration-color: hsl(var(--accent)/0.5);
 }
 
 @media (max-width: 768px) {
-  .footerContent {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
+  .ctaCard {
+    padding: var(--space-8) var(--space-6);
+  }
+  
+  .ctaHeadingOverride {
+    text-align: center !important;
+  }
+  .ctaHeadingOverride h2 {
+    justify-content: center !important;
+  }
+  
+  .actionRow {
+    justify-content: center;
+  }
+
+  .ctaVisual {
+    display: none;
   }
 
   .footerBottom {
     flex-direction: column;
-    gap: var(--space-2);
     text-align: center;
+    gap: var(--space-8);
   }
 }

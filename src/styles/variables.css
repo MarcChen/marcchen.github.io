@@ -1,17 +1,28 @@
 /* ================================================================
    Design Tokens — CSS Custom Properties
-   Defines the complete color system, spacing, typography,
-   and animation tokens used throughout the site.
+   Complete overhaul: dark-first, violet-blue + emerald dual accent,
+   glassmorphism, glow effects, noise texture support.
    ================================================================ */
 
 :root {
-  /* ─── Brand Accent (Cyan) ─── */
-  --accent: 189 94% 37%;          /* hsl(189, 94%, 37%) → #0891b2 */
-  --accent-hover: 189 94% 43%;    /* hsl(189, 94%, 43%) → #06b6d4 */
-  --accent-glow: 189 94% 37% / 0.25;
+  /* ─── Brand Accents ─── */
+  --accent: 250 85% 65%;          /* Violet-blue */
+  --accent-hover: 255 90% 72%;
+  --accent-glow: 250 85% 65% / 0.25;
+  --accent-secondary: 160 84% 45%;  /* Emerald */
+  --accent-secondary-hover: 160 84% 52%;
+
+  /* ─── Gradients ─── */
+  --gradient-primary: linear-gradient(135deg, hsl(250, 85%, 65%), hsl(280, 75%, 60%));
+  --gradient-secondary: linear-gradient(135deg, hsl(160, 84%, 45%), hsl(190, 85%, 50%));
+  --gradient-hero: linear-gradient(135deg, hsl(250, 85%, 65%) 0%, hsl(280, 75%, 55%) 50%, hsl(320, 70%, 55%) 100%);
+  --gradient-subtle: linear-gradient(135deg, hsl(250, 85%, 65% / 0.1), hsl(280, 75%, 55% / 0.05));
+  --gradient-border: linear-gradient(135deg, hsl(250, 85%, 65% / 0.5), hsl(280, 75%, 55% / 0.2), hsl(160, 84%, 45% / 0.5));
+  --gradient-text: linear-gradient(135deg, hsl(250, 85%, 72%), hsl(280, 75%, 65%), hsl(160, 84%, 50%));
 
   /* ─── Typography ─── */
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
   --text-xs: 0.75rem;
@@ -24,16 +35,24 @@
   --text-4xl: 2.25rem;
   --text-5xl: 3rem;
   --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+  --text-8xl: 6rem;
 
-  --leading-tight: 1.25;
+  --leading-none: 1;
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
   --leading-normal: 1.5;
   --leading-relaxed: 1.75;
 
+  --tracking-tighter: -0.05em;
   --tracking-tight: -0.025em;
   --tracking-normal: 0;
   --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
 
   /* ─── Spacing ─── */
+  --space-px: 1px;
+  --space-0: 0;
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -47,103 +66,128 @@
   --space-20: 5rem;
   --space-24: 6rem;
   --space-32: 8rem;
+  --space-40: 10rem;
+  --space-48: 12rem;
 
   /* ─── Border Radius ─── */
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.5rem;
   --radius-full: 9999px;
 
   /* ─── Shadows ─── */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.15), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --shadow-glow: 0 0 20px hsl(var(--accent-glow));
+  --shadow-glow-lg: 0 0 40px hsl(var(--accent-glow)), 0 0 80px hsl(var(--accent) / 0.1);
+  --shadow-glow-secondary: 0 0 20px hsl(var(--accent-secondary) / 0.25);
 
   /* ─── Transitions ─── */
   --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-in: cubic-bezier(0.4, 0, 1, 1);
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   --duration-fast: 150ms;
   --duration-normal: 300ms;
   --duration-slow: 500ms;
+  --duration-slower: 700ms;
 
   /* ─── Layout ─── */
   --max-width: 1200px;
+  --max-width-wide: 1400px;
   --max-width-prose: 72ch;
   --nav-height: 4rem;
-  --section-padding: var(--space-24);
+  --section-padding: var(--space-32);
+  --section-gap: var(--space-4);
 
   /* ─── Z-index Scale ─── */
+  --z-behind: -1;
+  --z-default: 1;
   --z-dropdown: 1000;
   --z-sticky: 1020;
   --z-fixed: 1030;
   --z-modal-backdrop: 1040;
   --z-modal: 1050;
-  --z-tooltip: 1060;
+  --z-cursor: 9999;
 }
 
 /* ================================================================
-   Light Theme (default)
+   Dark Theme (Default / Primary)
    ================================================================ */
 :root,
-[data-theme="light"] {
-  --bg-primary: #f8fafc;
-  --bg-secondary: #f1f5f9;
-  --bg-card: #ffffff;
-  --bg-card-hover: #f8fafc;
-  --bg-glass: rgba(255, 255, 255, 0.7);
-  --bg-glass-strong: rgba(255, 255, 255, 0.85);
+[data-theme="dark"] {
+  --bg-primary: #09090b;
+  --bg-secondary: #121215;
+  --bg-tertiary: #18181b;
+  --bg-card: rgba(24, 24, 27, 0.6);
+  --bg-card-hover: rgba(32, 32, 36, 0.8);
+  --bg-glass: rgba(18, 18, 21, 0.7);
+  --bg-glass-strong: rgba(9, 9, 11, 0.85);
+  --bg-glass-card: rgba(255, 255, 255, 0.03);
+  --bg-elevated: rgba(38, 38, 42, 0.5);
 
-  --text-heading: #0f172a;
-  --text-body: #334155;
-  --text-muted: #64748b;
-  --text-inverse: #f1f5f9;
+  --text-heading: #fafafa;
+  --text-body: #a1a1aa;
+  --text-muted: #71717a;
+  --text-inverse: #09090b;
+  --text-link: hsl(var(--accent));
 
-  --border-color: #e2e8f0;
-  --border-color-strong: #cbd5e1;
+  --border-color: rgba(255, 255, 255, 0.06);
+  --border-color-strong: rgba(255, 255, 255, 0.12);
+  --border-color-hover: rgba(255, 255, 255, 0.2);
 
-  --code-bg: #f1f5f9;
-  --code-text: #dc2626;
+  --code-bg: #1a1a1e;
+  --code-text: hsl(var(--accent));
 
-  --footer-bg: #0f172a;
-  --footer-text: #94a3b8;
+  --footer-bg: #050506;
+  --footer-text: #52525b;
 
-  --highlight: #fde68a;
+  --noise-opacity: 0.03;
+  --dot-opacity: 0.15;
 
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 /* ================================================================
-   Dark Theme
+   Light Theme
    ================================================================ */
-[data-theme="dark"] {
-  --bg-primary: #0b1121;
-  --bg-secondary: #111827;
-  --bg-card: rgba(30, 41, 59, 0.6);
-  --bg-card-hover: rgba(30, 41, 59, 0.8);
-  --bg-glass: rgba(15, 23, 42, 0.7);
-  --bg-glass-strong: rgba(15, 23, 42, 0.85);
+[data-theme="light"] {
+  --bg-primary: #fafafa;
+  --bg-secondary: #f4f4f5;
+  --bg-tertiary: #e4e4e7;
+  --bg-card: rgba(255, 255, 255, 0.8);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --bg-glass-strong: rgba(255, 255, 255, 0.9);
+  --bg-glass-card: rgba(0, 0, 0, 0.02);
+  --bg-elevated: rgba(255, 255, 255, 0.8);
 
-  --text-heading: #f1f5f9;
-  --text-body: #cbd5e1;
-  --text-muted: #94a3b8;
-  --text-inverse: #0f172a;
+  --text-heading: #09090b;
+  --text-body: #3f3f46;
+  --text-muted: #71717a;
+  --text-inverse: #fafafa;
+  --text-link: hsl(250, 85%, 55%);
 
-  --border-color: rgba(148, 163, 184, 0.15);
-  --border-color-strong: rgba(148, 163, 184, 0.25);
+  --border-color: rgba(0, 0, 0, 0.06);
+  --border-color-strong: rgba(0, 0, 0, 0.12);
+  --border-color-hover: rgba(0, 0, 0, 0.2);
 
-  --code-bg: #1e293b;
-  --code-text: #f87171;
+  --code-bg: #f4f4f5;
+  --code-text: hsl(250, 85%, 50%);
 
-  --footer-bg: #030712;
-  --footer-text: #64748b;
+  --footer-bg: #18181b;
+  --footer-text: #a1a1aa;
 
-  --highlight: #fbbf24;
+  --noise-opacity: 0.02;
+  --dot-opacity: 0.08;
 
-  color-scheme: dark;
+  color-scheme: light;
 }

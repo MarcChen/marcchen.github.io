@@ -1,50 +1,38 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
+import { motion, useInView } from "framer-motion";
 
 interface SectionWrapperProps {
   id: string;
   children: ReactNode;
-  alternate?: boolean;
+  alternate?: boolean; // Kept for API compatibility, but we rely on modern CSS mostly now
   className?: string;
+  noDivider?: boolean;
 }
 
 export default function SectionWrapper({
   id,
   children,
-  alternate = false,
   className = "",
+  noDivider = false,
 }: SectionWrapperProps) {
   const ref = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.05, rootMargin: "0px 0px -50px 0px" }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
+  const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
 
   return (
-    <section
-      ref={ref}
-      id={id}
-      className={`section ${alternate ? "section-alt" : ""} ${className}`}
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translateY(0)" : "translateY(30px)",
-        transition: "opacity 0.6s ease-out, transform 0.6s ease-out",
-      }}
-    >
-      <div className="container">{children}</div>
-    </section>
+    <>
+      <motion.section
+        ref={ref}
+        id={id}
+        className={`section relative ${className}`}
+        initial={{ opacity: 0, y: 50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <div className="container relative z-10">{children}</div>
+      </motion.section>
+      {!noDivider && <div className="section-divider" />}
+    </>
   );
 }

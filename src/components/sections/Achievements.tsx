@@ -1,5 +1,10 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
 import SectionWrapper from "@/components/ui/SectionWrapper";
+import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import type { AchievementsSection } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
 import styles from "@/styles/components/Achievements.module.css";
@@ -11,12 +16,23 @@ interface AchievementsProps {
 }
 
 export default function Achievements({ data, alternate }: AchievementsProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Create parallax effect on the container scroll
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
   return (
     <SectionWrapper id={data.section.id} alternate={alternate}>
-      <h2 className="section-title">{data.section.name}</h2>
+      <div className={styles.sectionHeader}>
+        <span className="section-label">07. Gallery</span>
+        <AnimatedHeading title={data.section.name} />
+      </div>
 
-      <div className={styles.achievementsGrid}>
-        {data.achievements.map((achievement) => {
+      <div className={styles.galleryGrid} ref={containerRef}>
+        {data.achievements.map((achievement, i) => {
           const Wrapper = achievement.url ? "a" : "div";
           const wrapperProps = achievement.url
             ? {
@@ -26,28 +42,44 @@ export default function Achievements({ data, alternate }: AchievementsProps) {
               }
             : {};
 
+          // Alternate Y translation for parallax staggering effect
+          const y = useTransform(
+            scrollYProgress, 
+            [0, 1], 
+            [i % 2 === 0 ? 50 : 100, i % 2 === 0 ? -50 : -100]
+          );
+
           return (
-            <Wrapper
-              key={achievement.title}
-              className={styles.achievementCard}
-              {...wrapperProps}
+            <motion.div 
+              key={achievement.title} 
+              style={{ y }}
+              className={styles.galleryItemWrapper}
             >
-              <Image
-                src={achievement.image}
-                alt={achievement.title}
-                width={400}
-                height={220}
-                className={styles.achievementImage}
-              />
-              <div className={styles.achievementContent}>
-                <h3 className={styles.achievementTitle}>
-                  {achievement.title}
-                </h3>
-                <p className={styles.achievementSummary}>
-                  {achievement.summary}
-                </p>
-              </div>
-            </Wrapper>
+              <Wrapper
+                className={styles.achievementCard}
+                {...wrapperProps}
+              >
+                <div className={styles.imageContainer}>
+                  <Image
+                    src={achievement.image}
+                    alt={achievement.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className={styles.achievementImage}
+                  />
+                  <div className={styles.imageOverlay} />
+                </div>
+                
+                <div className={styles.achievementContent}>
+                  <h3 className={styles.achievementTitle}>
+                    {achievement.title}
+                  </h3>
+                  <p className={styles.achievementSummary}>
+                    {achievement.summary}
+                  </p>
+                </div>
+              </Wrapper>
+            </motion.div>
           );
         })}
       </div>

@@ -145,7 +145,7 @@ export default async function HomePage({ params }: PageProps) {
         <FeaturedPosts
           key="featured-posts"
           locale={locale}
-          data={featuredPostsConfig}
+          title={featuredPostsConfig.section.name}
           posts={featuredPostsMeta}
           alternate={false}
         />

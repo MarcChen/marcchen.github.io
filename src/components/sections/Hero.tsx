@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
-import Image from "next/image";
-import { ChevronDown, FileText } from "lucide-react";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { ChevronDown, FileText, ArrowRight } from "lucide-react";
 import type { Author } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
 import { t } from "@/lib/i18n";
 import styles from "@/styles/components/Hero.module.css";
+import MagneticButton from "@/components/ui/MagneticButton";
 
 interface HeroProps {
   locale: Locale;
@@ -14,46 +15,16 @@ interface HeroProps {
 }
 
 export default function Hero({ locale, author }: HeroProps) {
-  const summaryLines = author.summary || [];
+  const summaryLines = author.summary || ["Data Engineer", "AI/ML Enthusiast", "Problem Solver"];
   const [currentLine, setCurrentLine] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
 
-  const typingSpeed = 60;
-  const deletingSpeed = 30;
-  const pauseDuration = 2000;
-
-  const animate = useCallback(() => {
-    if (summaryLines.length === 0) return;
-
-    const fullText = summaryLines[currentLine] || "";
-
-    if (!isDeleting) {
-      if (displayText.length < fullText.length) {
-        return setTimeout(() => {
-          setDisplayText(fullText.slice(0, displayText.length + 1));
-        }, typingSpeed);
-      } else {
-        return setTimeout(() => setIsDeleting(true), pauseDuration);
-      }
-    } else {
-      if (displayText.length > 0) {
-        return setTimeout(() => {
-          setDisplayText(displayText.slice(0, -1));
-        }, deletingSpeed);
-      } else {
-        setIsDeleting(false);
-        setCurrentLine((prev) => (prev + 1) % summaryLines.length);
-      }
-    }
-  }, [displayText, isDeleting, currentLine, summaryLines]);
-
+  // Cycle through summary lines
   useEffect(() => {
-    const timer = animate();
-    return () => {
-      if (timer) clearTimeout(timer);
-    };
-  }, [animate]);
+    const interval = setInterval(() => {
+      setCurrentLine((prev) => (prev + 1) % summaryLines.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [summaryLines.length]);
 
   const scrollToContent = () => {
     const firstSection = document.querySelector(".section");
@@ -62,69 +33,111 @@ export default function Hero({ locale, author }: HeroProps) {
     }
   };
 
-  // Determine resume URL based on locale
   const resumeUrls: Record<string, string> = {
     en: "/files/MarcChen_ENG.pdf",
     fr: "/files/MarcChen_FR.pdf",
     "zh-cn": "/files/MarcChen_CN.pdf",
   };
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 } 
+    }
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { type: "spring", stiffness: 100, damping: 20 } 
+    }
+  };
+
   return (
     <section className={styles.hero}>
-      <div className={styles.heroBg}>
-        <Image
-          src="/images/site/bg_dark.jpg"
-          alt="Background"
-          fill
-          className={styles.heroBgImage}
-          priority
-          quality={85}
-        />
+      {/* Abstract Background Elements */}
+      <div className={styles.blob1} />
+      <div className={styles.blob2} />
+      <div className={styles.blob3} />
+      <div className={styles.gridOverlay} />
+
+      <div className="container">
+        <motion.div 
+          className={styles.heroContent}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div variants={itemVariants} className={styles.greeting}>
+            <span className={styles.badge}>{author.greeting}</span>
+          </motion.div>
+
+          <motion.h1 variants={itemVariants} className={styles.name}>
+            {author.name.split(" ").map((word, i) => (
+              <span key={i} className={i > 0 ? styles.gradientText : ""}>
+                {word}{" "}
+              </span>
+            ))}
+          </motion.h1>
+
+          <motion.div variants={itemVariants} className={styles.roleContainer}>
+            <span className={styles.rolePrefix}>Specialize in </span>
+            <div className={styles.roleCycler}>
+              <AnimatePresence mode="popLayout">
+                <motion.span
+                  key={currentLine}
+                  initial={{ opacity: 0, y: 20, rotateX: 90 }}
+                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                  exit={{ opacity: 0, y: -20, rotateX: -90 }}
+                  transition={{ duration: 0.4, type: "spring", stiffness: 120, damping: 20 }}
+                  className={styles.roleText}
+                  style={{ display: "inline-block", transformOrigin: "bottom" }}
+                >
+                  {summaryLines[currentLine]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
+          </motion.div>
+
+          <motion.p variants={itemVariants} className={styles.shortBio}>
+             Bridging the gap between raw data and actionable intelligence. Turning complex models into scalable systems.
+          </motion.p>
+
+          <motion.div variants={itemVariants} className={styles.heroActions}>
+            <MagneticButton 
+              href={resumeUrls[locale] || resumeUrls.en}
+              target="_blank"
+              rel="noopener noreferrer"
+              icon={FileText}
+            >
+              {t(locale, "my_resume")}
+            </MagneticButton>
+            
+            <MagneticButton 
+              onClick={scrollToContent} 
+              variant="outline"
+              icon={ArrowRight}
+            >
+              Explore Projects
+            </MagneticButton>
+          </motion.div>
+        </motion.div>
       </div>
 
-      <div className={styles.heroContent}>
-        <Image
-          src={`/${author.image}`}
-          alt={author.name}
-          width={150}
-          height={150}
-          className={styles.avatar}
-          priority
-        />
-
-        <p className={styles.greeting}>{author.greeting}</p>
-        <h1 className={styles.name}>
-          <span className={styles.nameAccent}>{author.name}</span>
-        </h1>
-
-        <div className={styles.typewriter}>
-          {displayText}
-          <span className={styles.cursor} />
+      <motion.button 
+        className={styles.scrollIndicator} 
+        onClick={scrollToContent}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+      >
+        <div className={styles.mouse}>
+          <div className={styles.wheel} />
         </div>
-
-        <div className={styles.heroActions}>
-          <a
-            href={resumeUrls[locale] || resumeUrls.en}
-            className="btn btn-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FileText size={16} />
-            {t(locale, "my_resume")}
-          </a>
-          <button
-            className="btn btn-outline"
-            onClick={scrollToContent}
-            style={{ color: "#fff", borderColor: "rgba(255,255,255,0.3)" }}
-          >
-            {t(locale, "contact_me")}
-          </button>
-        </div>
-      </div>
-
-      <button className={styles.scrollIndicator} onClick={scrollToContent}>
-        <ChevronDown size={32} />
-      </button>
+      </motion.button>
     </section>
   );
 }
