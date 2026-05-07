@@ -1,0 +1,47 @@
+1:"$Sreact.fragment"
+2:I[22016,["/pr-preview/pr-24/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-24/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-24/_next/static/chunks/0d3shmwh5_nmn.js","/pr-preview/pr-24/_next/static/chunks/079vlxutsb4.9.js","/pr-preview/pr-24/_next/static/chunks/02kpv-2fcd-uc.js"],""]
+8:I[84997,["/pr-preview/pr-24/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-24/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-24/_next/static/chunks/0d3shmwh5_nmn.js","/pr-preview/pr-24/_next/static/chunks/079vlxutsb4.9.js","/pr-preview/pr-24/_next/static/chunks/02kpv-2fcd-uc.js"],"default"]
+9:I[97367,["/pr-preview/pr-24/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-24/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-24/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+:HL["/pr-preview/pr-24/_next/static/chunks/150triunle-7s.css","style"]
+3:Tc99,
+<h2>ENSTRAID : Transformer l'avenir de la mobilité</h2>
+
+<p>ENSTRAID est une association innovante dirigée par des étudiants de l'ENSTA Paris, spécialisée dans le rétrofit des véhicules thermiques pour les transformer en véhicules 100% électriques. Notre projet phare consiste à convertir une Peugeot 205 classique en véhicule entièrement électrique, démontrant ainsi le potentiel des solutions énergétiques vertes dans le secteur automobile. Cette initiative contribue non seulement à la transition écologique, mais offre également aux étudiants une expérience pratique en ingénierie.</p>
+
+<p>En tant que <strong>Trésorier</strong> d'ENSTRAID lors de sa fondation, j'ai supervisé la gestion financière et veillé à ce que le projet respecte le budget tout en obtenant les financements nécessaires. Nous avons réussi à récolter <strong>10 000 €</strong>, principalement auprès des alumni d'ENSTA et de l'IP Paris, ce qui a été essentiel pour faire avancer le projet.</p>
+
+<p>Grâce à la collaboration avec des partenaires et des étudiants, ENSTRAID incarne une approche pratique de la durabilité et de l'expertise technique, contribuant activement à réduire l'impact environnemental des véhicules anciens.</p>
+
+<p>Pour plus de détails, vous pouvez consulter nos progrès et réalisations :</p>
+<ul><li><a href="https://www.ensta.org/fr/news/retrofit-transformer-une-peugeot-205-thermique-en-vehicule-100-electrique-537" target="_blank" rel="noopener noreferrer">Rétrofitting d'une Peugeot 205 en véhicule 100% électrique</a></li>
+<li><a href="https://www.ensta-paris.fr/fr/enstraid-transition-ecologique-sur-bonne-voie" target="_blank" rel="noopener noreferrer">Le rôle d'ENSTRAID dans la transition écologique à l'ENSTA Paris</a></li>
+</ul>
+<h2>Quelques photos</h2>
+
+<img src="/images/posts/ensta-enstraid/peugeot205.jpg" alt="Peugeot 205 avant le rétrofit" loading="lazy" />
+<p><em>La Peugeot 205 avant la conversion électrique.</em></p>
+
+<img src="/images/posts/ensta-enstraid/motor.jpg" alt="Étudiants de l'ENSTA travaillant sur le projet" loading="lazy" />
+<p><em>Installation du moteur pour la conversion électrique du véhicule.</em></p>
+
+<hr />
+
+<h2><strong>Mise à jour (2024-12-05) : Véhicule final et vidéo</strong></h2>
+
+<p>Nous sommes ravis d'annoncer l'achèvement de notre projet ! La Peugeot 205 convertie est désormais entièrement fonctionnelle en tant que véhicule électrique. Ce jalon représente des mois d'efforts, de collaboration et de résolution de problèmes par l'équipe d'ENSTRAID.</p>
+
+<p>Pour présenter la version finale, nous avons créé une vidéo résumant le parcours de conversion de la Peugeot 205. Découvrez-la ci-dessous :</p>
+
+<p><div style="display: flex; justify-content: center;"></p>
+<p><iframe src="https://www.instagram.com/p/DDweLFRI8Gf/embed" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true" style="border:1px solid var(--border-color); border-radius:var(--radius-lg);"></iframe></p>
+</div>
+
+<p>Cette vidéo met en lumière le processus d'ingénierie, les défis et le succès de cet incroyable projet. Merci à tous ceux qui ont soutenu ENSTRAID tout au long du chemin !</p>
+
+<hr />0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/fr/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Retour au Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"ENSTRAID"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"10 octobre 2024"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","Rétrofit",{"className":"tag","children":"Rétrofit"}],["$","span","Véhicules Électriques",{"className":"tag","children":"Véhicules Électriques"}],["$","span","Durabilité",{"className":"tag","children":"Durabilité"}],["$","span","Ingénierie",{"className":"tag","children":"Ingénierie"}],["$","span","Association Étudiante",{"className":"tag","children":"Association Étudiante"}],["$","span","ENSTA Paris",{"className":"tag","children":"ENSTA Paris"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"LomnyJxHPxhCrDAszPAFV"}
+4:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"Commentaires"}],["$","$L8",null,{"locale":"fr"}]]}]
+5:["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-24/_next/static/chunks/150triunle-7s.css","precedence":"next"}]
+6:["$","script","script-0",{"src":"/pr-preview/pr-24/_next/static/chunks/02kpv-2fcd-uc.js","async":true}]
+7:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

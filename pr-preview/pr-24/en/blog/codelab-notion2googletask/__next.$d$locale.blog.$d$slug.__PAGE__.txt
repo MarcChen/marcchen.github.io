@@ -1,0 +1,113 @@
+1:"$Sreact.fragment"
+2:I[22016,["/pr-preview/pr-24/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-24/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-24/_next/static/chunks/0d3shmwh5_nmn.js","/pr-preview/pr-24/_next/static/chunks/079vlxutsb4.9.js","/pr-preview/pr-24/_next/static/chunks/02kpv-2fcd-uc.js"],""]
+8:I[84997,["/pr-preview/pr-24/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-24/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-24/_next/static/chunks/0d3shmwh5_nmn.js","/pr-preview/pr-24/_next/static/chunks/079vlxutsb4.9.js","/pr-preview/pr-24/_next/static/chunks/02kpv-2fcd-uc.js"],"default"]
+9:I[97367,["/pr-preview/pr-24/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-24/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-24/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+:HL["/pr-preview/pr-24/_next/static/chunks/150triunle-7s.css","style"]
+3:T15dd,
+<h1>Introducing Notion2GoogleTasks: Automate Your Task Management Across Platforms</h1>
+
+<p>In today’s fast-paced world, managing your tasks across multiple tools can feel like a juggling act. That’s why I created <strong>Notion2GoogleTasks</strong>—a powerful microservice that bridges the gap between Notion and Google Tasks, ensuring your task lists are always in sync and up-to-date, no matter which platform you’re using.</p>
+
+<p>Imagine never having to worry about whether your completed tasks in Notion are reflected in Google Tasks, or vice versa. With Notion2GoogleTasks, you get <strong>two-way synchronization</strong> that works on your schedule—whether you’re using GitHub Actions, cron jobs, or any other runner—so you can focus on what matters most: getting things done.</p>
+
+<h2>Why Notion2GoogleTasks?</h2>
+
+<p>There are several reasons why I built this project:</p>
+
+<ul><li><strong>Seamless Integration:</strong> Whether you prefer the flexibility of Notion or the simplicity of Google Tasks, our tool ensures both platforms are always in harmony.</li>
+<li><strong>Automated Scheduling:</strong> Set it and forget it! The synchronization process can run at scheduled intervals, so you always have the latest updates without manual intervention.</li>
+<li><strong>Flexible & Extensible:</strong> Designed with customization in mind, you can tailor the configuration to suit your personal workflow.</li>
+</ul>
+<p>By automating task management, Notion2GoogleTasks helps reduce friction in your daily planning and ensures nothing slips through the cracks.</p>
+
+<h2>How It Works</h2>
+
+<p>At its core, Notion2GoogleTasks performs a series of smart synchronization operations between Notion and Google Tasks. Here’s a high-level overview of one of the core workflows:</p>
+
+<h3>Google to Notion Sync Diagram</h3>
+
+<p>{{< mermaid align="center">}}</p>
+<p>graph TD</p>
+
+<p>A((Start Sync Process)) --> B[Retrieve Google Tasklists]</p>
+<p>B --> C[Iterate over Tasklists]</p>
+<p>C --> D[Process Tasks for Sync]</p>
+<p>D --> TASK1[Retrieve completed tasks since last execution]</p>
+<p>D --> TASK2[Retrieve created tasks since last execution]</p>
+<p>D --> TASK3[Retrieve IDs from Active Google Tasks]</p>
+<p>DB1[(Github API)] --> DB2[Retrieve last Successful Workflow run]</p>
+<p>DB2 --> TASK1</p>
+<p>DB2 --> TASK2</p>
+<p>TASK1 --> TASK11[Mark Notion page as Done]</p>
+<p>TASK11 --> X{More tasks?}</p>
+<p>TASK2 --> TASK21[Create Notion Page]</p>
+<p>TASK21 --> TASK211[Retrieve ID from created page]</p>
+<p>TASK211 --> TASK2111[Rename Google Tasks]</p>
+<p>TASK2111 --> X</p>
+<p>TASK3 --> TASK31{Are they marked as Done in Notion?}</p>
+<p>TASK31 --> |Yes| TASK311[Mark Task as completed in Google Tasks]</p>
+<p>TASK31 --> |No| TASK312[Skip & log skipped task]</p>
+<p>TASK311 --> X</p>
+<p>TASK312 --> X</p>
+<p>X --> |Yes| D</p>
+<p>X --> |No| Y{More task lists?}</p>
+<p>Y --> |Yes| C</p>
+<p>Y --> |No| Z((End of Sync))</p>
+<p>{{< /mermaid >}}</p>
+
+<p>In this process, the tool retrieves tasks from Google, identifies changes since the last run, and ensures that any completed or new tasks are properly reflected in Notion.</p>
+
+<h3>Notion to Google Sync Diagram</h3>
+
+<p>{{< mermaid align="center">}}</p>
+<p>graph TD</p>
+
+<p>A1[Retrieve Notion Pages] --> B1{Pages Retrieved?}</p>
+<p>B1 -->|No| D1[Log Error & Exit]</p>
+<p>B1 -->|Yes| E1[Parse Notion Pages]</p>
+<p>E1 --> F1[Fetch Google Task Lists]</p>
+<p>F1 --> G1[Initialize Progress Bar]</p>
+<p>G1 --> H1[Iterate Over Parsed Pages]</p>
+<p>H1 --> I1{Task Exists in Google Tasks?}</p>
+<p>I1 -->|Yes| J1[Log & Skip Page]</p>
+<p>I1 -->|No| K1[Ensure Task List Exists]</p>
+<p>K1 --> L1{Error Ensuring Task List?}</p>
+<p>L1 -->|Yes| M1[Create a new tasklist based on page tag]</p>
+<p>L1 -->|No| N1[Build Task Description]</p>
+<p>M1 --> N1</p>
+<p>N1 --> O1{Error Building Description?}</p>
+<p>O1 -->|Yes| P1[Log Error & Skip Page]</p>
+<p>O1 -->|No| newLines1[Create Task in Google Tasks]</p>
+<p>newLines1 --> R1{Error Creating Task?}</p>
+<p>R1 -->|Yes| S1[Log Error & Skip]</p>
+<p>R1 -->|No| T1[Log Success]</p>
+<p>J1 --> U1[Update Progress Bar]</p>
+<p>P1 --> U1</p>
+<p>S1 --> U1</p>
+<p>T1 --> U1</p>
+<p>U1 --> V1{More Pages?}</p>
+<p>V1 -->|Yes| H1</p>
+<p>V1 -->|No| W1[Sync Completed]</p>
+<p>{{< /mermaid >}}</p>
+
+<p>This diagram outlines how Notion pages are processed—if a page doesn’t already have a corresponding Google Task, one is created. Every step is logged, ensuring that you have complete visibility into the synchronization process.</p>
+
+<h2>Get Involved</h2>
+
+<p>Notion2GoogleTasks is open source, and I built it to help simplify the task management process for busy professionals and teams alike. If you’re interested in automating your workflow across Notion and Google Tasks, check out the full repository for more details, configuration options, and contribution guidelines:</p>
+
+<p><a href="https://github.com/MarcChen/Notion2GoogleTasks" target="_blank" rel="noopener noreferrer">Visit the Notion2GoogleTasks GitHub Repository</a></p>
+
+<p>Feel free to fork the project, open issues, or even contribute a pull request. Your feedback and contributions are what make this project even better.</p>
+
+<h2>Conclusion</h2>
+
+<p>Managing tasks shouldn’t slow you down. With Notion2GoogleTasks, you have a robust solution that seamlessly synchronizes your task lists between Notion and Google Tasks—keeping you focused on what really matters. Whether you’re a solo professional or part of a larger team, this tool is designed to bring efficiency and clarity to your daily workflow.</p>
+
+<p>Happy task managing!</p>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/en/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Back to Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Notion2GoogleTask"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"January 9, 2025"}]}],"$undefined"]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"LomnyJxHPxhCrDAszPAFV"}
+4:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"Comments"}],["$","$L8",null,{"locale":"en"}]]}]
+5:["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-24/_next/static/chunks/150triunle-7s.css","precedence":"next"}]
+6:["$","script","script-0",{"src":"/pr-preview/pr-24/_next/static/chunks/02kpv-2fcd-uc.js","async":true}]
+7:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null
