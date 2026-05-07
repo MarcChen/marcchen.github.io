@@ -1,0 +1,96 @@
+1:"$Sreact.fragment"
+2:I[79520,["/_next/static/chunks/0-yqne7ddqyyo.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js"],""]
+3:I[70752,["/_next/static/chunks/0-yqne7ddqyyo.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+4:I[39756,["/_next/static/chunks/0-yqne7ddqyyo.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+5:I[37457,["/_next/static/chunks/0-yqne7ddqyyo.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+d:I[68027,["/_next/static/chunks/0-yqne7ddqyyo.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default",1]
+:HL["/_next/static/chunks/03ytk777_seq..css","style"]
+:HL["/_next/static/chunks/034e093prbb8k.css","style"]
+:HL["/_next/static/media/0c89a48fa5027cee-s.p.0rd3rjvnnhw7n.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/1bffadaabf893a1e-s.p.16ipb6fqu393i.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/70bc3e132a0a741e-s.p.1409xf.ylxg8g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/150triunle-7s.css","style"]
+6:T5cb,
+            (function (C, A, L) {
+              let p = function (a, ar) { a.q.push(ar); };
+              let d = C.document;
+              C.Cal = C.Cal || function () {
+                let cal = C.Cal;
+                let ar = arguments;
+                if (!cal.loaded) {
+                  cal.ns = {};
+                  cal.q = cal.q || [];
+                  d.head.appendChild(d.createElement("script")).src = A;
+                  cal.loaded = true;
+                }
+                if (ar[0] === L) {
+                  const api = function () { p(api, arguments); };
+                  const namespace = ar[1];
+                  api.q = api.q || [];
+                  if (typeof namespace === "string") {
+                    cal.ns[namespace] = cal.ns[namespace] || api;
+                    p(cal.ns[namespace], ar);
+                    p(cal, ["initNamespace", namespace]);
+                  } else p(cal, ar);
+                  return;
+                }
+                p(cal, ar);
+              };
+            })(window, "https://app.cal.com/embed/embed.js", "init");
+            Cal("init", "30min", { origin: "https://app.cal.com" });
+            Cal.ns["30min"]("floatingButton", {
+              calLink: "marc-chen/30min",
+              config: { layout: "month_view" },
+              buttonText: "Book a call",
+            });
+            Cal.ns["30min"]("ui", {
+              hideEventTypeDetails: false,
+              layout: "month_view",
+            });
+          0:{"P":null,"c":["","zh-cn","blog","codelab-bus-countdown-timer",""],"q":"","i":false,"f":[[["",{"children":[["locale","zh-cn","d",null],{"children":["blog",{"children":[["slug","codelab-bus-countdown-timer","d",null],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/03ytk777_seq..css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0-yqne7ddqyyo.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/06zcr3_dpxdcc.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0d3shmwh5_nmn.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"className":"inter_991aebb-module__bYvC1W__variable space_grotesk_e6988195-module__RNs2Mq__variable jetbrains_mono_f8290d5a-module__2Nw1lG__variable","children":[["$","head",null,{}],["$","body",null,{"style":{"fontFamily":"var(--font-sans)"},"children":[["$","$L2",null,{"src":"/theme-init.js","strategy":"beforeInteractive"}],["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$L2",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-W2DZCT2HCH","strategy":"afterInteractive"}],["$","$L2",null,{"id":"google-analytics","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-W2DZCT2HCH');\n          "}],["$","$L2",null,{"id":"statcounter","strategy":"afterInteractive","children":"\n            var sc_project=13085075;\n            var sc_invisible=1;\n            var sc_security=\"0795b862\";\n          "}],["$","$L2",null,{"src":"https://www.statcounter.com/counter/counter.js","strategy":"afterInteractive"}],["$","$L2",null,{"id":"cal-embed","strategy":"afterInteractive","children":"$6"}]]}]]}]]}],{"children":["$L7",{"children":["$L8",{"children":["$L9",{"children":["$La",{},null,false,null]},null,false,"$@b"]},null,false,"$@b"]},null,false,null]},null,false,null],"$Lc",false]],"m":"$undefined","G":["$d",["$Le"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"GNB53NkyL8_7fQQjoIwhz"}
+11:I[97367,["/_next/static/chunks/0-yqne7ddqyyo.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+12:"$Sreact.suspense"
+15:I[97367,["/_next/static/chunks/0-yqne7ddqyyo.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"ViewportBoundary"]
+17:I[97367,["/_next/static/chunks/0-yqne7ddqyyo.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"MetadataBoundary"]
+7:["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/034e093prbb8k.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/079vlxutsb4.9.js","async":true,"nonce":"$undefined"}]],"$Lf"]}]
+8:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+9:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+a:["$","$1","c",{"children":["$L10",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/150triunle-7s.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/02kpv-2fcd-uc.js","async":true,"nonce":"$undefined"}]],["$","$L11",null,{"children":["$","$12",null,{"name":"Next.MetadataOutlet","children":"$@13"}]}]]}]
+14:[]
+b:"$W14"
+c:["$","$1","h",{"children":[null,["$","$L15",null,{"children":"$L16"}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$12",null,{"name":"Next.Metadata","children":"$L18"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/03ytk777_seq..css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+19:I[3265,["/_next/static/chunks/0-yqne7ddqyyo.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/079vlxutsb4.9.js"],"default"]
+1a:I[58234,["/_next/static/chunks/0-yqne7ddqyyo.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/079vlxutsb4.9.js"],"default"]
+1b:I[22016,["/_next/static/chunks/0-yqne7ddqyyo.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/079vlxutsb4.9.js","/_next/static/chunks/02kpv-2fcd-uc.js"],""]
+1d:I[84997,["/_next/static/chunks/0-yqne7ddqyyo.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/079vlxutsb4.9.js","/_next/static/chunks/02kpv-2fcd-uc.js"],"default"]
+f:[["$","$L19",null,{"locale":"zh-cn","sections":[{"id":"about","name":"关于","weight":1,"showOnNavbar":true},{"id":"skills","name":"技能","weight":2,"showOnNavbar":true},{"id":"experiences","name":"工作经历","weight":3,"showOnNavbar":true},{"id":"education","name":"教育经历","weight":4,"showOnNavbar":true},{"id":"projects","name":"Projects","weight":5,"showOnNavbar":true},{"id":"accomplishments","name":"成就","weight":6,"showOnNavbar":true},{"id":"featured-posts","name":"精选文章","weight":7,"showOnNavbar":true},{"id":"achievements","name":"成就","weight":8,"showOnNavbar":true}],"siteName":"陈马克"}],["$","main",null,{"children":["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L1a",null,{"locale":"zh-cn","author":{"name":"陈马克","nickname":"马克","greeting":"你好，我是","image":"images/author/marc.png","contactInfo":{"email":"marc.chen@ensta-paris.fr","github":"MarcChen","linkedin":"chen-marc"},"summary":["很高兴见到你！","我是一名数据工程师。","欢迎来到我的页面。","请随时联系我！"]},"sections":"$f:0:props:sections"}]]
+1c:T931,
+<h2>公交车站项目：通过物联网改善公共交通</h2>
+
+<p><strong>公交车站项目</strong>最初是我在巴黎-萨克雷大学学习时为解决个人问题而设计的。当时，校园中只有公交车能在各个地点之间往返，而我经常在玛格丽特·佩里广场（Place Marguerite Pery）的公交车站（位于巴黎电信学院前）等车，却无法得知公交车的预计到达时间（ETA）。为了知道什么时候离开家前往车站，我每次都得先在手机上查一下公交车时刻表。这促使我产生了设计一个能够提供实时公交车到达时间的系统的想法，使我的出行更加可预测和高效。</p>
+
+<p>该项目专注于为我本地的公交车站开发一个物联网系统，旨在提供实时公交车到达信息，帮助更好地规划出行。主要的挑战并不是API的集成，因为RATP的API文档非常完善，而是如何将ESP32微控制器连接到我学生宿舍的公共Wi-Fi网络。该Wi-Fi网络有一个门户页面登录步骤，这使得连接变得复杂。我使用<strong>Wireshark</strong>来捕捉电脑连接到门户页面时的网络通信数据，并在ESP32上复制了相同的过程，成功连接了Wi-Fi。</p>
+
+<h2>开发概览</h2>
+
+<p>该项目包括多个组件：</p>
+<ul><li><strong>API集成</strong>：最初，我们通过<strong>RATP API</strong>模拟了实时数据来获取公交车到达时间，未来可以替换为来自真实公交车站的传感器数据。</li>
+<li><strong>数据处理</strong>：收集的数据经过处理，用于预测公交车的到达时间。我们还设计了一个倒计时机制，以减少API请求的频率，从而优化电量消耗。</li>
+</ul>
+<h2>主要贡献</h2>
+
+<p>1. <strong>电量优化</strong>：一项关键的改进是实施了一个倒计时机制来有效管理API请求，减少不必要的电量消耗。</p>
+
+<h2>未来潜力</h2>
+
+<p>未来的一个改进方向是实现一个时间表，自动在工作时间关闭系统，因为此时系统不会被使用。这样可以确保电力只在系统实际提供信息时消耗。</p>
+
+<p>如需更多详细信息，您可以关注我们项目的进展：</p>
+<ul><li><a href="https://github.com/MarcChen/affichage-temps-bus-ratp" target="_blank" rel="noopener noreferrer">项目在Github上提供</a></li>
+</ul>10:["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L1b",null,{"href":"/zh-cn/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← 返回博客"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"公交倒计时器"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"2024年10月10日"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","物联网",{"className":"tag","children":"物联网"}],["$","span","公共交通",{"className":"tag","children":"公共交通"}],["$","span","ESP32",{"className":"tag","children":"ESP32"}],["$","span","API集成",{"className":"tag","children":"API集成"}],["$","span","电量优化",{"className":"tag","children":"电量优化"}],["$","span","Wi-Fi",{"className":"tag","children":"Wi-Fi"}],["$","span","智慧城市",{"className":"tag","children":"智慧城市"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$1c"}}],["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"评论"}],["$","$L1d",null,{"locale":"zh-cn"}]]}]]}]}]
+16:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1e:I[27201,["/_next/static/chunks/0-yqne7ddqyyo.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"IconMark"]
+13:null
+18:[["$","title","0",{"children":"陈马克 — Data Engineer & AI/ML Engineer"}],["$","meta","1",{"name":"description","content":"马克·陈的个人作品集和博客。"}],["$","link","2",{"rel":"canonical","href":"https://marcchen.github.io/zh-cn/"}],["$","meta","3",{"property":"og:title","content":"陈马克 — Data Engineer & AI/ML Engineer"}],["$","meta","4",{"property":"og:description","content":"马克·陈的个人作品集和博客。"}],["$","meta","5",{"property":"og:url","content":"https://marcchen.github.io/zh-cn/"}],["$","meta","6",{"property":"og:site_name","content":"陈马克"}],["$","meta","7",{"property":"og:locale","content":"zh_CN"}],["$","meta","8",{"property":"og:type","content":"website"}],["$","meta","9",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","10",{"name":"twitter:title","content":"陈马克 — Data Engineer & AI/ML Engineer"}],["$","meta","11",{"name":"twitter:description","content":"马克·陈的个人作品集和博客。"}],["$","link","12",{"rel":"icon","href":"/images/site/favicon.png"}],["$","$L1e","13",{}]]
