@@ -8,6 +8,7 @@ import GlassCard from "@/components/ui/GlassCard";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import type { AboutSection } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
+import { assetPath } from "@/lib/paths";
 import styles from "@/styles/components/About.module.css";
 import MagneticButton from "@/components/ui/MagneticButton";
 
@@ -48,9 +49,9 @@ export default function About({ data, alternate, locale }: AboutProps) {
         {/* Large Profile Bento Card */}
         <GlassCard className={styles.profileCard} delay={0.1}>
           <div className={styles.imageOverlay}>
-               <Image
-                 src="/images/author/marc.png"
-                 alt="Marc Chen"
+<Image
+                  src={assetPath("/images/author/marc.png")}
+                  alt="Marc Chen"
                  width={100}
                  height={100}
                  className={styles.avatarImage}

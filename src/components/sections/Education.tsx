@@ -8,6 +8,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import type { EducationSection, Degree } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
+import { assetPath } from "@/lib/paths";
 import { t } from "@/lib/i18n";
 import styles from "@/styles/components/Education.module.css";
 
@@ -66,7 +67,7 @@ function DegreeCard({ degree, locale, index }: { degree: Degree; locale: Locale;
           {degree.institution.logo && (
             <div className={styles.logoWrapper}>
               <Image
-                src={degree.institution.logo}
+                src={assetPath(degree.institution.logo)}
                 alt={degree.institution.name}
                 width={56}
                 height={56}

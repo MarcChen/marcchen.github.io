@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { isValidLocale, type Locale, locales } from "@/lib/i18n";
 import { t } from "@/lib/i18n";
+import { assetPath } from "@/lib/paths";
 import { getAllPosts } from "@/lib/mdx";
 import styles from "@/styles/components/Posts.module.css";
 
@@ -29,10 +30,10 @@ export default async function BlogPage({ params }: BlogPageProps) {
 
         <div className={styles.postsGrid}>
           {posts.map((post) => {
-            const heroUrl = post.hero?.startsWith("http") || post.hero?.startsWith("/") 
-              ? post.hero 
-              : post.hero 
-                ? `/images/posts/${post.slug}/${post.hero}` 
+            const heroUrl = post.hero?.startsWith("http") || post.hero?.startsWith("/")
+              ? assetPath(post.hero)
+              : post.hero
+                ? assetPath(`/images/posts/${post.slug}/${post.hero}`) 
                 : null;
 
             return (

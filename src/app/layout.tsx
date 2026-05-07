@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import Script from "next/script";
 import CursorGlow from "@/components/layout/CursorGlow";
+import { assetPath } from "@/lib/paths";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   description:
     "Portfolio and personal blog of Marc Chen. Data Engineer, AI & ML Engineer, with expertise in Google Cloud, Python, and modern data stack.",
   icons: {
-    icon: "/images/site/favicon.png",
+    icon: assetPath("/images/site/favicon.png"),
   },
   openGraph: {
     title: "Marc Chen — Data Engineer & AI/ML Engineer",
