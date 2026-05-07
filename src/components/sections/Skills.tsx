@@ -18,6 +18,10 @@ interface SkillsProps {
 export default function Skills({ data, alternate }: SkillsProps) {
   const [activeFilter, setActiveFilter] = useState("all");
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [focusedSkill, setFocusedSkill] = useState<string | null>(null);
+
+  const isSkillActive = (name: string) =>
+    hoveredSkill === name || focusedSkill === name;
 
   const filtered =
     activeFilter === "all"
@@ -66,6 +70,7 @@ export default function Skills({ data, alternate }: SkillsProps) {
 
             const isHovered = hoveredSkill === skill.name;
             const isDimmed = hoveredSkill && hoveredSkill !== skill.name;
+            const isActive = isSkillActive(skill.name);
 
             return (
               <motion.div
@@ -83,7 +88,13 @@ export default function Skills({ data, alternate }: SkillsProps) {
                 onHoverStart={() => setHoveredSkill(skill.name)}
                 onHoverEnd={() => setHoveredSkill(null)}
               >
-                <Wrapper className={styles.skillPill} {...wrapperProps}>
+                <Wrapper
+                  className={styles.skillPill}
+                  tabIndex={0}
+                  onFocus={() => setFocusedSkill(skill.name)}
+                  onBlur={() => setFocusedSkill(null)}
+                  {...wrapperProps}
+                >
                   <div className={styles.skillIconWrapper}>
                     <Image
                       src={skill.logo}
@@ -98,7 +109,7 @@ export default function Skills({ data, alternate }: SkillsProps) {
 
                 {/* Tooltip Card */}
                 <AnimatePresence>
-                  {isHovered && (
+                  {isActive && (
                     <motion.div
                       initial={{ opacity: 0, y: 10, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}

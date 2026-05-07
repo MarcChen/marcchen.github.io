@@ -12,9 +12,9 @@
   flex-direction: column;
 }
 
-.headingOverride {
-  margin-bottom: 0 !important;
-  text-align: left !important;
+.headingOverride.headingOverride {
+  margin-bottom: 0;
+  text-align: left;
 }
 
 .magazineGrid {

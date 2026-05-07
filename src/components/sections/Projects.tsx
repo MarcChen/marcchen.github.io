@@ -10,6 +10,7 @@ import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import MagneticButton from "@/components/ui/MagneticButton";
 import type { ProjectsSection } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
+import { t } from "@/lib/i18n";
 import filterStyles from "@/styles/components/Skills.module.css";
 import styles from "@/styles/components/Projects.module.css";
 
@@ -19,7 +20,7 @@ interface ProjectsProps {
   alternate?: boolean;
 }
 
-export default function Projects({ data, alternate }: ProjectsProps) {
+export default function Projects({ locale, data, alternate }: ProjectsProps) {
   const [activeFilter, setActiveFilter] = useState("all");
 
   const filtered =
@@ -33,7 +34,7 @@ export default function Projects({ data, alternate }: ProjectsProps) {
   return (
     <SectionWrapper id={data.section.id} alternate={alternate}>
       <div className={styles.sectionHeader}>
-        <span className="section-label">05. Work</span>
+        <span className="section-label">{t(locale, "section_work_label")}</span>
         <AnimatedHeading title={data.section.name} />
       </div>
 
@@ -89,7 +90,7 @@ export default function Projects({ data, alternate }: ProjectsProps) {
                         </div>
                       )}
                       <div>
-                        <span className={styles.featuredBadge}>Featured Project</span>
+                        <span className={styles.featuredBadge}>{t(locale, "featured_project")}</span>
                         <h3 className={styles.featuredTitle}>{featuredProject.name}</h3>
                       </div>
                     </div>
@@ -97,7 +98,7 @@ export default function Projects({ data, alternate }: ProjectsProps) {
                     <p className={styles.featuredSummary}>{featuredProject.summary}</p>
                     
                     <div className={styles.featuredMeta}>
-                       <span className={styles.metaLabel}>Role</span>
+                       <span className={styles.metaLabel}>{t(locale, "role_label")}</span>
                        <span className={styles.metaValue}>{featuredProject.role}</span>
                        <span className={styles.metaDivider}>•</span>
                        <span className={styles.metaValue}>{featuredProject.timeline}</span>
@@ -114,12 +115,12 @@ export default function Projects({ data, alternate }: ProjectsProps) {
                     <div className={styles.featuredActions}>
                       {featuredProject.url && (
                         <MagneticButton href={featuredProject.url} target="_blank" icon={ArrowUpRight}>
-                          Live Preview
+                          {t(locale, "live_preview")}
                         </MagneticButton>
                       )}
                       {featuredProject.repo && (
                         <MagneticButton href={featuredProject.repo} variant="outline" target="_blank" icon={GithubIcon}>
-                          Source Code
+                          {t(locale, "source_code")}
                         </MagneticButton>
                       )}
                     </div>
@@ -208,7 +209,7 @@ export default function Projects({ data, alternate }: ProjectsProps) {
               exit={{ opacity: 0 }}
               className={styles.emptyState}
             >
-              <p>No projects found for the selected filter.</p>
+              <p>{t(locale, "no_projects")}</p>
             </motion.div>
           )}
         </AnimatePresence>

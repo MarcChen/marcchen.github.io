@@ -18,18 +18,31 @@ export default function Hero({ locale, author }: HeroProps) {
   const summaryLines = author.summary || ["Data Engineer", "AI/ML Enthusiast", "Problem Solver"];
   const [currentLine, setCurrentLine] = useState(0);
 
-  // Cycle through summary lines
+  // Cycle through summary lines, pausing when tab is hidden
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentLine((prev) => (prev + 1) % summaryLines.length);
     }, 4000);
-    return () => clearInterval(interval);
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        clearInterval(interval);
+      } else {
+        setCurrentLine((prev) => (prev + 1) % summaryLines.length);
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
   }, [summaryLines.length]);
 
-  const scrollToContent = () => {
-    const firstSection = document.querySelector(".section");
-    if (firstSection) {
-      firstSection.scrollIntoView({ behavior: "smooth" });
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById("projects");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -78,7 +91,7 @@ export default function Hero({ locale, author }: HeroProps) {
           </motion.h1>
 
           <motion.div variants={itemVariants} className={styles.roleContainer}>
-            <span className={styles.rolePrefix}>Specialize in </span>
+            <span className={styles.rolePrefix}>{t(locale, "specialize_in")}</span>
             <div className={styles.roleCycler}>
               <AnimatePresence mode="popLayout">
                 <motion.span
@@ -96,17 +109,17 @@ export default function Hero({ locale, author }: HeroProps) {
             </div>
           </motion.div>
 
-          <motion.p variants={itemVariants} className={styles.shortBio}>
-             Bridging the gap between raw data and actionable intelligence. Turning complex models into scalable systems.
-          </motion.p>
+<motion.p variants={itemVariants} className={styles.shortBio}>
+             {t(locale, "hero_bio")}
+           </motion.p>
 
           <motion.div variants={itemVariants} className={styles.heroActions}>
             <MagneticButton 
-              onClick={scrollToContent} 
+              onClick={scrollToProjects} 
               variant="outline"
               icon={ArrowRight}
             >
-              Explore Projects
+              {t(locale, "explore_projects")}
             </MagneticButton>
           </motion.div>
         </motion.div>
@@ -114,7 +127,7 @@ export default function Hero({ locale, author }: HeroProps) {
 
       <motion.button 
         className={styles.scrollIndicator} 
-        onClick={scrollToContent}
+        onClick={scrollToProjects}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}

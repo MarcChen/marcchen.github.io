@@ -33,8 +33,8 @@ export default function Footer({ locale, author, sections }: FooterProps) {
           <div className={styles.ctaCard}>
             <div className={styles.ctaContent}>
               <AnimatedHeading 
-                title="Let's build something great"
-                subtitle="Open for new opportunities, consulting, and collaboration."
+                title={t(locale, "cta_heading")}
+                subtitle={t(locale, "cta_subheading")}
                 className={styles.ctaHeadingOverride}
               />
               
@@ -43,7 +43,7 @@ export default function Footer({ locale, author, sections }: FooterProps) {
                   <button 
                     onClick={handleCopyEmail}
                     className="btn btn-primary"
-                    aria-label="Copy Email"
+                    aria-label={t(locale, "copy_email")}
                   >
                     <span>{author.contactInfo.email}</span>
                     <Copy size={16} />
@@ -57,7 +57,7 @@ export default function Footer({ locale, author, sections }: FooterProps) {
                   rel="noopener noreferrer"
                 >
                   <Plus size={16} />
-                  <span>Book a call</span>
+                  <span>{t(locale, "book_a_call")}</span>
                 </a>
               </div>
             </div>

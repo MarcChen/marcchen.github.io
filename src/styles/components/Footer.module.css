@@ -48,12 +48,12 @@
   flex: 1;
 }
 
-.ctaHeadingOverride {
-  margin-bottom: var(--space-8) !important;
-  text-align: left !important;
+.ctaHeadingOverride.ctaHeadingOverride {
+  margin-bottom: var(--space-8);
+  text-align: left;
 }
 .ctaHeadingOverride h2 {
-  justify-content: flex-start !important;
+  justify-content: flex-start;
 }
 
 .actionRow {
@@ -176,11 +176,11 @@
     padding: var(--space-8) var(--space-6);
   }
   
-  .ctaHeadingOverride {
-    text-align: center !important;
+  .ctaHeadingOverride.ctaHeadingOverride {
+    text-align: center;
   }
   .ctaHeadingOverride h2 {
-    justify-content: center !important;
+    justify-content: center;
   }
   
   .actionRow {

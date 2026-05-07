@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, Globe, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { EnabledSection } from "@/lib/data";
-import { locales, localeNames, localeFlags, type Locale } from "@/lib/i18n";
+import { locales, localeNames, localeFlags, type Locale, t } from "@/lib/i18n";
 import styles from "@/styles/components/Navbar.module.css";
 
 interface NavbarProps {
@@ -21,7 +21,10 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("dark");
-  
+
+  const SCROLL_THRESHOLD = 80;
+  const SECTION_DETECT_BUFFER = 200;
+
   const pathname = usePathname();
   const router = useRouter();
   
@@ -47,7 +50,7 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
   // Handle scroll detection for active section and minimised nav
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80);
+      setIsScrolled(window.scrollY > SCROLL_THRESHOLD);
 
       // Simple active section detection
       let current = "";
@@ -55,7 +58,7 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
         const el = document.getElementById(section.id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 200 && rect.bottom >= 200) {
+          if (rect.top <= SECTION_DETECT_BUFFER && rect.bottom >= 200) {
             current = section.id;
             break;
           }
@@ -102,6 +105,7 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
                   key={section.id}
                   className={`${styles.navLink} ${activeSection === section.id ? styles.active : ""}`}
                   onClick={() => scrollToSection(section.id)}
+                  aria-current={activeSection === section.id ? "true" : undefined}
                 >
                   {activeSection === section.id && (
                     <motion.span
@@ -117,7 +121,7 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
                 href={`/${locale}/blog/`}
                 className={styles.navLink}
               >
-                <span className={styles.linkText}>Blog</span>
+                <span className={styles.linkText}>{t(locale, "blog_nav")}</span>
               </Link>
             </nav>
 
@@ -128,7 +132,7 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
                   className={styles.iconBtn}
                   onMouseEnter={() => setIsLangOpen(true)}
                   onClick={() => setIsLangOpen(!isLangOpen)}
-                  aria-label="Switch language"
+                  aria-label={t(locale, "switch_language")}
                 >
                   <Globe size={18} />
                 </button>
@@ -161,7 +165,7 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
               <button
                 className={styles.iconBtn}
                 onClick={toggleTheme}
-                aria-label="Toggle theme"
+                aria-label={t(locale, "toggle_theme")}
               >
                 {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
               </button>
@@ -208,7 +212,7 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
                 className={styles.mobileNavLink}
                 onClick={() => setIsMobileOpen(false)}
               >
-                Blog
+                {t(locale, "blog_nav")}
               </Link>
               
               <div className={styles.mobileDivider} />

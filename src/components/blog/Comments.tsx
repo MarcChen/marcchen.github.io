@@ -8,12 +8,14 @@ interface CommentsProps {
 }
 
 export default function Comments({ locale }: CommentsProps) {
+  const [mounted, setMounted] = useState(false);
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     // Read initial theme
     const currentTheme = document.documentElement.getAttribute("data-theme");
     setTheme(currentTheme === "dark" ? "transparent_dark" : "light");
+    setMounted(true);
 
     // Observe changes to html data-theme attribute
     const observer = new MutationObserver((mutations) => {
@@ -32,6 +34,9 @@ export default function Comments({ locale }: CommentsProps) {
 
     return () => observer.disconnect();
   }, []);
+
+  // Must match server render (ssr:false = null), so skip until mounted
+  if (!mounted) return null;
 
   // Map locale to giscus language
   const langMap: Record<string, string> = {

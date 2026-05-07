@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { motion, useSpring } from "framer-motion";
 
 export default function CursorGlow() {
+  const GLOW_SIZE = 400;
+
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
 
@@ -59,8 +61,8 @@ export default function CursorGlow() {
     >
       <div
         style={{
-          width: "400px",
-          height: "400px",
+          width: `${GLOW_SIZE}px`,
+          height: `${GLOW_SIZE}px`,
           background: "radial-gradient(circle, hsl(var(--accent) / 0.15) 0%, transparent 60%)",
           borderRadius: "50%",
           mixBlendMode: "screen",

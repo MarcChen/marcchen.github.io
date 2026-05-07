@@ -146,6 +146,15 @@
   position: relative;
 }
 
+.langContainer::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: var(--space-2);
+}
+
 .langDropdown {
   position: absolute;
   top: calc(100% + var(--space-2));
@@ -203,7 +212,7 @@
   position: fixed;
   inset: 0;
   background: var(--bg-glass-strong);
-  z-index: calc(var(--z-sticky) - 1);
+  z-index: calc(var(--z-sticky) + 1);
   display: none;
   align-items: center;
   justify-content: center;
