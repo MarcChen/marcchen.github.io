@@ -148,6 +148,7 @@ export default async function HomePage({ params }: PageProps) {
       component: (
         <FeaturedPosts
           key="featured-posts"
+          id={featuredPostsConfig.section.id}
           locale={locale}
           title={featuredPostsConfig.section.name}
           posts={featuredPostsMeta}

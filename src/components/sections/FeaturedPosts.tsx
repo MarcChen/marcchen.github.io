@@ -13,6 +13,7 @@ import styles from "@/styles/components/FeaturedPosts.module.css";
 import MagneticButton from "@/components/ui/MagneticButton";
 
 interface FeaturedPostsProps {
+  id: string;
   locale: Locale;
   posts: PostMeta[];
   title: string;
@@ -20,6 +21,7 @@ interface FeaturedPostsProps {
 }
 
 export default function FeaturedPosts({
+  id,
   locale,
   posts,
   title,
@@ -28,7 +30,7 @@ export default function FeaturedPosts({
   if (!posts || posts.length === 0) return null;
 
   return (
-    <SectionWrapper id="recent-posts" alternate={alternate}>
+    <SectionWrapper id={id} alternate={alternate}>
       <div className={styles.sectionHeader}>
         <div className={styles.headerTitles}>
           <span className="section-label">08. Writing</span>
