@@ -10,35 +10,21 @@ jobs:
     # checkout to the commit that has been pushed
     - uses: actions/checkout@v5
       with:
-        submodules: true  # Fetch Hugo themes (true OR recursive)
-        fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-    
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v3.0.0
-      with:
-        hugo-version: 'latest'
-        extended: true
-
-    - name: Update Hugo Modules
-      run: hugo mod tidy
+        fetch-depth: 0
 
     - name: Setup Node
       uses: actions/setup-node@v5
       with:
-        node-version: 18
+        node-version: 20.9.0
 
     - name: Install node modules
-      run: |
-        hugo mod npm pack
-        npm install
+      run: npm ci
 
     - name: Build
-      run: hugo --minify
+      run: npm run build
 
     # Run HTML Proofer
-    # - uses: anishathalye/proof-html@v2.0.2
-    #   with:
-    #     directory: ./public
-    #     enforce_https: false
-    #     url_ignore: "#"
-    #     url_ignore_re: ^https://www.pexels.com
+    - uses: anishathalye/proof-html@v2.0.2
+      with:
+        directory: ./out
+        enforce_https: false
