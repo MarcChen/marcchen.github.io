@@ -1,0 +1,239 @@
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--space-12);
+}
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* ─── Profile Card (Takes up major space) ─── */
+.profileCard {
+  grid-column: span 2;
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.imageOverlay {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+.avatarImage {
+  border-radius: var(--radius-2xl);
+  border: 4px solid var(--bg-primary);
+  box-shadow: var(--shadow-xl);
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  background: var(--bg-secondary); /* Fallback */
+}
+
+.designation {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-heading);
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-6);
+  display: inline-block;
+}
+
+.socialBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.socialPill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.socialPill:hover {
+  background: hsl(var(--accent)/0.1);
+  color: var(--text-heading);
+  border-color: hsl(var(--accent)/0.3);
+  transform: translateY(-2px);
+}
+
+.socialName {
+  font-family: var(--font-mono);
+}
+
+.summaryText {
+  color: var(--text-body);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  flex-grow: 1;
+}
+
+/* ─── Resources Card ─── */
+.resourceCard {
+  grid-column: span 1;
+}
+
+.resourceList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.resourceLinkBtn {
+  width: 100%;
+  justify-content: flex-start;
+  font-weight: 500;
+}
+
+/* ─── Skills / Languages Card ─── */
+.skillsCard {
+  grid-column: span 1;
+}
+
+.skillsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.skillHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.skillPerc {
+  font-family: var(--font-mono);
+}
+
+.skillTrack {
+  height: 6px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.skillFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 10px currentColor; /* Uses inline style color */
+  transition: width 1s ease-out;
+}
+
+/* ─── Certifications Card ─── */
+.certCard {
+  grid-column: span 3;
+}
+
+.certGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-4);
+}
+
+.certItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  transition: all 0.3s ease;
+  color: var(--text-heading);
+  font-weight: 500;
+}
+
+.certItem:hover {
+  background: var(--bg-card-hover);
+  border-color: hsl(var(--accent)/0.3);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.certBadgeWrapper {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white; /* Often cert logos need white bg */
+  border-radius: var(--radius-md);
+  padding: var(--space-1);
+}
+
+.certImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.certName {
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+@media (max-width: 1024px) {
+  .bentoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .resourceCard {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .bentoGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .profileCard, .resourceCard, .skillsCard, .certCard {
+    grid-column: span 1;
+  }
+  
+  .certGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .avatarImage {
+    width: 80px;
+    height: 80px;
+  }
+}

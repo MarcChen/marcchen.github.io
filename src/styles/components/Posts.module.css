@@ -1,0 +1,80 @@
+.postsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-6);
+}
+
+.postCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-default);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.postCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: hsl(var(--accent) / 0.3);
+}
+
+.postImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.postContent {
+  padding: var(--space-5);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.postTitle {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: var(--space-2);
+  line-height: var(--leading-tight);
+}
+
+.postDate {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.postDescription {
+  font-size: var(--text-sm);
+  color: var(--text-body);
+  line-height: var(--leading-relaxed);
+  flex: 1;
+  margin-bottom: var(--space-4);
+}
+
+.postTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: hsl(var(--accent));
+  margin-top: var(--space-3);
+}
+
+@media (max-width: 768px) {
+  .postsGrid {
+    grid-template-columns: 1fr;
+  }
+}

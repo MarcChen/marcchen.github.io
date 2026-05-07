@@ -1,0 +1,39 @@
+# section information
+section:
+  name: Projects
+  id: projects
+  enable: true
+  weight: 5
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# filter buttons
+buttons:
+- name: All
+  filter: "all"
+- name: Professional
+  filter: "professional"
+- name: Academic
+  filter: "academic"
+- name: Hobby
+  filter: "hobby"
+
+# your projects
+projects:
+- name: Vision Vendor
+  logo: /images/sections/projects/visionvendor.png
+  role: Co-founder
+  timeline: "Jun 2024 - Aug 2024"
+  repo: https://github.com/fabienhouang/VisionVendor # If your project is a public repo on GitHub, then provide this link. it will show star count.
+  #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+  summary: "A mobile app enhancing online reselling experience.
+  Submitted to [Gemini API Developer Competition 2024](https://ai.google.dev/competition/projects/vision-vendor)."
+  tags: ["hobby", "mobile", "flutter", "dart", "GCP", "Gemini AI"]
+
+- name: RBM Binary AlphaDigits
+  role: Author
+  timeline: "2024"
+  repo: https://github.com/MarcChen/RBM_BinaryAlphaDigits
+  summary: "Implementation of a Restricted Boltzmann Machine (RBM) trained on the Binary AlphaDigits dataset using Contrastive Divergence. Covers image generation, hyperparameter tuning, and character count influence experiments across multiple Jupyter notebooks. Includes a companion research report (Chen & Sebti)."
+  tags: ["academic", "machine-learning", "deep-learning", "RBM", "MNIST"]

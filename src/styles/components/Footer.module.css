@@ -1,0 +1,199 @@
+.footer {
+  position: relative;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-tertiary);
+  margin-top: var(--space-32);
+  padding-bottom: var(--space-8);
+}
+
+.footerGlow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 600px;
+  height: 200px;
+  background: radial-gradient(ellipse at center, hsl(var(--accent)/0.1) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* ─── Call to Action Card ─── */
+.ctaSection {
+  transform: translateY(calc(var(--space-16) * -1));
+  display: flex;
+  justify-content: center;
+}
+
+.ctaCard {
+  width: 100%;
+  max-width: 900px;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color-strong);
+  border-radius: var(--radius-3xl);
+  padding: var(--space-12) var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.ctaHeadingOverride.ctaHeadingOverride {
+  margin-bottom: var(--space-8);
+  text-align: left;
+}
+.ctaHeadingOverride h2 {
+  justify-content: flex-start;
+}
+
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.ctaVisual {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.ctaBlob {
+  position: absolute;
+  right: -100px;
+  top: -50px;
+  width: 400px;
+  height: 400px;
+  background: var(--gradient-primary);
+  filter: blur(60px);
+  opacity: 0.15;
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.ctaGrid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, var(--border-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(to left, black, transparent);
+  -webkit-mask-image: linear-gradient(to left, black, transparent);
+  opacity: 0.3;
+}
+
+/* ─── Footer Bottom ─── */
+.footerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  padding-top: var(--space-4);
+  margin-top: calc(var(--space-8) * -1); /* Offset CTA negative margin */
+}
+
+.footerBrand h3 {
+  font-size: var(--text-2xl);
+  color: var(--text-heading);
+  margin-bottom: var(--space-1);
+}
+
+.socialLinks {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.socialBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.socialBtn:hover {
+  background: hsl(var(--accent)/0.1);
+  color: hsl(var(--accent));
+  border-color: hsl(var(--accent)/0.3);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.footerMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+}
+
+.separator {
+  color: var(--border-color-strong);
+}
+
+.metaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--text-heading);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--border-color-strong);
+  text-underline-offset: 4px;
+}
+
+.metaLink:hover {
+  color: hsl(var(--accent));
+  text-decoration-color: hsl(var(--accent)/0.5);
+}
+
+@media (max-width: 768px) {
+  .ctaCard {
+    padding: var(--space-8) var(--space-6);
+  }
+  
+  .ctaHeadingOverride.ctaHeadingOverride {
+    text-align: center;
+  }
+  .ctaHeadingOverride h2 {
+    justify-content: center;
+  }
+  
+  .actionRow {
+    justify-content: center;
+  }
+
+  .ctaVisual {
+    display: none;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-8);
+  }
+}
