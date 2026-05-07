@@ -4,7 +4,7 @@
 9:I[97367,["/pr-preview/pr-24/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-24/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-24/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 a:"$Sreact.suspense"
 :HL["/pr-preview/pr-24/_next/static/chunks/150triunle-7s.css","style"]
-3:Tc99,
+3:Tcbb,
 <h2>ENSTRAID : Transformer l'avenir de la mobilité</h2>
 
 <p>ENSTRAID est une association innovante dirigée par des étudiants de l'ENSTA Paris, spécialisée dans le rétrofit des véhicules thermiques pour les transformer en véhicules 100% électriques. Notre projet phare consiste à convertir une Peugeot 205 classique en véhicule entièrement électrique, démontrant ainsi le potentiel des solutions énergétiques vertes dans le secteur automobile. Cette initiative contribue non seulement à la transition écologique, mais offre également aux étudiants une expérience pratique en ingénierie.</p>
@@ -19,10 +19,10 @@ a:"$Sreact.suspense"
 </ul>
 <h2>Quelques photos</h2>
 
-<img src="/images/posts/ensta-enstraid/peugeot205.jpg" alt="Peugeot 205 avant le rétrofit" loading="lazy" />
+<img src="/pr-preview/pr-24/images/posts/ensta-enstraid/peugeot205.jpg" alt="Peugeot 205 avant le rétrofit" loading="lazy" />
 <p><em>La Peugeot 205 avant la conversion électrique.</em></p>
 
-<img src="/images/posts/ensta-enstraid/motor.jpg" alt="Étudiants de l'ENSTA travaillant sur le projet" loading="lazy" />
+<img src="/pr-preview/pr-24/images/posts/ensta-enstraid/motor.jpg" alt="Étudiants de l'ENSTA travaillant sur le projet" loading="lazy" />
 <p><em>Installation du moteur pour la conversion électrique du véhicule.</em></p>
 
 <hr />
@@ -39,7 +39,7 @@ a:"$Sreact.suspense"
 
 <p>Cette vidéo met en lumière le processus d'ingénierie, les défis et le succès de cet incroyable projet. Merci à tous ceux qui ont soutenu ENSTRAID tout au long du chemin !</p>
 
-<hr />0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/fr/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Retour au Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"ENSTRAID"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"10 octobre 2024"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","Rétrofit",{"className":"tag","children":"Rétrofit"}],["$","span","Véhicules Électriques",{"className":"tag","children":"Véhicules Électriques"}],["$","span","Durabilité",{"className":"tag","children":"Durabilité"}],["$","span","Ingénierie",{"className":"tag","children":"Ingénierie"}],["$","span","Association Étudiante",{"className":"tag","children":"Association Étudiante"}],["$","span","ENSTA Paris",{"className":"tag","children":"ENSTA Paris"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"LomnyJxHPxhCrDAszPAFV"}
+<hr />0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/fr/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Retour au Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"ENSTRAID"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"10 octobre 2024"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","Rétrofit",{"className":"tag","children":"Rétrofit"}],["$","span","Véhicules Électriques",{"className":"tag","children":"Véhicules Électriques"}],["$","span","Durabilité",{"className":"tag","children":"Durabilité"}],["$","span","Ingénierie",{"className":"tag","children":"Ingénierie"}],["$","span","Association Étudiante",{"className":"tag","children":"Association Étudiante"}],["$","span","ENSTA Paris",{"className":"tag","children":"ENSTA Paris"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"XY_uN9yG8uK_4ihsoXe5p"}
 4:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"Commentaires"}],["$","$L8",null,{"locale":"fr"}]]}]
 5:["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-24/_next/static/chunks/150triunle-7s.css","precedence":"next"}]
 6:["$","script","script-0",{"src":"/pr-preview/pr-24/_next/static/chunks/02kpv-2fcd-uc.js","async":true}]

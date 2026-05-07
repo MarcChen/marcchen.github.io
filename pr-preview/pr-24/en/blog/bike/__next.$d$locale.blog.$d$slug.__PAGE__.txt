@@ -4,7 +4,7 @@
 9:I[97367,["/pr-preview/pr-24/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-24/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-24/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 a:"$Sreact.suspense"
 :HL["/pr-preview/pr-24/_next/static/chunks/150triunle-7s.css","style"]
-3:T100e,<h2>My Cycling Adventures: A Journey of Lessons and Exploration</h2>
+3:T10a7,<h2>My Cycling Adventures: A Journey of Lessons and Exploration</h2>
 
 <p>The goal of this post is to share my cycling road trip experiences, the challenges I encountered, and the lessons learned along the way.</p>
 
@@ -27,13 +27,13 @@ a:"$Sreact.suspense"
 
 <h4>Gallery</h4>
 
- <img src="/images/posts/bike-images/profile.jpg" alt="Trip profile" align="center" loading="lazy" style="max-width:100%;height:auto;" />
+ <img src="/pr-preview/pr-24/images/posts/bike-images/profile.jpg" alt="Trip profile" align="center" loading="lazy" style="max-width:100%;height:auto;" />
 
 <p><div class="custom-image-grid"></p>
-  <img src="/images/posts/bike-images/bike.jpg" alt="My first bike for such a trip" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
-  <img src="/images/posts/bike-images/campement.JPG" alt="Campground by the beach" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
-  <img src="/images/posts/bike-images/mont-st-michel.JPG" alt="Mont Saint Michel" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
-  <img src="/images/posts/bike-images/memorial.JPG" alt="Memorial" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
+  <img src="/pr-preview/pr-24/images/posts/bike-images/bike.jpg" alt="My first bike for such a trip" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
+  <img src="/pr-preview/pr-24/images/posts/bike-images/campement.JPG" alt="Campground by the beach" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
+  <img src="/pr-preview/pr-24/images/posts/bike-images/mont-st-michel.JPG" alt="Mont Saint Michel" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
+  <img src="/pr-preview/pr-24/images/posts/bike-images/memorial.JPG" alt="Memorial" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
 </div>
 
 <h3>Edition 3: Fontainebleau - Orléans (250 km along the Loire)</h3>
@@ -45,13 +45,13 @@ a:"$Sreact.suspense"
 <h4>Gallery</h4>
 
 <p><div class="custom-image-grid"></p>
-  <img src="/images/posts/bike-images/trip3-trajet.png" alt="Profile of trip 3" align="center" loading="lazy" style="max-width:100%;height:auto;" />
-  <img src="/images/posts/bike-images/orleans.JPG" alt="Orléans Cathedral" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
-  <img src="/images/posts/bike-images/orleans_bis.JPG" alt="Inside the Cathedral" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
-  <img src="/images/posts/bike-images/bike_V2.JPG" alt="New Gravel Triban GRVL520" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
+  <img src="/pr-preview/pr-24/images/posts/bike-images/trip3-trajet.png" alt="Profile of trip 3" align="center" loading="lazy" style="max-width:100%;height:auto;" />
+  <img src="/pr-preview/pr-24/images/posts/bike-images/orleans.JPG" alt="Orléans Cathedral" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
+  <img src="/pr-preview/pr-24/images/posts/bike-images/orleans_bis.JPG" alt="Inside the Cathedral" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
+  <img src="/pr-preview/pr-24/images/posts/bike-images/bike_V2.JPG" alt="New Gravel Triban GRVL520" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
 </div>
 
-</div>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/en/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Back to Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Bike 600km roadtrip"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"October 10, 2024"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","Cycling",{"className":"tag","children":"Cycling"}],["$","span","Bikepacking",{"className":"tag","children":"Bikepacking"}],["$","span","Lessons Learned",{"className":"tag","children":"Lessons Learned"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"LomnyJxHPxhCrDAszPAFV"}
+</div>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/en/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Back to Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Bike 600km roadtrip"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"October 10, 2024"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","Cycling",{"className":"tag","children":"Cycling"}],["$","span","Bikepacking",{"className":"tag","children":"Bikepacking"}],["$","span","Lessons Learned",{"className":"tag","children":"Lessons Learned"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"XY_uN9yG8uK_4ihsoXe5p"}
 4:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"Comments"}],["$","$L8",null,{"locale":"en"}]]}]
 5:["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-24/_next/static/chunks/150triunle-7s.css","precedence":"next"}]
 6:["$","script","script-0",{"src":"/pr-preview/pr-24/_next/static/chunks/02kpv-2fcd-uc.js","async":true}]
