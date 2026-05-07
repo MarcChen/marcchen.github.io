@@ -154,6 +154,19 @@ a.skillPill {
   box-shadow: var(--shadow-xl);
   pointer-events: none; /* Don't interfere with hover */
   text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(10px);
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+}
+
+.skillItemWrapper:hover .skillTooltip,
+.skillItemWrapper:focus-within .skillTooltip,
+.skillItemWrapper:focus .skillTooltip {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
 }
 
 .tooltipTitle {

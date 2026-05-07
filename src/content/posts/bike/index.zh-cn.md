@@ -7,7 +7,7 @@ menu:
     name: 骑行之旅
     identifier: bike-600km-roadtrip
     weight: 12
-hero: /images/bike_V2.JPG
+hero: /images/posts/bike-images/bike_V2.JPG
 tags:
 - 自行车
 - 长途骑行
@@ -37,13 +37,13 @@ tags:
 
 #### 相册
 
- {{< img src="/posts/bike/images/profile.jpg" align="center" title="行程概况" >}}
+ {{< img src="/images/posts/bike-images/profile.jpg" align="center" title="行程概况" >}}
 
 <div class="custom-image-grid">
-  {{< img src="/posts/bike/images/bike.jpg" height="400" width="300" align="center" title="我的第一辆旅行自行车" >}}
-  {{< img src="/posts/bike/images/campement.JPG" height="400" width="300" align="center" title="海边的营地" >}}
-  {{< img src="/posts/bike/images/mont-st-michel.JPG" height="400" width="300" align="center" title="圣米歇尔山" >}}
-  {{< img src="/posts/bike/images/memorial.JPG" height="400" width="300" align="center" title="纪念馆" >}}
+  {{< img src="/images/posts/bike-images/bike.jpg" height="400" width="300" align="center" title="我的第一辆旅行自行车" >}}
+  {{< img src="/images/posts/bike-images/campement.JPG" height="400" width="300" align="center" title="海边的营地" >}}
+  {{< img src="/images/posts/bike-images/mont-st-michel.JPG" height="400" width="300" align="center" title="圣米歇尔山" >}}
+  {{< img src="/images/posts/bike-images/memorial.JPG" height="400" width="300" align="center" title="纪念馆" >}}
 </div>
 
 ### 第三篇：枫丹白露 - 奥尔良 (沿卢瓦尔河250公里)
@@ -55,15 +55,10 @@ tags:
 #### 相册
 
 <div class="custom-image-grid">
-  {{< img src="/posts/bike/images/trip3-trajet.png" align="center" title="第三次旅行概况" >}}
-  {{< img src="/posts/bike/images/orleans.JPG" height="400" width="300" align="center" title="奥尔良大教堂" >}}
-  {{< img src="/posts/bike/images/orleans_bis.JPG" height="400" width="300" align="center" title="教堂内部" >}}
-  {{< img src="/posts/bike/images/bike_V2.JPG" height="400" width="300" align="center" title="新款Gravel Triban GRVL520" >}}
+  {{< img src="/images/posts/bike-images/trip3-trajet.png" align="center" title="第三次旅行概况" >}}
+  {{< img src="/images/posts/bike-images/orleans.JPG" height="400" width="300" align="center" title="奥尔良大教堂" >}}
+  {{< img src="/images/posts/bike-images/orleans_bis.JPG" height="400" width="300" align="center" title="教堂内部" >}}
+  {{< img src="/images/posts/bike-images/bike_V2.JPG" height="400" width="300" align="center" title="新款Gravel Triban GRVL520" >}}
 </div>
 
-<div class="custom-video-container">
-  <video controls>
-    <source src="/posts/bike/images/loire.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
 </div>

@@ -1,4 +1,4 @@
-import { isValidLocale, type Locale } from "@/lib/i18n";
+import { isValidLocale, locales, type Locale } from "@/lib/i18n";
 import {
   getAuthor,
   getAbout,
@@ -21,6 +21,10 @@ import Projects from "@/components/sections/Projects";
 import Accomplishments from "@/components/sections/Accomplishments";
 import Achievements from "@/components/sections/Achievements";
 import FeaturedPosts from "@/components/sections/FeaturedPosts";
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 interface PageProps {
   params: Promise<{ locale: string }>;

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { isValidLocale, locales, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/i18n";
 import { getPost, getAllPostSlugs } from "@/lib/mdx";
-import Comments from "@/components/blog/Comments";
+import CommentsWrapper from "@/components/blog/CommentsWrapper";
 import styles from "@/styles/components/BlogPost.module.css";
 
 export function generateStaticParams() {
@@ -72,8 +72,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         />
 
         <div className={styles.comments}>
-          <h3 className={styles.commentsTitle}>Comments</h3>
-          <Comments locale={locale} />
+          <h3 className={styles.commentsTitle}>{t(locale, "comments")}</h3>
+          <CommentsWrapper locale={locale} />
         </div>
       </div>
     </div>
@@ -107,6 +107,41 @@ function simpleMarkdownToHtml(md: string, slug: string): string {
         finalSrc = `/images/posts/${slug}/${src}`;
       }
       return `<img src="${finalSrc}" alt="${alt}" loading="lazy" />`;
+    }
+  );
+
+  // YouTube Shortcode
+  html = html.replace(
+    /\{\{\<\s*youtube\s+([\w-]+)\s*\>\}\}/g,
+    (_, id) => `<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;"><iframe src="https://www.youtube.com/embed/${id}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen loading="lazy" title="YouTube video"></iframe></div>`
+  );
+
+  // Image Shortcode (Hugo {{< img >}})
+  html = html.replace(
+    /\{\{\<\s*img\s+([^>]+)\s*\>\}\}/g,
+    (_, attrs) => {
+      const srcMatch = attrs.match(/src="([^"]+)"/);
+      const altMatch = attrs.match(/title="([^"]+)"/);
+      const heightMatch = attrs.match(/height="(\d+)"/);
+      const widthMatch = attrs.match(/width="(\d+)"/);
+      const alignMatch = attrs.match(/align="([^"]+)"/);
+
+      const src = srcMatch ? srcMatch[1] : "";
+      const alt = altMatch ? altMatch[1] : "";
+      const height = heightMatch ? ` height="${heightMatch[1]}"` : "";
+      const width = widthMatch ? ` width="${widthMatch[1]}"` : "";
+      const align = alignMatch ? ` align="${alignMatch[1]}"` : "";
+
+      let finalSrc = src;
+      if (!src.startsWith("http") && !src.startsWith("/")) {
+        finalSrc = `/images/posts/${slug}/${src}`;
+      }
+      // Fix path: /posts/bike/images/... → /images/posts/bike-images/...
+      if (finalSrc.startsWith("/posts/")) {
+        finalSrc = finalSrc.replace(/^\/posts\/([^/]+)\/images\//, "/images/posts/$1-images/");
+      }
+
+      return `<img src="${finalSrc}" alt="${alt}"${height}${width}${align} loading="lazy" style="max-width:100%;height:auto;" />`;
     }
   );
 

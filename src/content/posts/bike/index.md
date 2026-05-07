@@ -7,7 +7,7 @@ menu:
     name: Bike roadtrips
     identifier: bike-600km-roadtrip
     weight: 12
-hero: /images/bike_V2.JPG
+hero: /images/posts/bike-images/bike_V2.JPG
 tags:
 - Cycling
 - Bikepacking
@@ -37,13 +37,13 @@ Here are some photos:
 
 #### Gallery
 
- {{< img src="/posts/bike/images/profile.jpg" align="center" title="Trip profile" >}}
+ {{< img src="/images/posts/bike-images/profile.jpg" align="center" title="Trip profile" >}}
 
 <div class="custom-image-grid">
-  {{< img src="/posts/bike/images/bike.jpg" height="400" width="300" align="center" title="My first bike for such a trip" >}}
-  {{< img src="/posts/bike/images/campement.JPG" height="400" width="300" align="center" title="Campground by the beach" >}}
-  {{< img src="/posts/bike/images/mont-st-michel.JPG" height="400" width="300" align="center" title="Mont Saint Michel" >}}
-  {{< img src="/posts/bike/images/memorial.JPG" height="400" width="300" align="center" title="Memorial" >}}
+  {{< img src="/images/posts/bike-images/bike.jpg" height="400" width="300" align="center" title="My first bike for such a trip" >}}
+  {{< img src="/images/posts/bike-images/campement.JPG" height="400" width="300" align="center" title="Campground by the beach" >}}
+  {{< img src="/images/posts/bike-images/mont-st-michel.JPG" height="400" width="300" align="center" title="Mont Saint Michel" >}}
+  {{< img src="/images/posts/bike-images/memorial.JPG" height="400" width="300" align="center" title="Memorial" >}}
 </div>
 
 ### Edition 3: Fontainebleau - Orléans (250 km along the Loire)
@@ -55,15 +55,10 @@ Here are a few photos of my new setup, along with some beautiful views from the 
 #### Gallery
 
 <div class="custom-image-grid">
-  {{< img src="/posts/bike/images/trip3-trajet.png" align="center" title="Profile of trip 3" >}}
-  {{< img src="/posts/bike/images/orleans.JPG" height="400" width="300" align="center" title="Orléans Cathedral" >}}
-  {{< img src="/posts/bike/images/orleans_bis.JPG" height="400" width="300" align="center" title="Inside the Cathedral" >}}
-  {{< img src="/posts/bike/images/bike_V2.JPG" height="400" width="300" align="center" title="New Gravel Triban GRVL520" >}}
+  {{< img src="/images/posts/bike-images/trip3-trajet.png" align="center" title="Profile of trip 3" >}}
+  {{< img src="/images/posts/bike-images/orleans.JPG" height="400" width="300" align="center" title="Orléans Cathedral" >}}
+  {{< img src="/images/posts/bike-images/orleans_bis.JPG" height="400" width="300" align="center" title="Inside the Cathedral" >}}
+  {{< img src="/images/posts/bike-images/bike_V2.JPG" height="400" width="300" align="center" title="New Gravel Triban GRVL520" >}}
 </div>
 
-<div class="custom-video-container">
-  <video controls>
-    <source src="/posts/bike/images/loire.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
 </div>

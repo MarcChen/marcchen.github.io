@@ -49,23 +49,10 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}
     >
-      <head>
-        {/* Inline theme script to prevent flash */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                var theme = localStorage.getItem('theme-scheme') || 'dark';
-                if (theme === 'system') {
-                  theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                }
-                document.documentElement.setAttribute('data-theme', theme);
-              })();
-            `,
-          }}
-        />
-      </head>
+      <head />
       <body style={{ fontFamily: "var(--font-sans)" }}>
+        {/* Theme script must run before render to prevent flash */}
+        <Script src="/theme-init.js" strategy="beforeInteractive" />
         <CursorGlow />
         {children}
 

@@ -48,7 +48,6 @@ export default function AnimatedHeading({ title, subtitle, className = "" }: Ani
     <div className={`section-heading ${className}`} ref={ref}>
       <motion.h2
         className="section-title"
-        style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", overflow: "hidden" }}
         variants={container}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}

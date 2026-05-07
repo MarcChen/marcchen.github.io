@@ -125,6 +125,12 @@
   min-height: 1.2em; /* Prevent layout shift during animation */
 }
 
+.rolePrefix {
+  color: var(--text-muted);
+  font-size: var(--text-lg);
+  font-weight: 500;
+}
+
 .roleText {
   color: var(--text-inverse); /* Contrasting color for emphasis */
   background: var(--text-heading);

@@ -141,6 +141,52 @@ button {
   background: hsl(var(--accent) / 0.4);
 }
 
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid hsl(var(--accent));
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.custom-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: var(--space-6) 0;
+}
+
+.custom-image-grid img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 768px) {
+  .custom-image-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.custom-video-container {
+  width: 100%;
+  margin: var(--space-6) 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.custom-video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* ================================================================
    Layout Utilities
    ================================================================ */
@@ -198,6 +244,10 @@ button {
   letter-spacing: var(--tracking-tighter);
   color: var(--text-heading);
   margin-bottom: var(--space-4);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
 
 .section-title .gradient {

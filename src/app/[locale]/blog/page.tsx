@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { isValidLocale, type Locale, locales } from "@/lib/i18n";
 import { t } from "@/lib/i18n";
@@ -41,11 +42,15 @@ export default async function BlogPage({ params }: BlogPageProps) {
                 className={styles.postCard}
               >
                 {heroUrl && (
-                  <img
-                    src={heroUrl}
-                    alt={post.title}
-                    className={styles.postImage}
-                  />
+                  <div style={{ position: "relative", width: "100%", height: "200px" }}>
+                    <Image
+                      src={heroUrl}
+                      alt={post.title}
+                      fill
+                      className={styles.postImage}
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
                 )}
                 <div className={styles.postContent}>
                 <h2 className={styles.postTitle}>{post.title}</h2>
@@ -79,7 +84,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
 
         {posts.length === 0 && (
           <p style={{ textAlign: "center", color: "var(--text-muted)" }}>
-            No posts yet.
+            {t(locale, "no_posts")}
           </p>
         )}
       </div>

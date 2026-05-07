@@ -21,6 +21,8 @@ export default function Accomplishments({
   data,
   alternate,
 }: AccomplishmentsProps) {
+  const SCROLL_AMOUNT = 400;
+
   const containerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -41,7 +43,7 @@ export default function Accomplishments({
 
   const scroll = (direction: "left" | "right") => {
     if (containerRef.current) {
-      const scrollAmount = direction === "left" ? -400 : 400;
+      const scrollAmount = direction === "left" ? -SCROLL_AMOUNT : SCROLL_AMOUNT;
       containerRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
