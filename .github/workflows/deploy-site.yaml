@@ -11,29 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # checkout to the commit that has been pushed
-    - uses: actions/checkout@v5
-
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v3
-      with:
-        hugo-version: 'latest'
-        extended: true
-
-    - name: Update Hugo Modules
-      run: hugo mod tidy
+    - uses: actions/checkout@v4
 
     - name: Setup Node
-      uses: actions/setup-node@v5
+      uses: actions/setup-node@v4
       with:
         node-version: 20
+        cache: 'npm'
 
     - name: Install node modules
-      run: |
-        hugo mod npm pack
-        npm install        
+      run: npm ci
 
     - name: Build
-      run: hugo --minify
+      run: npx next build
 
     # push the generated content into the `gh-pages` branch.
     - name: Deploy
@@ -41,4 +31,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
-        publish_dir: ./public
+        publish_dir: ./out

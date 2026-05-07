@@ -1,0 +1,300 @@
+.navbar {
+  position: fixed;
+  top: var(--space-4);
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* Let clicks pass through outside the pill */
+  transition: top 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scrolled {
+  top: var(--space-2);
+}
+
+.navContainer {
+  width: 100%;
+  max-width: var(--max-width);
+  padding: 0 var(--space-4);
+  display: flex;
+  justify-content: center;
+}
+
+.pillContainer {
+  pointer-events: auto; /* Re-enable clicks inside the pill */
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background: var(--bg-glass-strong);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-2) var(--space-1) var(--space-6);
+  box-shadow: var(--shadow-xl);
+  transition: all 0.4s ease;
+}
+
+.navbar.scrolled .pillContainer {
+  padding: var(--space-1) var(--space-1) var(--space-1) var(--space-4);
+  background: var(--bg-glass-strong);
+  box-shadow: var(--shadow-lg), 0 0 0 1px inset rgba(255,255,255,0.05);
+}
+
+/* ─── Logo ─── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--text-heading);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  margin-right: var(--space-4);
+  white-space: nowrap;
+}
+
+.logoDot {
+  width: 8px;
+  height: 8px;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px hsl(var(--accent));
+}
+
+.logo:hover .logoDot {
+  animation: pulse 1s infinite alternate;
+}
+
+/* ─── Desktop Nav Links ─── */
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.navLink {
+  position: relative;
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  border-radius: var(--radius-full);
+  outline: none;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
+
+.navLink:hover {
+  color: var(--text-heading);
+}
+
+.navLink.active {
+  color: var(--text-heading);
+}
+
+.activePillBackground {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-full);
+  z-index: -1;
+  box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.1);
+  border: 1px solid var(--border-color-strong);
+}
+
+.linkText {
+  position: relative;
+  z-index: 2;
+}
+
+/* ─── Actions ─── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-left: var(--space-2);
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--border-color);
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--text-muted);
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.iconBtn:hover {
+  color: var(--text-heading);
+  background: var(--bg-elevated);
+}
+
+/* ─── Dropdowns ─── */
+.langContainer {
+  position: relative;
+}
+
+.langContainer::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: var(--space-2);
+}
+
+.langDropdown {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  right: -20px;
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2);
+  box-shadow: var(--shadow-xl);
+  min-width: 140px;
+  transform-origin: top right;
+}
+
+.langOption {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-muted);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+.langOption:hover {
+  background: var(--bg-elevated);
+  color: var(--text-heading);
+}
+
+.activeLang {
+  background: hsl(var(--accent)/0.1);
+  color: hsl(var(--accent));
+}
+
+.flag {
+  font-size: 1.2em;
+}
+
+/* ─── Mobile ─── */
+.mobileToggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--text-heading);
+  background: var(--bg-elevated);
+  border-radius: 50%;
+}
+
+.mobileMenu {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-glass-strong);
+  z-index: calc(var(--z-sticky) + 1);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+}
+
+.mobileMenuInner {
+  width: 100%;
+  max-width: 400px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  box-shadow: var(--shadow-2xl);
+}
+
+.mobileNavLink {
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: var(--radius-xl);
+  transition: all 0.2s ease;
+}
+
+.mobileNavLink:active,
+.mobileNavLink:hover {
+  background: var(--bg-elevated);
+  color: var(--text-heading);
+}
+
+.mobileDivider {
+  height: 1px;
+  width: 100%;
+  background: var(--border-color);
+  margin: var(--space-2) 0;
+}
+
+.mobileLangSelector {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.mobileLangOption {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  border: 1px solid transparent;
+}
+
+.activeLangMobile {
+  background: hsl(var(--accent)/0.1);
+  color: hsl(var(--accent));
+  border-color: hsl(var(--accent)/0.2);
+}
+
+@media (max-width: 1024px) {
+  .desktopNav {
+    display: none;
+  }
+  
+  .mobileToggle {
+    display: flex;
+  }
+  
+  .mobileMenu {
+    display: flex;
+  }
+  
+  .pillContainer {
+    padding: var(--space-1) var(--space-1) var(--space-1) var(--space-4);
+  }
+}

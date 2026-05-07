@@ -1,0 +1,206 @@
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--space-4); /* Reduced from default to accommodate controls */
+}
+
+.carouselContainer {
+  position: relative;
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.navBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-heading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.navBtn:not(.disabled):hover {
+  background: var(--bg-elevated);
+  border-color: hsl(var(--accent)/0.5);
+  color: hsl(var(--accent));
+  transform: scale(1.05);
+}
+
+.navBtn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.carouselTrack {
+  display: flex;
+  gap: var(--space-6);
+  padding: var(--space-2) var(--space-4) var(--space-8);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carouselTrack::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.cardWrapper {
+  scroll-snap-align: start;
+  flex: 0 0 350px;
+}
+
+.accompCard {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.accompCard:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-color-strong);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.cardGradientTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-secondary);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-6);
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  background: hsl(var(--accent-secondary)/0.1);
+  color: hsl(var(--accent-secondary));
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timelineBadge {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+}
+
+.cardContent {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: var(--leading-tight);
+}
+
+.orgLink {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: hsl(var(--accent));
+  font-weight: 500;
+}
+
+.orgLink:hover {
+  text-decoration: underline;
+}
+
+.overview {
+  font-size: var(--text-sm);
+  color: var(--text-body);
+  line-height: var(--leading-relaxed);
+  margin-top: var(--space-2);
+}
+
+.cardFooter {
+  border-top: 1px solid var(--border-color);
+  padding-top: var(--space-4);
+  margin-top: auto;
+}
+
+.certBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-2) var(--space-4);
+  background: transparent;
+  border: 1px solid var(--border-color-strong);
+  border-radius: var(--radius-lg);
+  color: var(--text-heading);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.certBtn:hover {
+  background: hsl(var(--accent-secondary)/0.1);
+  border-color: hsl(var(--accent-secondary)/0.3);
+  color: hsl(var(--accent-secondary));
+}
+
+.noCert {
+  display: block;
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-style: italic;
+  padding: var(--space-2) 0;
+}
+
+.carouselSpacer {
+  flex: 0 0 10px; /* Gives some padding at the very end of scroll */
+}
+
+@media (max-width: 768px) {
+  .controls {
+    display: none; /* Hide manual controls on mobile, native scrolling is better */
+  }
+  
+  .cardWrapper {
+    flex: 0 0 calc(100vw - 40px);
+  }
+}
