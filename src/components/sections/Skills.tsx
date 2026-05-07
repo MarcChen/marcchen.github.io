@@ -7,6 +7,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import type { SkillsSection } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
+import { assetPath } from "@/lib/paths";
 import styles from "@/styles/components/Skills.module.css";
 
 interface SkillsProps {
@@ -97,7 +98,7 @@ export default function Skills({ data, alternate }: SkillsProps) {
                 >
                   <div className={styles.skillIconWrapper}>
                     <Image
-                      src={skill.logo}
+                      src={assetPath(skill.logo)}
                       alt={skill.name}
                       width={24}
                       height={24}

@@ -4,6 +4,7 @@ import { isValidLocale, locales, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/i18n";
 import { getPost, getAllPostSlugs } from "@/lib/mdx";
 import CommentsWrapper from "@/components/blog/CommentsWrapper";
+import { assetPath } from "@/lib/paths";
 import styles from "@/styles/components/BlogPost.module.css";
 
 export function generateStaticParams() {
@@ -86,7 +87,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
  * inline code, images, lists, blockquotes, and horizontal rules.
  */
 function simpleMarkdownToHtml(md: string, slug: string): string {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   let html = md;
 
   // Code blocks (fenced)
@@ -107,10 +107,7 @@ function simpleMarkdownToHtml(md: string, slug: string): string {
       if (!src.startsWith("http") && !src.startsWith("/")) {
         finalSrc = `/images/posts/${slug}/${src}`;
       }
-      if (finalSrc.startsWith("/")) {
-        finalSrc = `${basePath}${finalSrc}`;
-      }
-      return `<img src="${finalSrc}" alt="${alt}" loading="lazy" />`;
+      return `<img src="${assetPath(finalSrc)}" alt="${alt}" loading="lazy" />`;
     }
   );
 
@@ -144,11 +141,8 @@ function simpleMarkdownToHtml(md: string, slug: string): string {
       if (finalSrc.startsWith("/posts/")) {
         finalSrc = finalSrc.replace(/^\/posts\/([^/]+)\/images\//, "/images/posts/$1-images/");
       }
-      if (finalSrc.startsWith("/")) {
-        finalSrc = `${basePath}${finalSrc}`;
-      }
 
-      return `<img src="${finalSrc}" alt="${alt}"${height}${width}${align} loading="lazy" style="max-width:100%;height:auto;" />`;
+      return `<img src="${assetPath(finalSrc)}" alt="${alt}"${height}${width}${align} loading="lazy" style="max-width:100%;height:auto;" />`;
     }
   );
 
