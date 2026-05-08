@@ -1,0 +1,122 @@
+1:"$Sreact.fragment"
+2:I[79520,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],""]
+3:I[70752,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+4:I[39756,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+5:I[37457,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+d:I[68027,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],"default",1]
+:HL["/pr-preview/pr-26/_next/static/chunks/03ytk777_seq..css","style"]
+:HL["/pr-preview/pr-26/_next/static/chunks/034e093prbb8k.css","style"]
+:HL["/pr-preview/pr-26/_next/static/media/0c89a48fa5027cee-s.p.0rd3rjvnnhw7n.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-26/_next/static/media/1bffadaabf893a1e-s.p.16ipb6fqu393i.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-26/_next/static/media/70bc3e132a0a741e-s.p.1409xf.ylxg8g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-26/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-26/_next/static/chunks/150triunle-7s.css","style"]
+6:T5cb,
+            (function (C, A, L) {
+              let p = function (a, ar) { a.q.push(ar); };
+              let d = C.document;
+              C.Cal = C.Cal || function () {
+                let cal = C.Cal;
+                let ar = arguments;
+                if (!cal.loaded) {
+                  cal.ns = {};
+                  cal.q = cal.q || [];
+                  d.head.appendChild(d.createElement("script")).src = A;
+                  cal.loaded = true;
+                }
+                if (ar[0] === L) {
+                  const api = function () { p(api, arguments); };
+                  const namespace = ar[1];
+                  api.q = api.q || [];
+                  if (typeof namespace === "string") {
+                    cal.ns[namespace] = cal.ns[namespace] || api;
+                    p(cal.ns[namespace], ar);
+                    p(cal, ["initNamespace", namespace]);
+                  } else p(cal, ar);
+                  return;
+                }
+                p(cal, ar);
+              };
+            })(window, "https://app.cal.com/embed/embed.js", "init");
+            Cal("init", "30min", { origin: "https://app.cal.com" });
+            Cal.ns["30min"]("floatingButton", {
+              calLink: "marc-chen/30min",
+              config: { layout: "month_view" },
+              buttonText: "Book a call",
+            });
+            Cal.ns["30min"]("ui", {
+              hideEventTypeDetails: false,
+              layout: "month_view",
+            });
+          0:{"P":null,"c":["","zh-cn","blog","codelab-gemini-developper-contest",""],"q":"","i":false,"f":[[["",{"children":[["locale","zh-cn","d",null],{"children":["blog",{"children":[["slug","codelab-gemini-developper-contest","d",null],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-26/_next/static/chunks/03ytk777_seq..css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"className":"inter_991aebb-module__bYvC1W__variable space_grotesk_e6988195-module__RNs2Mq__variable jetbrains_mono_f8290d5a-module__2Nw1lG__variable","children":[["$","head",null,{}],["$","body",null,{"style":{"fontFamily":"var(--font-sans)"},"children":[["$","$L2",null,{"src":"/theme-init.js","strategy":"beforeInteractive"}],["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$L2",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-W2DZCT2HCH","strategy":"afterInteractive"}],["$","$L2",null,{"id":"google-analytics","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-W2DZCT2HCH');\n          "}],["$","$L2",null,{"id":"statcounter","strategy":"afterInteractive","children":"\n            var sc_project=13085075;\n            var sc_invisible=1;\n            var sc_security=\"0795b862\";\n          "}],["$","$L2",null,{"src":"https://www.statcounter.com/counter/counter.js","strategy":"afterInteractive"}],["$","$L2",null,{"id":"cal-embed","strategy":"afterInteractive","children":"$6"}]]}]]}]]}],{"children":["$L7",{"children":["$L8",{"children":["$L9",{"children":["$La",{},null,false,null]},null,false,"$@b"]},null,false,"$@b"]},null,false,null]},null,false,null],"$Lc",false]],"m":"$undefined","G":["$d",["$Le"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"7dXoA3m88K2pHTG-E6VX0"}
+11:I[97367,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+12:"$Sreact.suspense"
+15:I[97367,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],"ViewportBoundary"]
+17:I[97367,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],"MetadataBoundary"]
+7:["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-26/_next/static/chunks/034e093prbb8k.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pr-preview/pr-26/_next/static/chunks/079vlxutsb4.9.js","async":true,"nonce":"$undefined"}]],"$Lf"]}]
+8:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+9:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+a:["$","$1","c",{"children":["$L10",[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-26/_next/static/chunks/150triunle-7s.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pr-preview/pr-26/_next/static/chunks/02kpv-2fcd-uc.js","async":true,"nonce":"$undefined"}]],["$","$L11",null,{"children":["$","$12",null,{"name":"Next.MetadataOutlet","children":"$@13"}]}]]}]
+14:[]
+b:"$W14"
+c:["$","$1","h",{"children":[null,["$","$L15",null,{"children":"$L16"}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$12",null,{"name":"Next.Metadata","children":"$L18"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-26/_next/static/chunks/03ytk777_seq..css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+19:I[3265,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js","/pr-preview/pr-26/_next/static/chunks/079vlxutsb4.9.js"],"default"]
+1a:I[58234,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js","/pr-preview/pr-26/_next/static/chunks/079vlxutsb4.9.js"],"default"]
+1b:I[22016,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js","/pr-preview/pr-26/_next/static/chunks/079vlxutsb4.9.js","/pr-preview/pr-26/_next/static/chunks/02kpv-2fcd-uc.js"],""]
+f:[["$","$L19",null,{"locale":"zh-cn","sections":[{"id":"about","name":"关于","weight":1,"showOnNavbar":true},{"id":"skills","name":"技能","weight":2,"showOnNavbar":true},{"id":"experiences","name":"工作经历","weight":3,"showOnNavbar":true},{"id":"education","name":"教育经历","weight":4,"showOnNavbar":true},{"id":"projects","name":"Projects","weight":5,"showOnNavbar":true},{"id":"accomplishments","name":"成就","weight":6,"showOnNavbar":true},{"id":"featured-posts","name":"精选文章","weight":7,"showOnNavbar":true},{"id":"achievements","name":"成就","weight":8,"showOnNavbar":true}],"siteName":"陈马克"}],["$","main",null,{"children":["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L1a",null,{"locale":"zh-cn","author":{"name":"陈马克","nickname":"马克","greeting":"你好，我是","image":"images/author/marc.png","contactInfo":{"email":"marc.chen@ensta-paris.fr","github":"MarcChen","linkedin":"chen-marc"},"summary":["很高兴见到你！","我是一名数据工程师。","欢迎来到我的页面。","请随时联系我！"]},"sections":"$f:0:props:sections"}]]
+1c:T105a,
+<h1>Vision Vendor：二手市场转售的突破</h1>
+
+<p>随着人工智能领域的不断发展，<strong>Google 的 Gemini API 开发者竞赛</strong>已成为开发者展示创新的全球舞台。从 2024 年 6 月到 2024 年 8 月，这场竞赛邀请了富有创造力的头脑利用 <strong>Google Gemini 模型</strong>的力量，推动 AI 技术的边界。竞赛的总奖金高达 <strong>260,000 美元</strong>，吸引了众多开发者渴望构建有影响力的解决方案。</p>
+
+<h2>Vision Vendor 的旅程</h2>
+
+<p>我的队友 <strong>Fabien Houang</strong> 和我迎接了这个挑战，创建了 <strong>Vision Vendor</strong>——一个旨在改变用户与二手市场互动方式的 AI 驱动应用程序。该应用利用 <strong>Google Gemini 模型</strong>，通过集成 <strong>相机功能</strong> 和 <strong>KPI 生成</strong> 来实现 <strong>价格对比</strong> 的无缝体验。</p>
+
+<p>我们的目标很简单：通过提高在线转售的效率和透明度来赋能用户。使用 Vision Vendor 应用程序，任何人都可以拍摄物品的照片并立即收到定价信息，这为参与日益增长的二手经济的任何人提供了完美的工具。</p>
+
+<h2>Vision Vendor 的关键功能</h2>
+
+<ul><li><strong>AI 驱动的价格对比</strong>：用户可以通过我们应用的 AI 引擎生成的实时 KPI 来比较商品价格，从而做出更明智的购买和销售决策。</li>
+<li><strong>集成的相机功能</strong>：只需拍摄照片，我们的应用程序使用图像识别和深度学习提供有价值的市场数据。</li>
+<li><strong>用户友好的界面</strong>：直观的设计确保了所有用户，无论技术水平如何，都能获得顺畅和简单的体验。</li>
+</ul>
+<h2>Vision Vendor 对转售市场的影响</h2>
+
+<p>随着二手市场的兴起，Vision Vendor 通过价格透明度的核心关注脱颖而出。卖家可以了解他们商品的价值，而买家则可以确保自己获得公平的交易。通过利用 Google 的 Gemini 模型的先进功能，我们创建了一个平衡 <strong>效率</strong> 和 <strong>可访问性</strong> 的工具。</p>
+
+<h2>成功之路：协作与努力</h2>
+
+<p>构建 <strong>Vision Vendor</strong> 是一项合作努力。从头脑风暴到部署最终演示，我们的旅程包括无数次迭代、编程马拉松和微调。该应用程序的架构以 <strong>Google Gemini 模型</strong> 为核心，我们的团队努力确保 AI 驱动功能的顺利集成。</p>
+
+<p>我们很自豪地展示 <strong>Vision Vendor</strong> 作为竞赛的功能演示。我们相信它有潜力重新定义人们与二手市场的互动方式。</p>
+
+<h2>探索 Vision Vendor</h2>
+
+<p>我们的工作对任何想要探索源代码、了解应用程序内部工作原理或尝试演示的人开放。你可以在 GitHub 上查看我们的项目：</p>
+
+<p><a href="https://github.com/fabienhouang/VisionVendor" target="_blank" rel="noopener noreferrer">GitHub 上的 Vision Vendor</a></p>
+
+<p>如需快速了解，请观看我们的 YouTube 演示视频：</p>
+
+<p><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;"><iframe src="https://www.youtube.com/embed/iCTtXtMeJf4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen loading="lazy" title="YouTube video"></iframe></div></p>
+
+<p>此外，Vision Vendor 已正式列在 <strong>Google 的 AI 开发者竞赛</strong>平台上，在其他令人难以置信的项目中展示了我们的产品：</p>
+
+<p><a href="https://ai.google.dev/competition/projects/vision-vendor" target="_blank" rel="noopener noreferrer">Google AI Dev 上的 Vision Vendor</a></p>
+
+<h2>结论</h2>
+
+<p>参与 Gemini API 开发者竞赛是一次激动人心且充满回报的经历。Vision Vendor 项目代表了我们努力利用尖端 AI 技术为二手市场构建有价值工具的成果。我们很高兴看到这个项目能走多远，并继续在 AI 和转售领域进行创新。</p>
+
+<p>敬请期待更多更新和改进！</p>
+
+<p>#GoogleGemini #AI转售 #二手市场 #技术创新 #Google开发者</p>
+10:["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L1b",null,{"href":"/zh-cn/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← 返回博客"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Gemini 开发者竞赛"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"2024年8月26日"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","人工智能",{"className":"tag","children":"人工智能"}],["$","span","二手市场",{"className":"tag","children":"二手市场"}],["$","span","价格对比",{"className":"tag","children":"价格对比"}],["$","span","图像识别",{"className":"tag","children":"图像识别"}],["$","span","Google Gemini",{"className":"tag","children":"Google Gemini"}],["$","span","开发者竞赛",{"className":"tag","children":"开发者竞赛"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$1c"}}],"$L1d"]}]}]
+1e:I[84997,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js","/pr-preview/pr-26/_next/static/chunks/079vlxutsb4.9.js","/pr-preview/pr-26/_next/static/chunks/02kpv-2fcd-uc.js"],"default"]
+1d:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"评论"}],["$","$L1e",null,{"locale":"zh-cn"}]]}]
+16:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1f:I[27201,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],"IconMark"]
+13:null
+18:[["$","title","0",{"children":"陈马克 — Data Engineer & AI/ML Engineer"}],["$","meta","1",{"name":"description","content":"马克·陈的个人作品集和博客。"}],["$","link","2",{"rel":"canonical","href":"https://marcchen.github.io/zh-cn/"}],["$","meta","3",{"property":"og:title","content":"陈马克 — Data Engineer & AI/ML Engineer"}],["$","meta","4",{"property":"og:description","content":"马克·陈的个人作品集和博客。"}],["$","meta","5",{"property":"og:url","content":"https://marcchen.github.io/zh-cn/"}],["$","meta","6",{"property":"og:site_name","content":"陈马克"}],["$","meta","7",{"property":"og:locale","content":"zh_CN"}],["$","meta","8",{"property":"og:type","content":"website"}],["$","meta","9",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","10",{"name":"twitter:title","content":"陈马克 — Data Engineer & AI/ML Engineer"}],["$","meta","11",{"name":"twitter:description","content":"马克·陈的个人作品集和博客。"}],["$","link","12",{"rel":"icon","href":"/pr-preview/pr-26/images/site/favicon.png"}],["$","$L1f","13",{}]]

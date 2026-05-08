@@ -1,0 +1,175 @@
+1:"$Sreact.fragment"
+2:I[79520,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],""]
+3:I[70752,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+4:I[39756,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+5:I[37457,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+d:I[68027,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],"default",1]
+:HL["/pr-preview/pr-26/_next/static/chunks/03ytk777_seq..css","style"]
+:HL["/pr-preview/pr-26/_next/static/chunks/034e093prbb8k.css","style"]
+:HL["/pr-preview/pr-26/_next/static/media/0c89a48fa5027cee-s.p.0rd3rjvnnhw7n.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-26/_next/static/media/1bffadaabf893a1e-s.p.16ipb6fqu393i.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-26/_next/static/media/70bc3e132a0a741e-s.p.1409xf.ylxg8g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-26/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-26/_next/static/chunks/150triunle-7s.css","style"]
+6:T5cb,
+            (function (C, A, L) {
+              let p = function (a, ar) { a.q.push(ar); };
+              let d = C.document;
+              C.Cal = C.Cal || function () {
+                let cal = C.Cal;
+                let ar = arguments;
+                if (!cal.loaded) {
+                  cal.ns = {};
+                  cal.q = cal.q || [];
+                  d.head.appendChild(d.createElement("script")).src = A;
+                  cal.loaded = true;
+                }
+                if (ar[0] === L) {
+                  const api = function () { p(api, arguments); };
+                  const namespace = ar[1];
+                  api.q = api.q || [];
+                  if (typeof namespace === "string") {
+                    cal.ns[namespace] = cal.ns[namespace] || api;
+                    p(cal.ns[namespace], ar);
+                    p(cal, ["initNamespace", namespace]);
+                  } else p(cal, ar);
+                  return;
+                }
+                p(cal, ar);
+              };
+            })(window, "https://app.cal.com/embed/embed.js", "init");
+            Cal("init", "30min", { origin: "https://app.cal.com" });
+            Cal.ns["30min"]("floatingButton", {
+              calLink: "marc-chen/30min",
+              config: { layout: "month_view" },
+              buttonText: "Book a call",
+            });
+            Cal.ns["30min"]("ui", {
+              hideEventTypeDetails: false,
+              layout: "month_view",
+            });
+          0:{"P":null,"c":["","zh-cn","blog","codelab-notion2googletask",""],"q":"","i":false,"f":[[["",{"children":[["locale","zh-cn","d",null],{"children":["blog",{"children":[["slug","codelab-notion2googletask","d",null],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-26/_next/static/chunks/03ytk777_seq..css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"className":"inter_991aebb-module__bYvC1W__variable space_grotesk_e6988195-module__RNs2Mq__variable jetbrains_mono_f8290d5a-module__2Nw1lG__variable","children":[["$","head",null,{}],["$","body",null,{"style":{"fontFamily":"var(--font-sans)"},"children":[["$","$L2",null,{"src":"/theme-init.js","strategy":"beforeInteractive"}],["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$L2",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-W2DZCT2HCH","strategy":"afterInteractive"}],["$","$L2",null,{"id":"google-analytics","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-W2DZCT2HCH');\n          "}],["$","$L2",null,{"id":"statcounter","strategy":"afterInteractive","children":"\n            var sc_project=13085075;\n            var sc_invisible=1;\n            var sc_security=\"0795b862\";\n          "}],["$","$L2",null,{"src":"https://www.statcounter.com/counter/counter.js","strategy":"afterInteractive"}],["$","$L2",null,{"id":"cal-embed","strategy":"afterInteractive","children":"$6"}]]}]]}]]}],{"children":["$L7",{"children":["$L8",{"children":["$L9",{"children":["$La",{},null,false,null]},null,false,"$@b"]},null,false,"$@b"]},null,false,null]},null,false,null],"$Lc",false]],"m":"$undefined","G":["$d",["$Le"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"7dXoA3m88K2pHTG-E6VX0"}
+11:I[97367,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+12:"$Sreact.suspense"
+15:I[97367,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],"ViewportBoundary"]
+17:I[97367,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],"MetadataBoundary"]
+7:["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-26/_next/static/chunks/034e093prbb8k.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pr-preview/pr-26/_next/static/chunks/079vlxutsb4.9.js","async":true,"nonce":"$undefined"}]],"$Lf"]}]
+8:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+9:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+a:["$","$1","c",{"children":["$L10",[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-26/_next/static/chunks/150triunle-7s.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pr-preview/pr-26/_next/static/chunks/02kpv-2fcd-uc.js","async":true,"nonce":"$undefined"}]],["$","$L11",null,{"children":["$","$12",null,{"name":"Next.MetadataOutlet","children":"$@13"}]}]]}]
+14:[]
+b:"$W14"
+c:["$","$1","h",{"children":[null,["$","$L15",null,{"children":"$L16"}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$12",null,{"name":"Next.Metadata","children":"$L18"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-26/_next/static/chunks/03ytk777_seq..css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+19:I[3265,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js","/pr-preview/pr-26/_next/static/chunks/079vlxutsb4.9.js"],"default"]
+1a:I[58234,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js","/pr-preview/pr-26/_next/static/chunks/079vlxutsb4.9.js"],"default"]
+1b:I[22016,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js","/pr-preview/pr-26/_next/static/chunks/079vlxutsb4.9.js","/pr-preview/pr-26/_next/static/chunks/02kpv-2fcd-uc.js"],""]
+f:[["$","$L19",null,{"locale":"zh-cn","sections":[{"id":"about","name":"关于","weight":1,"showOnNavbar":true},{"id":"skills","name":"技能","weight":2,"showOnNavbar":true},{"id":"experiences","name":"工作经历","weight":3,"showOnNavbar":true},{"id":"education","name":"教育经历","weight":4,"showOnNavbar":true},{"id":"projects","name":"Projects","weight":5,"showOnNavbar":true},{"id":"accomplishments","name":"成就","weight":6,"showOnNavbar":true},{"id":"featured-posts","name":"精选文章","weight":7,"showOnNavbar":true},{"id":"achievements","name":"成就","weight":8,"showOnNavbar":true}],"siteName":"陈马克"}],["$","main",null,{"children":["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L1a",null,{"locale":"zh-cn","author":{"name":"陈马克","nickname":"马克","greeting":"你好，我是","image":"images/author/marc.png","contactInfo":{"email":"marc.chen@ensta-paris.fr","github":"MarcChen","linkedin":"chen-marc"},"summary":["很高兴见到你！","我是一名数据工程师。","欢迎来到我的页面。","请随时联系我！"]},"sections":"$f:0:props:sections"}]]
+1c:T15d9,
+<h1>介绍 Notion2GoogleTasks：跨平台自动化任务管理</h1>
+
+<p>在当今快节奏的世界里，跨多个工具管理任务往往让人感到应接不暇。因此，我创建了 <strong>Notion2GoogleTasks</strong> —— 一个强大的微服务，它打通了 Notion 和 Google Tasks 之间的壁垒，确保无论你使用哪个平台，你的任务列表始终保持同步和最新状态。</p>
+
+<p>想象一下，再也不用担心 Notion 中完成的任务是否已经在 Google Tasks 中得到反映，反之亦然。有了 Notion2GoogleTasks，你将享受到基于你设定计划运行的<strong>双向同步</strong> —— 无论你使用 GitHub Actions、cron 任务还是其他调度工具，都能帮助你专注于最重要的事情：完成任务。</p>
+
+<h2>为什么选择 Notion2GoogleTasks？</h2>
+
+<p>我开发这个项目的原因有很多：</p>
+
+<ul><li><strong>无缝集成：</strong> 无论你偏好 Notion 的灵活性还是 Google Tasks 的简洁性，该工具都能确保两个平台之间的完美协调。</li>
+<li><strong>自动调度：</strong> 一次设置，自动运行！同步过程可以按照预定间隔自动执行，确保你总能获得最新更新，无需手动干预。</li>
+<li><strong>灵活且可扩展：</strong> 设计上考虑了高度的自定义性，你可以根据个人工作流程调整配置。</li>
+</ul>
+<p>通过自动化任务管理，Notion2GoogleTasks 帮助你简化日常规划，确保没有任务被遗漏。</p>
+
+<h2>工作原理</h2>
+
+<p>Notion2GoogleTasks 的核心在于它执行的一系列智能同步操作，将 Notion 和 Google Tasks 之间的数据保持一致。以下是其中一个核心工作流程的概览：</p>
+
+<h3>Google 到 Notion 的同步流程图</h3>
+
+<p>{{< mermaid align="center">}}</p>
+<p>graph TD</p>
+
+<p>A((启动同步流程)) --> B[获取 Google 任务列表]</p>
+<p>B --> C[遍历任务列表]</p>
+<p>C --> D[处理任务同步]</p>
+<p>D --> TASK1[获取上次执行后已完成的任务]</p>
+<p>D --> TASK2[获取上次执行后新创建的任务]</p>
+<p>D --> TASK3[获取 Google 活动任务的 ID]</p>
+<p>DB1[(Github API)] --> DB2[获取上次成功的工作流执行记录]</p>
+<p>DB2 --> TASK1</p>
+<p>DB2 --> TASK2</p>
+<p>TASK1 --> TASK11[将 Notion 页面标记为已完成]</p>
+<p>TASK11 --> X{还有更多任务？}</p>
+<p>TASK2 --> TASK21[创建 Notion 页面]</p>
+<p>TASK21 --> TASK211[获取创建页面的 ID]</p>
+<p>TASK211 --> TASK2111[重命名 Google Tasks 中的任务]</p>
+<p>TASK2111 --> X</p>
+<p>TASK3 --> TASK31{Notion 中是否标记为已完成？}</p>
+<p>TASK31 --> |是| TASK311[在 Google Tasks 中标记任务为已完成]</p>
+<p>TASK31 --> |否| TASK312[跳过并记录被忽略的任务]</p>
+<p>TASK311 --> X</p>
+<p>TASK312 --> X</p>
+<p>X --> |是| D</p>
+<p>X --> |否| Y{还有更多任务列表？}</p>
+<p>Y --> |是| C</p>
+<p>Y --> |否| Z((同步结束))</p>
+<p>{{< /mermaid >}}</p>
+
+<p>在此过程中，工具会从 Google 中获取任务，识别自上次运行以来的变更，并确保所有已完成或新增的任务都能在 Notion 中得到正确反映。</p>
+
+<h3>Notion 到 Google 的同步流程图</h3>
+
+<p>{{< mermaid align="center">}}</p>
+<p>graph TD</p>
+
+<p>A1[获取 Notion 页面] --> B1{是否获取到页面？}</p>
+<p>B1 -->|否| D1[记录错误并退出]</p>
+<p>B1 -->|是| E1[解析 Notion 页面]</p>
+<p>E1 --> F1[获取 Google 任务列表]</p>
+<p>F1 --> G1[初始化进度条]</p>
+<p>G1 --> H1[遍历解析后的页面]</p>
+<p>H1 --> I1{Google Tasks 中是否已存在对应任务？}</p>
+<p>I1 -->|是| J1[记录日志并跳过该页面]</p>
+<p>I1 -->|否| K1[确保任务列表存在]</p>
+<p>K1 --> L1{检查任务列表是否出错？}</p>
+<p>L1 -->|是| M1[基于页面标签创建新的任务列表]</p>
+<p>L1 -->|否| N1[构建任务描述]</p>
+<p>M1 --> N1</p>
+<p>N1 --> O1{构建描述时是否出错？}</p>
+<p>O1 -->|是| P1[记录错误并跳过该页面]</p>
+<p>O1 -->|否| newLines1[在 Google Tasks 中创建任务]</p>
+<p>newLines1 --> R1{创建任务时是否出错？}</p>
+<p>R1 -->|是| S1[记录错误并跳过]</p>
+<p>R1 -->|否| T1[记录成功]</p>
+<p>J1 --> U1[更新进度条]</p>
+<p>P1 --> U1</p>
+<p>S1 --> U1</p>
+<p>T1 --> U1</p>
+<p>U1 --> V1{是否还有更多页面？}</p>
+<p>V1 -->|是| H1</p>
+<p>V1 -->|否| W1[同步完成]</p>
+<p>{{< /mermaid >}}</p>
+
+<p>此流程图展示了 Notion 页面如何被处理 —— 如果页面在 Google Tasks 中尚未存在对应任务，则会自动创建一个新任务。每一步操作都会记录日志，确保你能完全掌握同步过程的细节。</p>
+
+<h2>参与进来</h2>
+
+<p>Notion2GoogleTasks 是一个开源项目，旨在帮助繁忙的专业人士和团队简化任务管理流程。如果你有兴趣自动化 Notion 和 Google Tasks 之间的工作流，请访问完整的仓库了解更多详情、配置选项和贡献指南：</p>
+
+<p><a href="https://github.com/MarcChen/Notion2GoogleTasks" target="_blank" rel="noopener noreferrer">访问 Notion2GoogleTasks GitHub 仓库</a></p>
+
+<p>欢迎 fork 本项目、提交 issue 或直接贡献 pull request。你的反馈和贡献将不断完善这个项目。</p>
+
+<h2>结论</h2>
+
+<p>任务管理不应成为你效率的绊脚石。有了 Notion2GoogleTasks，你将拥有一个强大而灵活的解决方案，实现 Notion 与 Google Tasks 之间的无缝同步，让你专注于真正重要的事情。无论你是独立工作者还是团队成员，这个工具都旨在为你的日常工作带来更高效和清晰的管理体验。</p>
+
+<p>祝你任务管理顺利！</p>10:["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L1b",null,{"href":"/zh-cn/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← 返回博客"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Notion2GoogleTask"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"2025年1月9日"}]}],"$undefined"]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$1c"}}],"$L1d"]}]}]
+1e:I[84997,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js","/pr-preview/pr-26/_next/static/chunks/079vlxutsb4.9.js","/pr-preview/pr-26/_next/static/chunks/02kpv-2fcd-uc.js"],"default"]
+1d:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"评论"}],["$","$L1e",null,{"locale":"zh-cn"}]]}]
+16:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1f:I[27201,["/pr-preview/pr-26/_next/static/chunks/0-yqne7ddqyyo.js","/pr-preview/pr-26/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-26/_next/static/chunks/0d3shmwh5_nmn.js"],"IconMark"]
+13:null
+18:[["$","title","0",{"children":"陈马克 — Data Engineer & AI/ML Engineer"}],["$","meta","1",{"name":"description","content":"马克·陈的个人作品集和博客。"}],["$","link","2",{"rel":"canonical","href":"https://marcchen.github.io/zh-cn/"}],["$","meta","3",{"property":"og:title","content":"陈马克 — Data Engineer & AI/ML Engineer"}],["$","meta","4",{"property":"og:description","content":"马克·陈的个人作品集和博客。"}],["$","meta","5",{"property":"og:url","content":"https://marcchen.github.io/zh-cn/"}],["$","meta","6",{"property":"og:site_name","content":"陈马克"}],["$","meta","7",{"property":"og:locale","content":"zh_CN"}],["$","meta","8",{"property":"og:type","content":"website"}],["$","meta","9",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","10",{"name":"twitter:title","content":"陈马克 — Data Engineer & AI/ML Engineer"}],["$","meta","11",{"name":"twitter:description","content":"马克·陈的个人作品集和博客。"}],["$","link","12",{"rel":"icon","href":"/pr-preview/pr-26/images/site/favicon.png"}],["$","$L1f","13",{}]]
