@@ -131,7 +131,6 @@ export default function About({ data, alternate, locale }: AboutProps) {
                         width={60}
                         height={60}
                         className={styles.certImage}
-                        unoptimized
                       />
                     </div>
                   )}
