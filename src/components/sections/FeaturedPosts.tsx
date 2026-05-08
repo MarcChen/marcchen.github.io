@@ -8,7 +8,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import type { PostMeta } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
-import { assetPath } from "@/lib/paths";
+import { cloudinaryUrl } from "@/lib/cloudinary";
 import { t } from "@/lib/i18n";
 import styles from "@/styles/components/FeaturedPosts.module.css";
 import MagneticButton from "@/components/ui/MagneticButton";
@@ -67,7 +67,7 @@ export default function FeaturedPosts({
                 <div className={styles.imageContainer}>
                   {post.hero ? (
                     <Image
-                      src={assetPath(post.hero.startsWith("http") || post.hero.startsWith("/") ? post.hero : `/images/posts/${post.slug}/${post.hero}`)}
+                      src={cloudinaryUrl(post.hero.startsWith("http") || post.hero.startsWith("/") ? post.hero : `/images/posts/${post.slug}/${post.hero}`)}
                       alt={post.title}
                       fill
                       sizes={isFeatured ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}

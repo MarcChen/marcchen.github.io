@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "preview": "npx serve out",
-    "lint": "eslint"
+    "lint": "eslint",
+    "images:optimize": "node --env-file=.env scripts/optimize-images.mjs",
+    "images:upload": "node --env-file=.env scripts/upload-to-cloudinary.mjs",
+    "prebuild": "npm run images:optimize"
   },
   "dependencies": {
     "@giscus/react": "^3.1.0",
@@ -25,6 +28,7 @@
     "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
+    "cloudinary": "^2",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^19",

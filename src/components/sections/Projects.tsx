@@ -10,7 +10,7 @@ import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import MagneticButton from "@/components/ui/MagneticButton";
 import type { ProjectsSection } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
-import { assetPath } from "@/lib/paths";
+import { cloudinaryUrl } from "@/lib/cloudinary";
 import { t } from "@/lib/i18n";
 import filterStyles from "@/styles/components/Skills.module.css";
 import styles from "@/styles/components/Projects.module.css";
@@ -82,7 +82,7 @@ export default function Projects({ locale, data, alternate }: ProjectsProps) {
                       {featuredProject.logo && (
                         <div className={styles.featuredLogoWrapper}>
                           <Image
-                            src={assetPath(featuredProject.logo)}
+                            src={cloudinaryUrl(featuredProject.logo)}
                             alt={featuredProject.name}
                             width={48}
                             height={48}
@@ -156,7 +156,7 @@ export default function Projects({ locale, data, alternate }: ProjectsProps) {
                         <div className={styles.standardTitleGroup}>
                           {project.logo && (
                             <Image
-                              src={assetPath(project.logo)}
+                              src={cloudinaryUrl(project.logo)}
                               alt={project.name}
                               width={32}
                               height={32}
