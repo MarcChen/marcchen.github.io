@@ -8,7 +8,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import type { ExperiencesSection } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
-import { assetPath } from "@/lib/paths";
+import { cloudinaryUrl } from "@/lib/cloudinary";
 import { t } from "@/lib/i18n";
 import styles from "@/styles/components/Timeline.module.css";
 
@@ -57,7 +57,7 @@ export default function Experiences({
                   {exp.company.logo && (
                     <div className={styles.companyLogoMin}>
                       <Image
-                        src={assetPath(exp.company.logo)}
+                        src={cloudinaryUrl(exp.company.logo)}
                         alt={exp.company.name}
                         width={24}
                         height={24}
@@ -94,7 +94,7 @@ export default function Experiences({
                 {activeExp.company.logo && (
                   <div className={styles.largeLogoWrapper}>
                     <Image
-                      src={assetPath(activeExp.company.logo)}
+                      src={cloudinaryUrl(activeExp.company.logo)}
                       alt={activeExp.company.name}
                       width={64}
                       height={64}
