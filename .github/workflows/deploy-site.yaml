@@ -6,6 +6,10 @@ on:
     branches:
     - main
 
+env:
+  # Public cloud name – inlined at build time so cloudinaryUrl() generates CDN URLs
+  NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -22,8 +26,22 @@ jobs:
     - name: Install node modules
       run: npm ci
 
+    # Upload images to Cloudinary so they're available when the site is deployed.
+    # Images that already exist are skipped (idempotent).
+    # Only runs on main branch – PR previews keep using local fallback.
+    - name: Upload images to Cloudinary
+      run: npm run images:upload
+      env:
+        CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+        CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+        CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+
+    # Build with NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME set → all image URLs
+    # point to Cloudinary with f_auto,q_auto transformations.
     - name: Build
       run: npx next build
+      env:
+        NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
 
     # push the generated content into the `gh-pages` branch.
     - name: Deploy
