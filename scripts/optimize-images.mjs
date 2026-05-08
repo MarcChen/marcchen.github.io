@@ -21,6 +21,7 @@ import { readFile, writeFile, readdir, stat } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
+import "dotenv/config";
 
 // ---- Config -----------------------------------------------------------
 
@@ -114,6 +115,12 @@ async function optimize() {
 
         const optimizedBuffer = await pipeline.toBuffer();
         const optimizedSize = optimizedBuffer.length;
+
+        if (optimizedSize >= originalSize) {
+          log("SKIP    ", filePath, `already optimal (${(originalSize / 1024).toFixed(0)}K)`);
+          skippedCount++;
+          continue;
+        }
 
         if (!dryRun) {
           await writeFile(filePath, optimizedBuffer);

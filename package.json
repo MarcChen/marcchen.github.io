@@ -8,8 +8,8 @@
     "start": "next start",
     "preview": "npx serve out",
     "lint": "eslint",
-    "images:optimize": "node --env-file=.env scripts/optimize-images.mjs",
-    "images:upload": "node --env-file=.env scripts/upload-to-cloudinary.mjs",
+    "images:optimize": "node scripts/optimize-images.mjs",
+    "images:upload": "node scripts/upload-to-cloudinary.mjs",
     "prebuild": "npm run images:optimize"
   },
   "dependencies": {
@@ -18,7 +18,7 @@
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.1",
     "lucide-react": "^1.7.0",
-    "next": "16.2.1",
+    "next": "^16.2.6",
     "next-mdx-remote": "^6.0.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
@@ -28,11 +28,12 @@
     "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
-    "cloudinary": "^2",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cloudinary": "^2",
+    "dotenv": "^16",
     "eslint": "^9",
     "eslint-config-next": "16.2.1",
     "typescript": "^5"

@@ -1,9 +1,4 @@
-function localAssetPath(path: string): string {
-  if (!path || path.startsWith("http") || path.startsWith("//")) return path;
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-  if (path.startsWith("/")) return `${basePath}${path}`;
-  return path;
-}
+import { assetPath } from "@/lib/paths";
 
 /**
  * Build a Cloudinary image URL or fall back to the local path.
@@ -18,7 +13,7 @@ export function cloudinaryUrl(
   if (!path || path.startsWith("http") || path.startsWith("//")) return path;
 
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-  if (!cloudName) return localAssetPath(path);
+  if (!cloudName) return assetPath(path);
 
   const isSvg = /\.svg$/i.test(path);
   const cleanPath = path.replace(/^\//, "").replace(/\.[^/.]+$/, "");
