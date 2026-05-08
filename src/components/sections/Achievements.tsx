@@ -7,7 +7,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import type { AchievementsSection } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
-import { assetPath } from "@/lib/paths";
+import { cloudinaryUrl } from "@/lib/cloudinary";
 import styles from "@/styles/components/Achievements.module.css";
 
 interface AchievementsProps {
@@ -62,7 +62,7 @@ export default function Achievements({ data, alternate }: AchievementsProps) {
               >
                 <div className={styles.imageContainer}>
                   <Image
-                    src={assetPath(achievement.image)}
+                    src={cloudinaryUrl(achievement.image)}
                     alt={achievement.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

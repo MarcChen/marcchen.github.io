@@ -4,7 +4,7 @@ import { isValidLocale, locales, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/i18n";
 import { getPost, getAllPostSlugs } from "@/lib/mdx";
 import CommentsWrapper from "@/components/blog/CommentsWrapper";
-import { assetPath } from "@/lib/paths";
+import { cloudinaryUrl } from "@/lib/cloudinary";
 import styles from "@/styles/components/BlogPost.module.css";
 
 export function generateStaticParams() {
@@ -107,7 +107,7 @@ function simpleMarkdownToHtml(md: string, slug: string): string {
       if (!src.startsWith("http") && !src.startsWith("/")) {
         finalSrc = `/images/posts/${slug}/${src}`;
       }
-      return `<img src="${assetPath(finalSrc)}" alt="${alt}" loading="lazy" />`;
+      return `<img src="${cloudinaryUrl(finalSrc)}" alt="${alt}" loading="lazy" />`;
     }
   );
 
@@ -142,7 +142,7 @@ function simpleMarkdownToHtml(md: string, slug: string): string {
         finalSrc = finalSrc.replace(/^\/posts\/([^/]+)\/images\//, "/images/posts/$1-images/");
       }
 
-      return `<img src="${assetPath(finalSrc)}" alt="${alt}"${height}${width}${align} loading="lazy" style="max-width:100%;height:auto;" />`;
+      return `<img src="${cloudinaryUrl(finalSrc)}" alt="${alt}"${height}${width}${align} loading="lazy" style="max-width:100%;height:auto;" />`;
     }
   );
 

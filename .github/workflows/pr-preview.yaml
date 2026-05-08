@@ -28,11 +28,20 @@ jobs:
         if: github.event.action != 'closed'
         run: npm ci
 
+      - name: Upload images to Cloudinary
+        if: github.event.action != 'closed'
+        run: npm run images:upload
+        env:
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+
       - name: Build Next.js site
         if: github.event.action != 'closed'
         env:
           NEXT_PUBLIC_BASE_PATH: /pr-preview/pr-${{ github.event.number }}
-        run: npx next build
+          NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+        run: npm run build
 
       - name: Deploy PR Preview
         uses: rossjrw/pr-preview-action@v1
