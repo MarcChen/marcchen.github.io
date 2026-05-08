@@ -20,6 +20,7 @@ import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
 import cloudinary from "cloudinary";
 import sharp from "sharp";
+import "dotenv/config";
 
 // ---- Config -----------------------------------------------------------
 
@@ -28,8 +29,11 @@ const SOURCE_DIRS = ["public/images"];
 /** Cloudinary folder prefix – must match src/lib/cloudinary.ts */
 const FOLDER_PREFIX = "portfolio";
 
+/** Exclude .webp: optimize-images generates sidecar .webp files that would
+ *  collide with originals on the same public_id (extension is stripped).
+ *  Cloudinary's f_auto handles format conversion automatically. */
 const IMAGE_EXTS = new Set([
-  ".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg", ".ico",
+  ".jpg", ".jpeg", ".png", ".gif", ".svg", ".ico",
 ]);
 
 /** Cloudinary free-tier max file size (bytes) */
@@ -66,13 +70,16 @@ try {
 // ---- Helpers ----------------------------------------------------------
 
 const ROOT = new URL("..", import.meta.url).pathname;
+const PUBLIC_ROOT = path.join(ROOT, "public");
 
 function log(action, msg) {
   console.log(`  ${action.padEnd(10)} ${msg}`);
 }
 
 function publicIdFromPath(filePath) {
-  const relative = path.relative(ROOT, filePath);
+  /** Strip the `public/` prefix so IDs match cloudinaryUrl() which
+   *  derives paths from web URLs like `/images/author/marc.png`. */
+  const relative = path.relative(PUBLIC_ROOT, filePath);
   return `${FOLDER_PREFIX}/${relative.replace(/\.[^/.]+$/, "")}`;
 }
 

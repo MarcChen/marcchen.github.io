@@ -39,7 +39,7 @@ jobs:
     # Build with NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME set → all image URLs
     # point to Cloudinary with f_auto,q_auto transformations.
     - name: Build
-      run: npx next build
+      run: npm run build
       env:
         NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
 
