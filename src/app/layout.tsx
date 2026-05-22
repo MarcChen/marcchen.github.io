@@ -84,6 +84,13 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
 
+        {/* Umami Analytics */}
+        <Script
+          src="https://umami-silk-psi.vercel.app/script.js"
+          data-website-id="370aee40-7d98-4f01-b66c-28a8b8298bdf"
+          strategy="afterInteractive"
+        />
+
         {/* Cal.com Floating Button */}
         <Script id="cal-embed" strategy="afterInteractive">
           {`
