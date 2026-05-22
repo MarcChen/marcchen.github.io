@@ -1,0 +1,122 @@
+1:"$Sreact.fragment"
+2:I[79520,["/pr-preview/pr-29/_next/static/chunks/11nyzj1yiv7k5.js","/pr-preview/pr-29/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-29/_next/static/chunks/0d3shmwh5_nmn.js"],""]
+3:I[70752,["/pr-preview/pr-29/_next/static/chunks/11nyzj1yiv7k5.js","/pr-preview/pr-29/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-29/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+4:I[39756,["/pr-preview/pr-29/_next/static/chunks/11nyzj1yiv7k5.js","/pr-preview/pr-29/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-29/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+5:I[37457,["/pr-preview/pr-29/_next/static/chunks/11nyzj1yiv7k5.js","/pr-preview/pr-29/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-29/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+d:I[68027,["/pr-preview/pr-29/_next/static/chunks/11nyzj1yiv7k5.js","/pr-preview/pr-29/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-29/_next/static/chunks/0d3shmwh5_nmn.js"],"default",1]
+:HL["/pr-preview/pr-29/_next/static/chunks/03ytk777_seq..css","style"]
+:HL["/pr-preview/pr-29/_next/static/chunks/034e093prbb8k.css","style"]
+:HL["/pr-preview/pr-29/_next/static/media/0c89a48fa5027cee-s.p.0rd3rjvnnhw7n.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-29/_next/static/media/1bffadaabf893a1e-s.p.16ipb6fqu393i.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-29/_next/static/media/70bc3e132a0a741e-s.p.1409xf.ylxg8g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-29/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-29/_next/static/chunks/150triunle-7s.css","style"]
+6:T5cb,
+            (function (C, A, L) {
+              let p = function (a, ar) { a.q.push(ar); };
+              let d = C.document;
+              C.Cal = C.Cal || function () {
+                let cal = C.Cal;
+                let ar = arguments;
+                if (!cal.loaded) {
+                  cal.ns = {};
+                  cal.q = cal.q || [];
+                  d.head.appendChild(d.createElement("script")).src = A;
+                  cal.loaded = true;
+                }
+                if (ar[0] === L) {
+                  const api = function () { p(api, arguments); };
+                  const namespace = ar[1];
+                  api.q = api.q || [];
+                  if (typeof namespace === "string") {
+                    cal.ns[namespace] = cal.ns[namespace] || api;
+                    p(cal.ns[namespace], ar);
+                    p(cal, ["initNamespace", namespace]);
+                  } else p(cal, ar);
+                  return;
+                }
+                p(cal, ar);
+              };
+            })(window, "https://app.cal.com/embed/embed.js", "init");
+            Cal("init", "30min", { origin: "https://app.cal.com" });
+            Cal.ns["30min"]("floatingButton", {
+              calLink: "marc-chen/30min",
+              config: { layout: "month_view" },
+              buttonText: "Book a call",
+            });
+            Cal.ns["30min"]("ui", {
+              hideEventTypeDetails: false,
+              layout: "month_view",
+            });
+          0:{"P":null,"c":["","fr","blog","codelab-gemini-developper-contest",""],"q":"","i":false,"f":[[["",{"children":[["locale","fr","d",null],{"children":["blog",{"children":[["slug","codelab-gemini-developper-contest","d",null],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-29/_next/static/chunks/03ytk777_seq..css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pr-preview/pr-29/_next/static/chunks/11nyzj1yiv7k5.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/pr-preview/pr-29/_next/static/chunks/06zcr3_dpxdcc.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/pr-preview/pr-29/_next/static/chunks/0d3shmwh5_nmn.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"className":"inter_991aebb-module__bYvC1W__variable space_grotesk_e6988195-module__RNs2Mq__variable jetbrains_mono_f8290d5a-module__2Nw1lG__variable","children":[["$","head",null,{}],["$","body",null,{"style":{"fontFamily":"var(--font-sans)"},"children":[["$","$L2",null,{"src":"/theme-init.js","strategy":"beforeInteractive"}],["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$L2",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-W2DZCT2HCH","strategy":"afterInteractive"}],["$","$L2",null,{"id":"google-analytics","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-W2DZCT2HCH');\n          "}],["$","$L2",null,{"id":"statcounter","strategy":"afterInteractive","children":"\n            var sc_project=13085075;\n            var sc_invisible=1;\n            var sc_security=\"0795b862\";\n          "}],["$","$L2",null,{"src":"https://www.statcounter.com/counter/counter.js","strategy":"afterInteractive"}],["$","$L2",null,{"src":"https://umami-silk-psi.vercel.app/script.js","data-website-id":"370aee40-7d98-4f01-b66c-28a8b8298bdf","strategy":"afterInteractive"}],["$","$L2",null,{"id":"cal-embed","strategy":"afterInteractive","children":"$6"}]]}]]}]]}],{"children":["$L7",{"children":["$L8",{"children":["$L9",{"children":["$La",{},null,false,null]},null,false,"$@b"]},null,false,"$@b"]},null,false,null]},null,false,null],"$Lc",false]],"m":"$undefined","G":["$d",["$Le"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"8E7zxszl4jauls3NoXDvx"}
+11:I[97367,["/pr-preview/pr-29/_next/static/chunks/11nyzj1yiv7k5.js","/pr-preview/pr-29/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-29/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+12:"$Sreact.suspense"
+15:I[97367,["/pr-preview/pr-29/_next/static/chunks/11nyzj1yiv7k5.js","/pr-preview/pr-29/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-29/_next/static/chunks/0d3shmwh5_nmn.js"],"ViewportBoundary"]
+17:I[97367,["/pr-preview/pr-29/_next/static/chunks/11nyzj1yiv7k5.js","/pr-preview/pr-29/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-29/_next/static/chunks/0d3shmwh5_nmn.js"],"MetadataBoundary"]
+7:["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-29/_next/static/chunks/034e093prbb8k.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pr-preview/pr-29/_next/static/chunks/079vlxutsb4.9.js","async":true,"nonce":"$undefined"}]],"$Lf"]}]
+8:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+9:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+a:["$","$1","c",{"children":["$L10",[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-29/_next/static/chunks/150triunle-7s.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pr-preview/pr-29/_next/static/chunks/02kpv-2fcd-uc.js","async":true,"nonce":"$undefined"}]],["$","$L11",null,{"children":["$","$12",null,{"name":"Next.MetadataOutlet","children":"$@13"}]}]]}]
+14:[]
+b:"$W14"
+c:["$","$1","h",{"children":[null,["$","$L15",null,{"children":"$L16"}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$12",null,{"name":"Next.Metadata","children":"$L18"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-29/_next/static/chunks/03ytk777_seq..css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+19:I[3265,["/pr-preview/pr-29/_next/static/chunks/11nyzj1yiv7k5.js","/pr-preview/pr-29/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-29/_next/static/chunks/0d3shmwh5_nmn.js","/pr-preview/pr-29/_next/static/chunks/079vlxutsb4.9.js"],"default"]
+1a:I[58234,["/pr-preview/pr-29/_next/static/chunks/11nyzj1yiv7k5.js","/pr-preview/pr-29/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-29/_next/static/chunks/0d3shmwh5_nmn.js","/pr-preview/pr-29/_next/static/chunks/079vlxutsb4.9.js"],"default"]
+1b:I[22016,["/pr-preview/pr-29/_next/static/chunks/11nyzj1yiv7k5.js","/pr-preview/pr-29/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-29/_next/static/chunks/0d3shmwh5_nmn.js","/pr-preview/pr-29/_next/static/chunks/079vlxutsb4.9.js","/pr-preview/pr-29/_next/static/chunks/02kpv-2fcd-uc.js"],""]
+f:[["$","$L19",null,{"locale":"fr","sections":[{"id":"about","name":"À propos","weight":1,"showOnNavbar":true},{"id":"skills","name":"Compétences","weight":2,"showOnNavbar":true},{"id":"experiences","name":"Expériences","weight":3,"showOnNavbar":true},{"id":"education","name":"Éducation","weight":4,"showOnNavbar":true},{"id":"projects","name":"Projects","weight":5,"showOnNavbar":true},{"id":"accomplishments","name":"Réalisations","weight":6,"showOnNavbar":true},{"id":"featured-posts","name":"Articles en vedette","weight":7,"showOnNavbar":true},{"id":"achievements","name":"Réalisations","weight":8,"showOnNavbar":true}],"siteName":"Marc Chen"}],["$","main",null,{"children":["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L1a",null,{"locale":"fr","author":{"name":"Marc Chen","nickname":"Marc!","greeting":"Bonjour, je suis","image":"images/author/marc.png","contactInfo":{"email":"marc.chen@ensta-paris.fr","github":"MarcChen","linkedin":"chen-marc"},"summary":["Enchanté de vous rencontrer !","Je suis data engineer.","Bienvenue sur ma page.","N'hésitez pas à me contacter !"]},"sections":"$f:0:props:sections"}]]
+1c:T1519,
+<h1>Vision Vendor : Une Révolution dans la Revente de Marché de Seconde Main</h1>
+
+<p>Avec l'évolution continue du paysage de l'IA, le <strong>Concours de Développeurs API Gemini de Google</strong> est devenu une scène mondiale pour que les développeurs puissent montrer leurs innovations. De juin 2024 à août 2024, ce concours a invité des esprits créatifs à exploiter la puissance des <strong>modèles Google Gemini</strong> et à repousser les limites de la technologie de l'IA. Avec des prix allant jusqu'à <strong>260 000 $</strong>, il a attiré un large éventail de développeurs désireux de construire des solutions impactantes.</p>
+
+<h2>Le Parcours de Vision Vendor</h2>
+
+<p>Mon coéquipier, <strong>Fabien Houang</strong>, et moi avons relevé ce défi pour créer <strong>Vision Vendor</strong>—une application alimentée par l'IA visant à transformer la façon dont les utilisateurs interagissent avec le marché de seconde main. L'application tire parti des <strong>modèles Google Gemini</strong> pour offrir une expérience fluide en intégrant des <strong>fonctionnalités de caméra</strong> et la <strong>génération de KPI</strong> pour la <strong>comparaison des prix</strong>.</p>
+
+<p>Nous avions un objectif simple : permettre aux utilisateurs de rendre la revente en ligne plus efficace et transparente. Avec l'application Vision Vendor, n'importe qui peut prendre une photo d'un article et recevoir instantanément des informations sur les prix, offrant ainsi l'outil parfait pour tous ceux qui participent à l'économie de seconde main en pleine croissance.</p>
+
+<h2>Fonctionnalités Clés de Vision Vendor</h2>
+
+<ul><li><strong>Comparaison de Prix Alimentée par l'IA</strong> : Les utilisateurs peuvent comparer les prix des articles avec des KPI en temps réel générés par le moteur d'IA de notre application, permettant des décisions d'achat et de vente plus éclairées.</li>
+<li><strong>Fonctionnalité de Caméra Intégrée</strong> : Il suffit de prendre une photo, et notre application utilise la reconnaissance d'image et l'apprentissage profond pour fournir des données de marché précieuses.</li>
+<li><strong>Interface Intuitive</strong> : Le design intuitif garantit une expérience fluide et simple pour tous les utilisateurs, quel que soit leur niveau technique.</li>
+</ul>
+<h2>L'Impact de Vision Vendor sur le Marché de la Revente</h2>
+
+<p>Avec la montée des marchés de seconde main, Vision Vendor se distingue par sa focalisation sur la transparence des prix. Les vendeurs peuvent obtenir des informations sur la valeur de leurs biens, tandis que les acheteurs peuvent s'assurer qu'ils obtiennent une transaction équitable. En utilisant les capacités avancées des modèles Gemini de Google, nous avons créé un outil qui équilibre <strong>efficacité</strong> et <strong>accessibilité</strong>.</p>
+
+<h2>La Route du Succès : Collaboration et Travail Acharné</h2>
+
+<p>Construire <strong>Vision Vendor</strong> a été un effort collaboratif. De la génération d'idées à la démo finale, notre parcours a inclus d'innombrables itérations, marathons de codage et ajustements. L'architecture de l'application est construite avec <strong>les modèles Google Gemini</strong> au cœur, et notre équipe a travaillé avec diligence pour assurer l'intégration fluide des fonctionnalités alimentées par l'IA.</p>
+
+<p>Nous sommes fiers de présenter <strong>Vision Vendor</strong> comme une démo fonctionnelle pour le concours. Nous croyons qu'il a le potentiel de redéfinir la manière dont les gens interagissent avec le marché de seconde main.</p>
+
+<h2>Explorez Vision Vendor</h2>
+
+<p>Notre travail est accessible publiquement pour quiconque souhaite explorer le code source, comprendre les rouages internes de l'application ou essayer la démo. Vous pouvez consulter notre projet sur GitHub :</p>
+
+<p><a href="https://github.com/fabienhouang/VisionVendor" target="_blank" rel="noopener noreferrer">Vision Vendor sur GitHub</a></p>
+
+<p>Pour un aperçu rapide, n'hésitez pas à regarder notre vidéo de démonstration sur YouTube :</p>
+
+<p><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;"><iframe src="https://www.youtube.com/embed/iCTtXtMeJf4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen loading="lazy" title="YouTube video"></iframe></div></p>
+
+<p>De plus, Vision Vendor est officiellement répertorié sur la plateforme <strong>Concours Développeur IA de Google</strong>, présentant notre produit parmi d'autres projets incroyables :</p>
+
+<p><a href="https://ai.google.dev/competition/projects/vision-vendor" target="_blank" rel="noopener noreferrer">Vision Vendor sur Google AI Dev</a></p>
+
+<h2>Conclusion</h2>
+
+<p>Participer au Concours de Développeurs API Gemini a été une expérience passionnante et gratifiante. Le projet Vision Vendor représente l'aboutissement de nos efforts pour créer un outil précieux pour le marché de seconde main en utilisant une technologie d'IA de pointe. Nous sommes impatients de voir jusqu'où ce projet peut aller et de continuer à innover dans le domaine de l'IA et de la revente.</p>
+
+<p>Restez à l'écoute pour plus de mises à jour et d'améliorations !</p>
+
+<p>#GoogleGemini #AIReselling #MarchéSecondMain #InnovationTechnologique #GoogleDéveloppeur</p>
+10:["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L1b",null,{"href":"/fr/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Retour au Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Concours Développeur Gemini"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"26 août 2024"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","IA",{"className":"tag","children":"IA"}],["$","span","Marché Seconde Main",{"className":"tag","children":"Marché Seconde Main"}],["$","span","Comparaison des Prix",{"className":"tag","children":"Comparaison des Prix"}],["$","span","Reconnaissance d'Image",{"className":"tag","children":"Reconnaissance d'Image"}],["$","span","Google Gemini",{"className":"tag","children":"Google Gemini"}],["$","span","Concours Développeur",{"className":"tag","children":"Concours Développeur"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$1c"}}],"$L1d"]}]}]
+1e:I[84997,["/pr-preview/pr-29/_next/static/chunks/11nyzj1yiv7k5.js","/pr-preview/pr-29/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-29/_next/static/chunks/0d3shmwh5_nmn.js","/pr-preview/pr-29/_next/static/chunks/079vlxutsb4.9.js","/pr-preview/pr-29/_next/static/chunks/02kpv-2fcd-uc.js"],"default"]
+1d:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"Commentaires"}],["$","$L1e",null,{"locale":"fr"}]]}]
+16:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1f:I[27201,["/pr-preview/pr-29/_next/static/chunks/11nyzj1yiv7k5.js","/pr-preview/pr-29/_next/static/chunks/06zcr3_dpxdcc.js","/pr-preview/pr-29/_next/static/chunks/0d3shmwh5_nmn.js"],"IconMark"]
+13:null
+18:[["$","title","0",{"children":"Marc Chen — Data Engineer & AI/ML Engineer"}],["$","meta","1",{"name":"description","content":"Portfolio et blog personnel de Marc Chen."}],["$","link","2",{"rel":"canonical","href":"https://marcchen.github.io/fr/"}],["$","meta","3",{"property":"og:title","content":"Marc Chen — Data Engineer & AI/ML Engineer"}],["$","meta","4",{"property":"og:description","content":"Portfolio et blog personnel de Marc Chen."}],["$","meta","5",{"property":"og:url","content":"https://marcchen.github.io/fr/"}],["$","meta","6",{"property":"og:site_name","content":"Marc Chen"}],["$","meta","7",{"property":"og:locale","content":"fr_FR"}],["$","meta","8",{"property":"og:type","content":"website"}],["$","meta","9",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","10",{"name":"twitter:title","content":"Marc Chen — Data Engineer & AI/ML Engineer"}],["$","meta","11",{"name":"twitter:description","content":"Portfolio et blog personnel de Marc Chen."}],["$","link","12",{"rel":"icon","href":"/pr-preview/pr-29/images/site/favicon.png"}],["$","$L1f","13",{}]]
