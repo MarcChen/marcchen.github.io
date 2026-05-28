@@ -38,6 +38,7 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
     let initialTheme: "light" | "dark" = "dark";
     if (stored === "light") initialTheme = "light";
     setTheme(initialTheme);
+    document.documentElement.setAttribute("data-theme", initialTheme);
   }, []);
 
   const toggleTheme = useCallback(() => {
