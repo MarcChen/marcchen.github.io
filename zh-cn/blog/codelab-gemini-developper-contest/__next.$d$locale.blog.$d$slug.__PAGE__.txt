@@ -1,10 +1,10 @@
 1:"$Sreact.fragment"
-2:I[22016,["/_next/static/chunks/11nyzj1yiv7k5.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/079vlxutsb4.9.js","/_next/static/chunks/02kpv-2fcd-uc.js"],""]
-8:I[84997,["/_next/static/chunks/11nyzj1yiv7k5.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/079vlxutsb4.9.js","/_next/static/chunks/02kpv-2fcd-uc.js"],"default"]
+2:I[22016,["/_next/static/chunks/11nyzj1yiv7k5.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0xxkolfyx37el.js","/_next/static/chunks/02kpv-2fcd-uc.js"],""]
+8:I[84997,["/_next/static/chunks/11nyzj1yiv7k5.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0xxkolfyx37el.js","/_next/static/chunks/02kpv-2fcd-uc.js"],"default"]
 9:I[97367,["/_next/static/chunks/11nyzj1yiv7k5.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 a:"$Sreact.suspense"
 :HL["/_next/static/chunks/150triunle-7s.css","style"]
-3:T105a,
+3:T1053,
 <h1>Vision Vendor：二手市场转售的突破</h1>
 
 <p>随着人工智能领域的不断发展，<strong>Google 的 Gemini API 开发者竞赛</strong>已成为开发者展示创新的全球舞台。从 2024 年 6 月到 2024 年 8 月，这场竞赛邀请了富有创造力的头脑利用 <strong>Google Gemini 模型</strong>的力量，推动 AI 技术的边界。竞赛的总奖金高达 <strong>260,000 美元</strong>，吸引了众多开发者渴望构建有影响力的解决方案。</p>
@@ -39,7 +39,7 @@ a:"$Sreact.suspense"
 
 <p>如需快速了解，请观看我们的 YouTube 演示视频：</p>
 
-<p><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;"><iframe src="https://www.youtube.com/embed/iCTtXtMeJf4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen loading="lazy" title="YouTube video"></iframe></div></p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;"><iframe src="https://www.youtube.com/embed/iCTtXtMeJf4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen loading="lazy" title="YouTube video"></iframe></div>
 
 <p>此外，Vision Vendor 已正式列在 <strong>Google 的 AI 开发者竞赛</strong>平台上，在其他令人难以置信的项目中展示了我们的产品：</p>
 
@@ -52,7 +52,7 @@ a:"$Sreact.suspense"
 <p>敬请期待更多更新和改进！</p>
 
 <p>#GoogleGemini #AI转售 #二手市场 #技术创新 #Google开发者</p>
-0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/zh-cn/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← 返回博客"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Gemini 开发者竞赛"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"2024年8月26日"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","人工智能",{"className":"tag","children":"人工智能"}],["$","span","二手市场",{"className":"tag","children":"二手市场"}],["$","span","价格对比",{"className":"tag","children":"价格对比"}],["$","span","图像识别",{"className":"tag","children":"图像识别"}],["$","span","Google Gemini",{"className":"tag","children":"Google Gemini"}],["$","span","开发者竞赛",{"className":"tag","children":"开发者竞赛"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"ZMD1b0BqDoe_GtuRGDm04"}
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/zh-cn/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← 返回博客"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Gemini 开发者竞赛"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"2024年8月26日"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","人工智能",{"className":"tag","children":"人工智能"}],["$","span","二手市场",{"className":"tag","children":"二手市场"}],["$","span","价格对比",{"className":"tag","children":"价格对比"}],["$","span","图像识别",{"className":"tag","children":"图像识别"}],["$","span","Google Gemini",{"className":"tag","children":"Google Gemini"}],["$","span","开发者竞赛",{"className":"tag","children":"开发者竞赛"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"k6EzY5Fqv8h4dgnEn9LjF"}
 4:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"评论"}],["$","$L8",null,{"locale":"zh-cn"}]]}]
 5:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/150triunle-7s.css","precedence":"next"}]
 6:["$","script","script-0",{"src":"/_next/static/chunks/02kpv-2fcd-uc.js","async":true}]

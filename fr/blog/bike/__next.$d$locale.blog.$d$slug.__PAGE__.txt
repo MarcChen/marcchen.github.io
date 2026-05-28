@@ -1,10 +1,10 @@
 1:"$Sreact.fragment"
-2:I[22016,["/_next/static/chunks/11nyzj1yiv7k5.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/079vlxutsb4.9.js","/_next/static/chunks/02kpv-2fcd-uc.js"],""]
-8:I[84997,["/_next/static/chunks/11nyzj1yiv7k5.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/079vlxutsb4.9.js","/_next/static/chunks/02kpv-2fcd-uc.js"],"default"]
+2:I[22016,["/_next/static/chunks/11nyzj1yiv7k5.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0xxkolfyx37el.js","/_next/static/chunks/02kpv-2fcd-uc.js"],""]
+8:I[84997,["/_next/static/chunks/11nyzj1yiv7k5.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0xxkolfyx37el.js","/_next/static/chunks/02kpv-2fcd-uc.js"],"default"]
 9:I[97367,["/_next/static/chunks/11nyzj1yiv7k5.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 a:"$Sreact.suspense"
 :HL["/_next/static/chunks/150triunle-7s.css","style"]
-3:T11f8,<h2>Mes aventures à vélo : un voyage d'apprentissages et de découvertes</h2>
+3:T11db,<h2>Mes aventures à vélo : un voyage d'apprentissages et de découvertes</h2>
 
 <p>L'objectif de ce post est de partager mes aventures à vélo, les défis rencontrés et les leçons tirées de ces expériences.</p>
 
@@ -19,7 +19,7 @@ a:"$Sreact.suspense"
 <h3>Édition 2 : Cabourg - Saint-Malo (500 km, 3000 m de dénivelé)</h3>
 
 <p>Ce deuxième voyage a été bien mieux planifié, avec un itinéraire préparé en amont. Voici une animation du trajet :</p>
-<p><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;"><iframe src="https://www.youtube.com/embed/6DUGFoYhUSs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen loading="lazy" title="YouTube video"></iframe></div></p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;"><iframe src="https://www.youtube.com/embed/6DUGFoYhUSs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen loading="lazy" title="YouTube video"></iframe></div>
 
 <p>Ce parcours a été beaucoup plus agréable, notamment avec la découverte des plages du débarquement, un lieu chargé d'histoire. Avec des cuissards cette fois-ci, nous avons pu enchaîner les kilomètres sans difficulté. Une seule crevaison à signaler sur l'ensemble du trajet.</p>
 
@@ -29,7 +29,7 @@ a:"$Sreact.suspense"
 
  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/profile" alt="Trip profile" align="center" loading="lazy" style="max-width:100%;height:auto;" />
 
-<p><div class="custom-image-grid"></p>
+<div class="custom-image-grid">
   <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/bike" alt="Mon 1er vélo pour ce genre de voyage" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
   <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/campement" alt="Campement au bord de la plage" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
   <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/mont-st-michel" alt="Mont Saint Michel" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
@@ -44,14 +44,12 @@ a:"$Sreact.suspense"
 
 <h4>Galerie</h4>
 
-<p><div class="custom-image-grid"></p>
+<div class="custom-image-grid">
   <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/trip3-trajet" alt="Profil du trajet 3" align="center" loading="lazy" style="max-width:100%;height:auto;" />
   <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/orleans" alt="Cathédrale d'Orléans" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
   <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/orleans_bis" alt="Intérieur de la cathédrale" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
   <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/bike_V2" alt="Nouveau Gravel Triban GRVL520" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
-</div>
-
-</div>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/fr/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Retour au Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Bike roadtrips"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"10 octobre 2024"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","Vélo",{"className":"tag","children":"Vélo"}],["$","span","Bikepacking",{"className":"tag","children":"Bikepacking"}],["$","span","Leçons Apprises",{"className":"tag","children":"Leçons Apprises"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"ZMD1b0BqDoe_GtuRGDm04"}
+</div>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/fr/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Retour au Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Bike roadtrips"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"10 septembre 2020"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","Vélo",{"className":"tag","children":"Vélo"}],["$","span","Bikepacking",{"className":"tag","children":"Bikepacking"}],["$","span","Leçons Apprises",{"className":"tag","children":"Leçons Apprises"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"k6EzY5Fqv8h4dgnEn9LjF"}
 4:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"Commentaires"}],["$","$L8",null,{"locale":"fr"}]]}]
 5:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/150triunle-7s.css","precedence":"next"}]
 6:["$","script","script-0",{"src":"/_next/static/chunks/02kpv-2fcd-uc.js","async":true}]
