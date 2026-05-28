@@ -209,7 +209,8 @@ function simpleMarkdownToHtml(md: string, slug: string): string {
       line.startsWith("</") ||
       line.startsWith("<blockquote") ||
       line.startsWith("<hr") ||
-      line.startsWith("<img")
+      line.startsWith("<img") ||
+      line.startsWith("<div")
     ) {
       result.push(lines[i]);
     } else {

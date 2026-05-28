@@ -1,6 +1,6 @@
 ---
 title: Bike roadtrips
-date: 2024-10-10 22:33:01
+date: 2020-09-10 22:33:01
 description: Récit de plusieurs aventures à vélo à travers la France, en explorant différents itinéraires et en partageant mes apprentissages et découvertes.
 menu:
   sidebar:
@@ -59,6 +59,4 @@ Voici quelques photos de mon nouveau chargement et des vues du trajet.
   {{< img src="/images/posts/bike-images/orleans.JPG" height="400" width="300" align="center" title="Cathédrale d'Orléans" >}}
   {{< img src="/images/posts/bike-images/orleans_bis.JPG" height="400" width="300" align="center" title="Intérieur de la cathédrale" >}}
   {{< img src="/images/posts/bike-images/bike_V2.JPG" height="400" width="300" align="center" title="Nouveau Gravel Triban GRVL520" >}}
-</div>
-
 </div>
