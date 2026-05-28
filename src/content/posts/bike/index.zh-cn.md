@@ -1,6 +1,6 @@
 ---
 title: Bike 600km roadtrip
-date: 2024-10-10 22:33:01
+date: 2020-09-10 22:33:01
 description: 通过多次自行车旅行探索法国的不同路线，分享我的经历与收获。
 menu:
   sidebar:
@@ -59,6 +59,4 @@ tags:
   {{< img src="/images/posts/bike-images/orleans.JPG" height="400" width="300" align="center" title="奥尔良大教堂" >}}
   {{< img src="/images/posts/bike-images/orleans_bis.JPG" height="400" width="300" align="center" title="教堂内部" >}}
   {{< img src="/images/posts/bike-images/bike_V2.JPG" height="400" width="300" align="center" title="新款Gravel Triban GRVL520" >}}
-</div>
-
 </div>
