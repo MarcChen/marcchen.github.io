@@ -1,6 +1,6 @@
 ---
 title: Bike 600km roadtrip
-date: 2024-10-10 22:33:01
+date: 2020-09-10 22:33:01
 description: A journey through several cycling adventures across France, exploring different routes and sharing my experiences and lessons learned.
 menu:
   sidebar:
@@ -59,6 +59,4 @@ Here are a few photos of my new setup, along with some beautiful views from the 
   {{< img src="/images/posts/bike-images/orleans.JPG" height="400" width="300" align="center" title="Orléans Cathedral" >}}
   {{< img src="/images/posts/bike-images/orleans_bis.JPG" height="400" width="300" align="center" title="Inside the Cathedral" >}}
   {{< img src="/images/posts/bike-images/bike_V2.JPG" height="400" width="300" align="center" title="New Gravel Triban GRVL520" >}}
-</div>
-
 </div>
