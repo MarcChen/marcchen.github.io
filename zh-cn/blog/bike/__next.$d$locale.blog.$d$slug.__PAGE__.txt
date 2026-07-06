@@ -1,9 +1,9 @@
 1:"$Sreact.fragment"
-2:I[22016,["/_next/static/chunks/11nyzj1yiv7k5.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0xxkolfyx37el.js","/_next/static/chunks/02kpv-2fcd-uc.js"],""]
-8:I[84997,["/_next/static/chunks/11nyzj1yiv7k5.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0xxkolfyx37el.js","/_next/static/chunks/02kpv-2fcd-uc.js"],"default"]
-9:I[97367,["/_next/static/chunks/11nyzj1yiv7k5.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+2:I[22016,["/_next/static/chunks/3lcuwfw0h2ioi.js","/_next/static/chunks/0me_ux7qtdtiw.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1tv11de_d8elp.js","/_next/static/chunks/12oyignlicvht.js"],""]
+8:I[84997,["/_next/static/chunks/3lcuwfw0h2ioi.js","/_next/static/chunks/0me_ux7qtdtiw.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1tv11de_d8elp.js","/_next/static/chunks/12oyignlicvht.js"],"default"]
+9:I[97367,["/_next/static/chunks/3lcuwfw0h2ioi.js","/_next/static/chunks/0me_ux7qtdtiw.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
 a:"$Sreact.suspense"
-:HL["/_next/static/chunks/150triunle-7s.css","style"]
+:HL["/_next/static/chunks/3whwortwxn1eb.css","style"]
 3:T11c4,<h2>我的骑行冒险：一次学习与探索的旅程</h2>
 
 <p>这篇文章的目的是分享我在自行车旅行中的经历、遇到的挑战以及从中学到的经验。</p>
@@ -49,9 +49,9 @@ a:"$Sreact.suspense"
   <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/orleans" alt="奥尔良大教堂" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
   <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/orleans_bis" alt="教堂内部" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
   <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/bike_V2" alt="新款Gravel Triban GRVL520" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
-</div>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/zh-cn/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← 返回博客"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Bike 600km roadtrip"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"2020年9月10日"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","自行车",{"className":"tag","children":"自行车"}],["$","span","长途骑行",{"className":"tag","children":"长途骑行"}],["$","span","经验分享",{"className":"tag","children":"经验分享"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"k6EzY5Fqv8h4dgnEn9LjF"}
+</div>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/zh-cn/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← 返回博客"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Bike 600km roadtrip"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"2020年9月10日"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","自行车",{"className":"tag","children":"自行车"}],["$","span","长途骑行",{"className":"tag","children":"长途骑行"}],["$","span","经验分享",{"className":"tag","children":"经验分享"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"CHLhW0pHmvSwLGtJr88C0"}
 4:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"评论"}],["$","$L8",null,{"locale":"zh-cn"}]]}]
-5:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/150triunle-7s.css","precedence":"next"}]
-6:["$","script","script-0",{"src":"/_next/static/chunks/02kpv-2fcd-uc.js","async":true}]
+5:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/3whwortwxn1eb.css","precedence":"next"}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/12oyignlicvht.js","async":true}]
 7:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
 b:null

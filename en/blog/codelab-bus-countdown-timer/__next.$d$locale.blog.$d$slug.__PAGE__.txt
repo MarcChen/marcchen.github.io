@@ -1,9 +1,9 @@
 1:"$Sreact.fragment"
-2:I[22016,["/_next/static/chunks/11nyzj1yiv7k5.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0xxkolfyx37el.js","/_next/static/chunks/02kpv-2fcd-uc.js"],""]
-8:I[84997,["/_next/static/chunks/11nyzj1yiv7k5.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0xxkolfyx37el.js","/_next/static/chunks/02kpv-2fcd-uc.js"],"default"]
-9:I[97367,["/_next/static/chunks/11nyzj1yiv7k5.js","/_next/static/chunks/06zcr3_dpxdcc.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
+2:I[22016,["/_next/static/chunks/3lcuwfw0h2ioi.js","/_next/static/chunks/0me_ux7qtdtiw.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1tv11de_d8elp.js","/_next/static/chunks/12oyignlicvht.js"],""]
+8:I[84997,["/_next/static/chunks/3lcuwfw0h2ioi.js","/_next/static/chunks/0me_ux7qtdtiw.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1tv11de_d8elp.js","/_next/static/chunks/12oyignlicvht.js"],"default"]
+9:I[97367,["/_next/static/chunks/3lcuwfw0h2ioi.js","/_next/static/chunks/0me_ux7qtdtiw.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
 a:"$Sreact.suspense"
-:HL["/_next/static/chunks/150triunle-7s.css","style"]
+:HL["/_next/static/chunks/3whwortwxn1eb.css","style"]
 3:T9c5,
 <h2>Bus Station Project: Enhancing Public Transport with IoT</h2>
 
@@ -27,9 +27,9 @@ a:"$Sreact.suspense"
 
 <p>For more details, you can follow the progress of our project:</p>
 <ul><li><a href="https://github.com/MarcChen/affichage-temps-bus-ratp" target="_blank" rel="noopener noreferrer">Project avaiable on Github</a></li>
-</ul>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/en/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Back to Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Bus Countdown Timer"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"October 10, 2024"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","IoT",{"className":"tag","children":"IoT"}],["$","span","Public Transport",{"className":"tag","children":"Public Transport"}],["$","span","ESP32",{"className":"tag","children":"ESP32"}],["$","span","API Integration",{"className":"tag","children":"API Integration"}],["$","span","Power Optimization",{"className":"tag","children":"Power Optimization"}],["$","span","Wi-Fi",{"className":"tag","children":"Wi-Fi"}],["$","span","Smart Cities",{"className":"tag","children":"Smart Cities"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"k6EzY5Fqv8h4dgnEn9LjF"}
+</ul>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/en/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Back to Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Bus Countdown Timer"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"October 10, 2024"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","IoT",{"className":"tag","children":"IoT"}],["$","span","Public Transport",{"className":"tag","children":"Public Transport"}],["$","span","ESP32",{"className":"tag","children":"ESP32"}],["$","span","API Integration",{"className":"tag","children":"API Integration"}],["$","span","Power Optimization",{"className":"tag","children":"Power Optimization"}],["$","span","Wi-Fi",{"className":"tag","children":"Wi-Fi"}],["$","span","Smart Cities",{"className":"tag","children":"Smart Cities"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"CHLhW0pHmvSwLGtJr88C0"}
 4:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"Comments"}],["$","$L8",null,{"locale":"en"}]]}]
-5:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/150triunle-7s.css","precedence":"next"}]
-6:["$","script","script-0",{"src":"/_next/static/chunks/02kpv-2fcd-uc.js","async":true}]
+5:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/3whwortwxn1eb.css","precedence":"next"}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/12oyignlicvht.js","async":true}]
 7:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
 b:null
