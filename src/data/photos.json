@@ -1,45 +1,42 @@
-[
-  {
-    "id": "hk-architecture-ville2",
-    "path": "/photos/hk-architecture-ville2.jpg",
-    "width": 1707,
-    "height": 2560,
-    "alt": "HK Architecture",
-    "title": "HK Architecture",
-    "caption": "Towering skyscrapers of Hong Kong's urban skyline.",
-    "copyright": "© Marc Chen – All rights reserved",
-    "tags": [
-      "architecture",
-      "hongkong",
-      "urban"
-    ]
-  },
-  {
-    "id": "taxi-hk-ss",
-    "path": "/photos/taxi-hk-ss.jpg",
-    "width": 2560,
-    "height": 1707,
-    "alt": "Hong Kong Taxi",
-    "title": "Hong Kong Taxi",
-    "caption": "Street scene in Hong Kong.",
-    "copyright": "© Marc Chen – All rights reserved",
-    "tags": [
-      "street",
-      "hongkong"
-    ]
-  },
-  {
-    "id": "vespa-jaune",
-    "path": "/photos/vespa-jaune.jpg",
-    "width": 1707,
-    "height": 2560,
-    "alt": "Yellow Vespa",
-    "title": "Yellow Vespa",
-    "caption": "A yellow Vespa parked in an alley.",
-    "copyright": "© Marc Chen – All rights reserved",
-    "tags": [
-      "street",
-      "vehicle"
-    ]
-  }
-]
+{
+  "_copyright": "© Marc Chen – All rights reserved",
+  "photos": [
+    {
+      "id": "hk-architecture-ville2",
+      "path": "/photos/hk-architecture-ville2.jpg",
+      "width": 1707,
+      "height": 2560,
+      "title": "HK Architecture",
+      "caption": "Towering skyscrapers of Hong Kong's urban skyline.",
+      "tags": [
+        "architecture",
+        "hongkong",
+        "urban"
+      ]
+    },
+    {
+      "id": "taxi-hk-ss",
+      "path": "/photos/taxi-hk-ss.jpg",
+      "width": 2560,
+      "height": 1707,
+      "title": "Hong Kong Taxi",
+      "caption": "An iconic red Toyota Crown comfort taxi navigating the vibrant, neon-lit streets of Kowloon.",
+      "tags": [
+        "street",
+        "hongkong"
+      ]
+    },
+    {
+      "id": "vespa-jaune",
+      "path": "/photos/vespa-jaune.jpg",
+      "width": 1707,
+      "height": 2560,
+      "title": "Yellow Vespa",
+      "caption": "A yellow Vespa parked in an alley.",
+      "tags": [
+        "street",
+        "vehicle"
+      ]
+    }
+  ]
+}

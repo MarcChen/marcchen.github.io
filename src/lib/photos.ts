@@ -9,11 +9,14 @@ interface ManifestEntry {
   path: string;
   width: number;
   height: number;
-  alt: string;
   title?: string;
   caption?: string;
-  copyright?: string;
   tags?: string[];
+}
+
+interface PhotoManifest {
+  _copyright?: string;
+  photos: ManifestEntry[];
 }
 
 const MANIFEST_PATH = path.join(process.cwd(), "src", "data", "photos.json");
@@ -42,28 +45,32 @@ function hasLocalPhotos(): boolean {
 }
 
 export function getPhotos(): PhotoItem[] {
-  let manifest: ManifestEntry[] = [];
+  let manifest: PhotoManifest;
 
   try {
     const raw = fs.readFileSync(MANIFEST_PATH, "utf-8");
-    manifest = JSON.parse(raw) as ManifestEntry[];
+    manifest = JSON.parse(raw) as PhotoManifest;
   } catch {
     return [];
   }
 
-  if (!manifest || manifest.length === 0) return [];
+  if (!manifest?.photos || manifest.photos.length === 0) return [];
 
   const useLocal = hasLocalPhotos();
+  const globalCopyright = manifest._copyright || "";
 
-  return manifest.map((entry) => {
+  return manifest.photos.map((entry) => {
+    // alt = title if present, otherwise humanize the id
+    const alt = entry.title || entry.id.replace(/[/\\]/g, " ").replace(/[-_]/g, " ");
+
     const base: Omit<PhotoItem, "src" | "msrc"> = {
       id: entry.id,
       width: entry.width,
       height: entry.height,
-      alt: entry.alt,
+      alt,
       ...(entry.title && { title: entry.title }),
       ...(entry.caption && { caption: entry.caption }),
-      ...(entry.copyright && { copyright: entry.copyright }),
+      ...(globalCopyright && { copyright: globalCopyright }),
       ...(entry.tags && { tags: entry.tags }),
     };
 
@@ -82,4 +89,5 @@ export function getPhotos(): PhotoItem[] {
     };
   });
 }
+
 
