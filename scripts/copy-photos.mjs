@@ -143,11 +143,8 @@ async function copyPhotos() {
 
   if (!existsSync(SOURCE_DIR)) {
     console.warn(`  Source directory not found: photos/`);
-    console.warn(`  Creating empty manifest.`);
-    if (!dryRun) {
-      const empty = JSON.stringify({ _copyright: "", photos: [] }, null, 2) + "\n";
-      await writeFile(MANIFEST_PATH, empty, "utf-8");
-    }
+    console.warn(`  Skipping manifest write — using committed src/data/photos.json`);
+    console.warn(`  (On CI, missing photos/ is expected; photos/ is gitignored.)`);
     return;
   }
 
