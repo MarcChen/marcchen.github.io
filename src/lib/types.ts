@@ -258,6 +258,21 @@ export interface PostMeta extends PostFrontmatter {
   locale: string;
 }
 
+// ---- Photos / Gallery ----
+
+export interface PhotoItem {
+  id: string;
+  src: string;
+  width: number;
+  height: number;
+  msrc?: string;
+  alt: string;
+  title?: string;
+  caption?: string;
+  copyright?: string;
+  tags?: string[];
+}
+
 // ---- Section union ----
 
 export type SectionData =

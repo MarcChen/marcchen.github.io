@@ -124,6 +124,12 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
               >
                 <span className={styles.linkText}>{t(locale, "blog_nav")}</span>
               </Link>
+              <Link
+                href={`/${locale}/photos/`}
+                className={styles.navLink}
+              >
+                <span className={styles.linkText}>{t(locale, "photos_nav")}</span>
+              </Link>
             </nav>
 
             <div className={styles.actions}>
@@ -215,7 +221,14 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
               >
                 {t(locale, "blog_nav")}
               </Link>
-              
+              <Link
+                href={`/${locale}/photos/`}
+                className={styles.mobileNavLink}
+                onClick={() => setIsMobileOpen(false)}
+              >
+                {t(locale, "photos_nav")}
+              </Link>
+
               <div className={styles.mobileDivider} />
               
               <div className={styles.mobileLangSelector}>

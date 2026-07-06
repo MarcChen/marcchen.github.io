@@ -91,6 +91,14 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
 
+        <Script id="sw-cleanup" strategy="beforeInteractive">
+          {`if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations()
+              .then(function (rs) { return Promise.all(rs.map(function (r) { return r.unregister(); })); })
+              .catch(function () {});
+          }`}
+        </Script>
+
         {/* Cal.com Floating Button */}
         <Script id="cal-embed" strategy="afterInteractive">
           {`
