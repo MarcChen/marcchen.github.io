@@ -10,7 +10,8 @@
     "lint": "eslint",
     "images:optimize": "node scripts/optimize-images.mjs",
     "images:upload": "node scripts/upload-to-cloudinary.mjs",
-    "prebuild": "npm run images:optimize"
+    "photos:copy": "node scripts/copy-photos.mjs",
+    "prebuild": "npm run images:optimize && npm run photos:copy"
   },
   "dependencies": {
     "@giscus/react": "^3.1.0",
@@ -20,6 +21,7 @@
     "lucide-react": "^1.7.0",
     "next": "^16.2.6",
     "next-mdx-remote": "^6.0.0",
+    "photoswipe": "^5.4.4",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "rehype-highlight": "^7.0.2",
