@@ -56,20 +56,7 @@
   }
 }
 
-/* PhotoSwipe caption overlay */
-.pswpCaption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, transparent 100%);
-  padding: 2.5rem 1.5rem 1.25rem;
-  color: #fff;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  pointer-events: none;
-}
-
+/* PhotoSwipe Dynamic Caption plugin — copyright notice styling */
 .pswpCopyright {
   display: block;
   margin-top: 0.25rem;
@@ -78,4 +65,5 @@
   letter-spacing: 0.04em;
   font-style: italic;
 }
+
 

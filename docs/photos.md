@@ -172,20 +172,26 @@ make copy-photos
 Produces `src/data/photos.json` — **committed to git**, single source of truth for the build:
 
 ```json
-[
-  {
-    "id": "hk-architecture-ville2",
-    "path": "/photos/hk-architecture-ville2.jpg",
-    "width": 2560,
-    "height": 1920,
-    "alt": "HK Architecture",
-    "title": "HK Architecture",
-    "caption": "Wan Chai skyscrapers seen from the Star Ferry, Hong Kong 2024.",
-    "copyright": "© Marc Chen – All rights reserved",
-    "tags": ["architecture", "hongkong", "urban"]
-  }
-]
+{
+  "_copyright": "© Marc Chen – All rights reserved",
+  "photos": [
+    {
+      "id": "hk-architecture-ville2",
+      "path": "/photos/hk-architecture-ville2.jpg",
+      "width": 1707,
+      "height": 2560,
+      "title": "HK Architecture",
+      "caption": "Wan Chai skyscrapers seen from the Star Ferry, Hong Kong 2024.",
+      "tags": ["architecture", "hongkong", "urban"]
+    }
+  ]
+}
 ```
+
+- `_copyright` at the top — written once, applied to all photos at runtime
+- `alt` is **not stored** — derived from `title` (or `id` if title is empty)
+- `width`/`height` are auto-detected by the script
+- `title`/`caption` default to `""` if not in `meta.json` — fill them in at your own pace
 
 > **Commit `src/data/photos.json` after every change** — this is what drives the gallery
 > in production. Cloudinary doesn't need `public/photos/` at build time.
@@ -236,11 +242,20 @@ git push
 
 ## 6. Captions & Copyright in PhotoSwipe
 
-PhotoSwipe v5 natively supports HTML captions per slide.
+Captions are rendered by the **`photoswipe-dynamic-caption-plugin`** — a dedicated
+plugin that handles positioning, animations, and responsive layout automatically.
 
-### 6a. Enriched `PhotoItem` Interface
+### 6a. How It Works
 
-`src/lib/types.ts` — available fields in `PhotoItem`:
+1. `photos.json` has `_copyright` at the top level + `title`/`caption` per photo
+2. `photos.ts` reads the manifest and injects `copyright` into each `PhotoItem`
+3. `PhotoSwipeGallery.tsx` uses `PhotoSwipeLightbox` + `PhotoSwipeDynamicCaption`
+4. The plugin calls `captionContent(slide)` to get HTML for each slide
+5. Caption + copyright are rendered **below** the image in the lightbox
+
+### 6b. `PhotoItem` Interface
+
+`src/lib/types.ts`:
 
 ```typescript
 export interface PhotoItem {
@@ -248,65 +263,33 @@ export interface PhotoItem {
   src: string;           // full-res URL (local or Cloudinary)
   width: number;
   height: number;
-  msrc?: string;         // thumbnail URL (low-res preview)
-  alt: string;           // alt text (accessibility)
+  msrc?: string;         // thumbnail URL
+  alt: string;           // derived from title at runtime (not stored)
   title?: string;        // title shown in lightbox
   caption?: string;      // description shown below the image
-  copyright?: string;    // "© Marc Chen – All rights reserved"
+  copyright?: string;    // from _copyright (top-level in photos.json)
   tags?: string[];       // for future filtering
 }
 ```
 
-### 6b. Lightbox with Caption + Copyright
-
-In `PhotoSwipeGallery.tsx`, caption HTML is passed to PhotoSwipe:
+### 6c. Plugin Setup in `PhotoSwipeGallery.tsx`
 
 ```tsx
-const lightbox = new PhotoSwipe({
-  dataSource: photos.map((p) => ({
-    src: p.src,
-    width: p.width,
-    height: p.height,
-    msrc: p.msrc,
-    alt: p.alt,
-    // caption HTML — description + copyright on two lines
-    caption: [
-      p.caption ?? p.alt,
-      p.copyright
-        ? `<small class="pswp-copyright">${p.copyright}</small>`
-        : '',
-    ].filter(Boolean).join('<br>'),
-  })),
-  showHideAnimationType: 'fade',
-  bgOpacity: 0.9,
-  index,
+import PhotoSwipeLightbox from "photoswipe/lightbox";
+import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
+import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
+
+const lightbox = new PhotoSwipeLightbox({
+  dataSource: photos.map((p) => ({ ... })),
+  pswpModule: () => import("photoswipe"),
 });
+
+new PhotoSwipeDynamicCaption(lightbox, {
+  type: "below",
+  captionContent: (slide) => buildCaptionHtml(photos[slide.data.pswpIndex]),
+});
+
 lightbox.init();
-```
-
-### 6c. Recommended Styles
-
-In `Gallery.module.css` or your global CSS:
-
-```css
-/* Caption banner at the bottom of the lightbox */
-.pswp__dynamic-caption {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, transparent 100%);
-  padding: 1.25rem 1.5rem;
-  color: #fff;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-/* Subtle copyright notice */
-.pswp-copyright {
-  display: block;
-  margin-top: 0.25rem;
-  opacity: 0.6;
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  font-style: italic;
-}
 ```
 
 ---
