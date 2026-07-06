@@ -85,7 +85,7 @@ export function getPhotos(): PhotoItem[] {
     return {
       ...base,
       src: cloudinaryUrl(entry.path),
-      msrc: cloudinaryUrl(entry.path, { width: 400 }),
+      msrc: cloudinaryUrl(entry.path, { width: 800 }),
     };
   });
 }
