@@ -1,0 +1,7 @@
+1:"$Sreact.fragment"
+2:I[20397,["/pr-preview/pr-32/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-32/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-32/_next/static/chunks/14mrh2-p_w84d.js","/pr-preview/pr-32/_next/static/chunks/1tv11de_d8elp.js","/pr-preview/pr-32/_next/static/chunks/3w_7y2p-ic2ws.js"],"default"]
+3:I[97367,["/pr-preview/pr-32/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-32/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-32/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+:HL["/pr-preview/pr-32/_next/static/chunks/1sdz4iaj3ncnr.css","style"]
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"Gallery-module__GFYGaG__galleryPage","children":["$","div",null,{"className":"container","children":[["$","h1",null,{"className":"section-title Gallery-module__GFYGaG__galleryTitle","children":"照片"}],["$","$L2",null,{"photos":[]}]]}]}],[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-32/_next/static/chunks/1sdz4iaj3ncnr.css","precedence":"next"}],["$","script","script-0",{"src":"/pr-preview/pr-32/_next/static/chunks/3w_7y2p-ic2ws.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"aiw46Mg7bgsyNkdP9TUED"}
+5:null
