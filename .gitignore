@@ -23,5 +23,5 @@ yarn-error.log*
 *.hugo_build.lock
 
 # Photos (raw, not committed — uploaded to Cloudinary)
-photos/
-public/photos/
+/photos/
+/public/photos/
