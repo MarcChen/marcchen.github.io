@@ -178,6 +178,23 @@ async function uploadAll() {
       }
 
       try {
+        if (!OVERWRITE) {
+          try {
+            const existing = await cloudinary.v2.api.resource(publicId);
+            if (existing) {
+              log("SKIP", `${publicId}  (already exists)`);
+              skipped++;
+              continue;
+            }
+          } catch (err) {
+            const code = err.http_code || err.error?.http_code;
+            if (code !== 404) {
+              // Warning only, proceed to try upload anyway
+              console.warn(`  Warning checking ${publicId}:`, err.message || err);
+            }
+          }
+        }
+
         const st = await stat(filePath);
         const fileKb = Math.round(st.size / 1024);
 
