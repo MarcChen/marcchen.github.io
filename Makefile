@@ -1,14 +1,12 @@
-.PHONY: help dev build optimize copy-photos upload upload-images upload-photos clean
+.PHONY: help dev build optimize copy-photos upload clean
 
 help: ## Show available targets
 	@echo "Available targets:"
 	@echo "  dev            - Start development server"
-	@echo "  build          - Build for production"
+	@echo "  build          - Build for production (runs prebuild hooks + postbuild redirect fix)"
 	@echo "  optimize       - Optimize images in public/images/"
 	@echo "  copy-photos    - Copy photos/ to public/photos/ and generate manifest"
-	@echo "  upload         - Upload ALL images (photos + existing) to Cloudinary"
-	@echo "  upload-photos  - Upload photos/ to Cloudinary"
-	@echo "  upload-images  - Upload public/images/ to Cloudinary"
+	@echo "  upload         - Upload all images (public/images/ + photos/) to Cloudinary"
 	@echo "  clean          - Remove build artifacts"
 
 dev:
@@ -23,13 +21,11 @@ optimize:
 copy-photos:
 	node scripts/copy-photos.mjs
 
-upload-photos:
-	node scripts/upload-to-cloudinary.mjs --photos
-
-upload-images:
+# The upload script defaults to --all when no flag is passed, so this single
+# target uploads both public/images/ and photos/ in one pass. Granular flags
+# (--photos / --images) still exist on the underlying script if ever needed.
+upload:
 	npm run images:upload
-
-upload: upload-images upload-photos
 
 clean:
 	rm -rf .next out
