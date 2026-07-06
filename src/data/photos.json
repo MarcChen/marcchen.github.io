@@ -1,0 +1,42 @@
+{
+  "_copyright": "© Marc Chen – All rights reserved",
+  "photos": [
+    {
+      "id": "hk-architecture-ville2",
+      "path": "/photos/hk-architecture-ville2.jpg",
+      "width": 1707,
+      "height": 2560,
+      "title": "HK Architecture",
+      "caption": "Towering skyscrapers of Hong Kong's urban skyline.",
+      "tags": [
+        "architecture",
+        "hongkong",
+        "urban"
+      ]
+    },
+    {
+      "id": "taxi-hk-ss",
+      "path": "/photos/taxi-hk-ss.jpg",
+      "width": 2560,
+      "height": 1707,
+      "title": "Hong Kong Taxi",
+      "caption": "An iconic red Toyota Crown comfort taxi navigating the vibrant, neon-lit streets of Kowloon.",
+      "tags": [
+        "street",
+        "hongkong"
+      ]
+    },
+    {
+      "id": "vespa-jaune",
+      "path": "/photos/vespa-jaune.jpg",
+      "width": 1707,
+      "height": 2560,
+      "title": "Yellow Vespa",
+      "caption": "A yellow Vespa parked in an alley.",
+      "tags": [
+        "street",
+        "vehicle"
+      ]
+    }
+  ]
+}

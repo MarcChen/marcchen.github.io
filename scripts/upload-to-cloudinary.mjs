@@ -1,16 +1,19 @@
 #!/usr/bin/env node
 
 /**
- * Upload all portfolio images to Cloudinary.
+ * Upload portfolio images to Cloudinary.
  *
- * Walks public/images/ and uploads every image to a `portfolio/` folder
- * on Cloudinary, preserving the relative directory structure.
+ * Walks public/images/ and/or photos/ and uploads every image to a
+ * `portfolio/` folder on Cloudinary, preserving the relative directory
+ * structure.
  *
  * Images exceeding Cloudinary's 10 MB limit are compressed in-memory
  * (with sharp) before upload – the original file is NOT modified.
  *
  * Usage:
- *   npm run images:upload          (reads .env automatically)
+ *   npm run images:upload              (default: public/images/ only)
+ *   npm run images:upload -- --photos  (photos/ only)
+ *   npm run images:upload -- --all     (both public/images/ and photos/)
  *   npm run images:upload -- --dry-run
  *   npm run images:upload -- --overwrite
  */
@@ -24,7 +27,14 @@ import "dotenv/config";
 
 // ---- Config -----------------------------------------------------------
 
-const SOURCE_DIRS = ["public/images"];
+const args = process.argv.slice(2);
+const UPLOAD_PHOTOS = args.includes("--photos");
+const UPLOAD_IMAGES = args.includes("--images");
+const UPLOAD_ALL = args.includes("--all") || (!UPLOAD_PHOTOS && !UPLOAD_IMAGES);
+
+const SOURCE_DIRS = [];
+if (UPLOAD_ALL || UPLOAD_IMAGES) SOURCE_DIRS.push("public/images");
+if (UPLOAD_ALL || UPLOAD_PHOTOS) SOURCE_DIRS.push("photos");
 
 /** Cloudinary folder prefix – must match src/lib/cloudinary.ts */
 const FOLDER_PREFIX = "portfolio";
@@ -44,7 +54,6 @@ const MAX_DIMENSION = 2560;
 
 // ---- Parse args -------------------------------------------------------
 
-const args = process.argv.slice(2);
 const OVERWRITE = args.includes("--overwrite");
 const DRY_RUN = args.includes("--dry-run");
 
@@ -77,9 +86,12 @@ function log(action, msg) {
 }
 
 function publicIdFromPath(filePath) {
-  /** Strip the `public/` prefix so IDs match cloudinaryUrl() which
-   *  derives paths from web URLs like `/images/author/marc.png`. */
-  const relative = path.relative(PUBLIC_ROOT, filePath);
+  let relative;
+  if (filePath.startsWith(PUBLIC_ROOT)) {
+    relative = path.relative(PUBLIC_ROOT, filePath);
+  } else {
+    relative = path.relative(ROOT, filePath);
+  }
   return `${FOLDER_PREFIX}/${relative.replace(/\.[^/.]+$/, "")}`;
 }
 
@@ -142,7 +154,8 @@ async function compressIfNeeded(filePath, fileKb) {
 // ---- Main -------------------------------------------------------------
 
 async function uploadAll() {
-  console.log(`\nUploading images to Cloudinary (folder: ${FOLDER_PREFIX}/) ...\n`);
+  const scopeLabel = UPLOAD_ALL ? "all" : UPLOAD_PHOTOS ? "photos" : "images";
+  console.log(`\nUploading ${scopeLabel} images to Cloudinary (folder: ${FOLDER_PREFIX}/) ...\n`);
 
   let uploaded = 0;
   let skipped = 0;
@@ -165,6 +178,23 @@ async function uploadAll() {
       }
 
       try {
+        if (!OVERWRITE) {
+          try {
+            const existing = await cloudinary.v2.api.resource(publicId);
+            if (existing) {
+              log("SKIP", `${publicId}  (already exists)`);
+              skipped++;
+              continue;
+            }
+          } catch (err) {
+            const code = err.http_code || err.error?.http_code;
+            if (code !== 404) {
+              // Warning only, proceed to try upload anyway
+              console.warn(`  Warning checking ${publicId}:`, err.message || err);
+            }
+          }
+        }
+
         const st = await stat(filePath);
         const fileKb = Math.round(st.size / 1024);
 
