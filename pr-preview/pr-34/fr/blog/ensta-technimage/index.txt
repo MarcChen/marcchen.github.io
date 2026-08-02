@@ -1,0 +1,102 @@
+1:"$Sreact.fragment"
+2:I[79520,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],""]
+3:I[70752,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+4:I[39756,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+5:I[37457,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+d:I[68027,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],"default",1]
+:HL["/pr-preview/pr-34/_next/static/chunks/020z_7hz08ob2.css","style"]
+:HL["/pr-preview/pr-34/_next/static/chunks/2klcgsr9d_uj1.css","style"]
+:HL["/pr-preview/pr-34/_next/static/media/0c89a48fa5027cee-s.p.2cyn07wtgehh0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-34/_next/static/media/1bffadaabf893a1e-s.p.3-6t-g6q0vh0a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-34/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-34/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-34/_next/static/chunks/3whwortwxn1eb.css","style"]
+6:T5cb,
+            (function (C, A, L) {
+              let p = function (a, ar) { a.q.push(ar); };
+              let d = C.document;
+              C.Cal = C.Cal || function () {
+                let cal = C.Cal;
+                let ar = arguments;
+                if (!cal.loaded) {
+                  cal.ns = {};
+                  cal.q = cal.q || [];
+                  d.head.appendChild(d.createElement("script")).src = A;
+                  cal.loaded = true;
+                }
+                if (ar[0] === L) {
+                  const api = function () { p(api, arguments); };
+                  const namespace = ar[1];
+                  api.q = api.q || [];
+                  if (typeof namespace === "string") {
+                    cal.ns[namespace] = cal.ns[namespace] || api;
+                    p(cal.ns[namespace], ar);
+                    p(cal, ["initNamespace", namespace]);
+                  } else p(cal, ar);
+                  return;
+                }
+                p(cal, ar);
+              };
+            })(window, "https://app.cal.com/embed/embed.js", "init");
+            Cal("init", "30min", { origin: "https://app.cal.com" });
+            Cal.ns["30min"]("floatingButton", {
+              calLink: "marc-chen/30min",
+              config: { layout: "month_view" },
+              buttonText: "Book a call",
+            });
+            Cal.ns["30min"]("ui", {
+              hideEventTypeDetails: false,
+              layout: "month_view",
+            });
+          0:{"P":null,"c":["","fr","blog","ensta-technimage",""],"q":"","i":false,"f":[[["",{"children":[["locale","fr","d",null],{"children":["blog",{"children":[["slug","ensta-technimage","d",null],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-34/_next/static/chunks/020z_7hz08ob2.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"className":"inter_991aebb-module__bYvC1W__variable space_grotesk_e6988195-module__RNs2Mq__variable jetbrains_mono_f8290d5a-module__2Nw1lG__variable","children":[["$","head",null,{}],["$","body",null,{"style":{"fontFamily":"var(--font-sans)"},"children":[["$","$L2",null,{"src":"/theme-init.js","strategy":"beforeInteractive"}],["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$L2",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-W2DZCT2HCH","strategy":"afterInteractive"}],["$","$L2",null,{"id":"google-analytics","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-W2DZCT2HCH');\n          "}],["$","$L2",null,{"id":"statcounter","strategy":"afterInteractive","children":"\n            var sc_project=13085075;\n            var sc_invisible=1;\n            var sc_security=\"0795b862\";\n          "}],["$","$L2",null,{"src":"https://www.statcounter.com/counter/counter.js","strategy":"afterInteractive"}],["$","$L2",null,{"src":"https://umami-silk-psi.vercel.app/script.js","data-website-id":"370aee40-7d98-4f01-b66c-28a8b8298bdf","strategy":"afterInteractive"}],["$","$L2",null,{"id":"sw-cleanup","strategy":"beforeInteractive","children":"if ('serviceWorker' in navigator) {\n            navigator.serviceWorker.getRegistrations()\n              .then(function (rs) { return Promise.all(rs.map(function (r) { return r.unregister(); })); })\n              .catch(function () {});\n          }"}],["$","$L2",null,{"id":"cal-embed","strategy":"afterInteractive","children":"$6"}]]}]]}]]}],{"children":["$L7",{"children":["$L8",{"children":["$L9",{"children":["$La",{},null,false,null]},null,false,"$@b"]},null,false,"$@b"]},null,false,null]},null,false,null],"$Lc",false]],"m":"$undefined","G":["$d",["$Le"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"ZW5GffKmYw-cMiVdMSUX3"}
+11:I[97367,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+12:"$Sreact.suspense"
+15:I[97367,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],"ViewportBoundary"]
+17:I[97367,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],"MetadataBoundary"]
+7:["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-34/_next/static/chunks/2klcgsr9d_uj1.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pr-preview/pr-34/_next/static/chunks/1tv11de_d8elp.js","async":true,"nonce":"$undefined"}]],"$Lf"]}]
+8:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+9:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+a:["$","$1","c",{"children":["$L10",[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-34/_next/static/chunks/3whwortwxn1eb.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pr-preview/pr-34/_next/static/chunks/12oyignlicvht.js","async":true,"nonce":"$undefined"}]],["$","$L11",null,{"children":["$","$12",null,{"name":"Next.MetadataOutlet","children":"$@13"}]}]]}]
+14:[]
+b:"$W14"
+c:["$","$1","h",{"children":[null,["$","$L15",null,{"children":"$L16"}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$12",null,{"name":"Next.Metadata","children":"$L18"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-34/_next/static/chunks/020z_7hz08ob2.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+19:I[3265,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js","/pr-preview/pr-34/_next/static/chunks/1tv11de_d8elp.js"],"default"]
+1a:I[58234,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js","/pr-preview/pr-34/_next/static/chunks/1tv11de_d8elp.js"],"default"]
+1b:I[22016,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js","/pr-preview/pr-34/_next/static/chunks/1tv11de_d8elp.js","/pr-preview/pr-34/_next/static/chunks/12oyignlicvht.js"],""]
+f:[["$","$L19",null,{"locale":"fr","sections":[{"id":"about","name":"À propos","weight":1,"showOnNavbar":true},{"id":"skills","name":"Compétences","weight":2,"showOnNavbar":true},{"id":"experiences","name":"Expériences","weight":3,"showOnNavbar":true},{"id":"education","name":"Éducation","weight":4,"showOnNavbar":true},{"id":"projects","name":"Projects","weight":5,"showOnNavbar":true},{"id":"accomplishments","name":"Réalisations","weight":6,"showOnNavbar":true},{"id":"featured-posts","name":"Articles en vedette","weight":7,"showOnNavbar":true},{"id":"achievements","name":"Réalisations","weight":8,"showOnNavbar":true}],"siteName":"Marc Chen"}],["$","main",null,{"children":["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L1a",null,{"locale":"fr","author":{"name":"Marc Chen","nickname":"Marc!","greeting":"Bonjour, je suis","image":"images/author/marc.png","contactInfo":{"email":"marc.chen@ensta-paris.fr","github":"MarcChen","linkedin":"chen-marc"},"summary":["Enchanté de vous rencontrer !","Je suis data engineer.","Bienvenue sur ma page.","N'hésitez pas à me contacter !"]},"sections":"$f:0:props:sections"}]]
+1c:T994,
+<h1>Technimage - L'Association Audiovisuelle d'ENSTA Paris</h1>
+
+<p><strong>Technimage</strong> est l'association audiovisuelle d'ENSTA Paris. Nous avons pour mission de capturer et de diffuser les moments clés de la vie associative et étudiante à travers divers formats vidéos :</p>
+
+<ul><li><strong>Diffusion des "Channels"</strong> : Le journal télévisé de l'école.</li>
+<li><strong>Couverture des événements associatifs</strong> : Capturer en vidéo les moments forts des associations.</li>
+<li><strong>Réalisation de Lives</strong> : Retransmissions en direct des événements marquants.</li>
+<li><strong>Production de clips</strong> : Clips vidéos pour le Channel, les associations ou encore la direction de la communication de l'école.</li>
+<li><strong>Concours de courts-métrages</strong> : Participation à des compétitions comme "Le Rush", où nous avons remporté le prix du meilleur scénario lors de la 5ème édition, une compétition de courts-métrages en 36 heures.</li>
+</ul>
+<h3>Ma contribution</h3>
+
+<p>En tant que membre actif de <strong>Technimage</strong>, j'ai eu l'occasion de monter et réaliser plusieurs clips vidéos, notamment pour :</p>
+
+<ul><li>Les <strong>listes BDE</strong> et d'autres événements associatifs à ENSTA.</li>
+<li>Des prestations pour l'ENSTA Paris elle-même, comme par exemple :</li>
+</ul>  - La <strong>vidéo de présentation des sports de raquette</strong> <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;"><iframe src="https://www.youtube.com/embed/4BOrO2d3ECI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen loading="lazy" title="YouTube video"></iframe></div>
+
+<p>{{< vs >}}</p>
+
+<p>- La promotion des <strong>stages de recherche</strong> pour les étudiants en 2ème année : <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;"><iframe src="https://www.youtube.com/embed/IWoqTgolCq4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen loading="lazy" title="YouTube video"></iframe></div></p>
+
+<p>{{< vs >}}</p>
+
+
+
+<p>Mon implication au sein de <strong>Technimage</strong> m'a permis de développer des compétences en réalisation, montage et production audiovisuelle, tout en participant activement à la promotion de la vie associative et académique d'ENSTA Paris.</p>
+10:["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L1b",null,{"href":"/fr/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Retour au Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Technimage"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"10 octobre 2024"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","Audiovisuel",{"className":"tag","children":"Audiovisuel"}],["$","span","Production Vidéo",{"className":"tag","children":"Production Vidéo"}],["$","span","Association Étudiante",{"className":"tag","children":"Association Étudiante"}],["$","span","Événements",{"className":"tag","children":"Événements"}],["$","span","ENSTA Paris",{"className":"tag","children":"ENSTA Paris"}],["$","span","Réalisation",{"className":"tag","children":"Réalisation"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$1c"}}],"$L1d"]}]}]
+1e:I[84997,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js","/pr-preview/pr-34/_next/static/chunks/1tv11de_d8elp.js","/pr-preview/pr-34/_next/static/chunks/12oyignlicvht.js"],"default"]
+1d:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"Commentaires"}],["$","$L1e",null,{"locale":"fr"}]]}]
+16:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1f:I[27201,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],"IconMark"]
+13:null
+18:[["$","title","0",{"children":"Marc Chen — Data Engineer & AI/ML Engineer"}],["$","meta","1",{"name":"description","content":"Portfolio et blog personnel de Marc Chen."}],["$","link","2",{"rel":"canonical","href":"https://marcchen.github.io/fr/"}],["$","meta","3",{"property":"og:title","content":"Marc Chen — Data Engineer & AI/ML Engineer"}],["$","meta","4",{"property":"og:description","content":"Portfolio et blog personnel de Marc Chen."}],["$","meta","5",{"property":"og:url","content":"https://marcchen.github.io/fr/"}],["$","meta","6",{"property":"og:site_name","content":"Marc Chen"}],["$","meta","7",{"property":"og:locale","content":"fr_FR"}],["$","meta","8",{"property":"og:type","content":"website"}],["$","meta","9",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","10",{"name":"twitter:title","content":"Marc Chen — Data Engineer & AI/ML Engineer"}],["$","meta","11",{"name":"twitter:description","content":"Portfolio et blog personnel de Marc Chen."}],["$","link","12",{"rel":"icon","href":"/pr-preview/pr-34/images/site/favicon.png"}],["$","$L1f","13",{}]]

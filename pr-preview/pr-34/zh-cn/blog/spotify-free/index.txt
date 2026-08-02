@@ -1,0 +1,158 @@
+1:"$Sreact.fragment"
+2:I[79520,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],""]
+3:I[70752,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+4:I[39756,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+5:I[37457,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+d:I[68027,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],"default",1]
+:HL["/pr-preview/pr-34/_next/static/chunks/020z_7hz08ob2.css","style"]
+:HL["/pr-preview/pr-34/_next/static/chunks/2klcgsr9d_uj1.css","style"]
+:HL["/pr-preview/pr-34/_next/static/media/0c89a48fa5027cee-s.p.2cyn07wtgehh0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-34/_next/static/media/1bffadaabf893a1e-s.p.3-6t-g6q0vh0a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-34/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-34/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-34/_next/static/chunks/3whwortwxn1eb.css","style"]
+6:T5cb,
+            (function (C, A, L) {
+              let p = function (a, ar) { a.q.push(ar); };
+              let d = C.document;
+              C.Cal = C.Cal || function () {
+                let cal = C.Cal;
+                let ar = arguments;
+                if (!cal.loaded) {
+                  cal.ns = {};
+                  cal.q = cal.q || [];
+                  d.head.appendChild(d.createElement("script")).src = A;
+                  cal.loaded = true;
+                }
+                if (ar[0] === L) {
+                  const api = function () { p(api, arguments); };
+                  const namespace = ar[1];
+                  api.q = api.q || [];
+                  if (typeof namespace === "string") {
+                    cal.ns[namespace] = cal.ns[namespace] || api;
+                    p(cal.ns[namespace], ar);
+                    p(cal, ["initNamespace", namespace]);
+                  } else p(cal, ar);
+                  return;
+                }
+                p(cal, ar);
+              };
+            })(window, "https://app.cal.com/embed/embed.js", "init");
+            Cal("init", "30min", { origin: "https://app.cal.com" });
+            Cal.ns["30min"]("floatingButton", {
+              calLink: "marc-chen/30min",
+              config: { layout: "month_view" },
+              buttonText: "Book a call",
+            });
+            Cal.ns["30min"]("ui", {
+              hideEventTypeDetails: false,
+              layout: "month_view",
+            });
+          0:{"P":null,"c":["","zh-cn","blog","spotify-free",""],"q":"","i":false,"f":[[["",{"children":[["locale","zh-cn","d",null],{"children":["blog",{"children":[["slug","spotify-free","d",null],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-34/_next/static/chunks/020z_7hz08ob2.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"suppressHydrationWarning":true,"className":"inter_991aebb-module__bYvC1W__variable space_grotesk_e6988195-module__RNs2Mq__variable jetbrains_mono_f8290d5a-module__2Nw1lG__variable","children":[["$","head",null,{}],["$","body",null,{"style":{"fontFamily":"var(--font-sans)"},"children":[["$","$L2",null,{"src":"/theme-init.js","strategy":"beforeInteractive"}],["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$L2",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-W2DZCT2HCH","strategy":"afterInteractive"}],["$","$L2",null,{"id":"google-analytics","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-W2DZCT2HCH');\n          "}],["$","$L2",null,{"id":"statcounter","strategy":"afterInteractive","children":"\n            var sc_project=13085075;\n            var sc_invisible=1;\n            var sc_security=\"0795b862\";\n          "}],["$","$L2",null,{"src":"https://www.statcounter.com/counter/counter.js","strategy":"afterInteractive"}],["$","$L2",null,{"src":"https://umami-silk-psi.vercel.app/script.js","data-website-id":"370aee40-7d98-4f01-b66c-28a8b8298bdf","strategy":"afterInteractive"}],["$","$L2",null,{"id":"sw-cleanup","strategy":"beforeInteractive","children":"if ('serviceWorker' in navigator) {\n            navigator.serviceWorker.getRegistrations()\n              .then(function (rs) { return Promise.all(rs.map(function (r) { return r.unregister(); })); })\n              .catch(function () {});\n          }"}],["$","$L2",null,{"id":"cal-embed","strategy":"afterInteractive","children":"$6"}]]}]]}]]}],{"children":["$L7",{"children":["$L8",{"children":["$L9",{"children":["$La",{},null,false,null]},null,false,"$@b"]},null,false,"$@b"]},null,false,null]},null,false,null],"$Lc",false]],"m":"$undefined","G":["$d",["$Le"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"ZW5GffKmYw-cMiVdMSUX3"}
+11:I[97367,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+12:"$Sreact.suspense"
+15:I[97367,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],"ViewportBoundary"]
+17:I[97367,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],"MetadataBoundary"]
+7:["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-34/_next/static/chunks/2klcgsr9d_uj1.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pr-preview/pr-34/_next/static/chunks/1tv11de_d8elp.js","async":true,"nonce":"$undefined"}]],"$Lf"]}]
+8:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+9:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+a:["$","$1","c",{"children":["$L10",[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-34/_next/static/chunks/3whwortwxn1eb.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pr-preview/pr-34/_next/static/chunks/12oyignlicvht.js","async":true,"nonce":"$undefined"}]],["$","$L11",null,{"children":["$","$12",null,{"name":"Next.MetadataOutlet","children":"$@13"}]}]]}]
+14:[]
+b:"$W14"
+c:["$","$1","h",{"children":[null,["$","$L15",null,{"children":"$L16"}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$12",null,{"name":"Next.Metadata","children":"$L18"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-34/_next/static/chunks/020z_7hz08ob2.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+19:I[3265,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js","/pr-preview/pr-34/_next/static/chunks/1tv11de_d8elp.js"],"default"]
+1a:I[58234,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js","/pr-preview/pr-34/_next/static/chunks/1tv11de_d8elp.js"],"default"]
+1b:I[22016,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js","/pr-preview/pr-34/_next/static/chunks/1tv11de_d8elp.js","/pr-preview/pr-34/_next/static/chunks/12oyignlicvht.js"],""]
+f:[["$","$L19",null,{"locale":"zh-cn","sections":[{"id":"about","name":"关于","weight":1,"showOnNavbar":true},{"id":"skills","name":"技能","weight":2,"showOnNavbar":true},{"id":"experiences","name":"工作经历","weight":3,"showOnNavbar":true},{"id":"education","name":"教育经历","weight":4,"showOnNavbar":true},{"id":"projects","name":"Projects","weight":5,"showOnNavbar":true},{"id":"accomplishments","name":"成就","weight":6,"showOnNavbar":true},{"id":"featured-posts","name":"精选文章","weight":7,"showOnNavbar":true},{"id":"achievements","name":"成就","weight":8,"showOnNavbar":true}],"siteName":"陈马克"}],["$","main",null,{"children":["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L1a",null,{"locale":"zh-cn","author":{"name":"陈马克","nickname":"马克","greeting":"你好，我是","image":"images/author/marc.png","contactInfo":{"email":"marc.chen@ensta-paris.fr","github":"MarcChen","linkedin":"chen-marc"},"summary":["很高兴见到你！","我是一名数据工程师。","欢迎来到我的页面。","请随时联系我！"]},"sections":"$f:0:props:sections"}]]
+1c:T1745,
+<h3>Is Spotify Premium Robbing You Blind?</h3>
+
+<p>Let's be honest, subscription fees are out of control. And that monthly charge for Spotify Premium? It adds up. For what? The "privilege" of downloading songs you don't even own and listening without ads. I got tired of paying, so I decided to take matters into my own hands.</p>
+
+<p>What if I told you that you could have your entire Spotify library, automatically updated, available to stream anywhere, and even download for offline listening... all for <strong>FREE</strong>? It sounds too good to be true, but I did it, and I'm about to show you how.</p>
+
+<h3>The Secret Recipe: Your Personal Music Cloud</h3>
+
+<p>The magic lies in combining a few incredible open-source tools on a simple home server (a Raspberry Pi is perfect for this).</p>
+
+<p>Here's the master plan:</p>
+<p>1.  <strong>Automated Downloader</strong>: Use a script to "read" your Spotify playlists.</p>
+<p>2.  <strong>Music Sync</strong>: Automatically download all the tracks from those playlists to your server.</p>
+<p>3.  <strong>Personal Streaming Service</strong>: Run your own music server to stream your library to any device.</p>
+<p>4.  <strong>Mobile App</strong>: Use a mobile app to connect to your server, stream, and download songs for the road.</p>
+
+<img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/spotify-free/spotify-free" alt="Architecture Diagram" loading="lazy" />
+
+<h3>Step 1: The Downloader - <code>spotDL</code></h3>
+
+<p>The core of this operation is a brilliant tool called <a href="https://github.com/spotDL/spotify-downloader" target="_blank" rel="noopener noreferrer">spotDL</a>. This command-line utility takes a Spotify playlist URL, finds the songs on YouTube Music (or other sources), and downloads them as high-quality MP3 files, complete with all the metadata like album art, artist, and album name.</p>
+
+<p>Installation is simple with <code>pip</code>:</p>
+<pre><code class="language-bash">pip install spotdl</code></pre>
+
+<p>To download a whole playlist, you just run:</p>
+<pre><code class="language-bash">spotdl download &#039;YOUR_SPOTIFY_PLAYLIST_URL&#039;</code></pre>
+<p>The script will do the rest, downloading the tracks into a nicely organized folder.</p>
+
+<h3>Step 2: The Automation - <code>cron</code></h3>
+
+<p>Downloading your playlist once is great, but what about all the new songs you add? You don't want to run the command manually every time. This is where <code>cron</code>, the built-in Linux task scheduler, comes in.</p>
+
+<p>We can set up a <code>cron</code> job to run <code>spotDL</code> automatically every night. This way, any new songs you add to your Spotify playlist during the day will be waiting for you on your server the next morning.</p>
+
+<p>Open your crontab editor:</p>
+<pre><code class="language-bash">crontab -e</code></pre>
+
+<p>And add this line to run the sync every day at 3 AM:</p>
+<pre><code class="language-bash">0 3 <em> </em> * /usr/bin/spotdl download &#039;YOUR_SPOTIFY_PLAYLIST_URL&#039; --output /path/to/your/music</code></pre>
+<p>Now your music library updates itself while you sleep!</p>
+
+<h3>Step 3: The Streaming Server - <code>Navidrome</code></h3>
+
+<p>Now that you have a folder full of music, you need a way to listen to it. Enter <a href="https://www.navidrome.org/" target="_blank" rel="noopener noreferrer">Navidrome</a>, a lightweight, modern, and open-source music server. It's incredibly easy to set up, especially with Docker.</p>
+
+<p>Navidrome scans your music folder, organizes everything beautifully, and gives you a slick web interface that looks just like... well, a professional streaming service!</p>
+
+<p>You can run it with a simple <code>docker-compose.yml</code> file:</p>
+<pre><code class="language-yaml">version: &quot;3&quot;
+<p>services:</p>
+<p>navidrome:</p>
+<p>image: deluan/navidrome:latest</p>
+<p>user: 1000:1000 # replace with your user and group ID</p>
+<p>ports:</p>
+<p>- &quot;4533:4533&quot;</p>
+<p>restart: unless-stopped</p>
+<p>environment:</p>
+<p># All options are optional, see https://www.navidrome.org/docs/usage/configuration-options/</p>
+<p>ND_SCANSCHEDULE: 1h</p>
+<p>ND_LOGLEVEL: info</p>
+<p>ND_SESSIONTIMEOUT: 24h</p>
+<p>ND_BASEURL: &quot;&quot;</p>
+<p>volumes:</p>
+<p>- &quot;/path/to/navidrome/data:/data&quot;</p>
+<p>- &quot;/path/to/your/music:/music:ro&quot;</code></pre></p>
+<p>Once it's running, you have your own personal Spotify, hosted at home.</p>
+
+<h3>Step 4: The Mobile App - Freedom on the Go!</h3>
+
+<p>This is the final piece of the puzzle. Navidrome is compatible with the popular <strong>Subsonic API</strong>. This means dozens of mobile apps can connect to your server.</p>
+
+<p>For iOS, apps like <strong>play:Sub</strong>, <strong>substreamer</strong>, or <strong>Amperfy</strong> work great. For Android, you have even more choices.</p>
+
+<p>Just point the app to your server's address, log in, and voilà! Your entire music library is in your pocket. The best part? All these apps allow you to <strong>cache or download songs</strong> directly to your phone for offline listening.</p>
+
+<h3>A Note on Remote Access</h3>
+
+<p>By default, this setup is available on your <strong>local network</strong>. But what about when you leave the house? You have two simple and secure options:</p>
+
+<p>1.  <strong>Download Your Music</strong>: Before you head out, use your mobile app to download your favorite playlists or albums. The music will be saved directly on your device, ready for offline playback anywhere.</p>
+<p>2.  <strong>Use a VPN</strong>: For live streaming from anywhere, you can use a VPN (like WireGuard or Tailscale) to securely connect back to your home network. This makes your phone act as if it's on your local Wi-Fi, giving you full access to your Navidrome server.</p>
+
+<p>You just recreated the best feature of Spotify Premium for free. So go ahead, cancel that subscription and take back control of your music!</p>10:["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L1b",null,{"href":"/zh-cn/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← 返回博客"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"I Fired Spotify! Here's How I Set Up a FREE Alternative"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"2025年9月14日"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","self-hosting",{"className":"tag","children":"self-hosting"}],["$","span","automation",{"className":"tag","children":"automation"}],["$","span","homeserver",{"className":"tag","children":"homeserver"}],["$","span","music",{"className":"tag","children":"music"}],["$","span","tutorial",{"className":"tag","children":"tutorial"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$1c"}}],"$L1d"]}]}]
+1e:I[84997,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js","/pr-preview/pr-34/_next/static/chunks/1tv11de_d8elp.js","/pr-preview/pr-34/_next/static/chunks/12oyignlicvht.js"],"default"]
+1d:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"评论"}],["$","$L1e",null,{"locale":"zh-cn"}]]}]
+16:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1f:I[27201,["/pr-preview/pr-34/_next/static/chunks/3lcuwfw0h2ioi.js","/pr-preview/pr-34/_next/static/chunks/0me_ux7qtdtiw.js","/pr-preview/pr-34/_next/static/chunks/14mrh2-p_w84d.js"],"IconMark"]
+13:null
+18:[["$","title","0",{"children":"陈马克 — Data Engineer & AI/ML Engineer"}],["$","meta","1",{"name":"description","content":"马克·陈的个人作品集和博客。"}],["$","link","2",{"rel":"canonical","href":"https://marcchen.github.io/zh-cn/"}],["$","meta","3",{"property":"og:title","content":"陈马克 — Data Engineer & AI/ML Engineer"}],["$","meta","4",{"property":"og:description","content":"马克·陈的个人作品集和博客。"}],["$","meta","5",{"property":"og:url","content":"https://marcchen.github.io/zh-cn/"}],["$","meta","6",{"property":"og:site_name","content":"陈马克"}],["$","meta","7",{"property":"og:locale","content":"zh_CN"}],["$","meta","8",{"property":"og:type","content":"website"}],["$","meta","9",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","10",{"name":"twitter:title","content":"陈马克 — Data Engineer & AI/ML Engineer"}],["$","meta","11",{"name":"twitter:description","content":"马克·陈的个人作品集和博客。"}],["$","link","12",{"rel":"icon","href":"/pr-preview/pr-34/images/site/favicon.png"}],["$","$L1f","13",{}]]
