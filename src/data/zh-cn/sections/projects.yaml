@@ -30,6 +30,14 @@ projects:
   summary: "一款提升在线转售体验的移动应用程序。已提交至 [Gemini API Developer Competition 2024](https://ai.google.dev/competition/projects/vision-vendor)。"
   tags: ["hobby", "mobile", "flutter", "dart", "GCP", "Gemini AI"]
 
+- name: Dassault UAV Challenge
+  logo: https://www.ensta.fr/sites/default/files/styles/paragraph_image/public/content/actualites/images/Hexacopt_re_ENSTA.jpg.webp?itok=IyVf1Axd
+  role: 航电子系统与系统工程负责人
+  timeline: "2024年12月 - 2025年5月"
+  url: /zh-cn/blog/ensta-uav-challenge/
+  summary: "与 ENST'AIR 团队（ENSTA Paris）共同为 2024-2025 达索无人机挑战赛设计并制造一架自主六旋翼无人机及一架辅助无人机。完成必做的安全测试（Pass-or-Fail）、自主 GPS 飞行、基于图像识别的载荷投放及双机协同任务。团队在 7 所决赛高校中获 **第 3 名**。"
+  tags: ["academic", "UAV", "drone", "ArduPilot", "Raspberry Pi", "OpenCV", "系统工程", "ENSTA Paris"]
+
 - name: RBM Binary AlphaDigits
   role: 作者
   timeline: "2024"

@@ -31,6 +31,14 @@ projects:
   Submitted to [Gemini API Developer Competition 2024](https://ai.google.dev/competition/projects/vision-vendor)."
   tags: ["hobby", "mobile", "flutter", "dart", "GCP", "Gemini AI"]
 
+- name: Dassault UAV Challenge
+  logo: https://www.ensta.fr/sites/default/files/styles/paragraph_image/public/content/actualites/images/Hexacopt_re_ENSTA.jpg.webp?itok=IyVf1Axd
+  role: Avionics & Systems Engineer
+  timeline: "Dec 2024 - May 2025"
+  url: /en/blog/ensta-uav-challenge/
+  summary: "Designed and built an autonomous hexacopter plus a secondary drone for the Dassault UAV Challenge 2024-2025 with team ENST'AIR (ENSTA Paris). Handled the Pass-or-Fail safety workshops, autonomous GPS flight, payload drop by pattern recognition and a collaborative two-drone mission. The team ranked **3rd** out of 7 finalist schools."
+  tags: ["academic", "UAV", "drone", "ArduPilot", "Raspberry Pi", "OpenCV", "Systems Engineering", "ENSTA Paris"]
+
 - name: RBM Binary AlphaDigits
   role: Author
   timeline: "2024"
