@@ -2,6 +2,19 @@
   "_copyright": "© Marc Chen – All rights reserved",
   "photos": [
     {
+      "id": "balancoire-norvege",
+      "path": "/photos/balancoire-norvege.jpg",
+      "width": 1711,
+      "height": 2560,
+      "title": "Norway swing",
+      "caption": "A wooden swing overlooking a rushing river and dramatic mountain cliffs in Norway.",
+      "tags": [
+        "life",
+        "landscape",
+        "norway"
+      ]
+    },
+    {
       "id": "hk-architecture-ville2",
       "path": "/photos/hk-architecture-ville2.jpg",
       "width": 1707,
@@ -12,6 +25,19 @@
         "architecture",
         "hongkong",
         "urban"
+      ]
+    },
+    {
+      "id": "table-a-manger-mariage-HDR",
+      "path": "/photos/table-a-manger-mariage-HDR.jpg",
+      "width": 1707,
+      "height": 2560,
+      "title": "Wedding table",
+      "caption": "A candlelit wedding table adorned with white flowers, crystal glassware, and lush greenery.",
+      "tags": [
+        "life",
+        "wedding",
+        "event"
       ]
     },
     {
