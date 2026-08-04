@@ -11,6 +11,7 @@ import MagneticButton from "@/components/ui/MagneticButton";
 import type { ProjectsSection } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
 import { cloudinaryUrl } from "@/lib/cloudinary";
+import { assetPath } from "@/lib/paths";
 import { t } from "@/lib/i18n";
 import filterStyles from "@/styles/components/Skills.module.css";
 import styles from "@/styles/components/Projects.module.css";
@@ -127,14 +128,29 @@ export default function Projects({ locale, data, alternate }: ProjectsProps) {
                     </div>
                   </div>
                   
-                  {/* Abstract graphic for the featured project */}
+                  {/* Visual / Image for the featured project */}
                   <div className={styles.featuredVisual}>
-                    <div className={styles.visualCircles}>
-                      <div className={styles.circle1} />
-                      <div className={styles.circle2} />
-                      <div className={styles.circle3} />
-                    </div>
-                    <div className={styles.visualGrid} />
+                    {featuredProject.image ? (
+                      <div className={styles.imageContainer}>
+                        <Image
+                          src={featuredProject.image.startsWith("http") ? featuredProject.image : assetPath(featuredProject.image)}
+                          alt={featuredProject.name}
+                          fill
+                          className={styles.projectImage}
+                          unoptimized
+                        />
+                        <div className={styles.imageOverlay} />
+                      </div>
+                    ) : (
+                      <>
+                        <div className={styles.visualCircles}>
+                          <div className={styles.circle1} />
+                          <div className={styles.circle2} />
+                          <div className={styles.circle3} />
+                        </div>
+                        <div className={styles.visualGrid} />
+                      </>
+                    )}
                   </div>
                 </motion.div>
               )}
