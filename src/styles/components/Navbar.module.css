@@ -294,7 +294,14 @@
     display: flex;
   }
   
+  .navContainer {
+    padding: 0 var(--space-3);
+  }
+
   .pillContainer {
-    padding: var(--space-1) var(--space-1) var(--space-1) var(--space-4);
+    padding: var(--space-1) var(--space-2);
+    justify-content: space-between;
+    width: 100%;
+    max-width: calc(100vw - 24px);
   }
 }

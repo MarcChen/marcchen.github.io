@@ -176,6 +176,7 @@ export interface EducationSection {
 export interface Project {
   name: string;
   logo?: string;
+  image?: string;
   role: string;
   timeline: string;
   repo?: string;

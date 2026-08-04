@@ -3,6 +3,7 @@ import { locales, isValidLocale, type Locale } from "@/lib/i18n";
 import { getAuthor, getSiteConfig, getEnabledSections } from "@/lib/data";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import SocialSidebar from "@/components/layout/SocialSidebar";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -64,6 +65,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         sections={sections}
         siteName={author.name}
       />
+      <SocialSidebar author={author} locale={locale} />
       <main>{children}</main>
       <Footer locale={locale} author={author} sections={sections} />
     </>

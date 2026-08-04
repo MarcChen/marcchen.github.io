@@ -1,8 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Mail, Calendar, ArrowUpRight } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import GlassCard from "@/components/ui/GlassCard";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
@@ -10,20 +8,12 @@ import type { AboutSection } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
 import { cloudinaryUrl } from "@/lib/cloudinary";
 import styles from "@/styles/components/About.module.css";
-import MagneticButton from "@/components/ui/MagneticButton";
 
 interface AboutProps {
   locale: Locale;
   data: AboutSection;
   alternate?: boolean;
 }
-
-const socialIcons: Record<string, React.ReactNode> = {
-  "fas fa-envelope": <Mail size={16} />,
-  "fab fa-linkedin": <LinkedinIcon size={16} />,
-  "fab fa-github": <GithubIcon size={16} />,
-  "far fa-calendar-alt": <Calendar size={16} />,
-};
 
 export default function About({ data, alternate, locale }: AboutProps) {
   const softSkills = data.badges.filter(
@@ -58,24 +48,6 @@ export default function About({ data, alternate, locale }: AboutProps) {
                />
           </div>
           <p className={styles.designation}>{data.designation}</p>
-          <div className={styles.socialBar}>
-            {data.socialLinks.map((link) => {
-              const isEmail = link.icon === "fas fa-envelope";
-              const href = isEmail ? `mailto:${link.url}` : link.url;
-              return (
-                <a
-                  key={link.name}
-                  href={href}
-                  className={styles.socialPill}
-                  target={isEmail ? undefined : "_blank"}
-                  rel={isEmail ? undefined : "noopener noreferrer"}
-                >
-                  {socialIcons[link.icon]}
-                  <span className={styles.socialName}>{link.name}</span>
-                </a>
-              );
-            })}
-          </div>
           <div className={styles.summaryText}>
              {summaryParagraphs.map((para, i) => (
                 <p key={i}>{para}</p>

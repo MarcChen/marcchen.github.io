@@ -23,11 +23,12 @@ buttons:
 projects:
 - name: Vision Vendor
   logo: /images/sections/projects/visionvendor.png
+  image: /images/sections/projects/visionvendor-miniature.jpg
   role: Co-fondateur
   timeline: "Juin 2024 - Août 2024"
-  repo: https://github.com/fabienhouang/VisionVendor # If your project is a public repo on GitHub, then provide this link. it will show star count.
-  #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
-  summary: "Une application mobile améliorant l'expérience de vente en ligne. Soumis à [Gemini API Developer Competition 2024](https://ai.google.dev/competition/projects/vision-vendor)."
+  repo: https://github.com/fabienhouang/VisionVendor
+  url: https://ai.google.dev/competition/projects/vision-vendor
+  summary: "Une application mobile propulsée par l'IA améliorant l'expérience de revente en ligne, conçue pour le Concours Développeur Google Gemini API 2024."
   tags: ["hobby", "mobile", "flutter", "dart", "GCP", "Gemini AI"]
 
 - name: Dassault UAV Challenge
