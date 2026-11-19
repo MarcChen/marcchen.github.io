@@ -1,119 +1,171 @@
-"use client";
-
 import Image from "next/image";
-import SectionWrapper from "@/components/ui/SectionWrapper";
-import GlassCard from "@/components/ui/GlassCard";
-import AnimatedHeading from "@/components/ui/AnimatedHeading";
-import type { AboutSection } from "@/lib/types";
-import type { Locale } from "@/lib/i18n";
-import { cloudinaryUrl } from "@/lib/cloudinary";
-import styles from "@/styles/components/About.module.css";
+import type { AboutSection, Author } from "@/lib/types";
+import { t, type Locale } from "@/lib/i18n";
+import { assetPath } from "@/lib/paths";
+import SectionHead from "@/components/sections/SectionHead";
 
 interface AboutProps {
   locale: Locale;
   data: AboutSection;
-  alternate?: boolean;
+  author: Author;
+  current?: {
+    designation: string;
+    company: { name: string; url: string };
+    location: string;
+  };
 }
 
-export default function About({ data, alternate, locale }: AboutProps) {
-  const softSkills = data.badges.filter(
-    (b) => b.type === "soft-skill-indicator"
-  );
-  const certifications = data.badges.filter(
-    (b) => b.type === "certification"
-  );
+const CV_BY_LOCALE: Record<Locale, string> = {
+  en: "/files/MarcChen_s_Resume_ENG.pdf",
+  fr: "/files/MarcChen_s_Resume.pdf",
+  "zh-cn": "/files/MarcChen_s_Resume_CN.pdf",
+};
 
-  const summaryParagraphs = data.summary
-    .split("\\n\\n")
-    .map((p) => p.trim())
+const LANGUAGE_BADGE =
+  /french|français|anglais|english|chinese|chineese|chinois|法语|英语|中文/i;
+
+function cleanDesignation(value: string): string {
+  return value
+    .trim()
+    .replace(/Enginner/g, "Engineer")
+    .replace(/\s+-\s+/g, " / ");
+}
+
+export default function About({
+  locale,
+  data,
+  author,
+  current,
+}: AboutProps) {
+  const paragraphs = data.summary
+    .split(/\n\s*\n/)
+    .map((paragraph) => paragraph.trim())
     .filter(Boolean);
 
+  const certifications = data.badges.filter(
+    (badge) => badge.type === "certification"
+  );
+  const softSkills = data.badges.filter(
+    (badge) => badge.type === "soft-skill-indicator"
+  );
+  const languages = softSkills.filter((badge) =>
+    LANGUAGE_BADGE.test(badge.name)
+  );
+  const traits = softSkills.filter(
+    (badge) => !LANGUAGE_BADGE.test(badge.name)
+  );
+
+  const portraitPath = author.image.replace(/\.png$/i, ".webp");
+  const portrait = assetPath(
+    portraitPath.startsWith("/") ? portraitPath : `/${portraitPath}`
+  );
+
   return (
-    <SectionWrapper id={data.section.id} alternate={alternate}>
-      <div className={styles.sectionHeader}>
-        <span className="section-label">01. Discovery</span>
-        <AnimatedHeading title={data.section.name} />
-      </div>
+    <section id={data.section.id} className="section">
+      <div className="shell">
+        <SectionHead
+          title={t(locale, "about_title")}
+          label={t(locale, "label_record")}
+        />
 
-      <div className={styles.bentoGrid}>
-        {/* Large Profile Bento Card */}
-        <GlassCard className={styles.profileCard} delay={0.1}>
-          <div className={styles.imageOverlay}>
-<Image
-                  src={cloudinaryUrl("/images/author/marc.png")}
-                  alt="Marc Chen"
-                 width={100}
-                 height={100}
-                 className={styles.avatarImage}
-               />
+        <div className="about-grid">
+          <div className="about-main">
+            <p className="about-designation">
+              {cleanDesignation(data.designation)}
+            </p>
+            <p className="about-statement">{t(locale, "about_statement")}</p>
+
+            <div className="about-summary">
+              {paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+              ))}
+            </div>
+
+            <div className="about-links">
+              <a
+                href={assetPath(CV_BY_LOCALE[locale])}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t(locale, "my_resume")}
+              </a>
+              <a href={`mailto:${author.contactInfo.email}`}>
+                {author.contactInfo.email}
+              </a>
+            </div>
           </div>
-          <p className={styles.designation}>{data.designation}</p>
-          <div className={styles.summaryText}>
-             {summaryParagraphs.map((para, i) => (
-                <p key={i}>{para}</p>
-             ))}
-          </div>
-        </GlassCard>
 
+          <aside className="about-rail">
+            <div className="about-portrait">
+              <Image
+                src={portrait}
+                alt={t(locale, "about_portrait_alt")}
+                fill
+                sizes="(max-width: 760px) 300px, 380px"
+              />
+            </div>
 
-        {/* Languages/Soft Skills Bento */}
-        {softSkills.length > 0 && (
-          <GlassCard className={styles.skillsCard} delay={0.3}>
-            <h3 className={styles.cardTitle}>Proficiency</h3>
-            <div className={styles.skillsList}>
-              {softSkills.map((badge, idx) => (
-                <div key={badge.name} className={styles.skillBarWrapper}>
-                  <div className={styles.skillHeader}>
-                    <span className={styles.skillName}>{badge.name}</span>
-                    <span className={styles.skillPerc}>{badge.percentage}%</span>
-                  </div>
-                  <div className={styles.skillTrack}>
-                    <div
-                      className={styles.skillFill}
-                      style={{
-                        width: `${badge.percentage || 0}%`,
-                        backgroundColor: badge.color ? badge.color : "hsl(var(--accent))"
-                      }}
-                    />
+            <div className="about-facts">
+              {current && (
+                <div className="about-fact">
+                  <p className="meta">{t(locale, "hero_currently")}</p>
+                  <div className="about-fact-list">
+                    <span>{current.designation}</span>
+                    <a
+                      href={current.company.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {current.company.name}
+                    </a>
+                    <span>{current.location}</span>
                   </div>
                 </div>
-              ))}
-            </div>
-          </GlassCard>
-        )}
+              )}
 
-        {/* Certifications Bento */}
-        {certifications.length > 0 && (
-          <GlassCard className={styles.certCard} delay={0.4}>
-            <h3 className={styles.cardTitle}>Certifications</h3>
-            <div className={styles.certGrid}>
-              {certifications.map((cert) => (
-                <a
-                  key={cert.name}
-                  href={cert.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.certItem}
-                >
-                  {cert.badge && (
-                    <div className={styles.certBadgeWrapper}>
-                      <Image
-                        src={cloudinaryUrl(cert.badge)}
-                        alt={cert.name}
-                        width={60}
-                        height={60}
-                        className={styles.certImage}
-                        unoptimized
-                      />
-                    </div>
+              <div className="about-fact">
+                <p className="meta">{t(locale, "about_certified")}</p>
+                <div className="about-fact-list">
+                  {certifications.map((badge) =>
+                    badge.url ? (
+                      <a
+                        key={badge.name}
+                        href={badge.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {badge.name}
+                      </a>
+                    ) : (
+                      <span key={badge.name}>{badge.name}</span>
+                    )
                   )}
-                  <span className={styles.certName}>{cert.name}</span>
-                </a>
-              ))}
+                </div>
+              </div>
+
+              <div className="about-fact">
+                <p className="meta">{t(locale, "about_languages")}</p>
+                <div className="about-fact-list">
+                  {languages.map((badge) => (
+                    <span key={badge.name}>{badge.name}</span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="about-fact">
+                <p className="meta">{t(locale, "about_also")}</p>
+                <p className="about-also">
+                  {traits.length > 0
+                    ? traits.map((badge) => badge.name).join(", ") +
+                      (locale === "zh-cn" ? "。" : ". ")
+                    : ""}
+                  {t(locale, "about_also_value")}
+                </p>
+              </div>
             </div>
-          </GlassCard>
-        )}
+          </aside>
+        </div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 }

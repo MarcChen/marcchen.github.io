@@ -1,64 +1,70 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Giscus from "@giscus/react";
+import { t, type Locale } from "@/lib/i18n";
 
 interface CommentsProps {
-  locale: string;
+  locale: Locale;
 }
 
+const GISCUS_LANG: Record<Locale, string> = {
+  en: "en",
+  fr: "fr",
+  "zh-cn": "zh-CN",
+};
+
 export default function Comments({ locale }: CommentsProps) {
-  const [mounted, setMounted] = useState(false);
-  const [theme, setTheme] = useState("light");
-
-  useEffect(() => {
-    // Read initial theme
-    const currentTheme = document.documentElement.getAttribute("data-theme");
-    setTheme(currentTheme === "dark" ? "transparent_dark" : "light");
-    setMounted(true);
-
-    // Observe changes to html data-theme attribute
-    const observer = new MutationObserver((mutations) => {
-      for (const mutation of mutations) {
-        if (mutation.attributeName === "data-theme") {
-          const newTheme = document.documentElement.getAttribute("data-theme");
-          setTheme(newTheme === "dark" ? "transparent_dark" : "light");
-        }
-      }
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["data-theme"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Must match server render (ssr:false = null), so skip until mounted
-  if (!mounted) return null;
-
-  // Map locale to giscus language
-  const langMap: Record<string, string> = {
-    en: "en",
-    fr: "fr",
-    "zh-cn": "zh-CN",
-  };
+  const [open, setOpen] = useState(false);
 
   return (
-    <Giscus
-      repo="MarcChen/marcchen.github.io"
-      repoId="R_kgDOM76AQQ"
-      category="Blog comments"
-      categoryId="DIC_kwDOM76AQc4C5ixh"
-      mapping="pathname"
-      strict="0"
-      reactionsEnabled="1"
-      emitMetadata="0"
-      inputPosition="bottom"
-      theme={theme}
-      lang={langMap[locale] || "en"}
-      loading="lazy"
-    />
+    <section className="comments" aria-labelledby="comments-title">
+      <div className="comments-head">
+        <div>
+          <h2 className="comments-title" id="comments-title">
+            {t(locale, "comments")}
+          </h2>
+          <p className="comments-intro">{t(locale, "comments_intro")}</p>
+        </div>
+        <button
+          type="button"
+          className="comments-button"
+          aria-expanded={open}
+          aria-controls="comments-panel"
+          onClick={() => setOpen((value) => !value)}
+        >
+          {open ? t(locale, "comments_hide") : t(locale, "comments_load")}
+        </button>
+      </div>
+
+      {open && (
+        <div className="comments-panel" id="comments-panel">
+          <Giscus
+            repo="MarcChen/marcchen.github.io"
+            repoId="R_kgDOM76AQQ"
+            category="Blog comments"
+            categoryId="DIC_kwDOM76AQc4C5ixh"
+            mapping="pathname"
+            strict="0"
+            reactionsEnabled="1"
+            emitMetadata="0"
+            inputPosition="bottom"
+            theme="transparent_dark"
+            lang={GISCUS_LANG[locale]}
+            loading="lazy"
+          />
+          <p className="comments-fallback">
+            {t(locale, "comments_fallback")}{" "}
+            <a
+              href="https://github.com/MarcChen/marcchen.github.io/discussions"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t(locale, "comments_help")}
+            </a>
+          </p>
+        </div>
+      )}
+    </section>
   );
 }

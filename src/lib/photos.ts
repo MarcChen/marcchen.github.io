@@ -23,7 +23,7 @@ const MANIFEST_PATH = path.join(process.cwd(), "src", "data", "photos.json");
 const PHOTOS_PUBLIC_DIR = path.join(process.cwd(), "public", "photos");
 const IMAGE_EXTS = new Set([".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif"]);
 
-function hasLocalPhotos(): boolean {
+export function hasLocalPhotos(): boolean {
   if (!fs.existsSync(PHOTOS_PUBLIC_DIR)) return false;
   try {
     const entries = fs.readdirSync(PHOTOS_PUBLIC_DIR, { withFileTypes: true });

@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
-import { locales, isValidLocale, type Locale } from "@/lib/i18n";
+import { locales, isValidLocale, t, type Locale } from "@/lib/i18n";
 import { getAuthor, getSiteConfig, getEnabledSections } from "@/lib/data";
+import { localeHtmlLang } from "@/lib/i18n";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import SocialSidebar from "@/components/layout/SocialSidebar";
+import DocumentLang from "@/components/layout/DocumentLang";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
   const { locale: rawLocale } = await params;
   const locale: Locale = isValidLocale(rawLocale) ? rawLocale : "en";
 
@@ -29,6 +34,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: siteConfig.description,
     alternates: {
       canonical: canonicalUrl,
+      languages: {
+        en: `${siteUrl}/en/`,
+        fr: `${siteUrl}/fr/`,
+        "zh-CN": `${siteUrl}/zh-cn/`,
+      },
     },
     openGraph: {
       title: `${author.name} — Data Engineer & AI/ML Engineer`,
@@ -51,23 +61,31 @@ interface LocaleLayoutProps {
   params: Promise<{ locale: string }>;
 }
 
-export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
+export default async function LocaleLayout({
+  children,
+  params,
+}: LocaleLayoutProps) {
   const { locale: rawLocale } = await params;
   const locale: Locale = isValidLocale(rawLocale) ? rawLocale : "en";
 
   const author = getAuthor(locale);
-  const sections = getEnabledSections(locale);
 
   return (
-    <>
+    <div lang={localeHtmlLang[locale]}>
+      <DocumentLang locale={locale} />
+      <a className="skip-link" href="#main">
+        {t(locale, "skip_to_content")}
+      </a>
+      <div id="top" />
       <Navbar
         locale={locale}
-        sections={sections}
         siteName={author.name}
+        email={author.contactInfo.email}
       />
-      <SocialSidebar author={author} locale={locale} />
-      <main>{children}</main>
-      <Footer locale={locale} author={author} sections={sections} />
-    </>
+      <main id="main" tabIndex={-1}>
+        {children}
+      </main>
+      <Footer locale={locale} author={author} />
+    </div>
   );
 }
