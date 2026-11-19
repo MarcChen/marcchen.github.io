@@ -47,7 +47,7 @@ export default function Skills({ locale, data }: SkillsProps) {
                   aria-pressed={active === button.filter}
                   onClick={() => setActive(button.filter)}
                 >
-                  {button.name}
+                  {button.filter === "all" ? button.name : t(locale, CATEGORY_KEY[button.filter] ?? button.name)}
                 </button>
               ))}
             </div>

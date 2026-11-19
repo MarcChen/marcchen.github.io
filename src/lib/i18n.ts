@@ -106,6 +106,10 @@ export const translations: Record<Locale, Record<string, string>> = {
     live_preview: "Project page",
     no_projects: "No projects match this filter.",
     projects_filter: "Filter projects",
+    proj_all: "All",
+    proj_professional: "Professional",
+    proj_academic: "Academic",
+    proj_hobby: "Hobby",
 
     // Accomplishments
     acc_course: "Course",
@@ -252,6 +256,10 @@ export const translations: Record<Locale, Record<string, string>> = {
     live_preview: "Page du projet",
     no_projects: "Aucun projet ne correspond à ce filtre.",
     projects_filter: "Filtrer les projets",
+    proj_all: "Tout",
+    proj_professional: "Professionnel",
+    proj_academic: "Académique",
+    proj_hobby: "Loisir",
 
     acc_course: "Cours",
     acc_issuer: "Délivré par",
@@ -393,6 +401,10 @@ export const translations: Record<Locale, Record<string, string>> = {
     live_preview: "项目页面",
     no_projects: "没有符合此筛选的项目。",
     projects_filter: "筛选项目",
+    proj_all: "全部",
+    proj_professional: "职业",
+    proj_academic: "学术",
+    proj_hobby: "兴趣",
 
     acc_course: "课程",
     acc_issuer: "颁发机构",

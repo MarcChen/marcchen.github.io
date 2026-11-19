@@ -11,7 +11,7 @@ interface ProjectsProps {
   data: ProjectsSection;
 }
 
-function localizeInternal(url: string, locale: Locale): string {
+const PROJECT_FILTER_KEY: Record<string, string> = { all: "proj_all", professional: "proj_professional", academic: "proj_academic", hobby: "proj_hobby" }; function localizeInternal(url: string, locale: Locale): string {
   if (locale !== "en" && url.startsWith("/en/")) {
     return url.replace(/^\/en\//, `/${locale}/`);
   }
@@ -47,7 +47,7 @@ export default function Projects({ locale, data }: ProjectsProps) {
               aria-pressed={active === button.filter}
               onClick={() => setActive(button.filter)}
             >
-              {button.name}
+              {button.filter === "all" ? t(locale, "proj_all") : t(locale, PROJECT_FILTER_KEY[button.filter] ?? button.name)}
             </button>
           ))}
         </div>
