@@ -1,0 +1,60 @@
+1:"$Sreact.fragment"
+2:I[39756,["/pr-preview/pr-35/_next/static/chunks/1el5-48au3iai.js","/pr-preview/pr-35/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+3:I[37457,["/pr-preview/pr-35/_next/static/chunks/1el5-48au3iai.js","/pr-preview/pr-35/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+4:I[9053,["/pr-preview/pr-35/_next/static/chunks/1el5-48au3iai.js","/pr-preview/pr-35/_next/static/chunks/14mrh2-p_w84d.js","/pr-preview/pr-35/_next/static/chunks/2xeko2ee7iowe.js"],"default"]
+5:I[79520,["/pr-preview/pr-35/_next/static/chunks/1el5-48au3iai.js","/pr-preview/pr-35/_next/static/chunks/14mrh2-p_w84d.js"],""]
+a:I[68027,["/pr-preview/pr-35/_next/static/chunks/1el5-48au3iai.js","/pr-preview/pr-35/_next/static/chunks/14mrh2-p_w84d.js"],"default",1]
+:HL["/pr-preview/pr-35/_next/static/chunks/0ern5hz9ue-7k.css","style"]
+:HL["/pr-preview/pr-35/_next/static/media/2d85136c4a70e605-s.p.1sk091212cwhe.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-35/_next/static/media/651aaf1801011892-s.p.357dd_6abeqge.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/pr-preview/pr-35/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+6:T5cb,
+            (function (C, A, L) {
+              let p = function (a, ar) { a.q.push(ar); };
+              let d = C.document;
+              C.Cal = C.Cal || function () {
+                let cal = C.Cal;
+                let ar = arguments;
+                if (!cal.loaded) {
+                  cal.ns = {};
+                  cal.q = cal.q || [];
+                  d.head.appendChild(d.createElement("script")).src = A;
+                  cal.loaded = true;
+                }
+                if (ar[0] === L) {
+                  const api = function () { p(api, arguments); };
+                  const namespace = ar[1];
+                  api.q = api.q || [];
+                  if (typeof namespace === "string") {
+                    cal.ns[namespace] = cal.ns[namespace] || api;
+                    p(cal.ns[namespace], ar);
+                    p(cal, ["initNamespace", namespace]);
+                  } else p(cal, ar);
+                  return;
+                }
+                p(cal, ar);
+              };
+            })(window, "https://app.cal.com/embed/embed.js", "init");
+            Cal("init", "30min", { origin: "https://app.cal.com" });
+            Cal.ns["30min"]("floatingButton", {
+              calLink: "marc-chen/30min",
+              config: { layout: "month_view" },
+              buttonText: "Book a call",
+            });
+            Cal.ns["30min"]("ui", {
+              hideEventTypeDetails: false,
+              layout: "month_view",
+            });
+          0:{"P":null,"c":["",""],"q":"","i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-35/_next/static/chunks/0ern5hz9ue-7k.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pr-preview/pr-35/_next/static/chunks/1el5-48au3iai.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/pr-preview/pr-35/_next/static/chunks/14mrh2-p_w84d.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"libre_caslon_display_3a250763-module__8Wyf4a__variable archivo_90d43f5f-module__laYzzq__variable","children":["$","body",null,{"children":[["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L4",null,{"siteName":"Marc Chen"}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$L5",null,{"src":"https://www.googletagmanager.com/gtag/js?id=G-W2DZCT2HCH","strategy":"afterInteractive"}],["$","$L5",null,{"id":"google-analytics","strategy":"afterInteractive","children":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n            gtag('config', 'G-W2DZCT2HCH');\n          "}],["$","$L5",null,{"id":"statcounter","strategy":"afterInteractive","children":"\n            var sc_project=13085075;\n            var sc_invisible=1;\n            var sc_security=\"0795b862\";\n          "}],["$","$L5",null,{"src":"https://www.statcounter.com/counter/counter.js","strategy":"afterInteractive"}],["$","$L5",null,{"src":"https://umami-silk-psi.vercel.app/script.js","data-website-id":"370aee40-7d98-4f01-b66c-28a8b8298bdf","strategy":"afterInteractive"}],["$","$L5",null,{"id":"sw-cleanup","strategy":"beforeInteractive","children":"if ('serviceWorker' in navigator) {\n            navigator.serviceWorker.getRegistrations()\n              .then(function (rs) { return Promise.all(rs.map(function (r) { return r.unregister(); })); })\n              .catch(function () {});\n          }"}],["$","$L5",null,{"id":"cal-embed","strategy":"afterInteractive","children":"$6"}]]}]}]]}],{"children":[["$","$1","c",{"children":["$L7",null,"$L8"]}],{},null,false,null]},null,false,null],"$L9",false]],"m":"$undefined","G":["$a",["$Lb"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"GOPEv869U1R0wjCOlqvWl"}
+7:E{"digest":"NEXT_REDIRECT;replace;/en/;307;"}
+c:I[97367,["/pr-preview/pr-35/_next/static/chunks/1el5-48au3iai.js","/pr-preview/pr-35/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+f:I[97367,["/pr-preview/pr-35/_next/static/chunks/1el5-48au3iai.js","/pr-preview/pr-35/_next/static/chunks/14mrh2-p_w84d.js"],"ViewportBoundary"]
+11:I[97367,["/pr-preview/pr-35/_next/static/chunks/1el5-48au3iai.js","/pr-preview/pr-35/_next/static/chunks/14mrh2-p_w84d.js"],"MetadataBoundary"]
+8:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+9:["$","$1","h",{"children":[null,["$","$Lf",null,{"children":"$L10"}],["$","div",null,{"hidden":true,"children":["$","$L11",null,{"children":["$","$d",null,{"name":"Next.Metadata","children":"$L12"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+b:["$","link","0",{"rel":"stylesheet","href":"/pr-preview/pr-35/_next/static/chunks/0ern5hz9ue-7k.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+10:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0a0c0e"}],["$","meta","3",{"name":"color-scheme","content":"dark"}]]
+13:I[27201,["/pr-preview/pr-35/_next/static/chunks/1el5-48au3iai.js","/pr-preview/pr-35/_next/static/chunks/14mrh2-p_w84d.js"],"IconMark"]
+e:null
+12:[["$","title","0",{"children":"Marc Chen — Data Engineer & AI/ML Engineer"}],["$","meta","1",{"name":"description","content":"Portfolio and personal blog of Marc Chen. Data Engineer, AI & ML Engineer, with expertise in Google Cloud, Python, and modern data stack."}],["$","meta","2",{"property":"og:title","content":"Marc Chen — Data Engineer & AI/ML Engineer"}],["$","meta","3",{"property":"og:description","content":"Portfolio and personal blog of Marc Chen. Data Engineer, AI & ML Engineer."}],["$","meta","4",{"property":"og:url","content":"https://marcchen.github.io/"}],["$","meta","5",{"property":"og:site_name","content":"Marc Chen"}],["$","meta","6",{"property":"og:type","content":"website"}],["$","meta","7",{"name":"twitter:card","content":"summary"}],["$","meta","8",{"name":"twitter:title","content":"Marc Chen — Data Engineer & AI/ML Engineer"}],["$","meta","9",{"name":"twitter:description","content":"Portfolio and personal blog of Marc Chen. Data Engineer, AI & ML Engineer."}],["$","link","10",{"rel":"icon","href":"/pr-preview/pr-35/images/site/favicon.png"}],["$","$L13","11",{}]]

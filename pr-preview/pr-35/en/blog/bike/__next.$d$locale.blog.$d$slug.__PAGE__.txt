@@ -1,0 +1,39 @@
+1:"$Sreact.fragment"
+2:I[22016,["/pr-preview/pr-35/_next/static/chunks/1el5-48au3iai.js","/pr-preview/pr-35/_next/static/chunks/14mrh2-p_w84d.js","/pr-preview/pr-35/_next/static/chunks/2cbde10wm778m.js","/pr-preview/pr-35/_next/static/chunks/0qges3__chzfr.js"],""]
+8:I[92713,["/pr-preview/pr-35/_next/static/chunks/1el5-48au3iai.js","/pr-preview/pr-35/_next/static/chunks/14mrh2-p_w84d.js","/pr-preview/pr-35/_next/static/chunks/2cbde10wm778m.js","/pr-preview/pr-35/_next/static/chunks/0qges3__chzfr.js"],"default"]
+9:I[97367,["/pr-preview/pr-35/_next/static/chunks/1el5-48au3iai.js","/pr-preview/pr-35/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+3:T115f,<h2>My Cycling Adventures: A Journey of Lessons and Exploration</h2>
+<p>The goal of this post is to share my cycling road trip experiences, the challenges I encountered, and the lessons learned along the way.</p>
+<h3>Edition 1: Paris - Cabourg</h3>
+<p>My first trip, Paris - Cabourg (240 km in 2 days), was done with no preparation. We left with way too many bungee cords on our bikes—first mistake. The second mistake became clear the next morning: painful saddle sores. Advice: wear cycling shorts for this kind of trip!</p>
+<p>We also carried too much water. I had two 3L hydration packs and several bottles, making my load quite heavy, already burdened by a tent and other gear. In reality, since we passed through many villages, it was easy to ask locals for water, which also gave us a chance to connect with them.</p>
+<p>The trip mainly took place on departmental roads between fields and villages, with strong winds that made the journey unpleasant. I wouldn't particularly recommend this route, and unfortunately, I didn't take any photos during this difficult journey ...</p>
+<h3>Edition 2: Cabourg - Saint-Malo (500 km, 3000 m elevation gain)</h3>
+<p>This second trip was much better organized. We had planned the entire route, and here's an animation of the journey:</p>
+<div class="video-frame"><iframe src="https://www.youtube.com/embed/6DUGFoYhUSs" title="YouTube video" loading="lazy" allowfullscreen></iframe></div>
+<p>This trip was much more enjoyable, as I had the pleasure of discovering the D-Day beaches, a place I had never visited before, which helped me brush up on some history. This time, with the same amount of gear, we wore cycling shorts, and the kilometers passed easily. We only had one flat tire throughout the trip.</p>
+<p>Here are some photos:</p>
+<h4>Gallery</h4>
+<figure><img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/profile" alt="Trip profile" loading="lazy" /><figcaption>Trip profile</figcaption></figure>
+<div class="custom-image-grid">
+<figure><img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/bike" alt="My first bike for such a trip" loading="lazy" /><figcaption>My first bike for such a trip</figcaption></figure>
+<figure><img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/campement" alt="Campground by the beach" loading="lazy" /><figcaption>Campground by the beach</figcaption></figure>
+<figure><img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/mont-st-michel" alt="Mont Saint Michel" loading="lazy" /><figcaption>Mont Saint Michel</figcaption></figure>
+<figure><img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/memorial" alt="Memorial" loading="lazy" /><figcaption>Memorial</figcaption></figure>
+</div>
+<h3>Edition 3: Fontainebleau - Orléans (250 km along the Loire)</h3>
+<p>For this shorter weekend trip, I switched from a mountain bike to a gravel bike. However, on the second day, I had four flat tires in a row, despite using puncture-resistant tires. I later discovered that I had been improperly installing the inner tube after each repair, which caused it to pinch and puncture again during inflation.</p>
+<p>Here are a few photos of my new setup, along with some beautiful views from the trip.</p>
+<h4>Gallery</h4>
+<div class="custom-image-grid">
+<figure><img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/trip3-trajet" alt="Profile of trip 3" loading="lazy" /><figcaption>Profile of trip 3</figcaption></figure>
+<figure><img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/orleans" alt="Orléans Cathedral" loading="lazy" /><figcaption>Orléans Cathedral</figcaption></figure>
+<figure><img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/orleans_bis" alt="Inside the Cathedral" loading="lazy" /><figcaption>Inside the Cathedral</figcaption></figure>
+<figure><img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/bike_V2" alt="New Gravel Triban GRVL520" loading="lazy" /><figcaption>New Gravel Triban GRVL520</figcaption></figure>
+</div>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"page post-page","children":["$","div",null,{"className":"shell","children":[["$","div",null,{"className":"post-topbar","children":["$","$L2",null,{"className":"post-back","href":"/en/blog/","children":"Back to writing"}]}],["$","div",null,{"className":"post-grid","children":[["$","header",null,{"className":"post-head","children":[["$","h1",null,{"className":"post-h1","id":"post-title","children":"Bike 600km roadtrip"}],["$","p",null,{"className":"post-dek","children":"A journey through several cycling adventures across France, exploring different routes and sharing my experiences and lessons learned."}]]}],["$","aside",null,{"className":"post-rail","children":[["$","div",null,{"className":"post-rail-block","children":[["$","p",null,{"className":"meta","children":"Published"}],["$","time",null,{"className":"post-rail-value","dateTime":"2020-09-10T22:33:01.000Z","children":"September 10, 2020"}]]}],["$","div",null,{"className":"post-rail-block","children":[["$","p",null,{"className":"meta","children":"Tags"}],["$","ul",null,{"className":"post-tags","children":[["$","li","Cycling",{"children":"Cycling"}],["$","li","Bikepacking",{"children":"Bikepacking"}],["$","li","Lessons Learned",{"children":"Lessons Learned"}]]}]]}]]}],["$","article",null,{"className":"post-article","aria-labelledby":"post-title","children":[["$","div",null,{"className":"prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4","$L5"]}]]}]]}]}],["$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"GOPEv869U1R0wjCOlqvWl"}
+4:["$","nav",null,{"className":"post-nav","aria-label":"Writing","children":[["$","span",null,{}],["$","$L2",null,{"className":"post-nav--next","href":"/en/blog/codelab-gemini-developper-contest/","children":[["$","span",null,{"className":"post-nav-label","children":"Next"}],["$","span",null,{"className":"post-nav-title","children":"Gemini Developper Contest"}]]}]]}]
+5:["$","$L8",null,{"locale":"en"}]
+6:["$","script","script-0",{"src":"/pr-preview/pr-35/_next/static/chunks/0qges3__chzfr.js","async":true}]
+7:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null
