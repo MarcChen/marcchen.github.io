@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { cloudinaryUrl } from "@/lib/cloudinary";
+import { t, type Locale } from "@/lib/i18n";
 
 /**
  * Markdown for the journal.
@@ -10,6 +11,9 @@ import { cloudinaryUrl } from "@/lib/cloudinary";
  * HTML wrappers through. Everything else is the markdown the posts actually
  * use: headings, paragraphs, lists, code, quotes, tables, images and links.
  */
+
+// The journal is rendered at build time, one page at a time.
+let renderLocale: Locale = "en";
 
 function escapeHtml(value: string): string {
   return value
@@ -84,6 +88,30 @@ function inline(text: string): string {
     hold(`<code>${escapeHtml(code)}</code>`)
   );
 
+  // Inline Hugo shortcodes (the ENSTA posts put embeds inside list items).
+  out = out.replace(
+    /\{\{<\s*youtube\s+([\w-]+)\s*>\}\}/g,
+    (_, id) =>
+      hold(
+        `<span class="video-frame"><iframe src="https://www.youtube.com/embed/${escapeAttr(
+          id
+        )}" title="${escapeAttr(
+          t(renderLocale, "video_title")
+        )}" loading="lazy" allowfullscreen></iframe></span>`
+      )
+  );
+  out = out.replace(
+    /\{\{<\s*instagram\s+([\w-]+)\s*>\}\}/g,
+    (_, id) =>
+      hold(
+        `<span class="video-frame"><iframe src="https://www.instagram.com/p/${escapeAttr(
+          id
+        )}/embed" title="${escapeAttr(
+          t(renderLocale, "instagram_title")
+        )}" loading="lazy"></iframe></span>`
+      )
+  );
+
   // Links — external links open in a new tab.
   out = out.replace(
     /\[([^\]]+)\]\(([^)\s]+)\)/g,
@@ -151,7 +179,12 @@ function isBlockStart(line: string): boolean {
   );
 }
 
-export function markdownToHtml(markdown: string, slug: string): string {
+export function markdownToHtml(
+  markdown: string,
+  slug: string,
+  locale: Locale = "en"
+): string {
+  renderLocale = locale;
   const lines = markdown.replace(/\r\n/g, "\n").split("\n");
   const html: string[] = [];
   let i = 0;
@@ -260,13 +293,19 @@ export function markdownToHtml(markdown: string, slug: string): string {
       continue;
     }
 
+    // Hugo {{< vs >}} only inserted vertical space; the list break already spaces it.
+    if (/^\{\{<\s*vs\s*>\}\}$/.test(trimmed)) {
+      i += 1;
+      continue;
+    }
+
     // Hugo shortcodes
     const youtube = trimmed.match(/^\{\{<\s*youtube\s+([\w-]+)\s*>\}\}$/);
     if (youtube) {
       html.push(
         `<div class="video-frame"><iframe src="https://www.youtube.com/embed/${escapeAttr(
           youtube[1]
-        )}" title="YouTube video" loading="lazy" allowfullscreen></iframe></div>`
+        )}" title="${escapeAttr(t(renderLocale, "video_title"))}" loading="lazy" allowfullscreen></iframe></div>`
       );
       i += 1;
       continue;
@@ -279,7 +318,7 @@ export function markdownToHtml(markdown: string, slug: string): string {
       html.push(
         `<div class="video-frame"><iframe src="https://www.instagram.com/p/${escapeAttr(
           instagram[1]
-        )}/embed" title="Instagram post" loading="lazy"></iframe></div>`
+        )}/embed" title="${escapeAttr(t(renderLocale, "instagram_title"))}" loading="lazy"></iframe></div>`
       );
       i += 1;
       continue;

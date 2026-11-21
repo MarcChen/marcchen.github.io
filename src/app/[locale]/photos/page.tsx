@@ -65,7 +65,7 @@ export default async function PhotosPage({ params }: PhotosPageProps) {
             <figure>
               <div className="photo-frame">
                 <Image
-                  src={assetPath("/images/photos/mont-saint-michel.jpg")}
+                  src={assetPath("/images/posts/bike-images/mont-st-michel.JPG")}
                   alt={t(locale, "photos_caption")}
                   fill
                   sizes="(max-width: 760px) 100vw, 62vw"

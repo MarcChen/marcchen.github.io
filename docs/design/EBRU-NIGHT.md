@@ -89,10 +89,11 @@ ledger repeated six times, 40 tracked ALL-CAPS declarations, missing body imager
 copy. Round 2 addressed those recommendations:
 
 - **Compositions split**: Skills is a two-column lexicon index; Experience is the only ruled ledger;
-  Education sets the degree as a display statement with coursework beside it; Selected work is
-  editorial image plates (Vision Vendor brand banner, Dassault hexacopter, RBM typographic); Courses &
-  certificates is an issuer-grouped register; Latest writing is an asymmetric two-column list; the blog
-  index carries a real local lead image per post.
+  Education sets the degree as a display statement above a two-column detail field (not a left/right
+  spine); Selected work is editorial image plates (Vision Vendor brand banner, Dassault hexacopter, RBM
+  typographic); Courses & certificates is an issuer-grouped register; Latest writing is an asymmetric
+  two-column list and stays imageless because no local asset belongs to those posts; the blog index
+  carries a real local lead image per post.
 - **Photography**: a second real photo (Mont-Saint-Michel, grayscale) fills the empty About column;
   project plates use the local assets; no hotlinks, nothing fabricated.
 - **Voice**: section-head caps labels, dates/categories/tags/roles sentence-cased; 40 uppercase
@@ -104,3 +105,28 @@ copy. Round 2 addressed those recommendations:
   hero facts fill the row (no empty grid cell).
 - Verification after round 2: 39/39 routes, axe WCAG 2.2 AA clean, 0 overflow at 1440/1024/768/390/360,
   0 console errors, locales intact.
+
+
+## Known limits
+
+- Static export ships html lang="en" on /fr/ and /zh-cn/: the inner wrapper carries the correct
+  language and DocumentLang fixes the root after paint; no-JS/SEO sees English. Structural export limit.
+- GitHub Pages deep-404: unknown /fr/... or /zh-cn/... URLs boot the static English 404 and re-render in
+  the URL locale (recoverable React hydration warning); the final DOM, lang and title are correct.
+- Comments are third-party Giscus threads; a thread that does not exist logs one external 404 when opened.
+- The "Professional" projects filter has no matching data, so it shows the localized empty state.
+- Marbling canvas: on the constrained CI virtual machine the hero was measured at ~60 ms/frame
+  (420x400 buffer), above the documented 26 fps budget. The loop is bounded (fps caps, off-screen and
+  hidden-tab pauses, static reduced-motion frame); a precomputed-noise or worker version is a follow-up.
+- Deferred cleanups (not in this PR): ~20 unused i18n compatibility keys, now-unused framer-motion /
+  lucide-react dependencies, unreferenced public/theme-init.js, and splitting the 3,033-line globals.css
+  if it keeps growing.
+- Vision Vendor has no local photograph (its brand banner is used); RBM is typographic. Nothing invented.
+
+## Evidence
+
+- Before - the old front-end: assets/before-hero.webp
+- After - hero: assets/after-hero.webp
+- After - full page: assets/after-full.webp
+- After - mobile full page: assets/after-mobile-full.webp
+- Independent adversarial review, round 1: REVIEW-round1.md

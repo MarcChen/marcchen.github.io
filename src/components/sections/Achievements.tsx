@@ -10,7 +10,11 @@ export default function Achievements({ data }: AchievementsProps) {
   if (!data.achievements.length) return null;
 
   return (
-    <section id={data.section.id} className="achievements">
+    <section
+      id={data.section.id}
+      className="achievements"
+      aria-label={data.section.name}
+    >
       {data.achievements.map((achievement) => (
         <article className="achievement-media" key={achievement.title}>
           <Image

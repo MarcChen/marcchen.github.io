@@ -68,7 +68,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) notFound();
 
   const { frontmatter, content } = post;
-  const html = markdownToHtml(content, slug);
+  const html = markdownToHtml(content, slug, locale);
   const published = dateISO(frontmatter.date);
 
   const allPosts = getAllPosts(locale);

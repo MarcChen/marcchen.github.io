@@ -17,8 +17,25 @@ export default function NotFound({ siteName }: { siteName: string }) {
   const first = pathname.split("/").filter(Boolean)[0] ?? "";
   const locale: Locale = isValidLocale(first) ? first : "en";
 
+  // The App Router re-flushes the root metadata <title> after hydration, which
+  // would overwrite the 404 title. Re-apply it while the head settles, then stop.
   useEffect(() => {
-    document.title = `${t(locale, "notfound_label")} — ${siteName}`;
+    const desired = `${t(locale, "notfound_label")} — ${siteName}`;
+    const apply = () => {
+      if (document.title !== desired) document.title = desired;
+    };
+    apply();
+    const observer = new MutationObserver(apply);
+    observer.observe(document.head, {
+      childList: true,
+      subtree: true,
+      characterData: true,
+    });
+    const stop = window.setTimeout(() => observer.disconnect(), 3000);
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(stop);
+    };
   }, [locale, siteName]);
 
   return (

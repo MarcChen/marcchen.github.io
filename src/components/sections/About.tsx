@@ -94,7 +94,7 @@ export default function About({
             <figure className="about-figure">
               <div className="about-figure-media">
                 <Image
-                  src={assetPath("/images/photos/mont-saint-michel.jpg")}
+                  src={assetPath("/images/posts/bike-images/mont-st-michel.JPG")}
                   alt={t(locale, "about_photo_caption")}
                   fill
                   sizes="(max-width: 960px) 100vw, 55vw"

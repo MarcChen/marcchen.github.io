@@ -6,7 +6,7 @@ adversarial review → verification gate → PR. Each direction leaves a record 
 
 ## 0. Ground rules
 
-- Real content only: facts come from `src/data/<locale>/` and `src/content/posts/`. Never invent copy.
+- Real content only: facts come from `src/data/<locale>/` and `src/content/posts/`. Never invent facts; editorial chrome copy may be rewritten to remove template language, but nothing factual is added.
 - Never edit `src/data/` or `src/content/` in a design change; content changes are a separate commit.
 - Replicate UI-string changes across `en`, `fr`, `zh-cn`; UI strings live in `src/lib/i18n.ts`.
 - No new npm dependencies unless justified in the PR (static export on GitHub Pages).
@@ -76,18 +76,17 @@ without owner approval. Scratch goes to `/tmp/design-shots/`; only curated crops
 
 Project-scoped skills live in `.agents/skills/<name>/` (source of truth) and are exposed
 to Claude Code through `.claude/skills/<name>` symlinks. `skills-lock.json` pins the
-source repo, commit and `SKILL.md` hash; license texts are vendored next to each skill.
+source repo, commit and skill-folder hash; license texts are vendored next to each skill.
 
 | Skill | Source | License | Used for |
 |---|---|---|---|
 | `frontend-design` | `anthropics/skills` | Apache-2.0 | Distinct, non-templated visual direction |
 | `modern-web-guidance` | `GoogleChrome/modern-web-guidance` | Apache-2.0 | Current HTML/CSS/JS, accessibility, Core Web Vitals |
-| `chrome-extensions` | `GoogleChrome/modern-web-guidance` | Apache-2.0 | Manifest V3 patterns (not used by this site) |
 | `emil-design-eng` | `emilkowalski/skills` | MIT | Motion, interaction and UI polish |
 
 ```bash
 npx -y skills add anthropics/skills --skill frontend-design -y
-npx -y skills add GoogleChrome/modern-web-guidance --skill modern-web-guidance --skill chrome-extensions -y
+npx -y skills add GoogleChrome/modern-web-guidance --skill modern-web-guidance -y
 npx -y skills add emilkowalski/skills --skill emil-design-eng -y
 npx -y skills experimental_install --frozen-lockfile   # re-sync from skills-lock.json
 npx -y skills ls                                       # list installed project skills

@@ -3031,3 +3031,10 @@ cal-floating-button {
     scroll-behavior: auto !important;
   }
 }
+
+/* Inline Hugo shortcodes rendered inside list items or paragraphs. */
+.prose li .video-frame,
+.prose p .video-frame {
+  display: block;
+  margin: 14px 0;
+}
