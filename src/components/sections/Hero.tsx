@@ -63,7 +63,6 @@ export default function Hero({ locale, author }: HeroProps) {
         <span>
           <b>{t(locale, "hero_place")}</b>
         </span>
-        <span>{t(locale, "hero_material")}</span>
       </div>
     </section>
   );

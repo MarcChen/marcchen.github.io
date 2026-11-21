@@ -24,69 +24,61 @@ export default function Skills({ locale, data }: SkillsProps) {
       ? data.skills
       : data.skills.filter((skill) => skill.categories.includes(active));
 
+  const categoryNames = (categories: string[]) =>
+    categories
+      .map((category) => t(locale, CATEGORY_KEY[category] ?? category))
+      .join(", ");
+
   return (
     <section id={data.section.id} className="section section--tone1">
       <div className="shell">
-        <SectionHead
-          title={t(locale, "skills_title")}
-          label={t(locale, "label_index")}
-        />
+        <SectionHead title={t(locale, "skills_title")} />
 
-        <div className="skills-layout">
-          <div className="skills-aside">
-            <div
-              className="filter-list"
-              role="group"
-              aria-label={t(locale, "skills_title")}
-            >
-              {data.buttons.map((button) => (
-                <button
-                  key={button.filter}
-                  type="button"
-                  className="filter-btn"
-                  aria-pressed={active === button.filter}
-                  onClick={() => setActive(button.filter)}
-                >
-                  {button.filter === "all" ? button.name : t(locale, CATEGORY_KEY[button.filter] ?? button.name)}
-                </button>
-              ))}
-            </div>
-            <p className="filter-count" aria-live="polite">
-              {tn(locale, "skills_entries", filtered.length)}
-            </p>
-          </div>
-
-          <ul className="lexicon">
-            {filtered.map((skill) => (
-              <li className="lexicon-item" key={skill.name}>
-                <p className="lexicon-name">
-                  {skill.url ? (
-                    <a
-                      href={skill.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {skill.name}
-                    </a>
-                  ) : (
-                    skill.name
-                  )}
-                </p>
-                <p className="lexicon-summary">{skill.summary}</p>
-                <p className="lexicon-cat">
-                  {skill.categories
-                    .map((category) =>
-                      t(locale, CATEGORY_KEY[category] ?? category)
-                    )
-                    .join(" / ")}
-                </p>
-              </li>
+        <div className="skills-bar">
+          <div
+            className="filter-list"
+            role="group"
+            aria-label={t(locale, "skills_title")}
+          >
+            {data.buttons.map((button) => (
+              <button
+                key={button.filter}
+                type="button"
+                className="filter-btn"
+                aria-pressed={active === button.filter}
+                onClick={() => setActive(button.filter)}
+              >
+                {button.filter === "all"
+                  ? button.name
+                  : t(locale, CATEGORY_KEY[button.filter] ?? button.name)}
+              </button>
             ))}
-            {filtered.length === 0 && (
-              <li className="lexicon-empty">{t(locale, "skills_empty")}</li>
-            )}
-          </ul>
+          </div>
+          <p className="filter-count" aria-live="polite">
+            {tn(locale, "skills_entries", filtered.length)}
+          </p>
         </div>
+
+        <ul className="skills-index">
+          {filtered.map((skill) => (
+            <li className="skill" key={skill.name}>
+              <p className="skill-cat">{categoryNames(skill.categories)}</p>
+              <p className="skill-name">
+                {skill.url ? (
+                  <a href={skill.url} target="_blank" rel="noopener noreferrer">
+                    {skill.name}
+                  </a>
+                ) : (
+                  skill.name
+                )}
+              </p>
+              <p className="skill-note">{skill.summary}</p>
+            </li>
+          ))}
+          {filtered.length === 0 && (
+            <li className="skill-empty">{t(locale, "skills_empty")}</li>
+          )}
+        </ul>
       </div>
     </section>
   );

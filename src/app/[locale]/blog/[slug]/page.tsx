@@ -83,18 +83,39 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <Link className="post-back" href={`/${locale}/blog/`}>
             {t(locale, "back_to_blog")}
           </Link>
-          <p className="sec-label">{t(locale, "label_archive")}</p>
         </div>
 
         <div className="post-grid">
-          <article className="post-main" aria-labelledby="post-title">
+          <header className="post-head">
             <h1 className="post-h1" id="post-title">
               {frontmatter.title}
             </h1>
             {frontmatter.description && (
               <p className="post-dek">{frontmatter.description}</p>
             )}
+          </header>
 
+          <aside className="post-rail">
+            <div className="post-rail-block">
+              <p className="meta">{t(locale, "post_date")}</p>
+              <time className="post-rail-value" dateTime={published}>
+                {formatDate(frontmatter.date, locale)}
+              </time>
+            </div>
+
+            {frontmatter.tags && frontmatter.tags.length > 0 && (
+              <div className="post-rail-block">
+                <p className="meta">{t(locale, "post_tags")}</p>
+                <ul className="post-tags">
+                  {frontmatter.tags.map((tag) => (
+                    <li key={tag}>{tag}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </aside>
+
+          <article className="post-article" aria-labelledby="post-title">
             <div
               className="prose"
               dangerouslySetInnerHTML={{ __html: html }}
@@ -128,26 +149,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             <Comments locale={locale} />
           </article>
-
-          <aside className="post-rail">
-            <div className="post-rail-block">
-              <p className="meta">{t(locale, "acc_date")}</p>
-              <time className="post-rail-value" dateTime={published}>
-                {formatDate(frontmatter.date, locale)}
-              </time>
-            </div>
-
-            {frontmatter.tags && frontmatter.tags.length > 0 && (
-              <div className="post-rail-block">
-                <p className="meta">{t(locale, "post_tags")}</p>
-                <ul className="post-tags">
-                  {frontmatter.tags.map((tag) => (
-                    <li key={tag}>{tag}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </aside>
         </div>
       </div>
     </div>

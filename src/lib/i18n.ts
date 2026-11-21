@@ -42,39 +42,30 @@ export const translations: Record<Locale, Record<string, string>> = {
     a11y_new_tab: "opens in a new tab",
 
     // Hero
-    hero_role: "Data engineer — Paris",
+    hero_role: "Data engineer, Paris",
     hero_lede:
       "Quiet systems for noisy problems: forecasting data at Veolia, photography on the long road between the numbers.",
     hero_currently: "Currently",
     hero_studied: "Studied",
     hero_elsewhere: "Elsewhere",
-    hero_currently_value: "Veolia — data science",
-    hero_studied_value: "ENSTA Paris — AI, 2025",
-    hero_elsewhere_value: "FR / EN / 中文",
+    hero_currently_value: "Data science at Veolia",
+    hero_studied_value: "Artificial intelligence at ENSTA Paris, 2025",
+    hero_elsewhere_value: "French, English, Chinese",
     hero_see_work: "See the work",
-    hero_read_record: "Read the record",
+    hero_read_record: "About me",
     hero_place: "Paris, France",
-    hero_material: "Marbled ink, night",
 
     // About
     about_statement:
       "I make data systems that must survive reality, then I ride 600 km to meet reality myself.",
-    about_certified: "Certified",
+    about_certified: "Certifications",
     about_languages: "Languages",
     about_also: "Also",
     about_also_value: "Cyclist, photographer, ENSTRAID and Technimage alumnus.",
     about_cv: "CV",
     about_portrait_alt: "Portrait of Marc Chen",
-
-    // Contextual section labels
-    label_record: "The record",
-    label_index: "Index",
-    label_roles: "Roles",
-    label_diplomas: "Diplomas",
-    label_selected: "Selected",
-    label_certificates: "Certificates",
-    label_all_writing: "All writing",
-    label_archive: "Archive",
+    about_photo_caption:
+      "Mont-Saint-Michel, seen from the Cabourg–Saint-Malo ride.",
 
     // Section titles
     about_title: "About",
@@ -86,10 +77,11 @@ export const translations: Record<Locale, Record<string, string>> = {
     featured_posts: "Featured Posts",
     featured_title: "Latest writing",
     achievements_title: "Achievements",
+    sec_all_writing: "All writing",
 
     // Skills
-    skills_entries: "{n} entries",
-    skills_empty: "No entries under this filter.",
+    skills_entries: "{n} skills",
+    skills_empty: "No skills under this filter.",
     cat_basic: "Foundations",
     cat_programming_language: "Programming",
     cat_cloud_services: "Cloud",
@@ -110,14 +102,13 @@ export const translations: Record<Locale, Record<string, string>> = {
     proj_professional: "Professional",
     proj_academic: "Academic",
     proj_hobby: "Hobby",
+    project_img_visionvendor_alt:
+      "Vision Vendor logo and tagline: an AI-powered appraisal and reselling partner.",
+    project_img_uav_alt:
+      "ENST'AIR hexacopter on a table before the Dassault UAV Challenge.",
 
     // Accomplishments
-    acc_course: "Course",
-    acc_issuer: "Issued by",
-    acc_date: "Date",
-    acc_credential: "Credential",
     acc_view: "Certificate",
-    acc_overview: "About the course",
 
     // Blog
     all_posts: "All posts",
@@ -130,6 +121,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     back_to_blog: "Back to writing",
     post_previous: "Previous",
     post_next: "Next",
+    post_date: "Published",
     post_tags: "Tags",
     comments: "Comments",
     comments_intro: "Comments run on GitHub Discussions and load only when you ask.",
@@ -143,30 +135,28 @@ export const translations: Record<Locale, Record<string, string>> = {
     photos_title: "Photographs",
     photos_intro:
       "Landscape, architecture, and the ordinary light in between. A small archive, kept slowly.",
-    photos_archive: "Archive",
-    photos_empty_title: "The contact sheet is still drying.",
+    photos_empty_title: "No photographs online yet.",
     photos_empty_body:
-      "The gallery will open when the next set of prints is ready. Until then, the photographs live inside the journal.",
+      "The gallery is not published yet. Photographs from the 2023 ride are in the journal.",
     photos_journal: "Read the ride journal",
     photos_caption: "Mont-Saint-Michel, from the Cabourg–Saint-Malo ride.",
     photos_gallery_hint: "Select a photograph to open it full screen.",
 
     // 404
     notfound_label: "404",
-    notfound_title: "This page is not in the record.",
+    notfound_title: "This page does not exist.",
     notfound_body:
-      "The address may have moved, or the page was never printed. Start again from one of the three front doors.",
+      "The address may be wrong, or the page has moved. Try one of the three home pages, or browse the writing.",
     notfound_writing: "Browse writing",
 
     // Footer
-    footer_tagline: "Marbled ink — a material that never repeats.",
     footer_contact: "Contact",
     footer_pages: "Pages",
     footer_elsewhere: "Elsewhere",
     footer_languages: "Languages",
-    footer_cv_en: "CV — English",
-    footer_cv_fr: "CV — Français",
-    footer_cv_zh: "CV — 中文",
+    footer_cv_en: "English CV",
+    footer_cv_fr: "French CV",
+    footer_cv_zh: "Chinese CV",
     footer_top: "Top",
     footer_location: "Paris, France",
     book_a_call: "Book a call",
@@ -198,37 +188,29 @@ export const translations: Record<Locale, Record<string, string>> = {
     switch_language: "Langues",
     a11y_new_tab: "s'ouvre dans un nouvel onglet",
 
-    hero_role: "Ingénieur data — Paris",
+    hero_role: "Ingénieur data, Paris",
     hero_lede:
       "Des systèmes discrets pour des problèmes bruyants : la prévision de données chez Veolia, la photographie sur la longue route entre les chiffres.",
     hero_currently: "Actuellement",
     hero_studied: "Formation",
     hero_elsewhere: "Ailleurs",
-    hero_currently_value: "Veolia — data science",
-    hero_studied_value: "ENSTA Paris — IA, 2025",
-    hero_elsewhere_value: "FR / EN / 中文",
+    hero_currently_value: "Data science chez Veolia",
+    hero_studied_value: "Intelligence artificielle à l'ENSTA Paris, 2025",
+    hero_elsewhere_value: "Français, anglais, chinois",
     hero_see_work: "Voir les projets",
-    hero_read_record: "Lire le parcours",
+    hero_read_record: "À propos",
     hero_place: "Paris, France",
-    hero_material: "Encre marbrée, nuit",
 
     about_statement:
       "Je construis des systèmes de données qui doivent tenir face au réel, puis je pédale 600 km pour aller le rencontrer.",
-    about_certified: "Certifié",
+    about_certified: "Certifications",
     about_languages: "Langues",
     about_also: "Aussi",
     about_also_value: "Cycliste, photographe, ancien d'ENSTRAID et de Technimage.",
     about_cv: "CV",
     about_portrait_alt: "Portrait de Marc Chen",
-
-    label_record: "Le dossier",
-    label_index: "Index",
-    label_roles: "Postes",
-    label_diplomas: "Diplômes",
-    label_selected: "Sélection",
-    label_certificates: "Certificats",
-    label_all_writing: "Tous les écrits",
-    label_archive: "Archives",
+    about_photo_caption:
+      "Le Mont-Saint-Michel, vu depuis le trajet Cabourg–Saint-Malo.",
 
     about_title: "À propos",
     skills_title: "Compétences",
@@ -239,9 +221,10 @@ export const translations: Record<Locale, Record<string, string>> = {
     featured_posts: "Articles en vedette",
     featured_title: "Derniers écrits",
     achievements_title: "Réalisations",
+    sec_all_writing: "Tous les écrits",
 
-    skills_entries: "{n} entrées",
-    skills_empty: "Aucune entrée pour ce filtre.",
+    skills_entries: "{n} compétences",
+    skills_empty: "Aucune compétence pour ce filtre.",
     cat_basic: "Fondamentaux",
     cat_programming_language: "Programmation",
     cat_cloud_services: "Cloud",
@@ -260,13 +243,12 @@ export const translations: Record<Locale, Record<string, string>> = {
     proj_professional: "Professionnel",
     proj_academic: "Académique",
     proj_hobby: "Loisir",
+    project_img_visionvendor_alt:
+      "Logo et signature Vision Vendor : un partenaire d'estimation et de revente propulsé par l'IA.",
+    project_img_uav_alt:
+      "L'hexacoptère d'ENST'AIR sur une table avant le Dassault UAV Challenge.",
 
-    acc_course: "Cours",
-    acc_issuer: "Délivré par",
-    acc_date: "Date",
-    acc_credential: "Certificat",
     acc_view: "Certificat",
-    acc_overview: "À propos du cours",
 
     all_posts: "Tous les articles",
     blog_nav: "Écrits",
@@ -278,6 +260,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     back_to_blog: "Retour aux écrits",
     post_previous: "Précédent",
     post_next: "Suivant",
+    post_date: "Publié le",
     post_tags: "Tags",
     comments: "Commentaires",
     comments_intro:
@@ -291,28 +274,26 @@ export const translations: Record<Locale, Record<string, string>> = {
     photos_title: "Photographies",
     photos_intro:
       "Paysages, architecture et la lumière ordinaire entre les deux. Une petite archive, tenue lentement.",
-    photos_archive: "Archives",
-    photos_empty_title: "La planche contact sèche encore.",
+    photos_empty_title: "Pas encore de photographies en ligne.",
     photos_empty_body:
-      "La galerie ouvrira quand la prochaine série de tirages sera prête. En attendant, les photographies vivent dans le journal.",
+      "La galerie n'est pas encore publiée. Les photographies du trajet 2023 sont dans le journal.",
     photos_journal: "Lire le journal de route",
     photos_caption: "Le Mont-Saint-Michel, depuis le trajet Cabourg–Saint-Malo.",
     photos_gallery_hint: "Choisissez une photographie pour l'ouvrir en plein écran.",
 
     notfound_label: "404",
-    notfound_title: "Cette page n'est pas au dossier.",
+    notfound_title: "Cette page n'existe pas.",
     notfound_body:
-      "L'adresse a peut-être changé, ou la page n'a jamais été imprimée. Reprenez par l'une des trois entrées.",
+      "L'adresse est peut-être incorrecte, ou la page a été déplacée. Reprenez depuis l'une des trois pages d'accueil, ou parcourez les écrits.",
     notfound_writing: "Parcourir les écrits",
 
-    footer_tagline: "Encre marbrée — une matière qui ne se répète jamais.",
     footer_contact: "Contact",
     footer_pages: "Pages",
     footer_elsewhere: "Ailleurs",
     footer_languages: "Langues",
-    footer_cv_en: "CV — anglais",
-    footer_cv_fr: "CV — français",
-    footer_cv_zh: "CV — chinois",
+    footer_cv_en: "CV anglais",
+    footer_cv_fr: "CV français",
+    footer_cv_zh: "CV chinois",
     footer_top: "Haut",
     footer_location: "Paris, France",
     book_a_call: "Réserver un appel",
@@ -343,19 +324,18 @@ export const translations: Record<Locale, Record<string, string>> = {
     switch_language: "语言",
     a11y_new_tab: "在新标签页打开",
 
-    hero_role: "数据工程师 — 巴黎",
+    hero_role: "数据工程师，巴黎",
     hero_lede:
       "为嘈杂的问题搭建安静的系统：在威立雅做数据预测，在数字之间的长路上拍照。",
     hero_currently: "目前",
     hero_studied: "求学",
     hero_elsewhere: "别处",
-    hero_currently_value: "威立雅 — 数据科学",
-    hero_studied_value: "ENSTA Paris — 人工智能，2025",
-    hero_elsewhere_value: "FR / EN / 中文",
+    hero_currently_value: "在威立雅做数据科学",
+    hero_studied_value: "ENSTA Paris 人工智能，2025",
+    hero_elsewhere_value: "法语、英语、中文",
     hero_see_work: "看作品",
-    hero_read_record: "读履历",
+    hero_read_record: "关于我",
     hero_place: "法国，巴黎",
-    hero_material: "墨纹，夜",
 
     about_statement:
       "我做的数据系统必须经得起现实，然后我骑 600 公里去见现实。",
@@ -365,15 +345,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     about_also_value: "骑行者、摄影师，ENSTRAID 与 Technimage 前成员。",
     about_cv: "简历",
     about_portrait_alt: "Marc Chen 的肖像",
-
-    label_record: "记录",
-    label_index: "索引",
-    label_roles: "职位",
-    label_diplomas: "学历",
-    label_selected: "精选",
-    label_certificates: "证书",
-    label_all_writing: "全部文章",
-    label_archive: "归档",
+    about_photo_caption: "圣米歇尔山，摄于卡堡—圣马洛途中。",
 
     about_title: "关于",
     skills_title: "技能",
@@ -384,9 +356,10 @@ export const translations: Record<Locale, Record<string, string>> = {
     featured_posts: "精选文章",
     featured_title: "最新文章",
     achievements_title: "成就",
+    sec_all_writing: "全部文章",
 
-    skills_entries: "{n} 项",
-    skills_empty: "此筛选下没有条目。",
+    skills_entries: "{n} 项技能",
+    skills_empty: "此筛选下没有技能。",
     cat_basic: "基础",
     cat_programming_language: "编程",
     cat_cloud_services: "云服务",
@@ -405,13 +378,11 @@ export const translations: Record<Locale, Record<string, string>> = {
     proj_professional: "职业",
     proj_academic: "学术",
     proj_hobby: "兴趣",
+    project_img_visionvendor_alt:
+      "Vision Vendor 的标志与标语：AI 驱动的估价与转售伙伴。",
+    project_img_uav_alt: "达索无人机挑战赛前放在桌上的 ENST'AIR 六旋翼无人机。",
 
-    acc_course: "课程",
-    acc_issuer: "颁发机构",
-    acc_date: "日期",
-    acc_credential: "证书",
     acc_view: "证书",
-    acc_overview: "课程简介",
 
     all_posts: "所有文章",
     blog_nav: "文章",
@@ -423,6 +394,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     back_to_blog: "返回文章",
     post_previous: "上一篇",
     post_next: "下一篇",
+    post_date: "发布于",
     post_tags: "标签",
     comments: "评论",
     comments_intro: "评论由 GitHub Discussions 提供，仅在您点击时加载。",
@@ -434,27 +406,26 @@ export const translations: Record<Locale, Record<string, string>> = {
     photos_nav: "摄影",
     photos_title: "摄影",
     photos_intro: "风景、建筑，以及两者之间平常的光。一个慢慢整理的小档案。",
-    photos_archive: "档案",
-    photos_empty_title: "印样还在晾干。",
+    photos_empty_title: "照片尚未上线。",
     photos_empty_body:
-      "下一批照片准备好后，画廊就会开放。在此之前，照片留在骑行日志里。",
+      "画廊还未发布。2023 年骑行途中的照片发布在文章里。",
     photos_journal: "读骑行日志",
     photos_caption: "圣米歇尔山，摄于卡堡—圣马洛途中。",
     photos_gallery_hint: "选择一张照片以全屏打开。",
 
     notfound_label: "404",
-    notfound_title: "这一页不在记录里。",
-    notfound_body: "地址可能已经变更，或这一页从未印出。请从三个入口之一重新开始。",
+    notfound_title: "此页不存在。",
+    notfound_body:
+      "地址可能有误，或页面已经移动。请从三个语言版本的首页重新开始，或浏览文章。",
     notfound_writing: "浏览文章",
 
-    footer_tagline: "墨纹——永不重复的材料。",
     footer_contact: "联系",
     footer_pages: "页面",
     footer_elsewhere: "别处",
     footer_languages: "语言",
-    footer_cv_en: "简历 — 英文",
-    footer_cv_fr: "简历 — 法文",
-    footer_cv_zh: "简历 — 中文",
+    footer_cv_en: "英文简历",
+    footer_cv_fr: "法文简历",
+    footer_cv_zh: "中文简历",
     footer_top: "顶部",
     footer_location: "法国，巴黎",
     book_a_call: "预约通话",

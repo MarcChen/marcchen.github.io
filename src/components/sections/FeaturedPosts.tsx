@@ -21,25 +21,27 @@ export default function FeaturedPosts({
       <div className="shell">
         <SectionHead
           title={t(locale, "featured_title")}
-          label={t(locale, "label_all_writing")}
-          labelHref={`/${locale}/blog/`}
+          action={{
+            label: t(locale, "sec_all_writing"),
+            href: `/${locale}/blog/`,
+          }}
         />
 
         <ol className="home-posts">
           {posts.map((post) => (
             <li className="home-post" key={post.slug}>
-              <p className="home-post-date">{formatDate(post.date, locale)}</p>
-
-              <div>
+              <div className="home-post-main">
+                <p className="home-post-meta">
+                  {formatDate(post.date, locale)}
+                  {post.tags?.[0] ? ` · ${post.tags[0]}` : ""}
+                </p>
                 <h3 className="home-post-title">
                   <Link href={`/${locale}/blog/${post.slug}/`}>
                     {post.title}
                   </Link>
                 </h3>
-                <p className="home-post-desc">{post.description}</p>
               </div>
-
-              <p className="home-post-cat">{post.tags?.[0] ?? ""}</p>
+              <p className="home-post-desc">{post.description}</p>
             </li>
           ))}
         </ol>

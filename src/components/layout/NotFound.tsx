@@ -10,7 +10,6 @@ import {
   t,
   type Locale,
 } from "@/lib/i18n";
-import MarblingCanvas from "@/components/marbling/MarblingCanvas";
 import DocumentLang from "@/components/layout/DocumentLang";
 
 export default function NotFound({ siteName }: { siteName: string }) {
@@ -71,10 +70,6 @@ export default function NotFound({ siteName }: { siteName: string }) {
           </div>
         </div>
       </main>
-
-      <div className="nf-band" aria-hidden="true">
-        <MarblingCanvas variant="band" />
-      </div>
     </div>
   );
 }

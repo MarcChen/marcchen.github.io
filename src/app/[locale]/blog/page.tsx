@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { isValidLocale, type Locale, formatDate, t } from "@/lib/i18n";
+import { assetPath } from "@/lib/paths";
 import { getAllPosts } from "@/lib/mdx";
+import { getPostImage } from "@/lib/postImages";
 
 interface BlogPageProps {
   params: Promise<{ locale: string }>;
@@ -48,28 +51,44 @@ export default async function BlogPage({ params }: BlogPageProps) {
             <h1 className="page-title">{t(locale, "blog_title")}</h1>
             <p className="page-intro">{t(locale, "blog_intro")}</p>
           </div>
-          <p className="page-aside sec-label">{t(locale, "label_archive")}</p>
         </header>
 
         {posts.length > 0 ? (
           <ol className="post-list">
-            {posts.map((post) => (
-              <li key={post.slug}>
-                <Link
-                  className="post-row"
-                  href={`/${locale}/blog/${post.slug}/`}
-                >
-                  <span className="post-date">
-                    {formatDate(post.date, locale)}
-                  </span>
-                  <div>
-                    <h2 className="post-title">{post.title}</h2>
-                    <span className="post-desc">{post.description}</span>
-                  </div>
-                  <span className="post-cat">{post.tags?.[0] ?? ""}</span>
-                </Link>
-              </li>
-            ))}
+            {posts.map((post) => {
+              const image = getPostImage(post);
+              return (
+                <li key={post.slug}>
+                  <Link
+                    className="post-row"
+                    href={`/${locale}/blog/${post.slug}/`}
+                  >
+                    {image && (
+                      <span
+                        className={
+                          image.mark ? "post-thumb post-thumb--mark" : "post-thumb"
+                        }
+                      >
+                        <Image
+                          src={assetPath(image.src)}
+                          alt={post.title}
+                          fill
+                          sizes="(max-width: 760px) 40vw, 260px"
+                        />
+                      </span>
+                    )}
+                    <span className="post-body">
+                      <span className="post-meta">
+                        {formatDate(post.date, locale)}
+                        {post.tags?.[0] ? ` · ${post.tags[0]}` : ""}
+                      </span>
+                      <span className="post-title">{post.title}</span>
+                      <span className="post-desc">{post.description}</span>
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
           </ol>
         ) : (
           <p className="empty-note">{t(locale, "no_posts")}</p>

@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import type { ProjectsSection } from "@/lib/types";
 import { t, type Locale } from "@/lib/i18n";
+import { assetPath } from "@/lib/paths";
 import SectionHead from "@/components/sections/SectionHead";
 import InlineText from "@/components/ui/InlineText";
 
@@ -11,7 +13,30 @@ interface ProjectsProps {
   data: ProjectsSection;
 }
 
-const PROJECT_FILTER_KEY: Record<string, string> = { all: "proj_all", professional: "proj_professional", academic: "proj_academic", hobby: "proj_hobby" }; function localizeInternal(url: string, locale: Locale): string {
+const PROJECT_FILTER_KEY: Record<string, string> = {
+  all: "proj_all",
+  professional: "proj_professional",
+  academic: "proj_academic",
+  hobby: "proj_hobby",
+};
+
+/** Local plates only. Projects without one keep a typographic plate. */
+const PROJECT_IMAGES: Record<
+  string,
+  { src: string; altKey: string; mark?: boolean }
+> = {
+  "Vision Vendor": {
+    src: "/images/sections/projects/visionvendor-miniature.jpg",
+    altKey: "project_img_visionvendor_alt",
+    mark: true,
+  },
+  "Dassault UAV Challenge": {
+    src: "/images/posts/ensta-uav-challenge/hexacopter.webp",
+    altKey: "project_img_uav_alt",
+  },
+};
+
+function localizeInternal(url: string, locale: Locale): string {
   if (locale !== "en" && url.startsWith("/en/")) {
     return url.replace(/^\/en\//, `/${locale}/`);
   }
@@ -29,10 +54,7 @@ export default function Projects({ locale, data }: ProjectsProps) {
   return (
     <section id={data.section.id} className="section section--tone1">
       <div className="shell">
-        <SectionHead
-          title={t(locale, "projects_title")}
-          label={t(locale, "label_selected")}
-        />
+        <SectionHead title={t(locale, "projects_title")} />
 
         <div
           className="project-filters"
@@ -47,23 +69,51 @@ export default function Projects({ locale, data }: ProjectsProps) {
               aria-pressed={active === button.filter}
               onClick={() => setActive(button.filter)}
             >
-              {button.filter === "all" ? t(locale, "proj_all") : t(locale, PROJECT_FILTER_KEY[button.filter] ?? button.name)}
+              {button.filter === "all"
+                ? t(locale, "proj_all")
+                : t(locale, PROJECT_FILTER_KEY[button.filter] ?? button.name)}
             </button>
           ))}
         </div>
 
-        <ol className="project-list">
-          {filtered.map((project) => {
+        <ol className="plates">
+          {filtered.map((project, index) => {
+            const image = PROJECT_IMAGES[project.name];
             const href = project.url || project.repo;
             const mainHref = href ? localizeInternal(href, locale) : null;
             const external = mainHref ? /^https?:\/\//.test(mainHref) : false;
 
             return (
-              <li className="project-row" key={project.name}>
-                <p className="project-time">{project.timeline}</p>
+              <li
+                className={[
+                  "plate",
+                  image ? "" : "plate--text",
+                  index % 2 === 1 ? "plate--flip" : "",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+                key={project.name}
+              >
+                {image && (
+                  <div
+                    className={
+                      image.mark ? "plate-media plate-media--mark" : "plate-media"
+                    }
+                  >
+                    <Image
+                      src={assetPath(image.src)}
+                      alt={t(locale, image.altKey)}
+                      fill
+                      sizes="(max-width: 960px) 100vw, 58vw"
+                    />
+                  </div>
+                )}
 
-                <div className="project-body">
-                  <h3 className="project-title">
+                <div className="plate-body">
+                  <p className="plate-meta">
+                    {project.role} · {project.timeline}
+                  </p>
+                  <h3 className="plate-title">
                     {mainHref ? (
                       <a
                         href={mainHref}
@@ -77,39 +127,35 @@ export default function Projects({ locale, data }: ProjectsProps) {
                       project.name
                     )}
                   </h3>
-                  <p className="project-role">{project.role}</p>
-                  <p className="project-summary">
+                  <p className="plate-summary">
                     <InlineText text={project.summary} />
                   </p>
-                  <p className="project-tags">
-                    {project.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
+                  <p className="plate-tags">
+                    {project.tags.join(", ")}
                   </p>
-                </div>
-
-                <div className="project-links">
-                  {project.url && (
-                    <a
-                      className="project-link"
-                      href={localizeInternal(project.url, locale)}
-                      {...(/^https?:\/\//.test(project.url)
-                        ? { target: "_blank", rel: "noopener noreferrer" }
-                        : {})}
-                    >
-                      {t(locale, "live_preview")}
-                    </a>
-                  )}
-                  {project.repo && (
-                    <a
-                      className="project-link"
-                      href={project.repo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {t(locale, "source_code")}
-                    </a>
-                  )}
+                  <div className="plate-links">
+                    {project.url && (
+                      <a
+                        className="plate-link"
+                        href={localizeInternal(project.url, locale)}
+                        {...(/^https?:\/\//.test(project.url)
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                      >
+                        {t(locale, "live_preview")}
+                      </a>
+                    )}
+                    {project.repo && (
+                      <a
+                        className="plate-link"
+                        href={project.repo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {t(locale, "source_code")}
+                      </a>
+                    )}
+                  </div>
                 </div>
               </li>
             );

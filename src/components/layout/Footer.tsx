@@ -22,7 +22,6 @@ export default function Footer({ locale, author }: FooterProps) {
       <footer id="contact" className="site-footer">
         <div className="shell">
           <p className="foot-name">{author.name}</p>
-          <p className="foot-tagline">{t(locale, "footer_tagline")}</p>
 
           <div className="foot-cols">
             <div>

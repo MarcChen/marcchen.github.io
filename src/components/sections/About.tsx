@@ -28,7 +28,7 @@ function cleanDesignation(value: string): string {
   return value
     .trim()
     .replace(/Enginner/g, "Engineer")
-    .replace(/\s+-\s+/g, " / ");
+    .replace(/\s+-\s+/g, ", ");
 }
 
 export default function About({
@@ -63,10 +63,7 @@ export default function About({
   return (
     <section id={data.section.id} className="section">
       <div className="shell">
-        <SectionHead
-          title={t(locale, "about_title")}
-          label={t(locale, "label_record")}
-        />
+        <SectionHead title={t(locale, "about_title")} />
 
         <div className="about-grid">
           <div className="about-main">
@@ -93,6 +90,18 @@ export default function About({
                 {author.contactInfo.email}
               </a>
             </div>
+
+            <figure className="about-figure">
+              <div className="about-figure-media">
+                <Image
+                  src={assetPath("/images/photos/mont-saint-michel.jpg")}
+                  alt={t(locale, "about_photo_caption")}
+                  fill
+                  sizes="(max-width: 960px) 100vw, 55vw"
+                />
+              </div>
+              <figcaption>{t(locale, "about_photo_caption")}</figcaption>
+            </figure>
           </div>
 
           <aside className="about-rail">

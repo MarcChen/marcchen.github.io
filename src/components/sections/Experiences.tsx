@@ -11,9 +11,9 @@ interface ExperiencesProps {
 function formatYears(start: string, end: string | undefined, present: string) {
   const startYear = start.match(/\d{4}/)?.[0] ?? start;
   const endYear = end?.match(/\d{4}/)?.[0];
-  if (!endYear) return `${startYear} — ${present}`;
+  if (!endYear) return `${startYear} – ${present}`;
   if (startYear === endYear) return startYear;
-  return `${startYear} — ${endYear}`;
+  return `${startYear} – ${endYear}`;
 }
 
 export default function Experiences({ locale, data }: ExperiencesProps) {
@@ -27,10 +27,7 @@ export default function Experiences({ locale, data }: ExperiencesProps) {
   return (
     <section id={data.section.id} className="section">
       <div className="shell">
-        <SectionHead
-          title={t(locale, "experiences_title")}
-          label={t(locale, "label_roles")}
-        />
+        <SectionHead title={t(locale, "experiences_title")} />
 
         <ol className="ledger">
           {rows.map(({ company, position }) => (
@@ -52,6 +49,7 @@ export default function Experiences({ locale, data }: ExperiencesProps) {
                   >
                     {company.name}
                   </a>
+                  <span className="ledger-loc"> · {company.location}</span>
                 </p>
                 <ul className="ledger-resp">
                   {position.responsibilities.map((line, index) => (
@@ -61,8 +59,6 @@ export default function Experiences({ locale, data }: ExperiencesProps) {
                   ))}
                 </ul>
               </div>
-
-              <p className="ledger-loc">{company.location}</p>
             </li>
           ))}
         </ol>

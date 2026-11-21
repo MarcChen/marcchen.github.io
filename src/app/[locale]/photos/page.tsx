@@ -53,7 +53,6 @@ export default async function PhotosPage({ params }: PhotosPageProps) {
             <h1 className="page-title">{t(locale, "photos_title")}</h1>
             <p className="page-intro">{t(locale, "photos_intro")}</p>
           </div>
-          <p className="page-aside sec-label">{t(locale, "photos_archive")}</p>
         </header>
 
         {gallery ? (
@@ -84,10 +83,7 @@ export default async function PhotosPage({ params }: PhotosPageProps) {
               <p className="photo-empty-body">
                 {t(locale, "photos_empty_body")}
               </p>
-              <Link
-                className="photo-journal"
-                href={`/${locale}/blog/bike/`}
-              >
+              <Link className="photo-journal" href={`/${locale}/blog/bike/`}>
                 {t(locale, "photos_journal")}
               </Link>
             </div>
