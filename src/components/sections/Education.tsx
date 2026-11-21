@@ -1,198 +1,151 @@
-"use client";
-
-import { useState } from "react";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { FileText, ChevronDown, Award } from "lucide-react";
-import SectionWrapper from "@/components/ui/SectionWrapper";
-import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import type { EducationSection, Degree } from "@/lib/types";
-import type { Locale } from "@/lib/i18n";
-import { cloudinaryUrl } from "@/lib/cloudinary";
-import { t } from "@/lib/i18n";
-import styles from "@/styles/components/Education.module.css";
+import { t, type Locale } from "@/lib/i18n";
+import { assetPath } from "@/lib/paths";
+import SectionHead from "@/components/sections/SectionHead";
 
 interface EducationProps {
   locale: Locale;
   data: EducationSection;
-  alternate?: boolean;
 }
 
-function CircularProgress({ achieved, outOf, scale }: { achieved: number; outOf: number; scale: string }) {
-  const percentage = Math.min(100, Math.max(0, (achieved / outOf) * 100));
-  const strokeDasharray = `${percentage} 100`;
+function formatTimeframe(value: string): string {
+  return value.replace(/\s*[-–]\s*/g, " – ");
+}
+
+function gradeText(degree: Degree): string | null {
+  if (!degree.grade) return null;
+  const { scale, achieved, outOf } = degree.grade;
+  return `${scale} ${achieved}/${outOf}`;
+}
+
+/** Courses list plus the grades report link, shared by the lead and the rest. */
+function Courses({ degree, locale }: { degree: Degree; locale: Locale }) {
+  const courses = degree.takenCourses?.courses ?? [];
+  const report = degree.gradesReport;
+
+  if (courses.length === 0 && !report) return null;
 
   return (
-    <div className={styles.progressWidget}>
-      <svg viewBox="0 0 36 36" className={styles.circularChart}>
-        <path
-          className={styles.circleBg}
-          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-        />
-        <motion.path
-          className={styles.circle}
-          initial={{ strokeDasharray: "0 100" }}
-          whileInView={{ strokeDasharray }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          viewport={{ once: true }}
-          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-        />
-      </svg>
-      <div className={styles.progressContent}>
-        <span className={styles.progressValue}>{achieved}</span>
-        <span className={styles.progressScale}>{scale}</span>
-      </div>
+    <div className="edu-block">
+      {courses.length > 0 && (
+        <>
+          <p className="edu-block-title">{t(locale, "taken_courses")}</p>
+          <ul className="edu-courses">
+            {courses.map((course) => (
+              <li key={course.name}>{course.name}</li>
+            ))}
+          </ul>
+        </>
+      )}
+      {report && (
+        <a
+          className="edu-report"
+          href={assetPath(report.url)}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {report.name}
+        </a>
+      )}
     </div>
   );
 }
 
-function DegreeCard({ degree, locale, index }: { degree: Degree; locale: Locale; index: number }) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const collapseAfter = degree.takenCourses?.collapseAfter ?? 4;
-  const hasCourses = degree.takenCourses && degree.takenCourses.courses.length > 0;
-  const hasExtra = degree.extracurricularActivities && degree.extracurricularActivities.length > 0;
-  
-  const hasExpandableContent = hasCourses || hasExtra || !!degree.gradesReport;
+function Activities({ degree, locale }: { degree: Degree; locale: Locale }) {
+  const activities = degree.extracurricularActivities ?? [];
+  if (activities.length === 0) return null;
 
   return (
-    <motion.div 
-      className={styles.degreeCard}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-    >
-      <div className={styles.cardHeader} onClick={() => hasExpandableContent && setIsExpanded(!isExpanded)}>
-        <div className={styles.institutionIdentity}>
-          {degree.institution.logo && (
-            <div className={styles.logoWrapper}>
-              <Image
-                src={cloudinaryUrl(degree.institution.logo)}
-                alt={degree.institution.name}
-                width={56}
-                height={56}
-                className={styles.instLogo}
-              />
-            </div>
-          )}
-          <div className={styles.instInfo}>
-            <div className={styles.instHeaderRow}>
-              <h3 className={styles.instName}>
-                {degree.institution.url ? (
-                  <a href={degree.institution.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                    {degree.institution.name}
-                  </a>
-                ) : (
-                  degree.institution.name
-                )}
-              </h3>
-              <span className={styles.timeframeBadge}>{degree.timeframe}</span>
-            </div>
-            <h4 className={styles.degreeTitle}>
-              <Award size={16} className={styles.degreeIcon} />
-              {degree.name}
-            </h4>
-          </div>
-        </div>
-
-        <div className={styles.gradeSection}>
-          {degree.grade && (
-            <CircularProgress 
-              achieved={degree.grade.achieved} 
-              outOf={degree.grade.outOf} 
-              scale={degree.grade.scale} 
-            />
-          )}
-          {hasExpandableContent && (
-            <button 
-              className={`${styles.expandBtn} ${isExpanded ? styles.expanded : ""}`}
-              aria-label="Expand details"
-            >
-              <ChevronDown size={24} />
-            </button>
-          )}
-        </div>
-      </div>
-
-      <AnimatePresence>
-        {isExpanded && hasExpandableContent && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className={styles.expandedContent}
-          >
-            <div className={styles.expandedDivider} />
-            
-            <div className={styles.contentGrid}>
-              {hasCourses && (
-                <div className={styles.courseworkBlock}>
-                  <h5 className={styles.subheading}>{t(locale, "taken_courses")}</h5>
-                  <div className={styles.tagGrid}>
-                    {degree.takenCourses!.courses.map((course, idx) => (
-                      <span key={idx} className="tag tag-secondary">
-                        {course.name}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              <div className={styles.sideBlock}>
-                {hasExtra && (
-                  <div className={styles.extraBlock}>
-                    <h5 className={styles.subheading}>{t(locale, "extracurricular_activities")}</h5>
-                    <ul className={styles.extraList}>
-                      {degree.extracurricularActivities!.map((activity, idx) => (
-                        <li key={idx} className={styles.extraItem}>
-                          <span className={styles.bullet}>•</span>
-                          {activity}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {degree.gradesReport && (
-                  <div className={styles.reportBlock}>
-                    <a
-                      href={degree.gradesReport.url}
-                      className="btn btn-outline"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FileText size={16} />
-                      {degree.gradesReport.name}
-                    </a>
-                  </div>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+    <div className="edu-block">
+      <p className="edu-block-title">
+        {t(locale, "extracurricular_activities")}
+      </p>
+      <ul className="edu-activities">
+        {activities.map((activity) => (
+          <li key={activity}>{activity}</li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
-export default function Education({
-  locale,
-  data,
-  alternate,
-}: EducationProps) {
-  return (
-    <SectionWrapper id={data.section.id} alternate={alternate}>
-      <div className={styles.sectionHeader}>
-        <span className="section-label">04. Academic</span>
-        <AnimatedHeading title={data.section.name} />
-      </div>
+export default function Education({ locale, data }: EducationProps) {
+  const [lead, ...rest] = data.degrees;
+  if (!lead) return null;
 
-      <div className={styles.stackedCards}>
-        {data.degrees.map((degree, idx) => (
-          <DegreeCard key={idx} degree={degree} locale={locale} index={idx} />
-        ))}
+  return (
+    <section id={data.section.id} className="section">
+      <div className="shell">
+        <SectionHead title={t(locale, "education_title")} />
+
+        <div className="edu-lead">
+          <p className="edu-lead-meta">
+            <span>
+              <a
+                href={lead.institution.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {lead.institution.name}
+              </a>
+            </span>
+            <span>{formatTimeframe(lead.timeframe)}</span>
+            {gradeText(lead) && <span>{gradeText(lead)}</span>}
+          </p>
+          <h3 className="edu-lead-degree">{lead.name}</h3>
+
+          <div className="edu-lead-grid">
+            <Courses degree={lead} locale={locale} />
+            <Activities degree={lead} locale={locale} />
+          </div>
+        </div>
+
+        {rest.length > 0 && (
+          <ul className="edu-rest">
+            {rest.map((degree) => {
+              const courses = degree.takenCourses?.courses ?? [];
+              const activities = degree.extracurricularActivities ?? [];
+              const report = degree.gradesReport;
+              const expandable =
+                courses.length > 0 || activities.length > 0 || Boolean(report);
+
+              const row = (
+                <span className="edu-row-main">
+                  <span className="edu-row-name">{degree.name}</span>
+                  <span className="edu-row-meta">
+                    <span className="edu-row-inst">
+                      {degree.institution.name}
+                    </span>
+                    <span>{formatTimeframe(degree.timeframe)}</span>
+                    {gradeText(degree) && <span>{gradeText(degree)}</span>}
+                  </span>
+                  {expandable && <span className="edu-toggle" aria-hidden="true" />}
+                </span>
+              );
+
+              if (!expandable) {
+                return (
+                  <li className="edu-item" key={degree.name}>
+                    <div className="edu-row edu-row--static">{row}</div>
+                  </li>
+                );
+              }
+
+              return (
+                <li className="edu-item" key={degree.name}>
+                  <details>
+                    <summary className="edu-row">{row}</summary>
+                    <div className="edu-item-body">
+                      <Courses degree={degree} locale={locale} />
+                      <Activities degree={degree} locale={locale} />
+                    </div>
+                  </details>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
-    </SectionWrapper>
+    </section>
   );
 }

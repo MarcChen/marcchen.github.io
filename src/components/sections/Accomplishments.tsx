@@ -1,138 +1,74 @@
-"use client";
-
-import { useRef, useEffect, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Award, ExternalLink } from "lucide-react";
-import SectionWrapper from "@/components/ui/SectionWrapper";
-import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import type { AccomplishmentsSection } from "@/lib/types";
-import type { Locale } from "@/lib/i18n";
-import { t } from "@/lib/i18n";
-import styles from "@/styles/components/Accomplishments.module.css";
+import { t, type Locale } from "@/lib/i18n";
+import SectionHead from "@/components/sections/SectionHead";
 
 interface AccomplishmentsProps {
   locale: Locale;
   data: AccomplishmentsSection;
-  alternate?: boolean;
 }
 
 export default function Accomplishments({
   locale,
   data,
-  alternate,
 }: AccomplishmentsProps) {
-  const SCROLL_AMOUNT = 400;
+  // Group by issuer so the register reads by institution, not as a table.
+  const groups = new Map<
+    string,
+    { url: string; items: AccomplishmentsSection["accomplishments"] }
+  >();
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const checkScroll = () => {
-    if (containerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+  for (const item of data.accomplishments) {
+    const issuer = item.organization.name;
+    const group = groups.get(issuer);
+    if (group) {
+      group.items.push(item);
+    } else {
+      groups.set(issuer, { url: item.organization.url, items: [item] });
     }
-  };
-
-  useEffect(() => {
-    checkScroll();
-    window.addEventListener("resize", checkScroll);
-    return () => window.removeEventListener("resize", checkScroll);
-  }, []);
-
-  const scroll = (direction: "left" | "right") => {
-    if (containerRef.current) {
-      const scrollAmount = direction === "left" ? -SCROLL_AMOUNT : SCROLL_AMOUNT;
-      containerRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
-  };
+  }
 
   return (
-    <SectionWrapper id={data.section.id} alternate={alternate}>
-      <div className={styles.sectionHeader}>
-        <span className="section-label">06. Certifications</span>
-        <AnimatedHeading title={data.section.name} />
-      </div>
+    <section id={data.section.id} className="section">
+      <div className="shell">
+        <SectionHead title={t(locale, "accomplishments_title")} />
 
-      <div className={styles.carouselContainer}>
-        {/* Navigation Controls */}
-        <div className={styles.controls}>
-          <button 
-            className={`${styles.navBtn} ${!canScrollLeft ? styles.disabled : ""}`} 
-            onClick={() => scroll("left")}
-            aria-label="Scroll left"
-            disabled={!canScrollLeft}
-          >
-            ←
-          </button>
-          <button 
-            className={`${styles.navBtn} ${!canScrollRight ? styles.disabled : ""}`} 
-            onClick={() => scroll("right")}
-            aria-label="Scroll right"
-            disabled={!canScrollRight}
-          >
-            →
-          </button>
-        </div>
-
-        {/* Scrollable Track */}
-        <motion.div 
-          className={styles.carouselTrack}
-          ref={containerRef}
-          onScroll={checkScroll}
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          {data.accomplishments.map((acc, index) => (
-            <div key={acc.name} className={styles.cardWrapper}>
-              <div className={styles.accompCard}>
-                <div className={styles.cardGradientTop} />
-                
-                <div className={styles.cardHeader}>
-                  <div className={styles.iconWrapper}>
-                    <Award size={24} />
-                  </div>
-                  <span className={styles.timelineBadge}>{acc.timeline}</span>
-                </div>
-
-                <div className={styles.cardContent}>
-                  <h3 className={styles.title}>{acc.name}</h3>
-                  <a
-                    href={acc.organization.url}
-                    className={styles.orgLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {acc.organization.name}
-                  </a>
-                  <p className={styles.overview}>{acc.courseOverview}</p>
-                </div>
-
-                <div className={styles.cardFooter}>
-                  {acc.certificateURL ? (
-                    <a
-                      href={acc.certificateURL}
-                      className={styles.certBtn}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span>{t(locale, "view_certificate")}</span>
-                      <ExternalLink size={14} />
-                    </a>
-                  ) : (
-                    <span className={styles.noCert}>Internal Verification</span>
-                  )}
-                </div>
-              </div>
+        <div className="register">
+          {Array.from(groups.entries()).map(([issuer, group]) => (
+            <div className="reg-group" key={issuer}>
+              <h3 className="reg-issuer">
+                <a
+                  href={group.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {issuer}
+                </a>
+              </h3>
+              <ul className="reg-items">
+                {group.items.map((item) => (
+                  <li className="reg-item" key={item.name}>
+                    <p className="reg-name">{item.name}</p>
+                    <p className="reg-meta">
+                      <span>{item.timeline}</span>
+                      {item.certificateURL && (
+                        <a
+                          className="reg-link"
+                          href={item.certificateURL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {t(locale, "acc_view")}
+                        </a>
+                      )}
+                    </p>
+                    <p className="reg-overview">{item.courseOverview}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
-          {/* Spacer to allow scrolling past the last item slightly */}
-          <div className={styles.carouselSpacer} />
-        </motion.div>
+        </div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 }

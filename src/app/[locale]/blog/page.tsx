@@ -1,92 +1,97 @@
-import Link from "next/link";
+import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-import { isValidLocale, type Locale, locales } from "@/lib/i18n";
-import { t } from "@/lib/i18n";
-import { cloudinaryUrl } from "@/lib/cloudinary";
+import Link from "next/link";
+import { isValidLocale, type Locale, formatDate, t } from "@/lib/i18n";
+import { assetPath } from "@/lib/paths";
 import { getAllPosts } from "@/lib/mdx";
-import styles from "@/styles/components/Posts.module.css";
-
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
+import { getPostImage } from "@/lib/postImages";
 
 interface BlogPageProps {
   params: Promise<{ locale: string }>;
 }
 
+export async function generateStaticParams() {
+  return (["en", "fr", "zh-cn"] as const).map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: BlogPageProps): Promise<Metadata> {
+  const { locale: rawLocale } = await params;
+  const locale: Locale = isValidLocale(rawLocale) ? rawLocale : "en";
+  const siteUrl = "https://marcchen.github.io";
+  const title = `${t(locale, "blog_title")} — Marc Chen`;
+  const description = t(locale, "blog_intro");
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `${siteUrl}/${locale}/blog/`,
+      languages: {
+        en: `${siteUrl}/en/blog/`,
+        fr: `${siteUrl}/fr/blog/`,
+        "zh-CN": `${siteUrl}/zh-cn/blog/`,
+      },
+    },
+    openGraph: { title, description, type: "website" },
+  };
+}
+
 export default async function BlogPage({ params }: BlogPageProps) {
   const { locale: rawLocale } = await params;
   const locale: Locale = isValidLocale(rawLocale) ? rawLocale : "en";
-
   const posts = getAllPosts(locale);
 
   return (
-    <div style={{ paddingTop: "calc(var(--nav-height) + var(--space-12))" }}>
-      <div className="container">
-        <h1 className="section-title" style={{ marginBottom: "var(--space-12)" }}>
-          {t(locale, "all_posts")}
-        </h1>
+    <div className="page">
+      <div className="shell">
+        <header className="page-head">
+          <div>
+            <h1 className="page-title">{t(locale, "blog_title")}</h1>
+            <p className="page-intro">{t(locale, "blog_intro")}</p>
+          </div>
+        </header>
 
-        <div className={styles.postsGrid}>
-          {posts.map((post) => {
-            const heroUrl = post.hero?.startsWith("http") || post.hero?.startsWith("/")
-              ? cloudinaryUrl(post.hero)
-              : post.hero
-                ? cloudinaryUrl(`/images/posts/${post.slug}/${post.hero}`) 
-                : null;
-
-            return (
-              <Link
-                key={post.slug}
-                href={`/${locale}/blog/${post.slug}/`}
-                className={styles.postCard}
-              >
-                {heroUrl && (
-                  <div style={{ position: "relative", width: "100%", height: "200px" }}>
-                    <Image
-                      src={heroUrl}
-                      alt={post.title}
-                      fill
-                      className={styles.postImage}
-                      style={{ objectFit: "cover" }}
-                    />
-                  </div>
-                )}
-                <div className={styles.postContent}>
-                <h2 className={styles.postTitle}>{post.title}</h2>
-                <span className={styles.postDate}>
-                  {new Date(post.date).toLocaleDateString(
-                    locale === "zh-cn" ? "zh-CN" : locale,
-                    {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    }
-                  )}
-                </span>
-                <p className={styles.postDescription}>{post.description}</p>
-                {post.tags && (
-                  <div className={styles.postTags}>
-                    {post.tags.map((tag) => (
-                      <span key={tag} className="tag">
-                        {tag}
+        {posts.length > 0 ? (
+          <ol className="post-list">
+            {posts.map((post) => {
+              const image = getPostImage(post);
+              return (
+                <li key={post.slug}>
+                  <Link
+                    className="post-row"
+                    href={`/${locale}/blog/${post.slug}/`}
+                  >
+                    {image && (
+                      <span
+                        className={
+                          image.mark ? "post-thumb post-thumb--mark" : "post-thumb"
+                        }
+                      >
+                        <Image
+                          src={assetPath(image.src)}
+                          alt={post.title}
+                          fill
+                          sizes="(max-width: 760px) 40vw, 260px"
+                        />
                       </span>
-                    ))}
-                  </div>
-                )}
-                <span className={styles.readMore}>
-                  {t(locale, "read_more")} <ArrowRight size={14} />
-                </span>
-              </div>
-            </Link>
-          )})}
-        </div>
-
-        {posts.length === 0 && (
-          <p style={{ textAlign: "center", color: "var(--text-muted)" }}>
-            {t(locale, "no_posts")}
-          </p>
+                    )}
+                    <span className="post-body">
+                      <span className="post-meta">
+                        {formatDate(post.date, locale)}
+                        {post.tags?.[0] ? ` · ${post.tags[0]}` : ""}
+                      </span>
+                      <span className="post-title">{post.title}</span>
+                      <span className="post-desc">{post.description}</span>
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ol>
+        ) : (
+          <p className="empty-note">{t(locale, "no_posts")}</p>
         )}
       </div>
     </div>

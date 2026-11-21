@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   // Base path for PR previews via GitHub Actions
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
+  // Keep Turbopack anchored to this worktree (the parent repo has its own lockfile).
+  turbopack: { root: process.cwd() },
 };
 
 export default nextConfig;

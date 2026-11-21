@@ -1,25 +1,20 @@
-import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Libre_Caslon_Display, Archivo } from "next/font/google";
 import "@/styles/globals.css";
 import Script from "next/script";
-import CursorGlow from "@/components/layout/CursorGlow";
 import { assetPath } from "@/lib/paths";
 
-const inter = Inter({
+const caslon = Libre_Caslon_Display({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-caslon",
+  display: "swap",
+});
+
+const archivo = Archivo({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains",
+  weight: ["400", "500", "600"],
+  variable: "--font-archivo",
   display: "swap",
 });
 
@@ -40,21 +35,19 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#0a0c0e",
+  colorScheme: "dark",
+};
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html
-      suppressHydrationWarning
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}
-    >
-      <head />
-      <body style={{ fontFamily: "var(--font-sans)" }}>
-        {/* Theme script must run before render to prevent flash */}
-        <Script src="/theme-init.js" strategy="beforeInteractive" />
-        <CursorGlow />
+    <html lang="en" className={`${caslon.variable} ${archivo.variable}`}>
+      <body>
         {children}
 
         {/* Google Analytics */}
@@ -99,7 +92,7 @@ export default function RootLayout({
           }`}
         </Script>
 
-        {/* Cal.com Floating Button */}
+        {/* Cal.com embed — the floating pill is hidden in CSS; the footer keeps the booking link. */}
         <Script id="cal-embed" strategy="afterInteractive">
           {`
             (function (C, A, L) {

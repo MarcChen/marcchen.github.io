@@ -25,3 +25,7 @@ yarn-error.log*
 # Photos (raw, not committed — uploaded to Cloudinary)
 /photos/
 /public/photos/
+
+# Agent local scratch (worktrees and design-lab experiments; .agents/skills stays tracked)
+.agents/worktrees/
+.agents/design-lab/

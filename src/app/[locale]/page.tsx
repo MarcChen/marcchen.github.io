@@ -9,7 +9,6 @@ import {
   getAccomplishments,
   getAchievements,
   getFeaturedPosts,
-  getEnabledSections,
 } from "@/lib/data";
 import { getPostsByIdentifiers } from "@/lib/mdx";
 import Hero from "@/components/sections/Hero";
@@ -21,6 +20,7 @@ import Projects from "@/components/sections/Projects";
 import Accomplishments from "@/components/sections/Accomplishments";
 import Achievements from "@/components/sections/Achievements";
 import FeaturedPosts from "@/components/sections/FeaturedPosts";
+import type { ReactNode } from "react";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -35,9 +35,6 @@ export default async function HomePage({ params }: PageProps) {
   const locale: Locale = isValidLocale(rawLocale) ? rawLocale : "en";
 
   const author = getAuthor(locale);
-  const enabledSections = getEnabledSections(locale);
-
-  // Load all section data
   const about = getAbout(locale);
   const skills = getSkills(locale);
   const experiences = getExperiences(locale);
@@ -45,143 +42,112 @@ export default async function HomePage({ params }: PageProps) {
   const projects = getProjects(locale);
   const accomplishments = getAccomplishments(locale);
   const achievements = getAchievements(locale);
-  const featuredPostsConfig = getFeaturedPosts(locale);
+  const featured = getFeaturedPosts(locale);
+  const featuredPosts = getPostsByIdentifiers(featured.posts || [], locale);
 
-  // Get featured post metadata
-  const featuredPostsMeta = getPostsByIdentifiers(
-    featuredPostsConfig.posts || [],
-    locale
-  );
+  const currentExperience = experiences.experiences[0];
+  const currentPosition = currentExperience?.positions[0];
 
-  // Build ordered section rendering based on weight
-  const sectionComponents: Record<
-    string,
-    { component: React.ReactNode; weight: number }
-  > = {};
+  const sections: { weight: number; node: ReactNode }[] = [];
 
   if (about.section.enable) {
-    sectionComponents[about.section.id] = {
-      component: (
+    sections.push({
+      weight: about.section.weight,
+      node: (
         <About
           key="about"
           locale={locale}
           data={about}
-          alternate={false}
+          author={author}
+          current={
+            currentExperience && currentPosition
+              ? {
+                  designation: currentPosition.designation,
+                  company: {
+                    name: currentExperience.company.name,
+                    url: currentExperience.company.url,
+                  },
+                  location: currentExperience.company.location,
+                }
+              : undefined
+          }
         />
       ),
-      weight: about.section.weight,
-    };
+    });
   }
 
   if (skills.section.enable) {
-    sectionComponents[skills.section.id] = {
-      component: (
-        <Skills
-          key="skills"
-          locale={locale}
-          data={skills}
-          alternate={true}
-        />
-      ),
+    sections.push({
       weight: skills.section.weight,
-    };
+      node: <Skills key="skills" locale={locale} data={skills} />,
+    });
   }
 
   if (experiences.section.enable) {
-    sectionComponents[experiences.section.id] = {
-      component: (
-        <Experiences
-          key="experiences"
-          locale={locale}
-          data={experiences}
-          alternate={false}
-        />
-      ),
+    sections.push({
       weight: experiences.section.weight,
-    };
+      node: (
+        <Experiences key="experiences" locale={locale} data={experiences} />
+      ),
+    });
   }
 
   if (education.section.enable) {
-    sectionComponents[education.section.id] = {
-      component: (
-        <Education
-          key="education"
-          locale={locale}
-          data={education}
-          alternate={true}
-        />
-      ),
+    sections.push({
       weight: education.section.weight,
-    };
+      node: <Education key="education" locale={locale} data={education} />,
+    });
   }
 
   if (projects.section.enable) {
-    sectionComponents[projects.section.id] = {
-      component: (
-        <Projects
-          key="projects"
-          locale={locale}
-          data={projects}
-          alternate={false}
-        />
-      ),
+    sections.push({
       weight: projects.section.weight,
-    };
+      node: <Projects key="projects" locale={locale} data={projects} />,
+    });
   }
 
   if (accomplishments.section.enable) {
-    sectionComponents[accomplishments.section.id] = {
-      component: (
+    sections.push({
+      weight: accomplishments.section.weight,
+      node: (
         <Accomplishments
           key="accomplishments"
           locale={locale}
           data={accomplishments}
-          alternate={true}
         />
       ),
-      weight: accomplishments.section.weight,
-    };
+    });
   }
 
-  if (featuredPostsConfig.section.enable) {
-    sectionComponents[featuredPostsConfig.section.id] = {
-      component: (
+  if (featured.section.enable && featuredPosts.length > 0) {
+    sections.push({
+      weight: featured.section.weight,
+      node: (
         <FeaturedPosts
           key="featured-posts"
-          id={featuredPostsConfig.section.id}
+          id={featured.section.id}
           locale={locale}
-          title={featuredPostsConfig.section.name}
-          posts={featuredPostsMeta}
-          alternate={false}
+          posts={featuredPosts}
         />
       ),
-      weight: featuredPostsConfig.section.weight,
-    };
+    });
   }
 
   if (achievements.section.enable) {
-    sectionComponents[achievements.section.id] = {
-      component: (
-        <Achievements
-          key="achievements"
-          locale={locale}
-          data={achievements}
-          alternate={true}
-        />
-      ),
+    sections.push({
       weight: achievements.section.weight,
-    };
+      node: <Achievements key="achievements" data={achievements} />,
+    });
   }
 
-  // Sort by weight and alternate backgrounds
-  const orderedSections = Object.entries(sectionComponents)
-    .sort(([, a], [, b]) => a.weight - b.weight)
-    .map(([, val]) => val.component);
+  const ordered = sections
+    .sort((a, b) => a.weight - b.weight)
+    .map((entry) => entry.node);
 
   return (
     <>
       <Hero locale={locale} author={author} />
-      {orderedSections}
+      {ordered}
     </>
   );
 }
