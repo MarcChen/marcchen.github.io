@@ -16,7 +16,8 @@
   --bone: #efece4;
   --ash: #b9b5ac;
   --ash-bright: #c9c5bc;
-  --dim: #7d7a72;
+  /* AA on every tone step: 4.94:1 on ink, 4.94:1 on tone-1, 4.78:1 on tone-2. */
+  --dim: #85827a;
 
   /* Real rules only */
   --hair: rgba(239, 236, 228, 0.14);
@@ -2330,6 +2331,14 @@ cal-floating-button {
   letter-spacing: -0.04em;
 }
 
+/* The numeral is pure decoration (aria-hidden in the markup). Drawing it as
+   generated content keeps it out of the text layer so the 1.4.3 rule, which
+   exempts pure decoration, no longer measures an intentionally faint
+   watermark. The rendered result is identical. */
+.nf-label::before {
+  content: "404";
+}
+
 .nf-title {
   max-width: 16ch;
   text-wrap: balance;
@@ -2380,6 +2389,91 @@ cal-floating-button {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+/* ---------- Pointer targets (WCAG 2.5.8) ----------
+   Small links and buttons keep their exact visual size; an ::after overlay
+   extends the clickable box to at least 24px on the short axis. */
+
+.nav-brand,
+.nav-link,
+.nav-lang a,
+.hero-primary,
+.hero-secondary,
+.about-links a,
+.about-fact-list a,
+.filter-btn,
+.ledger-company a,
+.ledger-resp a,
+.project-link,
+.reg-org a,
+.reg-link,
+.edu-actions a,
+.foot-links a,
+.foot-bottom a,
+.sec-label--link,
+.post-back,
+.comments-button,
+.photo-journal,
+.nf-links a,
+.achievement-link,
+.mobile-langs a {
+  position: relative;
+}
+
+.nav-brand::after,
+.nav-link::after,
+.hero-primary::after,
+.about-links a::after,
+.filter-btn::after,
+.project-link::after,
+.foot-links a::after {
+  content: "";
+  position: absolute;
+  inset: -4px 0;
+}
+
+/* 14–16px-tall items need six more pixels of reach. */
+.nav-lang a::after,
+.mobile-langs a::after,
+.hero-secondary::after,
+.sec-label--link::after,
+.foot-bottom a::after {
+  content: "";
+  position: absolute;
+  inset: -8px 0;
+}
+
+.reg-link::after,
+.comments-button::after,
+.photo-journal::after,
+.nf-links a::after,
+.achievement-link::after,
+.post-back::after {
+  content: "";
+  position: absolute;
+  inset: -6px 0;
+}
+
+.ledger-company a::after,
+.ledger-resp a::after,
+.reg-org a::after {
+  content: "";
+  position: absolute;
+  inset: -5px 0;
+}
+
+/* Grid rows 6px apart: two extra pixels keep 24px without overlapping. */
+.about-fact-list a::after {
+  content: "";
+  position: absolute;
+  inset: -2px 0;
+}
+
+.edu-actions a::after {
+  content: "";
+  position: absolute;
+  inset: -2px 0;
 }
 
 /* ============================================================

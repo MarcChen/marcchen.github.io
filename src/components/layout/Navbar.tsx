@@ -158,17 +158,18 @@ export default function Navbar({ locale, siteName, email }: NavbarProps) {
 
             <div
               className="nav-lang"
+              role="group"
               aria-label={t(locale, "switch_language")}
             >
               {locales.map((loc) => (
                 <Link
                   key={loc}
                   href={swapLocale(pathname, loc)}
-                  aria-label={localeNames[loc]}
                   aria-current={loc === locale ? "true" : undefined}
                   hrefLang={loc}
                 >
-                  {localeLabels[loc]}
+                  <span aria-hidden="true">{localeLabels[loc]}</span>
+                  <span className="sr-only">{localeNames[loc]}</span>
                 </Link>
               ))}
             </div>

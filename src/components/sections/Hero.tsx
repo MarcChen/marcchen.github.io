@@ -22,8 +22,11 @@ export default function Hero({ locale, author }: HeroProps) {
             <p className="hero-role">{t(locale, "hero_role")}</p>
 
             <h1 className="hero-name" id="hero-name" aria-label={author.name}>
-              {lines.map((line) => (
-                <span key={line}>{line}</span>
+              {lines.map((line, index) => (
+                <span key={line}>
+                  {index > 0 ? " " : null}
+                  {line}
+                </span>
               ))}
             </h1>
 
