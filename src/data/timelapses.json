@@ -1,0 +1,39 @@
+{
+  "_copyright": "© Marc Chen – All rights reserved",
+  "timelapses": [
+    {
+      "id": "timelapse-kuala-sunrise",
+      "title": "Kuala Lumpur Sunrise — 15 s",
+      "caption": "350 frames shot over 45 minutes through a hotel window, played back at 24 fps.",
+      "src": "https://res.cloudinary.com/dxrpy03qh/video/upload/portfolio/videos/timelapse-kuala-sunrise.mp4",
+      "loop": "https://res.cloudinary.com/dxrpy03qh/video/upload/portfolio/videos/timelapse-kuala-sunrise-loop.mp4",
+      "poster": "/videos/timelapse-kuala-sunrise-poster.jpg",
+      "width": 1920,
+      "height": 1280,
+      "duration": "00:15",
+      "tags": [
+        "timelapse",
+        "malaysia",
+        "urban",
+        "sunrise"
+      ]
+    },
+    {
+      "id": "timelapse-penang-hammock",
+      "title": "Penang Hammock — 11 s",
+      "caption": "253 frames from blue hour to sunrise over the Strait of Malacca, played back at 24 fps.",
+      "src": "https://res.cloudinary.com/dxrpy03qh/video/upload/portfolio/videos/timelapse-penang-hammock.mp4",
+      "loop": "https://res.cloudinary.com/dxrpy03qh/video/upload/portfolio/videos/timelapse-penang-hammock-loop.mp4",
+      "poster": "/videos/timelapse-penang-hammock-poster.jpg",
+      "width": 1080,
+      "height": 1620,
+      "duration": "00:11",
+      "tags": [
+        "timelapse",
+        "malaysia",
+        "interior",
+        "sunrise"
+      ]
+    }
+  ]
+}

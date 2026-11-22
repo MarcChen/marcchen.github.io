@@ -1,5 +1,5 @@
 import { isValidLocale, locales, type Locale } from "@/lib/i18n";
-import { getPhotos } from "@/lib/photos";
+import { getGalleryItems } from "@/lib/gallery";
 import PhotoSwipeGallery from "@/components/photos/PhotoSwipeGallery";
 import styles from "@/styles/components/Gallery.module.css";
 
@@ -15,7 +15,7 @@ export default async function PhotosPage({ params }: PhotosPageProps) {
   const { locale: rawLocale } = await params;
   const locale: Locale = isValidLocale(rawLocale) ? rawLocale : "en";
 
-  const photos = getPhotos();
+  const items = getGalleryItems();
 
   return (
     <div className={styles.galleryPage}>
@@ -23,7 +23,7 @@ export default async function PhotosPage({ params }: PhotosPageProps) {
         <h1 className={`section-title ${styles.galleryTitle}`}>
           {locale === "fr" ? "Photos" : locale === "zh-cn" ? "照片" : "Photos"}
         </h1>
-        <PhotoSwipeGallery photos={photos} />
+        <PhotoSwipeGallery items={items} />
       </div>
     </div>
   );

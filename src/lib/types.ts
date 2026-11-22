@@ -273,6 +273,29 @@ export interface PhotoItem {
   tags?: string[];
 }
 
+// ---- Timelapse ----
+
+export interface TimelapseItem {
+  id: string;
+  /** Full-length clip, opened in the lightbox. */
+  src: string;
+  /** Short silent loop used for the grid tile. */
+  loop: string;
+  poster: string;
+  width: number;
+  height: number;
+  alt: string;
+  title?: string;
+  caption?: string;
+  copyright?: string;
+  tags?: string[];
+  /** Human-readable runtime, e.g. "00:15". */
+  duration?: string;
+}
+
+/** A tile on the /photos gallery: either a still or a timelapse. */
+export type GalleryItem = PhotoItem | TimelapseItem;
+
 // ---- Section union ----
 
 export type SectionData =

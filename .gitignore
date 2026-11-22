@@ -25,3 +25,5 @@ yarn-error.log*
 # Photos (raw, not committed — uploaded to Cloudinary)
 /photos/
 /public/photos/
+# Timelapse clips (uploaded to Cloudinary)
+/videos/
