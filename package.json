@@ -11,6 +11,7 @@
     "images:optimize": "node scripts/optimize-images.mjs",
     "images:upload": "node scripts/upload-to-cloudinary.mjs",
     "photos:copy": "node scripts/copy-photos.mjs",
+    "videos:upload": "node scripts/upload-videos.mjs",
     "prebuild": "npm run images:optimize && npm run photos:copy",
     "postbuild": "node scripts/fix-root-redirect.mjs"
   },

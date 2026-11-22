@@ -42,6 +42,31 @@
   transform: scale(1.05);
 }
 
+/* Timelapse tile — a muted loop that behaves like a still until you look */
+.galleryItem > video.galleryImage {
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+.timelapseBadge {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  background: hsl(0 0% 0% / 0.62);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+
 .emptyState {
   text-align: center;
   color: var(--text-muted);
@@ -64,6 +89,12 @@
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   font-style: italic;
+}
+
+/* The Cal.com floating "Book a call" button is a custom element injected into
+   <body> that paints above PhotoSwipe; get it out of the way while open. */
+:global([data-lightbox-open] cal-floating-button) {
+  display: none !important;
 }
 
 
