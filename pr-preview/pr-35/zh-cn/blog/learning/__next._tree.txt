@@ -1,5 +1,0 @@
-:HL["/pr-preview/pr-35/_next/static/chunks/0ern5hz9ue-7k.css","style"]
-:HL["/pr-preview/pr-35/_next/static/media/2d85136c4a70e605-s.p.1sk091212cwhe.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/pr-preview/pr-35/_next/static/media/651aaf1801011892-s.p.357dd_6abeqge.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/pr-preview/pr-35/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"locale","param":{"type":"d","key":"zh-cn","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"blog","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"learning","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}}}},"staleTime":300,"buildId":"GOPEv869U1R0wjCOlqvWl"}
