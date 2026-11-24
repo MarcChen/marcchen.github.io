@@ -1,9 +1,9 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { LucideIcon } from "lucide-react";
+import { motion } from "framer-motion";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 
 interface MagneticButtonProps {
   children: React.ReactNode;
@@ -28,14 +28,16 @@ export default function MagneticButton({
 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const handleMouse = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (prefersReducedMotion) return;
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return;
     const { clientX, clientY } = e;
     const middleX = clientX - (rect.left + rect.width / 2);
     const middleY = clientY - (rect.top + rect.height / 2);
-    setPosition({ x: middleX * 0.2, y: middleY * 0.2 }); // 0.2 is the magnetic strength
+    setPosition({ x: middleX * 0.2, y: middleY * 0.2 });
   };
 
   const reset = () => {
@@ -43,14 +45,14 @@ export default function MagneticButton({
   };
 
   const btnClass = `btn btn-${variant} ${className}`;
+  const computedRel = target === "_blank" ? rel || "noopener noreferrer" : rel;
+  const isInternalLink = Boolean(href && href.startsWith("/") && target !== "_blank");
 
   const InnerContent = (
-    <>
-      <span style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center", gap: "var(--space-2)" }}>
-        {Icon && <Icon size={18} />}
-        {children}
-      </span>
-    </>
+    <span style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center", gap: "var(--space-2)" }}>
+      {Icon && <Icon size={18} aria-hidden="true" />}
+      {children}
+    </span>
   );
 
   return (
@@ -58,16 +60,22 @@ export default function MagneticButton({
       ref={ref}
       onMouseMove={handleMouse}
       onMouseLeave={reset}
-      animate={{ x: position.x, y: position.y }}
+      animate={prefersReducedMotion ? undefined : { x: position.x, y: position.y }}
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
       style={{ display: "inline-block" }}
     >
       {href ? (
-        <a href={href} className={btnClass} onClick={onClick} target={target} rel={rel}>
-          {InnerContent}
-        </a>
+        isInternalLink ? (
+          <Link href={href} className={btnClass} onClick={onClick}>
+            {InnerContent}
+          </Link>
+        ) : (
+          <a href={href} className={btnClass} onClick={onClick} target={target} rel={computedRel}>
+            {InnerContent}
+          </a>
+        )
       ) : (
-        <button className={btnClass} onClick={onClick}>
+        <button type="button" className={btnClass} onClick={onClick}>
           {InnerContent}
         </button>
       )}

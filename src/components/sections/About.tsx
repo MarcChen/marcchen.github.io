@@ -39,13 +39,14 @@ export default function About({ data, alternate, locale }: AboutProps) {
         {/* Large Profile Bento Card */}
         <GlassCard className={styles.profileCard} delay={0.1}>
           <div className={styles.imageOverlay}>
-<Image
-                  src={cloudinaryUrl("/images/author/marc.png")}
-                  alt="Marc Chen"
-                 width={100}
-                 height={100}
-                 className={styles.avatarImage}
-               />
+              <Image
+                src={cloudinaryUrl("/images/author/marc.png")}
+                alt="Marc Chen"
+                width={100}
+                height={100}
+                fetchPriority="high"
+                className={styles.avatarImage}
+              />
           </div>
           <p className={styles.designation}>{data.designation}</p>
           <div className={styles.summaryText}>
@@ -67,7 +68,14 @@ export default function About({ data, alternate, locale }: AboutProps) {
                     <span className={styles.skillName}>{badge.name}</span>
                     <span className={styles.skillPerc}>{badge.percentage}%</span>
                   </div>
-                  <div className={styles.skillTrack}>
+                  <div
+                    className={styles.skillTrack}
+                    role="progressbar"
+                    aria-valuenow={badge.percentage || 0}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-label={badge.name}
+                  >
                     <div
                       className={styles.skillFill}
                       style={{

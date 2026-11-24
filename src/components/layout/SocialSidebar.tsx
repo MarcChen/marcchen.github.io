@@ -5,6 +5,7 @@ import { Mail, FileText } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import type { Author } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
+import { assetPath } from "@/lib/paths";
 import styles from "@/styles/components/SocialSidebar.module.css";
 
 interface SocialSidebarProps {
@@ -38,7 +39,7 @@ export default function SocialSidebar({ author, locale }: SocialSidebarProps) {
     {
       id: "resume-en",
       label: locale === "fr" ? "CV (Anglais)" : locale === "zh-cn" ? "英文简历" : "English Resume",
-      url: "/files/MarcChen_s_Resume_ENG.pdf",
+      url: assetPath("/files/MarcChen_s_Resume_ENG.pdf"),
       icon: <FileText size={20} />,
       external: true,
     },

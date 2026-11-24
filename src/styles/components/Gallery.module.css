@@ -21,14 +21,33 @@
   background: var(--bg-card);
   cursor: pointer;
   padding: 0;
-  transition: all var(--duration-normal) var(--ease-default);
+  transition: transform var(--duration-normal) var(--ease-default),
+    box-shadow var(--duration-normal) var(--ease-default),
+    border-color var(--duration-normal) var(--ease-default);
   aspect-ratio: 1;
+}
+
+.galleryItemDeferred {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 300px;
 }
 
 .galleryItem:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
   border-color: hsl(var(--accent) / 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galleryItem,
+  .galleryImage {
+    transition: none;
+  }
+
+  .galleryItem:hover,
+  .galleryItem:hover .galleryImage {
+    transform: none;
+  }
 }
 
 .galleryImage {

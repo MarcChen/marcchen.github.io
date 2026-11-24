@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import Script from "next/script";
 import CursorGlow from "@/components/layout/CursorGlow";
+import MotionProvider from "@/components/layout/MotionProvider";
 import { assetPath } from "@/lib/paths";
 
 const inter = Inter({
@@ -45,31 +46,28 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
     <html
+      lang="en"
       suppressHydrationWarning
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}
     >
-      <head />
-      <body style={{ fontFamily: "var(--font-sans)" }}>
-        {/* Theme script must run before render to prevent flash */}
-        <Script src="/theme-init.js" strategy="beforeInteractive" />
-        <CursorGlow />
-        {children}
-
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-W2DZCT2HCH"
-          strategy="afterInteractive"
+      <head>
+        <meta name="color-scheme" content="light dark" />
+        {/* Synchronous inline FOUC prevention immediately after meta[name="color-scheme"] */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem("color-scheme");if(!s){var l=localStorage.getItem("theme-scheme");if(l==="light"||l==="dark"){s=l;localStorage.setItem("color-scheme",s);}}if(s==="light"||s==="dark"){var m=document.querySelector('meta[name="color-scheme"]');if(m)m.content=s;}}catch(e){}var bp=${JSON.stringify(basePath)};var p=location.pathname;if(bp&&p.indexOf(bp)===0)p=p.slice(bp.length)||"/";if(/^\\/fr(\\/|$)/.test(p))document.documentElement.lang="fr";else if(/^\\/zh-cn(\\/|$)/.test(p))document.documentElement.lang="zh-CN";})();`,
+          }}
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-W2DZCT2HCH');
-          `}
-        </Script>
+      </head>
+      <body style={{ fontFamily: "var(--font-sans)" }}>
+        <MotionProvider>
+          <CursorGlow />
+          {children}
+        </MotionProvider>
 
         {/* StatCounter */}
         <Script id="statcounter" strategy="afterInteractive">
