@@ -34,6 +34,23 @@
         "interior",
         "sunrise"
       ]
+    },
+    {
+      "id": "timelapse-mtfuji",
+      "title": "Mount Fuji Clouds — 17 s",
+      "caption": "419 frames of clouds drifting past Mount Fuji's snow-streaked summit, played back at 25 fps.",
+      "src": "https://res.cloudinary.com/dxrpy03qh/video/upload/portfolio/videos/timelapse-mtfuji.mp4",
+      "loop": "https://res.cloudinary.com/dxrpy03qh/video/upload/portfolio/videos/timelapse-mtfuji-loop.mp4",
+      "poster": "/videos/timelapse-mtfuji-poster.jpg",
+      "width": 1920,
+      "height": 1080,
+      "duration": "00:17",
+      "tags": [
+        "timelapse",
+        "japan",
+        "mountain",
+        "clouds"
+      ]
     }
   ]
 }
