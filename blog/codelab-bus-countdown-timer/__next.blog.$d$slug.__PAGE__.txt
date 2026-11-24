@@ -1,0 +1,40 @@
+1:"$Sreact.fragment"
+2:I[3265,["/_next/static/chunks/2h4_ehk6_l73f.js","/_next/static/chunks/2k3p8g2ptbcmi.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0_n8e4z9ht13y.js","/_next/static/chunks/1l7-qo6rvn4k1.js"],"default"]
+3:I[38000,["/_next/static/chunks/2h4_ehk6_l73f.js","/_next/static/chunks/2k3p8g2ptbcmi.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0_n8e4z9ht13y.js","/_next/static/chunks/1l7-qo6rvn4k1.js"],"default"]
+4:I[22016,["/_next/static/chunks/2h4_ehk6_l73f.js","/_next/static/chunks/2k3p8g2ptbcmi.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0_n8e4z9ht13y.js","/_next/static/chunks/1l7-qo6rvn4k1.js"],""]
+c:I[84997,["/_next/static/chunks/2h4_ehk6_l73f.js","/_next/static/chunks/2k3p8g2ptbcmi.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0_n8e4z9ht13y.js","/_next/static/chunks/1l7-qo6rvn4k1.js"],"default"]
+d:I[58234,["/_next/static/chunks/2h4_ehk6_l73f.js","/_next/static/chunks/2k3p8g2ptbcmi.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0_n8e4z9ht13y.js","/_next/static/chunks/1l7-qo6rvn4k1.js"],"default"]
+e:I[97367,["/_next/static/chunks/2h4_ehk6_l73f.js","/_next/static/chunks/2k3p8g2ptbcmi.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+f:"$Sreact.suspense"
+:HL["/_next/static/chunks/38dyjxz4525ei.css","style"]
+5:T9c5,
+<h2>Bus Station Project: Enhancing Public Transport with IoT</h2>
+
+<p>The <strong>Bus Station Project</strong> began as a personal solution to a common problem I faced while studying at Paris-Saclay. With only buses to travel between locations, I frequently encountered situations at the Place Marguerite Pery bus station, just in front of Telecom Paris, where no ETA (estimated time of arrival) was available. To know when to leave my house, I had to check the bus schedule on my phone each time before heading out. This sparked the idea to create a system that could provide real-time bus arrival times, making my commute more predictable and efficient.</p>
+
+<p>The project focused on developing an IoT system specifically for my local bus station, with the aim of offering live bus arrival information for better timing. The core challenge wasn’t API integration, as the RATP API is well-documented, but rather connecting the ESP32 microcontroller to the public Wi-Fi network in my student housing. The Wi-Fi had a portal login page, which made it tricky. I used <strong>Wireshark</strong> to capture the network traffic from my computer when connecting through the portal, replicating the same process on the ESP32, which successfully worked.</p>
+
+<h2>Development Overview</h2>
+
+<p>The project entailed several components:</p>
+<ul><li><strong>API Integration</strong>: Initially, we simulated real-time data using the <strong>RATP API</strong> to retrieve bus arrival times, which could be replaced by sensor-based data from actual bus stations in the future.</li>
+<li><strong>Data Processing</strong>: The collected data was processed to predict bus arrival times. A countdown mechanism helped reduce the frequency of API requests, optimizing power consumption.</li>
+</ul>
+<h2>Key Contributions</h2>
+
+<p>1. <strong>Power Optimization</strong>: A key improvement was the implementation of a countdown to manage API requests efficiently, reducing unnecessary power usage.</p>
+
+<h2>Future Potential</h2>
+
+<p>One future improvement would be to implement a schedule to manage power efficiency by automatically turning off the system during working hours when it is not needed. This would ensure that power is used only when the system is actively providing information.</p>
+
+<p>For more details, you can follow the progress of our project:</p>
+<ul><li><a href="https://github.com/MarcChen/affichage-temps-bus-ratp" target="_blank" rel="noopener noreferrer">Project avaiable on Github</a></li>
+</ul>0:{"rsc":["$","$1","c",{"children":[[["$","a",null,{"href":"#main-content","className":"skip-link visually-hidden","children":"Skip to main content"}],["$","$L2",null,{"locale":"en","sections":[{"id":"about","name":"About","weight":1,"showOnNavbar":true},{"id":"skills","name":"Skills","weight":2,"showOnNavbar":true},{"id":"experiences","name":"Experiences","weight":3,"showOnNavbar":true},{"id":"education","name":"Education","weight":4,"showOnNavbar":true},{"id":"projects","name":"Projects","weight":5,"showOnNavbar":true},{"id":"accomplishments","name":"Accomplishments","weight":6,"showOnNavbar":true},{"id":"featured-posts","name":"Featured Posts","weight":7,"showOnNavbar":true},{"id":"achievements","name":"Achievements","weight":8,"showOnNavbar":true}],"siteName":"Marc Chen"}],["$","$L3",null,{"author":{"name":"Marc Chen","nickname":"Marc!","greeting":"Hi, I'm","image":"images/author/marc.png","contactInfo":{"email":"marc.chen@ensta-paris.fr","github":"MarcChen","linkedin":"chen-marc"},"summary":["Nice to meet you!","I am a data Engineer X data Scientist.","Welcome to my page.","Feel free to contact me!"]},"locale":"en"}],["$","main",null,{"id":"main-content","tabIndex":-1,"children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__readingProgress","aria-hidden":"true"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L4",null,{"href":"/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Back to Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Bus Countdown Timer"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"October 10, 2024"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","IoT",{"className":"tag","children":"IoT"}],["$","span","Public Transport",{"className":"tag","children":"Public Transport"}],["$","span","ESP32",{"className":"tag","children":"ESP32"}],["$","span","API Integration",{"className":"tag","children":"API Integration"}],["$","span","Power Optimization",{"className":"tag","children":"Power Optimization"}],["$","span","Wi-Fi",{"className":"tag","children":"Wi-Fi"}],["$","span","Smart Cities",{"className":"tag","children":"Smart Cities"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}]]}]}],"$L7"],["$L8","$L9","$La"],"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Xsx48yOYOA4_JbkM9Ik1x"}
+6:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"Comments"}],["$","$Lc",null,{"locale":"en"}]]}]
+7:["$","$Ld",null,{"locale":"en","author":"$0:rsc:props:children:0:2:props:author","sections":"$0:rsc:props:children:0:1:props:sections"}]
+8:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/38dyjxz4525ei.css","precedence":"next"}]
+9:["$","script","script-0",{"src":"/_next/static/chunks/0_n8e4z9ht13y.js","async":true}]
+a:["$","script","script-1",{"src":"/_next/static/chunks/1l7-qo6rvn4k1.js","async":true}]
+b:["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]
+10:null

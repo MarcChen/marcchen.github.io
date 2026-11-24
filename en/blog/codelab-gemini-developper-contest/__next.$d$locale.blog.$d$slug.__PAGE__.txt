@@ -1,9 +1,8 @@
 1:"$Sreact.fragment"
-2:I[22016,["/_next/static/chunks/3lcuwfw0h2ioi.js","/_next/static/chunks/0me_ux7qtdtiw.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1xw5fyusx48rg.js","/_next/static/chunks/12oyignlicvht.js"],""]
-8:I[84997,["/_next/static/chunks/3lcuwfw0h2ioi.js","/_next/static/chunks/0me_ux7qtdtiw.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1xw5fyusx48rg.js","/_next/static/chunks/12oyignlicvht.js"],"default"]
-9:I[97367,["/_next/static/chunks/3lcuwfw0h2ioi.js","/_next/static/chunks/0me_ux7qtdtiw.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
-a:"$Sreact.suspense"
-:HL["/_next/static/chunks/3whwortwxn1eb.css","style"]
+2:I[22016,["/_next/static/chunks/2h4_ehk6_l73f.js","/_next/static/chunks/2k3p8g2ptbcmi.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2lwvv3a4-pmd7.js","/_next/static/chunks/1l7-qo6rvn4k1.js","/_next/static/chunks/1gtt0rkhd-a_o.js"],""]
+7:I[84997,["/_next/static/chunks/2h4_ehk6_l73f.js","/_next/static/chunks/2k3p8g2ptbcmi.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2lwvv3a4-pmd7.js","/_next/static/chunks/1l7-qo6rvn4k1.js","/_next/static/chunks/1gtt0rkhd-a_o.js"],"default"]
+8:I[97367,["/_next/static/chunks/2h4_ehk6_l73f.js","/_next/static/chunks/2k3p8g2ptbcmi.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+9:"$Sreact.suspense"
 3:T1218,
 
 <h1>Vision Vendor: A Breakthrough in Secondhand Market Reselling</h1>
@@ -53,9 +52,8 @@ a:"$Sreact.suspense"
 <p>Stay tuned for more updates and enhancements!</p>
 
 <p>#GoogleGemini #AIReselling #SecondhandMarket #TechInnovation #GoogleDeveloper</p>
-0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/en/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Back to Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Gemini Developper Contest"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"August 26, 2024"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","AI",{"className":"tag","children":"AI"}],["$","span","Secondhand Market",{"className":"tag","children":"Secondhand Market"}],["$","span","Price Comparison",{"className":"tag","children":"Price Comparison"}],["$","span","Image Recognition",{"className":"tag","children":"Image Recognition"}],["$","span","Google Gemini",{"className":"tag","children":"Google Gemini"}],["$","span","Developer Contest",{"className":"tag","children":"Developer Contest"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]}],["$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"faUArbKn4oMy0xAmddNhO"}
-4:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"Comments"}],["$","$L8",null,{"locale":"en"}]]}]
-5:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/3whwortwxn1eb.css","precedence":"next"}]
-6:["$","script","script-0",{"src":"/_next/static/chunks/12oyignlicvht.js","async":true}]
-7:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
-b:null
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__readingProgress","aria-hidden":"true"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Back to Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Gemini Developper Contest"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"August 26, 2024"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","AI",{"className":"tag","children":"AI"}],["$","span","Secondhand Market",{"className":"tag","children":"Secondhand Market"}],["$","span","Price Comparison",{"className":"tag","children":"Price Comparison"}],["$","span","Image Recognition",{"className":"tag","children":"Image Recognition"}],["$","span","Google Gemini",{"className":"tag","children":"Google Gemini"}],["$","span","Developer Contest",{"className":"tag","children":"Developer Contest"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]]}],["$L5"],"$L6"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Xsx48yOYOA4_JbkM9Ik1x"}
+4:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"Comments"}],["$","$L7",null,{"locale":"en"}]]}]
+5:["$","script","script-0",{"src":"/_next/static/chunks/1gtt0rkhd-a_o.js","async":true}]
+6:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
+a:null
