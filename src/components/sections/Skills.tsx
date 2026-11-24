@@ -41,6 +41,8 @@ export default function Skills({ data, alternate }: SkillsProps) {
           {data.buttons.map((btn) => (
             <button
               key={btn.filter}
+              type="button"
+              aria-pressed={activeFilter === btn.filter}
               className={`${styles.filterBtn} ${activeFilter === btn.filter ? styles.active : ""}`}
               onClick={() => setActiveFilter(btn.filter)}
             >
@@ -91,7 +93,7 @@ export default function Skills({ data, alternate }: SkillsProps) {
               >
                 <Wrapper
                   className={styles.skillPill}
-                  tabIndex={0}
+                  tabIndex={skill.url ? undefined : 0}
                   onFocus={() => setFocusedSkill(skill.name)}
                   onBlur={() => setFocusedSkill(null)}
                   {...wrapperProps}

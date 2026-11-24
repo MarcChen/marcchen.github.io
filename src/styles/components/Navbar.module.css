@@ -75,6 +75,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-1);
+  scroll-target-group: auto;
 }
 
 .navLink {
@@ -85,9 +86,9 @@
   font-weight: 500;
   color: var(--text-muted);
   background: transparent;
+  border: 1px solid transparent;
   border-radius: var(--radius-full);
-  outline: none;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
   z-index: 1;
 }
 
@@ -95,18 +96,11 @@
   color: var(--text-heading);
 }
 
-.navLink.active {
+.desktopNav :is(a[aria-current="true"], a[aria-current="page"], a:global(.target-current)) {
   color: var(--text-heading);
-}
-
-.activePillBackground {
-  position: absolute;
-  inset: 0;
   background: var(--bg-elevated);
-  border-radius: var(--radius-full);
-  z-index: -1;
-  box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.1);
-  border: 1px solid var(--border-color-strong);
+  border-color: var(--border-color-strong);
+  box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .linkText {
@@ -141,24 +135,23 @@
   background: var(--bg-elevated);
 }
 
-/* ─── Dropdowns ─── */
+/* ─── Dropdowns (Native Popover + CSS Anchor Positioning) ─── */
 .langContainer {
   position: relative;
 }
 
-.langContainer::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  height: var(--space-2);
+.langTrigger {
+  anchor-name: --lang-trigger;
 }
 
 .langDropdown {
-  position: absolute;
-  top: calc(100% + var(--space-2));
-  right: -20px;
+  position-anchor: --lang-trigger;
+  inset: auto;
+  top: anchor(bottom);
+  right: anchor(right);
+  margin: 0;
+  margin-block-start: var(--space-2);
+  position-try-fallbacks: flip-block, flip-inline;
   background: var(--bg-card);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -167,7 +160,30 @@
   padding: var(--space-2);
   box-shadow: var(--shadow-xl);
   min-width: 140px;
-  transform-origin: top right;
+  color: var(--text-body);
+  opacity: 0;
+  transition:
+    opacity 0.18s ease-out,
+    display 0.18s ease-out,
+    overlay 0.18s ease-out;
+  transition-behavior: allow-discrete;
+}
+
+.langDropdown:is(:popover-open, :global(.\:popover-open)) {
+  display: block;
+  opacity: 1;
+}
+
+@starting-style {
+  .langDropdown:is(:popover-open, :global(.\:popover-open)) {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .langDropdown {
+    transition: none;
+  }
 }
 
 .langOption {

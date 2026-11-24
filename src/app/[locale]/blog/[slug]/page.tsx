@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { isValidLocale, locales, type Locale } from "@/lib/i18n";
-import { t } from "@/lib/i18n";
+import { isValidLocale, localePath, locales, t, type Locale } from "@/lib/i18n";
 import { getPost, getAllPostSlugs } from "@/lib/mdx";
 import CommentsWrapper from "@/components/blog/CommentsWrapper";
 import { cloudinaryUrl } from "@/lib/cloudinary";
@@ -37,8 +36,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div className={styles.postPage}>
+      <div className={styles.readingProgress} aria-hidden="true" />
       <div className={styles.postContainer}>
-        <Link href={`/${locale}/blog/`} className={styles.backLink}>
+        <Link href={localePath(locale, "/blog/")} className={styles.backLink}>
           {t(locale, "back_to_blog")}
         </Link>
 
@@ -149,7 +149,7 @@ function simpleMarkdownToHtml(md: string, slug: string): string {
   // Instagram Shortcode
   html = html.replace(
     /\{\{\<\s*instagram\s+([\w-]+)\s*\>\}\}/g,
-    (_, id) => `<iframe src="https://www.instagram.com/p/${id}/embed" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true" style="border:1px solid var(--border-color); border-radius:var(--radius-lg);"></iframe>`
+    (_, id) => `<iframe src="https://www.instagram.com/p/${id}/embed" title="Instagram post" loading="lazy" width="400" height="480" style="border:1px solid var(--border-color); border-radius:var(--radius-lg);"></iframe>`
   );
 
   // Links (with target=_blank for external)

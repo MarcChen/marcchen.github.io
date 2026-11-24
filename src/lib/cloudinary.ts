@@ -6,13 +6,22 @@ import { assetPath } from "@/lib/paths";
  * Requires NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME env var for CDN mode.
  * Falls back to local basePath-prefixed path when unset.
  */
+function getSafeCloudName(): string | null {
+  const raw = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME?.trim();
+  if (!raw) return null;
+
+  // Guard against accidentally setting a full cloudinary://... URL (which contains credentials)
+  const candidate = raw.includes("@") ? raw.split("@").pop()?.trim() ?? "" : raw;
+  return /^[a-zA-Z0-9_-]+$/.test(candidate) ? candidate : null;
+}
+
 export function cloudinaryUrl(
   path: string,
   options?: { width?: number; height?: number },
 ): string {
   if (!path || path.startsWith("http") || path.startsWith("//")) return path;
 
-  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  const cloudName = getSafeCloudName();
   if (!cloudName) return assetPath(path);
 
   const isSvg = /\.svg$/i.test(path);

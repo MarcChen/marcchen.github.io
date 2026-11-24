@@ -15,8 +15,35 @@
 }
 
 .galleryItemWrapper {
-  /* Provides height context and allows the motion.div to float inside its track */
-  height: 400px; 
+  height: 400px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    .galleryGrid {
+      view-timeline: --achievements-grid block;
+    }
+
+    .galleryItemWrapper {
+      --parallax-offset: 40px;
+      animation: achievementsParallax linear both;
+      animation-timeline: --achievements-grid;
+      animation-range: entry 0% exit 100%;
+    }
+
+    .galleryItemWrapper:nth-child(even) {
+      --parallax-offset: 80px;
+    }
+  }
+}
+
+@keyframes achievementsParallax {
+  from {
+    transform: translateY(var(--parallax-offset));
+  }
+  to {
+    transform: translateY(calc(var(--parallax-offset) * -1));
+  }
 }
 
 /* On desktop, stagger the layout naturally */
@@ -104,20 +131,30 @@ a.achievementCard:hover .achievementContent {
   color: rgba(255, 255, 255, 0.8);
   line-height: var(--leading-relaxed);
   opacity: 0;
-  max-height: 0;
-  transition: opacity 0.4s ease, max-height 0.4s ease;
+  block-size: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, block-size 0.4s ease;
 }
 
 div.achievementCard .achievementSummary {
-  /* Alwyas show for non-links since there is no hover interaction */
+  /* Always show for non-links since there is no hover interaction */
   opacity: 1;
-  max-height: 100px;
+  block-size: auto;
   transform: translateY(0);
 }
 
-a.achievementCard:hover .achievementSummary {
+a.achievementCard:is(:hover, :focus-visible) .achievementSummary {
   opacity: 1;
-  max-height: 100px;
+  block-size: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .achievementSummary,
+  .achievementContent,
+  .achievementCard,
+  .achievementImage {
+    transition: none !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -136,6 +173,6 @@ a.achievementCard:hover .achievementSummary {
   
   .achievementSummary {
     opacity: 1;
-    max-height: 100px;
+    block-size: auto;
   }
 }

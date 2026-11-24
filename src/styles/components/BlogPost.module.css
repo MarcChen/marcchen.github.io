@@ -3,6 +3,37 @@
   padding-bottom: var(--space-16);
 }
 
+.readingProgress {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .readingProgress {
+      display: block;
+      position: fixed;
+      inset-block-start: 0;
+      inset-inline: 0;
+      block-size: 3px;
+      background: var(--gradient-primary);
+      z-index: calc(var(--z-sticky) + 2);
+      transform-origin: 0 50%;
+      pointer-events: none;
+      animation: growReadingProgress auto linear;
+      animation-timeline: scroll(root block);
+    }
+  }
+}
+
+@keyframes growReadingProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .postContainer {
   max-width: var(--max-width-prose);
   margin: 0 auto;

@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { locales, isValidLocale, type Locale } from "@/lib/i18n";
-import { getAuthor, getSiteConfig, getEnabledSections } from "@/lib/data";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import SocialSidebar from "@/components/layout/SocialSidebar";
+import { locales, isValidLocale, localePath, type Locale } from "@/lib/i18n";
+import { getAuthor, getSiteConfig } from "@/lib/data";
+import LocaleShell from "@/components/layout/LocaleShell";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -16,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const siteConfig = getSiteConfig(locale);
   const author = getAuthor(locale);
   const siteUrl = "https://marcchen.github.io";
-  const canonicalUrl = `${siteUrl}/${locale}/`;
+  const canonicalUrl = `${siteUrl}${localePath(locale, "/")}`;
 
   const ogLocaleMap: Record<Locale, string> = {
     en: "en_US",
@@ -55,19 +53,5 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const { locale: rawLocale } = await params;
   const locale: Locale = isValidLocale(rawLocale) ? rawLocale : "en";
 
-  const author = getAuthor(locale);
-  const sections = getEnabledSections(locale);
-
-  return (
-    <>
-      <Navbar
-        locale={locale}
-        sections={sections}
-        siteName={author.name}
-      />
-      <SocialSidebar author={author} locale={locale} />
-      <main>{children}</main>
-      <Footer locale={locale} author={author} sections={sections} />
-    </>
-  );
+  return <LocaleShell locale={locale}>{children}</LocaleShell>;
 }

@@ -9,7 +9,7 @@ import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import type { PostMeta } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
 import { cloudinaryUrl } from "@/lib/cloudinary";
-import { t } from "@/lib/i18n";
+import { localePath, t } from "@/lib/i18n";
 import styles from "@/styles/components/FeaturedPosts.module.css";
 import MagneticButton from "@/components/ui/MagneticButton";
 
@@ -40,7 +40,7 @@ export default function FeaturedPosts({
         
         <div className={styles.headerActions}>
            <MagneticButton 
-             href={`/${locale}/blog`} 
+             href={localePath(locale, "/blog/")} 
              variant="outline" 
              icon={BookOpen}
            >
@@ -63,7 +63,7 @@ export default function FeaturedPosts({
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
             >
-              <Link href={`/${locale}/blog/${post.slug}`} className={styles.postLink}>
+              <Link href={localePath(locale, `/blog/${post.slug}/`)} className={styles.postLink}>
                 <div className={styles.imageContainer}>
                   {post.hero ? (
                     <Image
