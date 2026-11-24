@@ -120,8 +120,19 @@
 }
 
 /* ================================================================
-   Dark Theme (Default / Primary)
+   Color Scheme & Dark Theme (Default / Primary)
    ================================================================ */
+:root {
+  color-scheme: light dark;
+
+  &:has(> head > meta[name="color-scheme"][content="dark"]) {
+    color-scheme: dark;
+  }
+  &:has(> head > meta[name="color-scheme"][content="light"]) {
+    color-scheme: light;
+  }
+}
+
 :root,
 [data-theme="dark"] {
   --bg-primary: #09090b;
@@ -150,15 +161,52 @@
   --footer-bg: #050506;
   --footer-text: #52525b;
 
+  --scrollbar-thumb: #71717a;
+  --scrollbar-track: #121215;
+
   --noise-opacity: 0.03;
   --dot-opacity: 0.15;
-
-  color-scheme: dark;
 }
 
 /* ================================================================
-   Light Theme
+   Light Theme (Explicit override or OS preference without JS)
    ================================================================ */
+@media (prefers-color-scheme: light) {
+  :root:not(:has(> head > meta[name="color-scheme"][content="dark"])):not([data-theme="dark"]) {
+    --bg-primary: #fafafa;
+    --bg-secondary: #f4f4f5;
+    --bg-tertiary: #e4e4e7;
+    --bg-card: rgba(255, 255, 255, 0.8);
+    --bg-card-hover: rgba(255, 255, 255, 0.95);
+    --bg-glass: rgba(255, 255, 255, 0.7);
+    --bg-glass-strong: rgba(255, 255, 255, 0.9);
+    --bg-glass-card: rgba(0, 0, 0, 0.02);
+    --bg-elevated: rgba(255, 255, 255, 0.8);
+
+    --text-heading: #09090b;
+    --text-body: #3f3f46;
+    --text-muted: #71717a;
+    --text-inverse: #fafafa;
+    --text-link: hsl(250, 85%, 55%);
+
+    --border-color: rgba(0, 0, 0, 0.06);
+    --border-color-strong: rgba(0, 0, 0, 0.12);
+    --border-color-hover: rgba(0, 0, 0, 0.2);
+
+    --code-bg: #f4f4f5;
+    --code-text: hsl(250, 85%, 50%);
+
+    --footer-bg: #18181b;
+    --footer-text: #a1a1aa;
+
+    --scrollbar-thumb: #52525b;
+    --scrollbar-track: #f4f4f5;
+
+    --noise-opacity: 0.02;
+    --dot-opacity: 0.08;
+  }
+}
+
 [data-theme="light"] {
   --bg-primary: #fafafa;
   --bg-secondary: #f4f4f5;
@@ -186,8 +234,9 @@
   --footer-bg: #18181b;
   --footer-text: #a1a1aa;
 
+  --scrollbar-thumb: #52525b;
+  --scrollbar-track: #f4f4f5;
+
   --noise-opacity: 0.02;
   --dot-opacity: 0.08;
-
-  color-scheme: light;
 }

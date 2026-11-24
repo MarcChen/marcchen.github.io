@@ -39,7 +39,7 @@
   background: transparent;
   color: var(--text-muted);
   text-align: left;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
   z-index: 1;
 }
 
@@ -74,7 +74,7 @@
   border-radius: 50%;
   background: var(--bg-card);
   border: 2px solid var(--border-color-strong);
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .companyTab:hover .tabDot {
@@ -199,7 +199,7 @@
 .linkArrow {
   opacity: 0;
   transform: translate(-5px, 5px);
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   color: hsl(var(--accent));
 }
 
@@ -345,5 +345,17 @@
   
   .posHeader {
     flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabDot,
+  .linkArrow {
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  }
+
+  .activeTab .tabDot,
+  .detailsCompanyName a:hover .linkArrow {
+    transform: none;
   }
 }

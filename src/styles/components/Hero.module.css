@@ -22,7 +22,14 @@
   pointer-events: none;
   border-radius: 50%;
   mix-blend-mode: color-dodge;
-  animation: float 10s infinite ease-in-out alternate;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .blob1,
+  .blob2,
+  .blob3 {
+    animation: float 10s infinite ease-in-out alternate;
+  }
 }
 
 [data-theme="light"] .blob1,
@@ -195,7 +202,12 @@
   height: 8px;
   background: var(--text-muted);
   border-radius: 2px;
-  animation: scrollWheel 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .wheel {
+    animation: scrollWheel 2s ease-in-out infinite;
+  }
 }
 
 @keyframes scrollWheel {

@@ -28,12 +28,12 @@
   border: 1px solid var(--border-color);
   border-radius: var(--radius-2xl);
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
   display: flex;
   flex-direction: column;
 }
 
-.postCard:hover {
+.postCard:is(:hover, :focus-within) {
   transform: translateY(-8px);
   box-shadow: var(--shadow-xl);
   border-color: var(--border-color-strong);
@@ -68,7 +68,7 @@
   transition: transform 0.6s ease;
 }
 
-.postCard:hover .postImage {
+.postCard:is(:hover, :focus-within) .postImage {
   transform: scale(1.05);
 }
 
@@ -152,11 +152,11 @@
 .titleArrow {
   opacity: 0;
   transform: translateX(-10px) rotate(-45deg);
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   color: hsl(var(--accent));
 }
 
-.postCard:hover .titleArrow {
+.postCard:is(:hover, :focus-within) .titleArrow {
   opacity: 1;
   transform: translateX(0) rotate(-45deg);
 }
@@ -227,5 +227,18 @@
   
   .featuredPost .postTitle {
     font-size: var(--text-2xl);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .postCard,
+  .postImage,
+  .titleArrow {
+    transition: none;
+  }
+
+  .postCard:is(:hover, :focus-within),
+  .postCard:is(:hover, :focus-within) .postImage {
+    transform: none;
   }
 }

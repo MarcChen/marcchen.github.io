@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { FileText, ChevronDown, Award } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
@@ -24,7 +24,7 @@ function CircularProgress({ achieved, outOf, scale }: { achieved: number; outOf:
 
   return (
     <div className={styles.progressWidget}>
-      <svg viewBox="0 0 36 36" className={styles.circularChart}>
+      <svg viewBox="0 0 36 36" className={styles.circularChart} aria-hidden="true">
         <path
           className={styles.circleBg}
           d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
@@ -48,6 +48,8 @@ function CircularProgress({ achieved, outOf, scale }: { achieved: number; outOf:
 
 function DegreeCard({ degree, locale, index }: { degree: Degree; locale: Locale; index: number }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const detailsId = useId();
+  const prefersReducedMotion = useReducedMotion();
   const collapseAfter = degree.takenCourses?.collapseAfter ?? 4;
   const hasCourses = degree.takenCourses && degree.takenCourses.courses.length > 0;
   const hasExtra = degree.extracurricularActivities && degree.extracurricularActivities.length > 0;
@@ -105,10 +107,17 @@ function DegreeCard({ degree, locale, index }: { degree: Degree; locale: Locale;
           )}
           {hasExpandableContent && (
             <button 
+              type="button"
               className={`${styles.expandBtn} ${isExpanded ? styles.expanded : ""}`}
-              aria-label="Expand details"
+              aria-expanded={isExpanded}
+              aria-controls={detailsId}
+              aria-label={`${isExpanded ? "Collapse" : "Expand"} ${degree.name} details`}
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsExpanded(!isExpanded);
+              }}
             >
-              <ChevronDown size={24} />
+              <ChevronDown size={24} aria-hidden="true" />
             </button>
           )}
         </div>
@@ -117,10 +126,11 @@ function DegreeCard({ degree, locale, index }: { degree: Degree; locale: Locale;
       <AnimatePresence>
         {isExpanded && hasExpandableContent && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
+            id={detailsId}
+            initial={prefersReducedMotion ? { opacity: 1 } : { height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            exit={prefersReducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.3, ease: "easeInOut" }}
             className={styles.expandedContent}
           >
             <div className={styles.expandedDivider} />

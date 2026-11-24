@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 
 interface SectionWrapperProps {
   id: string;
@@ -19,6 +19,7 @@ export default function SectionWrapper({
 }: SectionWrapperProps) {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <>
@@ -26,9 +27,9 @@ export default function SectionWrapper({
         ref={ref}
         id={id}
         className={`section relative ${className}`}
-        initial={{ opacity: 0, y: 50 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        initial={prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        animate={prefersReducedMotion || isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="container relative z-10">{children}</div>
       </motion.section>

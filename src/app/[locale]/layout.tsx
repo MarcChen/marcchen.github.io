@@ -58,15 +58,26 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const author = getAuthor(locale);
   const sections = getEnabledSections(locale);
 
+  const skipToContentLabel: Record<Locale, string> = {
+    en: "Skip to main content",
+    fr: "Aller au contenu principal",
+    "zh-cn": "跳到主要内容",
+  };
+
   return (
     <>
+      <a href="#main-content" className="skip-link visually-hidden">
+        {skipToContentLabel[locale]}
+      </a>
       <Navbar
         locale={locale}
         sections={sections}
         siteName={author.name}
       />
       <SocialSidebar author={author} locale={locale} />
-      <main>{children}</main>
+      <main id="main-content" tabIndex={-1}>
+        {children}
+      </main>
       <Footer locale={locale} author={author} sections={sections} />
     </>
   );

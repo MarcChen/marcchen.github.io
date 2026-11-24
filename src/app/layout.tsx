@@ -47,13 +47,20 @@ export default function RootLayout({
 }) {
   return (
     <html
+      lang="en"
       suppressHydrationWarning
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}
     >
-      <head />
+      <head>
+        <meta name="color-scheme" content="light dark" />
+        {/* Inline FOUC prevention immediately after meta[name="color-scheme"] */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var m=document.querySelector('meta[name="color-scheme"]');var s=null;try{s=localStorage.getItem('color-scheme')||localStorage.getItem('theme-scheme')}catch(e){}var v=s==='light'||s==='dark'?s:'light dark';if(m)m.content=v;var t=v==='light'||v==='dark'?v:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();`,
+          }}
+        />
+      </head>
       <body style={{ fontFamily: "var(--font-sans)" }}>
-        {/* Theme script must run before render to prevent flash */}
-        <Script src="/theme-init.js" strategy="beforeInteractive" />
         <CursorGlow />
         {children}
 

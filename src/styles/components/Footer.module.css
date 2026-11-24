@@ -85,7 +85,12 @@
   filter: blur(60px);
   opacity: 0.15;
   border-radius: 50%;
-  animation: float 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ctaBlob {
+    animation: float 6s ease-in-out infinite;
+  }
 }
 
 .ctaGrid {

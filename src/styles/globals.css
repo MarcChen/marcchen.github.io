@@ -13,12 +13,19 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: var(--nav-height);
   -webkit-text-size-adjust: 100%;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   overflow-x: hidden;
   max-width: 100vw;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: thin;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -131,33 +138,62 @@ button {
   color: var(--text-heading);
 }
 
-/* ─── Scrollbar ─── */
+/* ─── Scrollbar (Legacy WebKit fallback) ─── */
 
-::-webkit-scrollbar {
-  width: 6px;
+@supports not (scrollbar-color: auto) {
+  html {
+    scrollbar-width: auto;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: var(--radius-full);
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--accent) / 0.2);
-  border-radius: var(--radius-full);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--accent) / 0.4);
-}
-
-*:focus {
+:focus:not(:focus-visible) {
   outline: none;
 }
 
-*:focus-visible {
+:focus-visible {
   outline: 2px solid hsl(var(--accent));
   outline-offset: 2px;
   border-radius: 2px;
+}
+
+.visually-hidden:where(:not(:focus-within, :active)) {
+  position: absolute !important;
+  clip-path: inset(50%) !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
+
+.skip-link:focus-visible {
+  position: fixed;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: var(--z-modal);
+  padding: var(--space-2) var(--space-4);
+  background: var(--bg-primary);
+  color: var(--text-heading);
+  border: 2px solid hsl(var(--accent));
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
 }
 
 .custom-image-grid {
@@ -425,7 +461,12 @@ button {
   inset: 0;
   background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
   background-size: 250% 100%;
-  animation: shimmer 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn-primary::after {
+    animation: shimmer 3s ease-in-out infinite;
+  }
 }
 
 .btn-outline {

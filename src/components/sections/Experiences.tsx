@@ -46,6 +46,8 @@ export default function Experiences({
             return (
               <button
                 key={idx}
+                type="button"
+                aria-pressed={isActive}
                 className={`${styles.companyTab} ${isActive ? styles.activeTab : ""}`}
                 onClick={() => setActiveIndex(idx)}
               >

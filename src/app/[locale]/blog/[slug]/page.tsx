@@ -73,7 +73,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         />
 
         <div className={styles.comments}>
-          <h3 className={styles.commentsTitle}>{t(locale, "comments")}</h3>
+          <h2 className={styles.commentsTitle}>{t(locale, "comments")}</h2>
           <CommentsWrapper locale={locale} />
         </div>
       </div>
@@ -93,21 +93,22 @@ function simpleMarkdownToHtml(md: string, slug: string): string {
   html = html.replace(
     /```(\w*)\n([\s\S]*?)```/g,
     (_, lang, code) =>
-      `<pre><code class="language-${lang || "text"}">${escapeHtml(code.trim())}</code></pre>`
+      `<pre tabindex="0" role="region" aria-label="${escapeHtml(lang || "code")} code block"><code class="language-${lang || "text"}">${escapeHtml(code.trim())}</code></pre>`
   );
 
   // Inline code
   html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
 
-  // Images
+  // Images (supports optional Markdown title: ![alt](src "title"))
   html = html.replace(
-    /!\[([^\]]*)\]\(([^)]+)\)/g,
-    (_, alt, src) => {
+    /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/g,
+    (_, alt, src, title) => {
       let finalSrc = src;
       if (!src.startsWith("http") && !src.startsWith("/")) {
         finalSrc = `/images/posts/${slug}/${src}`;
       }
-      return `<img src="${cloudinaryUrl(finalSrc)}" alt="${alt}" loading="lazy" />`;
+      const titleAttr = title ? ` title="${escapeHtml(title)}"` : "";
+      return `<img src="${cloudinaryUrl(finalSrc)}" alt="${escapeHtml(alt)}"${titleAttr} loading="lazy" />`;
     }
   );
 
@@ -149,7 +150,7 @@ function simpleMarkdownToHtml(md: string, slug: string): string {
   // Instagram Shortcode
   html = html.replace(
     /\{\{\<\s*instagram\s+([\w-]+)\s*\>\}\}/g,
-    (_, id) => `<iframe src="https://www.instagram.com/p/${id}/embed" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true" style="border:1px solid var(--border-color); border-radius:var(--radius-lg);"></iframe>`
+    (_, id) => `<iframe src="https://www.instagram.com/p/${id}/embed" width="400" height="480" loading="lazy" title="Instagram post" style="border:1px solid var(--border-color); border-radius:var(--radius-lg);"></iframe>`
   );
 
   // Links (with target=_blank for external)

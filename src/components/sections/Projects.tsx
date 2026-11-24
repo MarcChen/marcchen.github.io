@@ -45,6 +45,8 @@ export default function Projects({ locale, data, alternate }: ProjectsProps) {
           {data.buttons.map((btn) => (
             <button
               key={btn.filter}
+              type="button"
+              aria-pressed={activeFilter === btn.filter}
               className={`${filterStyles.filterBtn} ${activeFilter === btn.filter ? filterStyles.active : ""}`}
               onClick={() => setActiveFilter(btn.filter)}
             >
@@ -136,6 +138,7 @@ export default function Projects({ locale, data, alternate }: ProjectsProps) {
                           src={featuredProject.image.startsWith("http") ? featuredProject.image : assetPath(featuredProject.image)}
                           alt={featuredProject.name}
                           fill
+                          sizes="(max-width: 1024px) 100vw, 40vw"
                           className={styles.projectImage}
                           unoptimized
                         />
@@ -183,12 +186,24 @@ export default function Projects({ locale, data, alternate }: ProjectsProps) {
                         </div>
                         <div className={styles.standardLinks}>
                           {project.repo && (
-                            <a href={project.repo} target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+                            <a
+                              href={project.repo}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={styles.iconLink}
+                              aria-label={`${project.name} ${t(locale, "source_code")}`}
+                            >
                               <GithubIcon size={18} />
                             </a>
                           )}
                           {project.url && (
-                            <a href={project.url} target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+                            <a
+                              href={project.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={styles.iconLink}
+                              aria-label={`${project.name} ${t(locale, "live_preview")}`}
+                            >
                               <ArrowUpRight size={18} />
                             </a>
                           )}

@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import type { AchievementsSection } from "@/lib/types";
@@ -18,6 +18,7 @@ interface AchievementsProps {
 
 export default function Achievements({ data, alternate }: AchievementsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
   
   // Create parallax effect on the container scroll
   const { scrollYProgress } = useScroll({
@@ -53,7 +54,7 @@ export default function Achievements({ data, alternate }: AchievementsProps) {
           return (
             <motion.div 
               key={achievement.title} 
-              style={{ y }}
+              style={{ y: prefersReducedMotion ? 0 : y }}
               className={styles.galleryItemWrapper}
             >
               <Wrapper

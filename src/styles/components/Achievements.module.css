@@ -39,7 +39,7 @@
   cursor: pointer;
 }
 
-a.achievementCard:hover {
+a.achievementCard:is(:hover, :focus-visible) {
   transform: scale(1.02);
   box-shadow: var(--shadow-2xl);
   border-color: hsl(var(--accent)/0.5);
@@ -60,7 +60,7 @@ div.achievementCard {
   transition: transform 0.8s ease;
 }
 
-a.achievementCard:hover .achievementImage {
+a.achievementCard:is(:hover, :focus-visible) .achievementImage {
   transform: scale(1.05);
 }
 
@@ -86,7 +86,7 @@ a.achievementCard:hover .achievementImage {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-a.achievementCard:hover .achievementContent {
+a.achievementCard:is(:hover, :focus-visible) .achievementContent {
   transform: translateY(0);
 }
 
@@ -103,21 +103,23 @@ a.achievementCard:hover .achievementContent {
   font-size: var(--text-base);
   color: rgba(255, 255, 255, 0.8);
   line-height: var(--leading-relaxed);
+  interpolate-size: allow-keywords;
   opacity: 0;
-  max-height: 0;
-  transition: opacity 0.4s ease, max-height 0.4s ease;
+  block-size: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, block-size 0.4s ease;
 }
 
 div.achievementCard .achievementSummary {
-  /* Alwyas show for non-links since there is no hover interaction */
+  /* Always show for non-links since there is no hover interaction */
   opacity: 1;
-  max-height: 100px;
+  block-size: auto;
   transform: translateY(0);
 }
 
-a.achievementCard:hover .achievementSummary {
+a.achievementCard:is(:hover, :focus-visible) .achievementSummary {
   opacity: 1;
-  max-height: 100px;
+  block-size: auto;
 }
 
 @media (max-width: 768px) {
@@ -136,6 +138,20 @@ a.achievementCard:hover .achievementSummary {
   
   .achievementSummary {
     opacity: 1;
-    max-height: 100px;
+    block-size: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .achievementCard,
+  .achievementImage,
+  .achievementContent,
+  .achievementSummary {
+    transition: none !important;
+  }
+
+  a.achievementCard:is(:hover, :focus-visible),
+  a.achievementCard:is(:hover, :focus-visible) .achievementImage {
+    transform: none;
   }
 }

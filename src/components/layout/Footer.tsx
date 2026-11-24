@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import { Copy, Plus, ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { Copy, Check, Plus, ArrowUpRight } from "lucide-react";
 import type { Author } from "@/lib/types";
 import type { EnabledSection } from "@/lib/data";
 import type { Locale } from "@/lib/i18n";
@@ -17,10 +17,16 @@ interface FooterProps {
 
 export default function Footer({ locale, author, sections }: FooterProps) {
   const year = new Date().getFullYear();
+  const [copied, setCopied] = useState(false);
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(author.contactInfo.email);
-    // Could add a toast notification here
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(author.contactInfo.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Clipboard API unavailable
+    }
   };
 
   return (
@@ -40,12 +46,13 @@ export default function Footer({ locale, author, sections }: FooterProps) {
               <div className={styles.actionRow}>
                 {author.contactInfo.email && (
                   <button 
+                    type="button"
                     onClick={handleCopyEmail}
                     className="btn btn-primary"
                     aria-label={t(locale, "copy_email")}
                   >
                     <span>{author.contactInfo.email}</span>
-                    <Copy size={16} />
+                    {copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
                   </button>
                 )}
                 
@@ -55,7 +62,7 @@ export default function Footer({ locale, author, sections }: FooterProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Plus size={16} />
+                  <Plus size={16} aria-hidden="true" />
                   <span>{t(locale, "book_a_call")}</span>
                 </a>
               </div>
@@ -77,7 +84,7 @@ export default function Footer({ locale, author, sections }: FooterProps) {
             <span>© {year} {author.nickname}.</span>
             <span className={styles.separator}>—</span>
             <span>
-              Engineered with <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className={styles.metaLink}>Next.js <ArrowUpRight size={12}/></a>
+              Engineered with <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className={styles.metaLink}>Next.js <ArrowUpRight size={12} aria-hidden="true"/></a>
             </span>
           </div>
         </div>

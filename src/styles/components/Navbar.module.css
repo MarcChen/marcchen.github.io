@@ -66,8 +66,10 @@
   box-shadow: 0 0 10px hsl(var(--accent));
 }
 
-.logo:hover .logoDot {
-  animation: pulse 1s infinite alternate;
+@media (prefers-reduced-motion: no-preference) {
+  .logo:hover .logoDot {
+    animation: pulse 1s infinite alternate;
+  }
 }
 
 /* ─── Desktop Nav Links ─── */
@@ -86,7 +88,6 @@
   color: var(--text-muted);
   background: transparent;
   border-radius: var(--radius-full);
-  outline: none;
   transition: color 0.3s ease;
   z-index: 1;
 }
@@ -139,6 +140,38 @@
 .iconBtn:hover {
   color: var(--text-heading);
   background: var(--bg-elevated);
+}
+
+.themeOptionDark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.themeOptionLight {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+:global([data-theme="light"]) .themeOptionDark,
+:global(:root:has(> head > meta[name="color-scheme"][content="light"])) .themeOptionDark {
+  display: none;
+}
+
+:global([data-theme="light"]) .themeOptionLight,
+:global(:root:has(> head > meta[name="color-scheme"][content="light"])) .themeOptionLight {
+  display: inline-flex;
+}
+
+@media (prefers-color-scheme: light) {
+  :global(:root:not(:has(> head > meta[name="color-scheme"][content="dark"])):not([data-theme="dark"])) .themeOptionDark {
+    display: none;
+  }
+
+  :global(:root:not(:has(> head > meta[name="color-scheme"][content="dark"])):not([data-theme="dark"])) .themeOptionLight {
+    display: inline-flex;
+  }
 }
 
 /* ─── Dropdowns ─── */

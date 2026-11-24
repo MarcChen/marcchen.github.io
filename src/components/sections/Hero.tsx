@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion, type Variants } from "framer-motion";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import type { Author } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
@@ -17,9 +17,12 @@ interface HeroProps {
 export default function Hero({ locale, author }: HeroProps) {
   const summaryLines = author.summary || ["Data Engineer", "AI/ML Enthusiast", "Problem Solver"];
   const [currentLine, setCurrentLine] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
 
-  // Cycle through summary lines, pausing when tab is hidden
+  // Cycle through summary lines, pausing when tab is hidden or reduced motion is preferred
   useEffect(() => {
+    if (prefersReducedMotion) return;
+
     const interval = setInterval(() => {
       setCurrentLine((prev) => (prev + 1) % summaryLines.length);
     }, 4000);
@@ -37,12 +40,12 @@ export default function Hero({ locale, author }: HeroProps) {
       clearInterval(interval);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, [summaryLines.length]);
+  }, [summaryLines.length, prefersReducedMotion]);
 
   const scrollToProjects = () => {
     const projectsSection = document.getElementById("projects");
     if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: "smooth" });
+      projectsSection.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
     }
   };
 
@@ -126,13 +129,15 @@ export default function Hero({ locale, author }: HeroProps) {
       </div>
 
       <motion.button 
+        type="button"
+        aria-label={t(locale, "explore_projects")}
         className={styles.scrollIndicator} 
         onClick={scrollToProjects}
-        initial={{ opacity: 0 }}
+        initial={{ opacity: prefersReducedMotion ? 1 : 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
+        transition={prefersReducedMotion ? { duration: 0 } : { delay: 1.5, duration: 1 }}
       >
-        <div className={styles.mouse}>
+        <div className={styles.mouse} aria-hidden="true">
           <div className={styles.wheel} />
         </div>
       </motion.button>

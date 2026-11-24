@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView, type Variants } from "framer-motion";
+import { motion, useInView, useReducedMotion, type Variants } from "framer-motion";
 
 interface AnimatedHeadingProps {
   title: string;
@@ -12,6 +12,16 @@ interface AnimatedHeadingProps {
 export default function AnimatedHeading({ title, subtitle, className = "" }: AnimatedHeadingProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) {
+    return (
+      <div className={`section-heading ${className}`} ref={ref}>
+        <h2 className="section-title">{title}</h2>
+        {subtitle && <p className="section-subtitle">{subtitle}</p>}
+      </div>
+    );
+  }
 
   const container: Variants = {
     hidden: { opacity: 0 },

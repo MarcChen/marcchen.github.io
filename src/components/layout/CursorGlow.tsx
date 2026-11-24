@@ -1,19 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useSpring } from "framer-motion";
+import { motion, useSpring, useReducedMotion } from "framer-motion";
 
 export default function CursorGlow() {
   const GLOW_SIZE = 400;
 
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   // Smooth springs for cursor movement
   const springX = useSpring(0, { damping: 40, stiffness: 200, mass: 0.5 });
   const springY = useSpring(0, { damping: 40, stiffness: 200, mass: 0.5 });
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
+
     // Only show custom cursor on non-touch devices
     const isTouchDevice =
       "ontouchstart" in window ||
@@ -23,10 +25,9 @@ export default function CursorGlow() {
     if (isTouchDevice) return;
 
     const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
       springX.set(e.clientX);
       springY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
+      setIsVisible(true);
     };
 
     const handleMouseLeave = () => setIsVisible(false);
@@ -41,12 +42,13 @@ export default function CursorGlow() {
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseenter", handleMouseEnter);
     };
-  }, [springX, springY, isVisible]);
+  }, [springX, springY, prefersReducedMotion]);
 
-  if (!isVisible) return null;
+  if (prefersReducedMotion || !isVisible) return null;
 
   return (
     <motion.div
+      aria-hidden="true"
       style={{
         position: "fixed",
         top: 0,

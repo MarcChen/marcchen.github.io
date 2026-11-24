@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Mail, FileText } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import type { Author } from "@/lib/types";
@@ -13,33 +13,35 @@ interface SocialSidebarProps {
 }
 
 export default function SocialSidebar({ author, locale }: SocialSidebarProps) {
+  const prefersReducedMotion = useReducedMotion();
+
   const links = [
     {
       id: "github",
       label: "GitHub",
       url: author.contactInfo.github ? `https://github.com/${author.contactInfo.github}` : "",
-      icon: <GithubIcon size={20} />,
+      icon: <GithubIcon size={20} aria-hidden="true" />,
       external: true,
     },
     {
       id: "linkedin",
       label: "LinkedIn",
       url: author.contactInfo.linkedin ? `https://www.linkedin.com/in/${author.contactInfo.linkedin}` : "",
-      icon: <LinkedinIcon size={20} />,
+      icon: <LinkedinIcon size={20} aria-hidden="true" />,
       external: true,
     },
     {
       id: "email",
       label: "Email",
       url: author.contactInfo.email ? `mailto:${author.contactInfo.email}` : "",
-      icon: <Mail size={20} />,
+      icon: <Mail size={20} aria-hidden="true" />,
       external: false,
     },
     {
       id: "resume-en",
       label: locale === "fr" ? "CV (Anglais)" : locale === "zh-cn" ? "英文简历" : "English Resume",
       url: "/files/MarcChen_s_Resume_ENG.pdf",
-      icon: <FileText size={20} />,
+      icon: <FileText size={20} aria-hidden="true" />,
       external: true,
     },
   ].filter((item) => Boolean(item.url));
@@ -50,9 +52,13 @@ export default function SocialSidebar({ author, locale }: SocialSidebarProps) {
         {links.map((link, idx) => (
           <motion.div
             key={link.id}
-            initial={{ opacity: 0, x: -20 }}
+            initial={prefersReducedMotion ? false : { opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.8 + idx * 0.1, duration: 0.4 }}
+            transition={
+              prefersReducedMotion
+                ? { duration: 0 }
+                : { delay: 0.8 + idx * 0.1, duration: 0.4 }
+            }
             className={styles.iconWrapper}
           >
             <a
@@ -63,7 +69,7 @@ export default function SocialSidebar({ author, locale }: SocialSidebarProps) {
               aria-label={link.label}
             >
               {link.icon}
-              <span className={styles.tooltip}>{link.label}</span>
+              <span className={styles.tooltip} aria-hidden="true">{link.label}</span>
             </a>
           </motion.div>
         ))}
