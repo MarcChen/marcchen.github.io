@@ -3,7 +3,7 @@
 7:I[84997,["/pr-preview/pr-39/_next/static/chunks/2h4_ehk6_l73f.js","/pr-preview/pr-39/_next/static/chunks/2k3p8g2ptbcmi.js","/pr-preview/pr-39/_next/static/chunks/14mrh2-p_w84d.js","/pr-preview/pr-39/_next/static/chunks/2lwvv3a4-pmd7.js","/pr-preview/pr-39/_next/static/chunks/3onneq5yms-gk.js","/pr-preview/pr-39/_next/static/chunks/1gtt0rkhd-a_o.js"],"default"]
 8:I[97367,["/pr-preview/pr-39/_next/static/chunks/2h4_ehk6_l73f.js","/pr-preview/pr-39/_next/static/chunks/2k3p8g2ptbcmi.js","/pr-preview/pr-39/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
 9:"$Sreact.suspense"
-3:T1279,<h2>My Cycling Adventures: A Journey of Lessons and Exploration</h2>
+3:T132f,<h2>My Cycling Adventures: A Journey of Lessons and Exploration</h2>
 
 <p>The goal of this post is to share my cycling road trip experiences, the challenges I encountered, and the lessons learned along the way.</p>
 
@@ -18,7 +18,7 @@
 <h3>Edition 2: Cabourg - Saint-Malo (500 km, 3000 m elevation gain)</h3>
 
 <p>This second trip was much better organized. We had planned the entire route, and here's an animation of the journey:</p>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;"><iframe src="https://www.youtube.com/embed/6DUGFoYhUSs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen loading="lazy" title="YouTube video"></iframe></div>
+<div style="position: relative; aspect-ratio: 16 / 9; overflow: hidden; max-width: 100%;"><iframe src="https://www.youtube.com/embed/6DUGFoYhUSs" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="YouTube video"></iframe></div>
 
 <p>This trip was much more enjoyable, as I had the pleasure of discovering the D-Day beaches, a place I had never visited before, which helped me brush up on some history. This time, with the same amount of gear, we wore cycling shorts, and the kilometers passed easily. We only had one flat tire throughout the trip.</p>
 
@@ -26,13 +26,13 @@
 
 <h4>Gallery</h4>
 
- <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/profile" alt="Trip profile" align="center" loading="lazy" style="max-width:100%;height:auto;" />
+ <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/profile" alt="Trip profile" align="center" loading="lazy" decoding="async" style="max-width:100%;height:auto;" />
 
 <div class="custom-image-grid">
-  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/bike" alt="My first bike for such a trip" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
-  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/campement" alt="Campground by the beach" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
-  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/mont-st-michel" alt="Mont Saint Michel" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
-  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/memorial" alt="Memorial" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
+  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/bike" alt="My first bike for such a trip" height="400" width="300" align="center" loading="lazy" decoding="async" style="max-width:100%;height:auto;" />
+  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/campement" alt="Campground by the beach" height="400" width="300" align="center" loading="lazy" decoding="async" style="max-width:100%;height:auto;" />
+  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/mont-st-michel" alt="Mont Saint Michel" height="400" width="300" align="center" loading="lazy" decoding="async" style="max-width:100%;height:auto;" />
+  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/memorial" alt="Memorial" height="400" width="300" align="center" loading="lazy" decoding="async" style="max-width:100%;height:auto;" />
 </div>
 
 <h3>Edition 3: Fontainebleau - Orléans (250 km along the Loire)</h3>
@@ -44,11 +44,11 @@
 <h4>Gallery</h4>
 
 <div class="custom-image-grid">
-  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/trip3-trajet" alt="Profile of trip 3" align="center" loading="lazy" style="max-width:100%;height:auto;" />
-  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/orleans" alt="Orléans Cathedral" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
-  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/orleans_bis" alt="Inside the Cathedral" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
-  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/bike_V2" alt="New Gravel Triban GRVL520" height="400" width="300" align="center" loading="lazy" style="max-width:100%;height:auto;" />
-</div>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__readingProgress","aria-hidden":"true"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Back to Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Bike 600km roadtrip"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"September 10, 2020"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","Cycling",{"className":"tag","children":"Cycling"}],["$","span","Bikepacking",{"className":"tag","children":"Bikepacking"}],["$","span","Lessons Learned",{"className":"tag","children":"Lessons Learned"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]]}],["$L5"],"$L6"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"l0ryRQxh9MpUeXQQAPkP7"}
+  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/trip3-trajet" alt="Profile of trip 3" align="center" loading="lazy" decoding="async" style="max-width:100%;height:auto;" />
+  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/orleans" alt="Orléans Cathedral" height="400" width="300" align="center" loading="lazy" decoding="async" style="max-width:100%;height:auto;" />
+  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/orleans_bis" alt="Inside the Cathedral" height="400" width="300" align="center" loading="lazy" decoding="async" style="max-width:100%;height:auto;" />
+  <img src="https://res.cloudinary.com/dxrpy03qh/image/upload/f_auto,q_auto/v1/portfolio/images/posts/bike-images/bike_V2" alt="New Gravel Triban GRVL520" height="400" width="300" align="center" loading="lazy" decoding="async" style="max-width:100%;height:auto;" />
+</div>0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__postPage","children":[["$","div",null,{"className":"BlogPost-module__cZmlKq__readingProgress","aria-hidden":"true"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postContainer","children":[["$","$L2",null,{"href":"/blog/","className":"BlogPost-module__cZmlKq__backLink","children":"← Back to Blog"}],["$","header",null,{"className":"BlogPost-module__cZmlKq__postHeader","children":[["$","h1",null,{"className":"BlogPost-module__cZmlKq__postTitle","children":"Bike 600km roadtrip"}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postMeta","children":["$","span",null,{"className":"BlogPost-module__cZmlKq__postDate","children":"September 10, 2020"}]}],["$","div",null,{"className":"BlogPost-module__cZmlKq__postTags","children":[["$","span","Cycling",{"className":"tag","children":"Cycling"}],["$","span","Bikepacking",{"className":"tag","children":"Bikepacking"}],["$","span","Lessons Learned",{"className":"tag","children":"Lessons Learned"}]]}]]}],["$","article",null,{"className":"BlogPost-module__cZmlKq__prose","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4"]}]]}],["$L5"],"$L6"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"if6bJwEpUJNygIqw9Qy8H"}
 4:["$","div",null,{"className":"BlogPost-module__cZmlKq__comments","children":[["$","h3",null,{"className":"BlogPost-module__cZmlKq__commentsTitle","children":"Comments"}],["$","$L7",null,{"locale":"en"}]]}]
 5:["$","script","script-0",{"src":"/pr-preview/pr-39/_next/static/chunks/1gtt0rkhd-a_o.js","async":true}]
 6:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
