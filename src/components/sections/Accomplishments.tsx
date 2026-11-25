@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Award, ExternalLink } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
@@ -44,7 +44,11 @@ export default function Accomplishments({
   const scroll = (direction: "left" | "right") => {
     if (containerRef.current) {
       const scrollAmount = direction === "left" ? -SCROLL_AMOUNT : SCROLL_AMOUNT;
-      containerRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      containerRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
     }
   };
 
@@ -59,6 +63,7 @@ export default function Accomplishments({
         {/* Navigation Controls */}
         <div className={styles.controls}>
           <button 
+            type="button"
             className={`${styles.navBtn} ${!canScrollLeft ? styles.disabled : ""}`} 
             onClick={() => scroll("left")}
             aria-label="Scroll left"
@@ -67,6 +72,7 @@ export default function Accomplishments({
             ←
           </button>
           <button 
+            type="button"
             className={`${styles.navBtn} ${!canScrollRight ? styles.disabled : ""}`} 
             onClick={() => scroll("right")}
             aria-label="Scroll right"

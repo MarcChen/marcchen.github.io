@@ -211,7 +211,6 @@
   background: hsl(var(--accent)/0.3);
   top: 10%;
   left: 20%;
-  animation: float 8s infinite alternate;
 }
 
 .circle2 {
@@ -220,7 +219,16 @@
   background: hsl(var(--accent-secondary)/0.3);
   bottom: 20%;
   right: 10%;
-  animation: float 6s infinite alternate-reverse;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .circle1 {
+    animation: float 8s infinite alternate;
+  }
+
+  .circle2 {
+    animation: float 6s infinite alternate-reverse;
+  }
 }
 
 /* ─── Standard Masonry Grid ─── */
@@ -237,7 +245,7 @@
   padding: var(--space-6);
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
 }
@@ -383,5 +391,17 @@
   
   .standardGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projectImage,
+  .standardCard {
+    transition: none;
+  }
+
+  .featuredCard:hover .projectImage,
+  .standardCard:hover {
+    transform: none;
   }
 }

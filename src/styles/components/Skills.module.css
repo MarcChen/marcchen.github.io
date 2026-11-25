@@ -97,7 +97,7 @@
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-sm);
   color: var(--text-body);
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
   cursor: default;
   text-decoration: none;
 }
@@ -196,4 +196,10 @@ a.skillPill {
   background: hsl(var(--accent)/0.1);
   padding: 2px 8px;
   border-radius: var(--radius-full);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skillTooltip {
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+  }
 }

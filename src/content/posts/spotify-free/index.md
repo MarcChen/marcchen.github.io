@@ -22,7 +22,7 @@ Here's the master plan:
 3.  **Personal Streaming Service**: Run your own music server to stream your library to any device.
 4.  **Mobile App**: Use a mobile app to connect to your server, stream, and download songs for the road.
 
-![Architecture Diagram](spotify-free.png "My personal music cloud architecture")
+<!-- Architecture diagram pending: spotify-free.png -->
 
 ### Step 1: The Downloader - `spotDL`
 

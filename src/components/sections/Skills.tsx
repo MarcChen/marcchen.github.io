@@ -74,6 +74,7 @@ export default function Skills({ data, alternate }: SkillsProps) {
             const isHovered = hoveredSkill === skill.name;
             const isDimmed = hoveredSkill && hoveredSkill !== skill.name;
             const isActive = isSkillActive(skill.name);
+            const tooltipId = `skill-tooltip-${index}`;
 
             return (
               <motion.div
@@ -94,6 +95,7 @@ export default function Skills({ data, alternate }: SkillsProps) {
                 <Wrapper
                   className={styles.skillPill}
                   tabIndex={skill.url ? undefined : 0}
+                  aria-describedby={isActive ? tooltipId : undefined}
                   onFocus={() => setFocusedSkill(skill.name)}
                   onBlur={() => setFocusedSkill(null)}
                   {...wrapperProps}
@@ -114,6 +116,8 @@ export default function Skills({ data, alternate }: SkillsProps) {
                 <AnimatePresence>
                   {isActive && (
                     <motion.div
+                      id={tooltipId}
+                      role="tooltip"
                       initial={{ opacity: 0, y: 10, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}

@@ -28,7 +28,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .navBtn:not(.disabled):hover {
@@ -50,8 +50,13 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none; /* Firefox */
-  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .carouselTrack {
+    scroll-behavior: smooth;
+  }
 }
 
 .carouselTrack::-webkit-scrollbar {
@@ -73,7 +78,7 @@
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-sm);
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 }
 
@@ -173,7 +178,7 @@
   color: var(--text-heading);
   font-size: var(--text-sm);
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .certBtn:hover {
@@ -202,5 +207,17 @@
   
   .cardWrapper {
     flex: 0 0 calc(100vw - 40px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navBtn,
+  .accompCard {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .navBtn:not(.disabled):hover,
+  .accompCard:hover {
+    transform: none;
   }
 }

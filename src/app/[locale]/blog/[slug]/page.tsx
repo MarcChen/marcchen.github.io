@@ -99,22 +99,23 @@ function simpleMarkdownToHtml(md: string, slug: string): string {
   // Inline code
   html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
 
-  // Images
+  // Images (supports optional Markdown title: ![alt](src "title"))
   html = html.replace(
-    /!\[([^\]]*)\]\(([^)]+)\)/g,
-    (_, alt, src) => {
+    /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/g,
+    (_, alt, src, title) => {
       let finalSrc = src;
       if (!src.startsWith("http") && !src.startsWith("/")) {
         finalSrc = `/images/posts/${slug}/${src}`;
       }
-      return `<img src="${cloudinaryUrl(finalSrc)}" alt="${alt}" loading="lazy" />`;
+      const titleAttr = title ? ` title="${escapeHtml(title)}"` : "";
+      return `<img src="${cloudinaryUrl(finalSrc)}" alt="${escapeHtml(alt)}"${titleAttr} loading="lazy" decoding="async" style="max-width:100%;height:auto;" />`;
     }
   );
 
   // YouTube Shortcode
   html = html.replace(
     /\{\{\<\s*youtube\s+([\w-]+)\s*\>\}\}/g,
-    (_, id) => `<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;"><iframe src="https://www.youtube.com/embed/${id}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen loading="lazy" title="YouTube video"></iframe></div>`
+    (_, id) => `<div style="position: relative; aspect-ratio: 16 / 9; overflow: hidden; max-width: 100%;"><iframe src="https://www.youtube.com/embed/${id}" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="YouTube video"></iframe></div>`
   );
 
   // Image Shortcode (Hugo {{< img >}})
@@ -142,14 +143,14 @@ function simpleMarkdownToHtml(md: string, slug: string): string {
         finalSrc = finalSrc.replace(/^\/posts\/([^/]+)\/images\//, "/images/posts/$1-images/");
       }
 
-      return `<img src="${cloudinaryUrl(finalSrc)}" alt="${alt}"${height}${width}${align} loading="lazy" style="max-width:100%;height:auto;" />`;
+      return `<img src="${cloudinaryUrl(finalSrc)}" alt="${alt}"${height}${width}${align} loading="lazy" decoding="async" style="max-width:100%;height:auto;" />`;
     }
   );
 
   // Instagram Shortcode
   html = html.replace(
     /\{\{\<\s*instagram\s+([\w-]+)\s*\>\}\}/g,
-    (_, id) => `<iframe src="https://www.instagram.com/p/${id}/embed" title="Instagram post" loading="lazy" width="400" height="480" style="border:1px solid var(--border-color); border-radius:var(--radius-lg);"></iframe>`
+    (_, id) => `<iframe src="https://www.instagram.com/p/${id}/embed" title="Instagram post" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" width="400" height="480" style="border:1px solid var(--border-color); border-radius:var(--radius-lg);"></iframe>`
   );
 
   // Links (with target=_blank for external)

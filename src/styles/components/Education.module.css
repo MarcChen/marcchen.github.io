@@ -131,7 +131,7 @@
   background: var(--bg-elevated);
   color: var(--text-muted);
   border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .expandBtn.expanded {
@@ -275,5 +275,11 @@
   
   .expandedContent {
     padding: 0 var(--space-4) var(--space-4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .expandBtn {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
 }

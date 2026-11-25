@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+set -eu
+
+echo "[pre-commit] Running TypeScript, static build, and site/asset non-regression checks..."
+npx tsc --noEmit
+npx next build
+node scripts/verify-site.mjs --skip-typecheck
