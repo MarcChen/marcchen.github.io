@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { isValidLocale, type Locale, locales } from "@/lib/i18n";
-import { t } from "@/lib/i18n";
+import { isValidLocale, localePath, type Locale, locales, t } from "@/lib/i18n";
 import { cloudinaryUrl } from "@/lib/cloudinary";
 import { getAllPosts } from "@/lib/mdx";
 import styles from "@/styles/components/Posts.module.css";
@@ -39,7 +38,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
             return (
               <Link
                 key={post.slug}
-                href={`/${locale}/blog/${post.slug}/`}
+                href={localePath(locale, `/blog/${post.slug}/`)}
                 className={styles.postCard}
               >
                 {heroUrl && (

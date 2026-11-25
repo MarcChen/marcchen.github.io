@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import Script from "next/script";
 import CursorGlow from "@/components/layout/CursorGlow";
+import MotionProvider from "@/components/layout/MotionProvider";
 import { assetPath } from "@/lib/paths";
 
 const inter = Inter({
@@ -45,6 +46,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
     <html
       lang="en"
@@ -53,30 +56,18 @@ export default function RootLayout({
     >
       <head>
         <meta name="color-scheme" content="light dark" />
-        {/* Inline FOUC prevention immediately after meta[name="color-scheme"] */}
+        {/* Synchronous inline FOUC prevention immediately after meta[name="color-scheme"] */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var m=document.querySelector('meta[name="color-scheme"]');var s=null;try{s=localStorage.getItem('color-scheme')||localStorage.getItem('theme-scheme')}catch(e){}var v=s==='light'||s==='dark'?s:'light dark';if(m)m.content=v;var t=v==='light'||v==='dark'?v:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();`,
+            __html: `(function(){try{var s=localStorage.getItem("color-scheme");if(!s){var l=localStorage.getItem("theme-scheme");if(l==="light"||l==="dark"){s=l;localStorage.setItem("color-scheme",s);}}if(s==="light"||s==="dark"){var m=document.querySelector('meta[name="color-scheme"]');if(m)m.content=s;}}catch(e){}var bp=${JSON.stringify(basePath)};var p=location.pathname;if(bp&&p.indexOf(bp)===0)p=p.slice(bp.length)||"/";if(/^\\/fr(\\/|$)/.test(p))document.documentElement.lang="fr";else if(/^\\/zh-cn(\\/|$)/.test(p))document.documentElement.lang="zh-CN";})();`,
           }}
         />
       </head>
       <body style={{ fontFamily: "var(--font-sans)" }}>
-        <CursorGlow />
-        {children}
-
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-W2DZCT2HCH"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-W2DZCT2HCH');
-          `}
-        </Script>
+        <MotionProvider>
+          <CursorGlow />
+          {children}
+        </MotionProvider>
 
         {/* StatCounter */}
         <Script id="statcounter" strategy="afterInteractive">

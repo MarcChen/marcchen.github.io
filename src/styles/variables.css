@@ -120,7 +120,8 @@
 }
 
 /* ================================================================
-   Color Scheme & Dark Theme (Default / Primary)
+   Color Scheme — follows OS preference by default (`light dark`),
+   and maps `<meta name="color-scheme">` overrides back to CSS.
    ================================================================ */
 :root {
   color-scheme: light dark;
@@ -128,115 +129,37 @@
   &:has(> head > meta[name="color-scheme"][content="dark"]) {
     color-scheme: dark;
   }
+
   &:has(> head > meta[name="color-scheme"][content="light"]) {
     color-scheme: light;
   }
-}
 
-:root,
-[data-theme="dark"] {
-  --bg-primary: #09090b;
-  --bg-secondary: #121215;
-  --bg-tertiary: #18181b;
-  --bg-card: rgba(24, 24, 27, 0.6);
-  --bg-card-hover: rgba(32, 32, 36, 0.8);
-  --bg-glass: rgba(18, 18, 21, 0.7);
-  --bg-glass-strong: rgba(9, 9, 11, 0.85);
-  --bg-glass-card: rgba(255, 255, 255, 0.03);
-  --bg-elevated: rgba(38, 38, 42, 0.5);
+  --bg-primary: light-dark(#fafafa, #09090b);
+  --bg-secondary: light-dark(#f4f4f5, #121215);
+  --bg-tertiary: light-dark(#e4e4e7, #18181b);
+  --bg-card: light-dark(rgba(255, 255, 255, 0.8), rgba(24, 24, 27, 0.6));
+  --bg-card-hover: light-dark(rgba(255, 255, 255, 0.95), rgba(32, 32, 36, 0.8));
+  --bg-glass: light-dark(rgba(255, 255, 255, 0.7), rgba(18, 18, 21, 0.7));
+  --bg-glass-strong: light-dark(rgba(255, 255, 255, 0.9), rgba(9, 9, 11, 0.85));
+  --bg-glass-card: light-dark(rgba(0, 0, 0, 0.02), rgba(255, 255, 255, 0.03));
+  --bg-elevated: light-dark(rgba(255, 255, 255, 0.8), rgba(38, 38, 42, 0.5));
 
-  --text-heading: #fafafa;
-  --text-body: #a1a1aa;
-  --text-muted: #71717a;
-  --text-inverse: #09090b;
-  --text-link: hsl(var(--accent));
+  --text-heading: light-dark(#09090b, #fafafa);
+  --text-body: light-dark(#3f3f46, #a1a1aa);
+  --text-muted: light-dark(#71717a, #8b8b94);
+  --text-inverse: light-dark(#fafafa, #09090b);
+  --text-link: light-dark(hsl(250, 85%, 55%), hsl(var(--accent)));
 
-  --border-color: rgba(255, 255, 255, 0.06);
-  --border-color-strong: rgba(255, 255, 255, 0.12);
-  --border-color-hover: rgba(255, 255, 255, 0.2);
+  --border-color: light-dark(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.06));
+  --border-color-strong: light-dark(rgba(0, 0, 0, 0.12), rgba(255, 255, 255, 0.12));
+  --border-color-hover: light-dark(rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2));
 
-  --code-bg: #1a1a1e;
-  --code-text: hsl(var(--accent));
+  --code-bg: light-dark(#f4f4f5, #1a1a1e);
+  --code-text: light-dark(hsl(250, 85%, 50%), hsl(var(--accent)));
 
-  --footer-bg: #050506;
-  --footer-text: #52525b;
-
-  --scrollbar-thumb: #71717a;
-  --scrollbar-track: #121215;
+  --footer-bg: light-dark(#18181b, #050506);
+  --footer-text: light-dark(#a1a1aa, #52525b);
 
   --noise-opacity: 0.03;
-  --dot-opacity: 0.15;
-}
-
-/* ================================================================
-   Light Theme (Explicit override or OS preference without JS)
-   ================================================================ */
-@media (prefers-color-scheme: light) {
-  :root:not(:has(> head > meta[name="color-scheme"][content="dark"])):not([data-theme="dark"]) {
-    --bg-primary: #fafafa;
-    --bg-secondary: #f4f4f5;
-    --bg-tertiary: #e4e4e7;
-    --bg-card: rgba(255, 255, 255, 0.8);
-    --bg-card-hover: rgba(255, 255, 255, 0.95);
-    --bg-glass: rgba(255, 255, 255, 0.7);
-    --bg-glass-strong: rgba(255, 255, 255, 0.9);
-    --bg-glass-card: rgba(0, 0, 0, 0.02);
-    --bg-elevated: rgba(255, 255, 255, 0.8);
-
-    --text-heading: #09090b;
-    --text-body: #3f3f46;
-    --text-muted: #71717a;
-    --text-inverse: #fafafa;
-    --text-link: hsl(250, 85%, 55%);
-
-    --border-color: rgba(0, 0, 0, 0.06);
-    --border-color-strong: rgba(0, 0, 0, 0.12);
-    --border-color-hover: rgba(0, 0, 0, 0.2);
-
-    --code-bg: #f4f4f5;
-    --code-text: hsl(250, 85%, 50%);
-
-    --footer-bg: #18181b;
-    --footer-text: #a1a1aa;
-
-    --scrollbar-thumb: #52525b;
-    --scrollbar-track: #f4f4f5;
-
-    --noise-opacity: 0.02;
-    --dot-opacity: 0.08;
-  }
-}
-
-[data-theme="light"] {
-  --bg-primary: #fafafa;
-  --bg-secondary: #f4f4f5;
-  --bg-tertiary: #e4e4e7;
-  --bg-card: rgba(255, 255, 255, 0.8);
-  --bg-card-hover: rgba(255, 255, 255, 0.95);
-  --bg-glass: rgba(255, 255, 255, 0.7);
-  --bg-glass-strong: rgba(255, 255, 255, 0.9);
-  --bg-glass-card: rgba(0, 0, 0, 0.02);
-  --bg-elevated: rgba(255, 255, 255, 0.8);
-
-  --text-heading: #09090b;
-  --text-body: #3f3f46;
-  --text-muted: #71717a;
-  --text-inverse: #fafafa;
-  --text-link: hsl(250, 85%, 55%);
-
-  --border-color: rgba(0, 0, 0, 0.06);
-  --border-color-strong: rgba(0, 0, 0, 0.12);
-  --border-color-hover: rgba(0, 0, 0, 0.2);
-
-  --code-bg: #f4f4f5;
-  --code-text: hsl(250, 85%, 50%);
-
-  --footer-bg: #18181b;
-  --footer-text: #a1a1aa;
-
-  --scrollbar-thumb: #52525b;
-  --scrollbar-track: #f4f4f5;
-
-  --noise-opacity: 0.02;
-  --dot-opacity: 0.08;
+  --dot-opacity: 0.12;
 }

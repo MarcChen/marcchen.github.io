@@ -138,7 +138,7 @@ export default function Projects({ locale, data, alternate }: ProjectsProps) {
                           src={featuredProject.image.startsWith("http") ? featuredProject.image : assetPath(featuredProject.image)}
                           alt={featuredProject.name}
                           fill
-                          sizes="(max-width: 1024px) 100vw, 40vw"
+                          loading="lazy"
                           className={styles.projectImage}
                           unoptimized
                         />
@@ -191,9 +191,9 @@ export default function Projects({ locale, data, alternate }: ProjectsProps) {
                               target="_blank"
                               rel="noopener noreferrer"
                               className={styles.iconLink}
-                              aria-label={`${project.name} ${t(locale, "source_code")}`}
+                              aria-label={`${t(locale, "source_code")}: ${project.name}`}
                             >
-                              <GithubIcon size={18} />
+                              <GithubIcon size={18} aria-hidden="true" />
                             </a>
                           )}
                           {project.url && (
@@ -202,9 +202,9 @@ export default function Projects({ locale, data, alternate }: ProjectsProps) {
                               target="_blank"
                               rel="noopener noreferrer"
                               className={styles.iconLink}
-                              aria-label={`${project.name} ${t(locale, "live_preview")}`}
+                              aria-label={`${t(locale, "live_preview")}: ${project.name}`}
                             >
-                              <ArrowUpRight size={18} />
+                              <ArrowUpRight size={18} aria-hidden="true" />
                             </a>
                           )}
                         </div>

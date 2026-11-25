@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Briefcase, ArrowRight } from "lucide-react";
@@ -10,6 +10,7 @@ import type { ExperiencesSection } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
 import { cloudinaryUrl } from "@/lib/cloudinary";
 import { t } from "@/lib/i18n";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 import styles from "@/styles/components/Timeline.module.css";
 
 interface ExperiencesProps {
@@ -24,11 +25,32 @@ export default function Experiences({
   alternate,
 }: ExperiencesProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   // If no experiences, safely return
   if (!data?.experiences?.length) return null;
 
   const activeExp = data.experiences[activeIndex];
+  const count = data.experiences.length;
+
+  const handleTabKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>, idx: number) => {
+    let nextIdx: number | null = null;
+    if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+      nextIdx = (idx + 1) % count;
+    } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+      nextIdx = (idx - 1 + count) % count;
+    } else if (event.key === "Home") {
+      nextIdx = 0;
+    } else if (event.key === "End") {
+      nextIdx = count - 1;
+    }
+    if (nextIdx !== null) {
+      event.preventDefault();
+      setActiveIndex(nextIdx);
+      tabRefs.current[nextIdx]?.focus();
+    }
+  };
 
   return (
     <SectionWrapper id={data.section.id} alternate={alternate}>
@@ -39,22 +61,35 @@ export default function Experiences({
 
       <div className={styles.splitLayout}>
         {/* Left Column: Company List */}
-        <div className={styles.sidebar}>
-          <div className={styles.timelineLine} />
+        <div
+          className={styles.sidebar}
+          role="tablist"
+          aria-label={data.section.name}
+          aria-orientation="vertical"
+        >
+          <div className={styles.timelineLine} aria-hidden="true" />
           {data.experiences.map((exp, idx) => {
             const isActive = idx === activeIndex;
             return (
               <button
                 key={idx}
+                ref={(el) => {
+                  tabRefs.current[idx] = el;
+                }}
                 type="button"
-                aria-pressed={isActive}
+                role="tab"
+                id={`exp-tab-${idx}`}
+                aria-selected={isActive}
+                aria-controls={`exp-panel-${idx}`}
+                tabIndex={isActive ? 0 : -1}
                 className={`${styles.companyTab} ${isActive ? styles.activeTab : ""}`}
                 onClick={() => setActiveIndex(idx)}
+                onKeyDown={(e) => handleTabKeyDown(e, idx)}
               >
-                <div className={styles.tabMarker}>
-                   <div className={styles.tabDot} />
+                <div className={styles.tabMarker} aria-hidden="true">
+                  <div className={styles.tabDot} />
                 </div>
-                
+
                 <div className={styles.tabContent}>
                   {exp.company.logo && (
                     <div className={styles.companyLogoMin}>
@@ -71,8 +106,8 @@ export default function Experiences({
                     <span className={styles.tabName}>{exp.company.name}</span>
                     <span className={styles.tabDuration}>
                       {exp.positions[0].start.split(" ")[1] || exp.positions[0].start} —{" "}
-                      {exp.positions[exp.positions.length - 1].end?.split(" ")[1] || 
-                       exp.positions[exp.positions.length - 1].end || t(locale, "present")}
+                      {exp.positions[exp.positions.length - 1].end?.split(" ")[1] ||
+                        exp.positions[exp.positions.length - 1].end || t(locale, "present")}
                     </span>
                   </div>
                 </div>
@@ -82,14 +117,19 @@ export default function Experiences({
         </div>
 
         {/* Right Column: Active Details */}
-        <div className={styles.detailsArea}>
+        <div
+          className={styles.detailsArea}
+          role="tabpanel"
+          id={`exp-panel-${activeIndex}`}
+          aria-labelledby={`exp-tab-${activeIndex}`}
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
-              initial={{ opacity: 0, x: 20 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              exit={prefersReducedMotion ? undefined : { opacity: 0, x: -20 }}
+              transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.3, ease: "easeOut" }}
               className={styles.detailsCard}
             >
               <div className={styles.detailsHeader}>

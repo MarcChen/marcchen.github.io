@@ -15,8 +15,35 @@
 }
 
 .galleryItemWrapper {
-  /* Provides height context and allows the motion.div to float inside its track */
-  height: 400px; 
+  height: 400px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    .galleryGrid {
+      view-timeline: --achievements-grid block;
+    }
+
+    .galleryItemWrapper {
+      --parallax-offset: 40px;
+      animation: achievementsParallax linear both;
+      animation-timeline: --achievements-grid;
+      animation-range: entry 0% exit 100%;
+    }
+
+    .galleryItemWrapper:nth-child(even) {
+      --parallax-offset: 80px;
+    }
+  }
+}
+
+@keyframes achievementsParallax {
+  from {
+    transform: translateY(var(--parallax-offset));
+  }
+  to {
+    transform: translateY(calc(var(--parallax-offset) * -1));
+  }
 }
 
 /* On desktop, stagger the layout naturally */
@@ -39,7 +66,7 @@
   cursor: pointer;
 }
 
-a.achievementCard:is(:hover, :focus-visible) {
+a.achievementCard:hover {
   transform: scale(1.02);
   box-shadow: var(--shadow-2xl);
   border-color: hsl(var(--accent)/0.5);
@@ -60,7 +87,7 @@ div.achievementCard {
   transition: transform 0.8s ease;
 }
 
-a.achievementCard:is(:hover, :focus-visible) .achievementImage {
+a.achievementCard:hover .achievementImage {
   transform: scale(1.05);
 }
 
@@ -86,7 +113,7 @@ a.achievementCard:is(:hover, :focus-visible) .achievementImage {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-a.achievementCard:is(:hover, :focus-visible) .achievementContent {
+a.achievementCard:hover .achievementContent {
   transform: translateY(0);
 }
 
@@ -103,7 +130,6 @@ a.achievementCard:is(:hover, :focus-visible) .achievementContent {
   font-size: var(--text-base);
   color: rgba(255, 255, 255, 0.8);
   line-height: var(--leading-relaxed);
-  interpolate-size: allow-keywords;
   opacity: 0;
   block-size: 0;
   overflow: hidden;
@@ -120,6 +146,15 @@ div.achievementCard .achievementSummary {
 a.achievementCard:is(:hover, :focus-visible) .achievementSummary {
   opacity: 1;
   block-size: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .achievementSummary,
+  .achievementContent,
+  .achievementCard,
+  .achievementImage {
+    transition: none !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -139,19 +174,5 @@ a.achievementCard:is(:hover, :focus-visible) .achievementSummary {
   .achievementSummary {
     opacity: 1;
     block-size: auto;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .achievementCard,
-  .achievementImage,
-  .achievementContent,
-  .achievementSummary {
-    transition: none !important;
-  }
-
-  a.achievementCard:is(:hover, :focus-visible),
-  a.achievementCard:is(:hover, :focus-visible) .achievementImage {
-    transform: none;
   }
 }

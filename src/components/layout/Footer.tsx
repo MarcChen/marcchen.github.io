@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Copy, Check, Plus, ArrowUpRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Check, Copy, Plus, ArrowUpRight } from "lucide-react";
 import type { Author } from "@/lib/types";
 import type { EnabledSection } from "@/lib/data";
 import type { Locale } from "@/lib/i18n";
@@ -15,19 +15,70 @@ interface FooterProps {
   sections: EnabledSection[];
 }
 
-export default function Footer({ locale, author, sections }: FooterProps) {
+export default function Footer({ locale, author }: FooterProps) {
   const year = new Date().getFullYear();
-  const [copied, setCopied] = useState(false);
+  const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+  const lastMessageRef = useRef("");
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const copyButtonRef = useRef<HTMLButtonElement>(null);
 
-  const handleCopyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(author.contactInfo.email);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // Clipboard API unavailable
+  useEffect(() => {
+    const emailEl = document.getElementById("footer-email");
+    const buttonEl = copyButtonRef.current;
+    if (!emailEl || !buttonEl) return;
+
+    const report = (ok: boolean) => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+      let message = ok ? t(locale, "copied") : t(locale, "copy_failed");
+      if (message === lastMessageRef.current) message += "\u00A0";
+      lastMessageRef.current = message;
+
+      setCopyState(ok ? "copied" : "failed");
+      setStatusMessage("");
+      requestAnimationFrame(() => setStatusMessage(message));
+
+      timerRef.current = setTimeout(() => {
+        setCopyState("idle");
+        setStatusMessage("");
+      }, 2000);
+    };
+
+    const runCopy = async () => {
+      const text = emailEl.innerText.trim();
+      if (!text) return;
+      try {
+        await navigator.clipboard.writeText(text);
+        report(true);
+      } catch {
+        report(false);
+      }
+    };
+
+    if ("CommandEvent" in window) {
+      const handleCommand = (event: Event) => {
+        const cmdEvent = event as Event & { command?: string; source?: Element | null };
+        if (cmdEvent.command === "--copy" && cmdEvent.source === buttonEl) {
+          void runCopy();
+        }
+      };
+      document.addEventListener("command", handleCommand, true);
+      return () => {
+        document.removeEventListener("command", handleCommand, true);
+        if (timerRef.current) clearTimeout(timerRef.current);
+      };
     }
-  };
+
+    const handleClick = (event: MouseEvent) => {
+      if (event.defaultPrevented) return;
+      void runCopy();
+    };
+    buttonEl.addEventListener("click", handleClick);
+    return () => {
+      buttonEl.removeEventListener("click", handleClick);
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [locale]);
 
   return (
     <footer className={styles.footer}>
@@ -37,25 +88,39 @@ export default function Footer({ locale, author, sections }: FooterProps) {
         <div className={styles.ctaSection}>
           <div className={styles.ctaCard}>
             <div className={styles.ctaContent}>
-              <AnimatedHeading 
+              <AnimatedHeading
                 title={t(locale, "cta_heading")}
                 subtitle={t(locale, "cta_subheading")}
                 className={styles.ctaHeadingOverride}
               />
-              
+
               <div className={styles.actionRow}>
                 {author.contactInfo.email && (
-                  <button 
-                    type="button"
-                    onClick={handleCopyEmail}
-                    className="btn btn-primary"
-                    aria-label={t(locale, "copy_email")}
-                  >
-                    <span>{author.contactInfo.email}</span>
-                    {copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
-                  </button>
+                  <span className={styles.copyWrapper}>
+                    <button
+                      ref={copyButtonRef}
+                      type="button"
+                      className="btn btn-primary"
+                      data-copied={copyState === "copied" ? "" : undefined}
+                      data-failed={copyState === "failed" ? "" : undefined}
+                      {...({ command: "--copy", commandfor: "footer-email" } as Record<string, string>)}
+                    >
+                      <span id="footer-email">{author.contactInfo.email}</span>
+                      {copyState === "copied" ? (
+                        <Check size={16} aria-hidden="true" />
+                      ) : (
+                        <Copy size={16} aria-hidden="true" />
+                      )}
+                    </button>
+                    <span
+                      className={`${styles.copyTip} ${copyState !== "idle" ? styles.copyTipVisible : ""}`}
+                      role="status"
+                    >
+                      {statusMessage}
+                    </span>
+                  </span>
                 )}
-                
+
                 <a
                   href="https://cal.com/marc-chen"
                   className="btn btn-outline"
@@ -68,7 +133,7 @@ export default function Footer({ locale, author, sections }: FooterProps) {
               </div>
             </div>
             {/* Abstract visual in CTA card */}
-            <div className={styles.ctaVisual}>
+            <div className={styles.ctaVisual} aria-hidden="true">
               <div className={styles.ctaBlob} />
             </div>
           </div>
@@ -84,7 +149,15 @@ export default function Footer({ locale, author, sections }: FooterProps) {
             <span>© {year} {author.nickname}.</span>
             <span className={styles.separator}>—</span>
             <span>
-              Engineered with <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className={styles.metaLink}>Next.js <ArrowUpRight size={12} aria-hidden="true"/></a>
+              Engineered with{" "}
+              <a
+                href="https://nextjs.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.metaLink}
+              >
+                Next.js <ArrowUpRight size={12} aria-hidden="true" />
+              </a>
             </span>
           </div>
         </div>

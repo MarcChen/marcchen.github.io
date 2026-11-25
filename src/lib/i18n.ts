@@ -18,6 +18,13 @@ export function isValidLocale(locale: string): locale is Locale {
   return locales.includes(locale as Locale);
 }
 
+/** Build a localized route path; English (`defaultLocale`) lives at the root `/` without a prefix. */
+export function localePath(locale: Locale, path = "/"): string {
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  if (locale === defaultLocale) return normalized;
+  return `/${locale}${normalized}`;
+}
+
 /** UI translations for static strings */
 export const translations: Record<Locale, Record<string, string>> = {
   en: {
@@ -62,6 +69,14 @@ export const translations: Record<Locale, Record<string, string>> = {
     switch_language: "Switch language",
     toggle_theme: "Toggle theme",
     copy_email: "Copy email",
+    copied: "Copied",
+    copy_failed: "Copy failed",
+    skip_to_content: "Skip to main content",
+    toggle_menu: "Toggle menu",
+    pause_tagline: "Pause rotating headline",
+    play_tagline: "Resume rotating headline",
+    scroll_to_projects: "Scroll to projects",
+    expand_details: "Toggle details",
     no_posts: "No posts yet.",
     comments: "Comments",
   },
@@ -107,6 +122,14 @@ export const translations: Record<Locale, Record<string, string>> = {
     switch_language: "Changer la langue",
     toggle_theme: "Changer le thème",
     copy_email: "Copier l'email",
+    copied: "Copié",
+    copy_failed: "Échec de la copie",
+    skip_to_content: "Aller au contenu principal",
+    toggle_menu: "Ouvrir ou fermer le menu",
+    pause_tagline: "Mettre en pause le titre défilant",
+    play_tagline: "Reprendre le titre défilant",
+    scroll_to_projects: "Défiler vers les projets",
+    expand_details: "Afficher ou masquer les détails",
     no_posts: "Pas encore d'articles.",
     comments: "Commentaires",
   },
@@ -152,6 +175,14 @@ export const translations: Record<Locale, Record<string, string>> = {
     switch_language: "切换语言",
     toggle_theme: "切换主题",
     copy_email: "复制邮箱",
+    copied: "已复制",
+    copy_failed: "复制失败",
+    skip_to_content: "跳到主要内容",
+    toggle_menu: "切换菜单",
+    pause_tagline: "暂停轮播标题",
+    play_tagline: "恢复轮播标题",
+    scroll_to_projects: "滚动到项目",
+    expand_details: "展开或收起详情",
     no_posts: "暂无文章。",
     comments: "评论",
   },

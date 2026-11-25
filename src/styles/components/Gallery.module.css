@@ -7,41 +7,6 @@
   margin-bottom: var(--space-12);
 }
 
-.galleryControls {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: var(--space-4);
-}
-
-.motionToggle {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  min-height: 44px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border-color);
-  background: var(--bg-card);
-  color: var(--text-body);
-  font-size: var(--text-sm);
-  font-weight: 500;
-  cursor: pointer;
-  transition:
-    border-color var(--duration-normal) var(--ease-default),
-    color var(--duration-normal) var(--ease-default),
-    background-color var(--duration-normal) var(--ease-default);
-}
-
-.motionToggle:hover {
-  border-color: hsl(var(--accent) / 0.5);
-  color: var(--text-heading);
-}
-
-.motionToggle:focus-visible {
-  outline: 2px solid hsl(var(--accent));
-  outline-offset: 2px;
-}
-
 .galleryGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -56,47 +21,44 @@
   background: var(--bg-card);
   cursor: pointer;
   padding: 0;
-  transition:
-    border-color var(--duration-normal) var(--ease-default),
-    box-shadow var(--duration-normal) var(--ease-default);
+  transition: transform var(--duration-normal) var(--ease-default),
+    box-shadow var(--duration-normal) var(--ease-default),
+    border-color var(--duration-normal) var(--ease-default);
   aspect-ratio: 1;
 }
 
+.galleryItemDeferred {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 300px;
+}
+
 .galleryItem:hover {
+  transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
   border-color: hsl(var(--accent) / 0.3);
 }
 
-.galleryItem:focus-visible {
-  outline: 2px solid hsl(var(--accent));
-  outline-offset: 2px;
+@media (prefers-reduced-motion: reduce) {
+  .galleryItem,
+  .galleryImage {
+    transition: none;
+  }
+
+  .galleryItem:hover,
+  .galleryItem:hover .galleryImage {
+    transform: none;
+  }
 }
 
 .galleryImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform var(--duration-normal) var(--ease-default);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .galleryItem {
-    transition:
-      transform var(--duration-normal) var(--ease-default),
-      border-color var(--duration-normal) var(--ease-default),
-      box-shadow var(--duration-normal) var(--ease-default);
-  }
-
-  .galleryItem:hover {
-    transform: translateY(-4px);
-  }
-
-  .galleryImage {
-    transition: transform var(--duration-normal) var(--ease-default);
-  }
-
-  .galleryItem:hover .galleryImage {
-    transform: scale(1.05);
-  }
+.galleryItem:hover .galleryImage {
+  transform: scale(1.05);
 }
 
 /* Timelapse tile — a muted loop that behaves like a still until you look */

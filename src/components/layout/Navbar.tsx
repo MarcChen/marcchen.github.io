@@ -1,33 +1,14 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Menu, X, Globe, Sun, Moon } from "lucide-react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import type { EnabledSection } from "@/lib/data";
-import { locales, localeNames, localeFlags, type Locale, t } from "@/lib/i18n";
+import { locales, localeNames, localeFlags, localePath, defaultLocale, type Locale, t } from "@/lib/i18n";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 import styles from "@/styles/components/Navbar.module.css";
-
-function getStoredColorScheme(): "light" | "dark" | null {
-  try {
-    const stored =
-      localStorage.getItem("color-scheme") ?? localStorage.getItem("theme-scheme");
-    return stored === "light" || stored === "dark" ? stored : null;
-  } catch {
-    return null;
-  }
-}
-
-function applyColorScheme(stored: "light" | "dark" | null) {
-  const meta = document.querySelector<HTMLMetaElement>('meta[name="color-scheme"]');
-  if (meta) {
-    meta.content = stored ?? "light dark";
-  }
-  const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const resolved = stored ?? (systemDark ? "dark" : "light");
-  document.documentElement.setAttribute("data-theme", resolved);
-}
 
 interface NavbarProps {
   locale: Locale;
@@ -35,115 +16,193 @@ interface NavbarProps {
   siteName: string;
 }
 
+const COLOR_SCHEME_STORAGE_KEY = "color-scheme";
+
+function getSystemScheme(): "light" | "dark" {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function getRenderedScheme(): "light" | "dark" {
+  const meta = document.querySelector<HTMLMetaElement>('meta[name="color-scheme"]');
+  const content = meta?.content?.trim();
+  if (content === "light" || content === "dark") return content;
+  return getSystemScheme();
+}
+
+function setMetaColorScheme(value: "light dark" | "light" | "dark") {
+  let meta = document.querySelector<HTMLMetaElement>('meta[name="color-scheme"]');
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.name = "color-scheme";
+    document.head.appendChild(meta);
+  }
+  meta.content = value;
+}
+
 export default function Navbar({ locale, sections, siteName }: NavbarProps) {
-  const [activeSection, setActiveSection] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [isLangOpen, setIsLangOpen] = useState(false);
-  const prefersReducedMotion = useReducedMotion();
-
-  const SCROLL_THRESHOLD = 80;
-  const SECTION_DETECT_BUFFER = 200;
+  const [renderedTheme, setRenderedTheme] = useState<"light" | "dark">("dark");
+  const navRef = useRef<HTMLElement>(null);
+  const langPopoverRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const pathname = usePathname();
-  const router = useRouter();
-  
-  const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`;
+  const homeHref = localePath(locale, "/");
+  const blogHref = localePath(locale, "/blog/");
+  const photosHref = localePath(locale, "/photos/");
+  const isHomePage =
+    pathname === homeHref ||
+    pathname === `/${locale}` ||
+    pathname === `/${locale}/` ||
+    (locale === defaultLocale && pathname === "");
 
-  const navSections = sections.filter((s) => s.showOnNavbar);
+  const isRouteActive = (segment: "/blog" | "/photos") => {
+    const candidates = [localePath(locale, segment), `/${locale}${segment}`];
+    return candidates.some(
+      (base) => pathname === base || pathname.startsWith(`${base}/`)
+    );
+  };
 
-  // Sync color-scheme meta & data-theme with stored override, OS changes, and other tabs
+  const navSections = useMemo(
+    () => sections.filter((s) => s.showOnNavbar),
+    [sections]
+  );
+
+  // Sync <html lang> on client-side locale navigation
   useEffect(() => {
-    applyColorScheme(getStoredColorScheme());
+    document.documentElement.lang = locale === "zh-cn" ? "zh-CN" : locale;
+  }, [locale]);
 
-    const mql = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleMediaChange = () => {
-      if (!getStoredColorScheme()) {
-        applyColorScheme(null);
-      }
-    };
-    const handleStorage = (e: StorageEvent) => {
-      if (e.key === "color-scheme" || e.key === "theme-scheme" || e.key === null) {
-        applyColorScheme(getStoredColorScheme());
-      }
-    };
+  // Conditionally load Popover & CSS Anchor Positioning polyfills only when unsupported
+  useEffect(() => {
+    if (!Object.hasOwn(HTMLElement.prototype, "popover")) {
+      void import("@oddbird/popover-polyfill");
+    }
+    if (!CSS.supports("anchor-name: --a")) {
+      void import("@oddbird/css-anchor-positioning");
+    }
+  }, []);
 
-    mql.addEventListener("change", handleMediaChange);
+  // Synchronize theme icon with <meta name="color-scheme">, OS changes, and other tabs
+  useEffect(() => {
+    const syncState = () => setRenderedTheme(getRenderedScheme());
+    syncState();
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    mediaQuery.addEventListener("change", syncState);
+
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key !== COLOR_SCHEME_STORAGE_KEY) return;
+      const val = event.newValue;
+      setMetaColorScheme(val === "light" || val === "dark" ? val : "light dark");
+      syncState();
+    };
     window.addEventListener("storage", handleStorage);
+
     return () => {
-      mql.removeEventListener("change", handleMediaChange);
+      mediaQuery.removeEventListener("change", syncState);
       window.removeEventListener("storage", handleStorage);
     };
   }, []);
 
   const toggleTheme = useCallback(() => {
-    const stored = getStoredColorScheme();
-    const systemScheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-    const rendered = stored ?? systemScheme;
-    const target = rendered === "dark" ? "light" : "dark";
-    const nextStored = target === systemScheme ? null : target;
+    const current = getRenderedScheme();
+    const target: "light" | "dark" = current === "dark" ? "light" : "dark";
+    const system = getSystemScheme();
 
-    try {
-      if (nextStored) {
-        localStorage.setItem("color-scheme", nextStored);
-      } else {
-        localStorage.removeItem("color-scheme");
+    if (target === system) {
+      try {
+        localStorage.removeItem(COLOR_SCHEME_STORAGE_KEY);
+        localStorage.removeItem("theme-scheme");
+      } catch {
+        // Ignore storage restrictions
       }
-      localStorage.removeItem("theme-scheme");
-    } catch {
-      // Still apply theme even if storage is blocked
+      setMetaColorScheme("light dark");
+    } else {
+      try {
+        localStorage.setItem(COLOR_SCHEME_STORAGE_KEY, target);
+      } catch {
+        // Ignore storage restrictions
+      }
+      setMetaColorScheme(target);
     }
-    applyColorScheme(nextStored);
+    setRenderedTheme(target);
   }, []);
 
-  // Close menus on Escape
+  // Compact header state on scroll
   useEffect(() => {
-    if (!isMobileOpen && !isLangOpen) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setIsMobileOpen(false);
-        setIsLangOpen(false);
-      }
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Native scroll-target-group aria-current sync + IntersectionObserver fallback
+  useEffect(() => {
+    if (!isHomePage || !navRef.current) return;
+    const navEl = navRef.current;
+    const fragmentLinks = Array.from(
+      navEl.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')
+    );
+    if (fragmentLinks.length === 0) return;
+
+    if (CSS.supports("scroll-target-group: auto")) {
+      const syncAriaCurrent = () => {
+        const currentLink = navEl.querySelector("a:target-current");
+        fragmentLinks.forEach((link) => {
+          link.setAttribute("aria-current", link === currentLink ? "true" : "false");
+        });
+      };
+      syncAriaCurrent();
+      document.addEventListener("scrollend", syncAriaCurrent, { passive: true });
+      return () => {
+        document.removeEventListener("scrollend", syncAriaCurrent);
+      };
+    }
+
+    const sectionEls = navSections
+      .map((s) => document.getElementById(s.id))
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            fragmentLinks.forEach((link) => {
+              const isActive = link.getAttribute("href") === `#${id}`;
+              link.classList.toggle("target-current", isActive);
+              link.setAttribute("aria-current", isActive ? "true" : "false");
+            });
+          }
+        }
+      },
+      { rootMargin: "-50% 0px -50% 0px", threshold: 0 }
+    );
+
+    sectionEls.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [isHomePage, navSections]);
+
+  // Close mobile menu on Escape
+  useEffect(() => {
+    if (!isMobileOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMobileOpen(false);
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isMobileOpen, isLangOpen]);
+  }, [isMobileOpen]);
 
-  // Handle scroll detection for active section and minimised nav
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > SCROLL_THRESHOLD);
-
-      // Simple active section detection
-      let current = "";
-      for (const section of navSections) {
-        const el = document.getElementById(section.id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= SECTION_DETECT_BUFFER && rect.bottom >= 200) {
-            current = section.id;
-            break;
-          }
-        }
-      }
-      setActiveSection(current);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [navSections]);
-
-  const scrollToSection = (id: string) => {
-    setIsMobileOpen(false);
-    if (isHomePage) {
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
-      }
-    } else {
-      router.push(`/${locale}#${id}`);
+  const closeLangPopover = () => {
+    const el = langPopoverRef.current as (HTMLDivElement & { hidePopover?: () => void }) | null;
+    try {
+      el?.hidePopover?.();
+    } catch {
+      // Popover already closed
     }
   };
 
@@ -161,96 +220,79 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
       >
         <div className={styles.navContainer}>
           <div className={styles.pillContainer}>
-            <Link href={`/${locale}/`} className={styles.logo}>
+            <Link href={homeHref} className={styles.logo}>
               <div className={styles.logoDot} aria-hidden="true" />
               {siteName}
             </Link>
 
             {/* Desktop Links */}
-            <nav className={styles.desktopNav} aria-label="Primary">
-              {navSections.map((section) => (
-                <button
-                  type="button"
-                  key={section.id}
-                  className={`${styles.navLink} ${activeSection === section.id ? styles.active : ""}`}
-                  onClick={() => scrollToSection(section.id)}
-                  aria-current={activeSection === section.id ? "true" : undefined}
-                >
-                  {activeSection === section.id && (
-                    <motion.span
-                      layoutId={prefersReducedMotion ? undefined : "activePill"}
-                      className={styles.activePillBackground}
-                      transition={
-                        prefersReducedMotion
-                          ? { duration: 0 }
-                          : { type: "spring", bounce: 0.2, duration: 0.6 }
-                      }
-                    />
-                  )}
-                  <span className={styles.linkText}>{section.name}</span>
-                </button>
-              ))}
+            <nav ref={navRef} className={styles.desktopNav} aria-label="Primary">
+              {navSections.map((section) =>
+                isHomePage ? (
+                  <a
+                    key={section.id}
+                    href={`#${section.id}`}
+                    className={styles.navLink}
+                  >
+                    <span className={styles.linkText}>{section.name}</span>
+                  </a>
+                ) : (
+                  <Link
+                    key={section.id}
+                    href={`${homeHref}#${section.id}`}
+                    className={styles.navLink}
+                  >
+                    <span className={styles.linkText}>{section.name}</span>
+                  </Link>
+                )
+              )}
               <Link
-                href={`/${locale}/blog/`}
+                href={blogHref}
                 className={styles.navLink}
+                aria-current={isRouteActive("/blog") ? "page" : undefined}
               >
                 <span className={styles.linkText}>{t(locale, "blog_nav")}</span>
               </Link>
               <Link
-                href={`/${locale}/photos/`}
+                href={photosHref}
                 className={styles.navLink}
+                aria-current={isRouteActive("/photos") ? "page" : undefined}
               >
                 <span className={styles.linkText}>{t(locale, "photos_nav")}</span>
               </Link>
             </nav>
 
             <div className={styles.actions}>
-              {/* Language Switcher */}
-              <div
-                className={styles.langContainer}
-                onMouseLeave={() => setIsLangOpen(false)}
-                onBlur={(e) => {
-                  if (!e.currentTarget.contains(e.relatedTarget)) {
-                    setIsLangOpen(false);
-                  }
-                }}
-              >
+              {/* Language Switcher (Native Popover + CSS Anchor Positioning) */}
+              <div className={styles.langContainer}>
                 <button
                   type="button"
-                  className={styles.iconBtn}
-                  onMouseEnter={() => setIsLangOpen(true)}
-                  onClick={() => setIsLangOpen(!isLangOpen)}
+                  className={`${styles.iconBtn} ${styles.langTrigger}`}
                   aria-label={t(locale, "switch_language")}
-                  aria-expanded={isLangOpen}
-                  aria-haspopup="menu"
+                  {...({ popovertarget: "lang-switcher-popover" } as Record<string, string>)}
                 >
                   <Globe size={18} aria-hidden="true" />
                 </button>
-                <AnimatePresence>
-                  {isLangOpen && (
-                    <motion.div
-                      role="menu"
-                      className={styles.langDropdown}
-                      initial={prefersReducedMotion ? false : { opacity: 0, y: 10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 5, scale: 0.95 }}
-                      transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
+                <div
+                  ref={langPopoverRef}
+                  id="lang-switcher-popover"
+                  className={styles.langDropdown}
+                  {...({ popover: "auto" } as Record<string, string>)}
+                >
+                  {locales.map((loc) => (
+                    <Link
+                      key={loc}
+                      href={localePath(loc, "/")}
+                      lang={loc === "zh-cn" ? "zh-CN" : loc}
+                      className={`${styles.langOption} ${loc === locale ? styles.activeLang : ""}`}
+                      aria-current={loc === locale ? "true" : undefined}
+                      onClick={closeLangPopover}
                     >
-                      {locales.map((loc) => (
-                        <Link
-                          key={loc}
-                          role="menuitem"
-                          href={`/${loc}/`}
-                          className={`${styles.langOption} ${loc === locale ? styles.activeLang : ""}`}
-                          onClick={() => setIsLangOpen(false)}
-                        >
-                          <span className={styles.flag} aria-hidden="true">{localeFlags[loc]}</span>
-                          {localeNames[loc]}
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                      <span className={styles.flag} aria-hidden="true">{localeFlags[loc]}</span>
+                      {localeNames[loc]}
+                    </Link>
+                  ))}
+                </div>
               </div>
 
               {/* Theme Toggle */}
@@ -258,23 +300,21 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
                 type="button"
                 className={styles.iconBtn}
                 onClick={toggleTheme}
+                aria-label={t(locale, "toggle_theme")}
               >
-                <span className={styles.themeOptionDark}>
-                  <Sun size={18} aria-hidden="true" />
-                  <span className="visually-hidden">Switch to light theme</span>
-                </span>
-                <span className={styles.themeOptionLight}>
+                {renderedTheme === "light" ? (
                   <Moon size={18} aria-hidden="true" />
-                  <span className="visually-hidden">Switch to dark theme</span>
-                </span>
+                ) : (
+                  <Sun size={18} aria-hidden="true" />
+                )}
               </button>
 
               {/* Mobile Toggle */}
               <button
                 type="button"
                 className={styles.mobileToggle}
-                onClick={() => setIsMobileOpen(!isMobileOpen)}
-                aria-label={isMobileOpen ? "Close menu" : "Open menu"}
+                onClick={() => setIsMobileOpen((prev) => !prev)}
+                aria-label={t(locale, "toggle_menu")}
                 aria-expanded={isMobileOpen}
                 aria-controls="mobile-nav-menu"
               >
@@ -290,40 +330,52 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
         {isMobileOpen && (
           <motion.div
             id="mobile-nav-menu"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Navigation"
             className={styles.mobileMenu}
-            initial={prefersReducedMotion ? false : { opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
-            exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, backdropFilter: "blur(0px)" }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
+            initial={prefersReducedMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={prefersReducedMotion ? undefined : { opacity: 0 }}
+            transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.25 }}
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setIsMobileOpen(false);
+            }}
           >
-            <motion.div 
+            <motion.nav
+              aria-label="Mobile"
               className={styles.mobileMenuInner}
               initial={prefersReducedMotion ? false : { y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={prefersReducedMotion ? { duration: 0 } : { delay: 0.1 }}
+              transition={prefersReducedMotion ? { duration: 0 } : { delay: 0.08 }}
             >
-              {navSections.map((section) => (
-                <button
-                  type="button"
-                  key={section.id}
-                  className={styles.mobileNavLink}
-                  onClick={() => scrollToSection(section.id)}
-                >
-                  {section.name}
-                </button>
-              ))}
+              {navSections.map((section) =>
+                isHomePage ? (
+                  <a
+                    key={section.id}
+                    href={`#${section.id}`}
+                    className={styles.mobileNavLink}
+                    onClick={() => setIsMobileOpen(false)}
+                  >
+                    {section.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={section.id}
+                    href={`${homeHref}#${section.id}`}
+                    className={styles.mobileNavLink}
+                    onClick={() => setIsMobileOpen(false)}
+                  >
+                    {section.name}
+                  </Link>
+                )
+              )}
               <Link
-                href={`/${locale}/blog/`}
+                href={blogHref}
                 className={styles.mobileNavLink}
                 onClick={() => setIsMobileOpen(false)}
               >
                 {t(locale, "blog_nav")}
               </Link>
               <Link
-                href={`/${locale}/photos/`}
+                href={photosHref}
                 className={styles.mobileNavLink}
                 onClick={() => setIsMobileOpen(false)}
               >
@@ -331,20 +383,21 @@ export default function Navbar({ locale, sections, siteName }: NavbarProps) {
               </Link>
 
               <div className={styles.mobileDivider} />
-              
+
               <div className={styles.mobileLangSelector}>
                 {locales.map((loc) => (
                   <Link
                     key={loc}
-                    href={`/${loc}/`}
+                    href={localePath(loc, "/")}
+                    lang={loc === "zh-cn" ? "zh-CN" : loc}
                     className={`${styles.mobileLangOption} ${loc === locale ? styles.activeLangMobile : ""}`}
                     onClick={() => setIsMobileOpen(false)}
                   >
-                    {localeFlags[loc]} {localeNames[loc]}
+                    <span aria-hidden="true">{localeFlags[loc]}</span> {localeNames[loc]}
                   </Link>
                 ))}
               </div>
-            </motion.div>
+            </motion.nav>
           </motion.div>
         )}
       </AnimatePresence>

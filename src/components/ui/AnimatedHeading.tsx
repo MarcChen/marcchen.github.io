@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView, useReducedMotion, type Variants } from "framer-motion";
+import { motion, useInView, type Variants } from "framer-motion";
+import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 
 interface AnimatedHeadingProps {
   title: string;
@@ -12,16 +13,7 @@ interface AnimatedHeadingProps {
 export default function AnimatedHeading({ title, subtitle, className = "" }: AnimatedHeadingProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const prefersReducedMotion = useReducedMotion();
-
-  if (prefersReducedMotion) {
-    return (
-      <div className={`section-heading ${className}`} ref={ref}>
-        <h2 className="section-title">{title}</h2>
-        {subtitle && <p className="section-subtitle">{subtitle}</p>}
-      </div>
-    );
-  }
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const container: Variants = {
     hidden: { opacity: 0 },
@@ -54,6 +46,15 @@ export default function AnimatedHeading({ title, subtitle, className = "" }: Ani
 
   const letters = Array.from(title);
 
+  if (prefersReducedMotion) {
+    return (
+      <div className={`section-heading ${className}`} ref={ref}>
+        <h2 className="section-title">{title}</h2>
+        {subtitle && <p className="section-subtitle">{subtitle}</p>}
+      </div>
+    );
+  }
+
   return (
     <div className={`section-heading ${className}`} ref={ref}>
       <motion.h2
@@ -62,10 +63,12 @@ export default function AnimatedHeading({ title, subtitle, className = "" }: Ani
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
+        <span className="visually-hidden">{title}</span>
         {letters.map((letter, index) => (
           <motion.span
             variants={child}
             key={index}
+            aria-hidden="true"
             style={{ display: "inline-block", whiteSpace: letter === " " ? "pre" : "normal" }}
           >
             {letter}

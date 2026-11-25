@@ -32,9 +32,18 @@
   }
 }
 
-[data-theme="light"] .blob1,
-[data-theme="light"] .blob2,
-[data-theme="light"] .blob3 {
+@media (prefers-color-scheme: light) {
+  :global(:root:not(:has(> head > meta[name="color-scheme"][content="dark"]))) .blob1,
+  :global(:root:not(:has(> head > meta[name="color-scheme"][content="dark"]))) .blob2,
+  :global(:root:not(:has(> head > meta[name="color-scheme"][content="dark"]))) .blob3 {
+    opacity: 0.15;
+    mix-blend-mode: multiply;
+  }
+}
+
+:global(:root:has(> head > meta[name="color-scheme"][content="light"])) .blob1,
+:global(:root:has(> head > meta[name="color-scheme"][content="light"])) .blob2,
+:global(:root:has(> head > meta[name="color-scheme"][content="light"])) .blob3 {
   opacity: 0.15;
   mix-blend-mode: multiply;
 }
@@ -145,17 +154,29 @@
 }
 
 .roleText {
-  color: var(--text-inverse);
-  /* Contrasting color for emphasis */
-  background: var(--text-heading);
+  color: light-dark(white, var(--text-inverse));
+  background: light-dark(hsl(var(--accent)), var(--text-heading));
   padding: 0 var(--space-2);
   border-radius: var(--radius-sm);
   line-height: 1.1;
 }
 
-[data-theme="light"] .roleText {
-  background: hsl(var(--accent));
-  color: white;
+.pauseBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 28px;
+  min-block-size: 28px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color-strong);
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.pauseBtn:hover {
+  color: var(--text-heading);
+  border-color: hsl(var(--accent) / 0.5);
 }
 
 .shortBio {
