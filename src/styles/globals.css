@@ -362,7 +362,7 @@ button {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-2xl);
   padding: var(--space-6);
-  transition: all var(--duration-normal) var(--ease-default);
+  transition: transform var(--duration-normal) var(--ease-default), box-shadow var(--duration-normal) var(--ease-default), border-color var(--duration-normal) var(--ease-default), background-color var(--duration-normal) var(--ease-default);
   overflow: hidden;
 }
 
@@ -400,7 +400,7 @@ button {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-2xl);
   padding: var(--space-6);
-  transition: all var(--duration-normal) var(--ease-default);
+  transition: transform var(--duration-normal) var(--ease-default), box-shadow var(--duration-normal) var(--ease-default), border-color var(--duration-normal) var(--ease-default), background-color var(--duration-normal) var(--ease-default);
 }
 
 .card:hover {
@@ -425,7 +425,7 @@ button {
   background: hsl(var(--accent) / 0.08);
   border: 1px solid hsl(var(--accent) / 0.15);
   border-radius: var(--radius-full);
-  transition: all var(--duration-fast) var(--ease-default);
+  transition: color var(--duration-fast) var(--ease-default), background-color var(--duration-fast) var(--ease-default), border-color var(--duration-fast) var(--ease-default);
   letter-spacing: var(--tracking-wide);
 }
 
@@ -459,7 +459,7 @@ button {
   font-size: var(--text-sm);
   font-weight: 600;
   border-radius: var(--radius-xl);
-  transition: all var(--duration-normal) var(--ease-default);
+  transition: transform var(--duration-normal) var(--ease-default), color var(--duration-normal) var(--ease-default), background-color var(--duration-normal) var(--ease-default), border-color var(--duration-normal) var(--ease-default), box-shadow var(--duration-normal) var(--ease-default);
   white-space: nowrap;
   position: relative;
   overflow: hidden;
@@ -525,7 +525,7 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--duration-fast) var(--ease-default);
+  transition: transform var(--duration-fast) var(--ease-default), color var(--duration-fast) var(--ease-default), background-color var(--duration-fast) var(--ease-default), border-color var(--duration-fast) var(--ease-default);
 }
 
 .btn-icon:hover {
