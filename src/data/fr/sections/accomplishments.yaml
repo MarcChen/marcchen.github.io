@@ -2,7 +2,7 @@
 section:
   name: Réalisations
   id: accomplishments
-  enable: true
+  enable: false
   weight: 6
   showOnNavbar: true
   # Vous pouvez éventuellement masquer le titre dans les sections

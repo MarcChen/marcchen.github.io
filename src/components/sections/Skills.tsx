@@ -32,7 +32,6 @@ export default function Skills({ data, alternate }: SkillsProps) {
   return (
     <SectionWrapper id={data.section.id} alternate={alternate}>
       <div className={styles.sectionHeader}>
-        <span className="section-label">02. Capabilities</span>
         <AnimatedHeading title={data.section.name} />
       </div>
 

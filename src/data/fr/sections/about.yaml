@@ -1,7 +1,7 @@
 # informations de la section
 section:
-  name: À propos
-  id: about
+  name: Certifications
+  id: certifications
   enable: true
   weight: 1
   showOnNavbar: true

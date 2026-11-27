@@ -1,7 +1,7 @@
 .sectionHeader {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: var(--space-16);
 }
 
@@ -97,8 +97,8 @@ a.achievementCard:hover .achievementImage {
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(0, 0, 0, 0.2) 40%,
-    rgba(0, 0, 0, 0.9) 100%
+    rgb(42 29 20 / 0.15) 40%,
+    rgb(42 29 20 / 0.9) 100%
   );
 }
 
@@ -121,14 +121,14 @@ a.achievementCard:hover .achievementContent {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
   font-weight: 700;
-  color: #fff;
+  color: var(--cream);
   margin-bottom: var(--space-2);
   line-height: var(--leading-tight);
 }
 
 .achievementSummary {
   font-size: var(--text-base);
-  color: rgba(255, 255, 255, 0.8);
+  color: color-mix(in oklab, var(--cream) 85%, transparent);
   line-height: var(--leading-relaxed);
   opacity: 0;
   block-size: 0;

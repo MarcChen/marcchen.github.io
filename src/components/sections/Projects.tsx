@@ -7,7 +7,6 @@ import { ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "@/components/ui/Icons";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
-import MagneticButton from "@/components/ui/MagneticButton";
 import type { ProjectsSection } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
 import { cloudinaryUrl } from "@/lib/cloudinary";
@@ -21,6 +20,9 @@ interface ProjectsProps {
   data: ProjectsSection;
   alternate?: boolean;
 }
+
+const isInternal = (url?: string) => !!url && url.startsWith("/");
+const projectHref = (url: string) => (isInternal(url) ? assetPath(url) : url);
 
 export default function Projects({ locale, data, alternate }: ProjectsProps) {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -36,7 +38,6 @@ export default function Projects({ locale, data, alternate }: ProjectsProps) {
   return (
     <SectionWrapper id={data.section.id} alternate={alternate}>
       <div className={styles.sectionHeader}>
-        <span className="section-label">{t(locale, "section_work_label")}</span>
         <AnimatedHeading title={data.section.name} />
       </div>
 
@@ -79,7 +80,6 @@ export default function Projects({ locale, data, alternate }: ProjectsProps) {
                   transition={{ duration: 0.4 }}
                   className={styles.featuredCard}
                 >
-                  <div className={styles.featuredGlow} />
                   <div className={styles.featuredContent}>
                     <div className={styles.featuredHeader}>
                       {featuredProject.logo && (
@@ -118,14 +118,20 @@ export default function Projects({ locale, data, alternate }: ProjectsProps) {
 
                     <div className={styles.featuredActions}>
                       {featuredProject.url && (
-                        <MagneticButton href={featuredProject.url} target="_blank" icon={ArrowUpRight}>
-                          {t(locale, "live_preview")}
-                        </MagneticButton>
+                        <a
+                          href={projectHref(featuredProject.url)}
+                          className="btn btn-primary"
+                          {...(isInternal(featuredProject.url) ? {} : { target: "_blank", rel: "noopener noreferrer" })}
+                        >
+                          <ArrowUpRight size={16} aria-hidden="true" />
+                          {isInternal(featuredProject.url) ? t(locale, "read_more") : t(locale, "live_preview")}
+                        </a>
                       )}
                       {featuredProject.repo && (
-                        <MagneticButton href={featuredProject.repo} variant="outline" target="_blank" icon={GithubIcon}>
+                        <a href={featuredProject.repo} className="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                          <GithubIcon size={16} aria-hidden="true" />
                           {t(locale, "source_code")}
-                        </MagneticButton>
+                        </a>
                       )}
                     </div>
                   </div>
@@ -169,8 +175,20 @@ export default function Projects({ locale, data, alternate }: ProjectsProps) {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.9 }}
                       transition={{ duration: 0.3, delay: idx * 0.05 }}
-                      className={styles.standardCard}
+                      className={`${styles.standardCard} ${project.url ? styles.linked : ""}`}
                     >
+                      {project.image && (
+                        <div className={styles.standardThumb}>
+                          <Image
+                            src={project.image.startsWith("http") ? project.image : assetPath(project.image)}
+                            alt=""
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            loading="lazy"
+                            unoptimized
+                          />
+                        </div>
+                      )}
                       <div className={styles.standardHeader}>
                         <div className={styles.standardTitleGroup}>
                           {project.logo && (
@@ -182,7 +200,19 @@ export default function Projects({ locale, data, alternate }: ProjectsProps) {
                               className={styles.standardLogo}
                             />
                           )}
-                          <h4 className={styles.standardTitle}>{project.name}</h4>
+                          <h4 className={styles.standardTitle}>
+                            {project.url ? (
+                              <a
+                                href={projectHref(project.url)}
+                                className={styles.stretched}
+                                {...(isInternal(project.url) ? {} : { target: "_blank", rel: "noopener noreferrer" })}
+                              >
+                                {project.name}
+                              </a>
+                            ) : (
+                              project.name
+                            )}
+                          </h4>
                         </div>
                         <div className={styles.standardLinks}>
                           {project.repo && (
@@ -197,15 +227,7 @@ export default function Projects({ locale, data, alternate }: ProjectsProps) {
                             </a>
                           )}
                           {project.url && (
-                            <a
-                              href={project.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className={styles.iconLink}
-                              aria-label={`${t(locale, "live_preview")}: ${project.name}`}
-                            >
-                              <ArrowUpRight size={18} aria-hidden="true" />
-                            </a>
+                            <ArrowUpRight className={styles.cardArrow} size={18} aria-hidden="true" />
                           )}
                         </div>
                       </div>

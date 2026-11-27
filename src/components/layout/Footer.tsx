@@ -82,7 +82,6 @@ export default function Footer({ locale, author }: FooterProps) {
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.footerGlow} />
 
       <div className="container">
         <div className={styles.ctaSection}>
@@ -131,10 +130,6 @@ export default function Footer({ locale, author }: FooterProps) {
                   <span>{t(locale, "book_a_call")}</span>
                 </a>
               </div>
-            </div>
-            {/* Abstract visual in CTA card */}
-            <div className={styles.ctaVisual} aria-hidden="true">
-              <div className={styles.ctaBlob} />
             </div>
           </div>
         </div>

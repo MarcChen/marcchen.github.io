@@ -6,17 +6,6 @@
   padding-bottom: var(--space-8);
 }
 
-.footerGlow {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  width: 600px;
-  height: 200px;
-  background: radial-gradient(ellipse at center, hsl(var(--accent)/0.1) 0%, transparent 70%);
-  filter: blur(40px);
-  pointer-events: none;
-}
 
 /* ─── Call to Action Card ─── */
 .ctaSection {
@@ -26,12 +15,18 @@
 }
 
 .ctaCard {
+  /* Always an oat card with espresso ink, in both schemes. */
+  --text-heading: var(--espresso);
+  --text-body: var(--espresso);
+  --text-muted: color-mix(in oklab, var(--espresso) 78%, var(--oat));
+  --accent: 25 35% 22%;
+  --accent-hover: 25 35% 30%;
+  --on-accent: var(--cream);
   width: 100%;
   max-width: 900px;
-  background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-color-strong);
+  background: var(--oat);
+  color: var(--espresso);
+  border: 2px solid var(--espresso);
   border-radius: var(--radius-3xl);
   padding: var(--space-12) var(--space-8);
   display: flex;
@@ -54,6 +49,10 @@
 }
 .ctaHeadingOverride h2 {
   justify-content: flex-start;
+}
+.ctaHeadingOverride p {
+  margin: 0;
+  text-align: left;
 }
 
 .actionRow {
@@ -91,47 +90,9 @@
   opacity: 1;
 }
 
-.ctaVisual {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  pointer-events: none;
-  z-index: 1;
-  overflow: hidden;
-  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
-}
 
-.ctaBlob {
-  position: absolute;
-  right: -100px;
-  top: -50px;
-  width: 400px;
-  height: 400px;
-  background: var(--gradient-primary);
-  filter: blur(60px);
-  opacity: 0.15;
-  border-radius: 50%;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .ctaBlob {
-    animation: float 6s ease-in-out infinite;
-  }
-}
 
-.ctaGrid {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(to right, var(--border-color) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
-  background-size: 24px 24px;
-  mask-image: linear-gradient(to left, black, transparent);
-  -webkit-mask-image: linear-gradient(to left, black, transparent);
-  opacity: 0.3;
-}
 
 /* ─── Footer Bottom ─── */
 .footerBottom {

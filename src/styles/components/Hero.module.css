@@ -1,293 +1,147 @@
+/* Hero — name, role, bio and CV on the left; 3D ride scene + avatar on the right. */
+
 .hero {
   position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  /* Left-aligned content */
-  overflow: hidden;
-  padding-top: var(--nav-height);
-  /* Offset for fixed nav */
+  z-index: var(--z-default);
+  padding-top: calc(var(--nav-height) + var(--space-16));
+  padding-bottom: var(--space-20);
   background: var(--bg-primary);
 }
 
-/* ─── Background Blobs ─── */
-.blob1,
-.blob2,
-.blob3 {
-  position: absolute;
-  filter: blur(80px);
-  z-index: 0;
-  opacity: 0.4;
-  pointer-events: none;
-  border-radius: 50%;
-  mix-blend-mode: color-dodge;
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(var(--space-8), 5vw, var(--space-20));
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .blob1,
-  .blob2,
-  .blob3 {
-    animation: float 10s infinite ease-in-out alternate;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :global(:root:not(:has(> head > meta[name="color-scheme"][content="dark"]))) .blob1,
-  :global(:root:not(:has(> head > meta[name="color-scheme"][content="dark"]))) .blob2,
-  :global(:root:not(:has(> head > meta[name="color-scheme"][content="dark"]))) .blob3 {
-    opacity: 0.15;
-    mix-blend-mode: multiply;
-  }
-}
-
-:global(:root:has(> head > meta[name="color-scheme"][content="light"])) .blob1,
-:global(:root:has(> head > meta[name="color-scheme"][content="light"])) .blob2,
-:global(:root:has(> head > meta[name="color-scheme"][content="light"])) .blob3 {
-  opacity: 0.15;
-  mix-blend-mode: multiply;
-}
-
-.blob1 {
-  top: -10%;
-  right: -5%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, hsl(var(--accent)), transparent 70%);
-  animation-delay: 0s;
-}
-
-.blob2 {
-  bottom: -10%;
-  right: 15%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, hsl(var(--accent-secondary)), transparent 70%);
-  animation-delay: -5s;
-}
-
-.blob3 {
-  top: 40%;
-  left: -10%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, hsl(280, 75%, 60%), transparent 70%);
-  animation-delay: -3s;
-}
-
-.gridOverlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background-image:
-    linear-gradient(to right, var(--border-color) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
-  background-size: 50px 50px;
-  mask-image: radial-gradient(ellipse at center, transparent 20%, black 80%);
-  -webkit-mask-image: radial-gradient(ellipse at center, transparent 20%, black 80%);
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-/* ─── Foreground Content ─── */
-.heroContent {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  width: 100%;
-}
-
-.greeting {
-  margin-bottom: var(--space-6);
-}
-
-.badge {
-  display: inline-block;
-  padding: var(--space-2) var(--space-4);
-  background: hsl(var(--accent)/0.1);
-  border: 1px solid hsl(var(--accent)/0.2);
-  border-radius: var(--radius-full);
-  color: hsl(var(--accent));
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: var(--tracking-wider);
-  text-transform: uppercase;
-  backdrop-filter: blur(10px);
+.copy {
+  min-width: 0;
 }
 
 .name {
-  font-size: clamp(3rem, 8vw, 6rem);
-  /* Responsive fluid typography */
-  font-weight: 800;
-  line-height: var(--leading-none);
-  letter-spacing: var(--tracking-tighter);
-  margin-bottom: var(--space-4);
-  color: var(--text-heading);
-}
-
-.gradientText {
-  background: var(--gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.roleContainer {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 600;
-  color: var(--text-muted);
   font-family: var(--font-display);
-  margin-bottom: var(--space-6);
-  min-height: 1.2em;
-  /* Prevent layout shift during animation */
-}
-
-.rolePrefix {
-  color: var(--text-muted);
-  font-size: var(--text-lg);
-  font-weight: 500;
-}
-
-.roleText {
-  color: light-dark(white, var(--text-inverse));
-  background: light-dark(hsl(var(--accent)), var(--text-heading));
-  padding: 0 var(--space-2);
-  border-radius: var(--radius-sm);
-  line-height: 1.1;
-}
-
-.pauseBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-inline-size: 28px;
-  min-block-size: 28px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border-color-strong);
-  color: var(--text-muted);
-  background: var(--bg-elevated);
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-.pauseBtn:hover {
+  font-size: clamp(3.6rem, 10.5vw, 9rem);
+  font-weight: 900;
+  font-stretch: 125%;
+  line-height: 0.84;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
   color: var(--text-heading);
-  border-color: hsl(var(--accent) / 0.5);
+  margin: 0;
 }
 
-.shortBio {
+.line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.04em;
+}
+
+.line > span {
+  display: inline-block;
+}
+
+.role {
+  margin-top: var(--space-6);
   font-size: var(--text-xl);
-  color: var(--text-muted);
-  max-width: 600px;
+  font-weight: 800;
+  font-stretch: 110%;
+  color: var(--text-heading);
+}
+
+.bio {
+  margin-top: var(--space-3);
+  max-width: 42ch;
+  font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
-  margin-bottom: var(--space-10);
+  color: var(--text-body);
 }
 
-.heroActions {
+.actions {
   display: flex;
-  gap: var(--space-4);
   flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
 }
 
-/* ─── Scroll Indicator ─── */
-.scrollIndicator {
+.visual {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  min-width: 0;
+}
+
+.avatar {
   position: absolute;
-  bottom: var(--space-8);
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
+  left: clamp(-2.5rem, -3vw, -1rem);
+  bottom: clamp(-2.5rem, -3vw, -1rem);
+  width: clamp(110px, 13vw, 168px);
+  aspect-ratio: 1;
+  margin: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--text-heading);
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow-xl);
+  rotate: -3deg;
 }
 
-.scrollIndicator:hover {
-  opacity: 1;
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.mouse {
-  width: 26px;
-  height: 40px;
-  border: 2px solid var(--text-muted);
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  padding-top: 6px;
-}
-
-.wheel {
-  width: 4px;
-  height: 8px;
-  background: var(--text-muted);
-  border-radius: 2px;
-}
-
+/* ─── Entrance motion (CSS only; final state is the default) ─── */
 @media (prefers-reduced-motion: no-preference) {
-  .wheel {
-    animation: scrollWheel 2s ease-in-out infinite;
+  .line > span {
+    animation: heroLine 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--d, 0s);
+  }
+
+  .rise {
+    animation: heroRise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--d, 0s);
+  }
+
+  .avatar {
+    animation: heroAvatar 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
   }
 }
 
-@keyframes scrollWheel {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  50% {
-    transform: translateY(10px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 0;
-  }
+@keyframes heroLine {
+  from { transform: translateY(105%); }
+  to { transform: none; }
 }
 
-/* ─── Responsive ─── */
-@media (max-width: 768px) {
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes heroAvatar {
+  from { opacity: 0; scale: 0.9; rotate: -9deg; }
+  to { opacity: 1; scale: 1; rotate: -3deg; }
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .hero {
-    align-items: center;
-    padding-top: var(--space-20);
+    padding-top: calc(var(--nav-height) + var(--space-10));
   }
 
-  .heroContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .visual {
+    aspect-ratio: 4 / 3;
+    margin-left: var(--space-4);
+    margin-bottom: var(--space-6);
   }
 
-  .roleContainer {
-    justify-content: center;
-  }
-
-  .heroActions {
-    justify-content: center;
-  }
-
-  .blob1,
-  .blob2 {
-    width: 300px;
-    height: 300px;
-  }
-
-  .blob1 {
-    right: -10%;
-    top: 10%;
-  }
-
-  .blob2 {
-    left: -10%;
-    bottom: 10%;
-  }
-
-  .blob3 {
-    display: none;
+  .avatar {
+    left: calc(-1 * var(--space-4));
+    bottom: calc(-1 * var(--space-6));
+    width: 104px;
   }
 }

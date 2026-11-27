@@ -1,6 +1,6 @@
 # section information
 section:
-  name: Projects
+  name: Projets annexes
   id: projects
   enable: true
   weight: 5
@@ -45,3 +45,27 @@ projects:
   repo: https://github.com/MarcChen/RBM_BinaryAlphaDigits
   summary: "Implémentation d'une Machine de Boltzmann Restreinte (RBM) entraînée sur le jeu de données Binary AlphaDigits en utilisant la Divergence Contrastive. Couvre la génération d'images, l'optimisation des hyperparamètres et les expériences sur l'influence du nombre de caractères à travers plusieurs notebooks Jupyter. Inclut un rapport de recherche complémentaire (Chen & Sebti)."
   tags: ["academic", "machine-learning", "deep-learning", "RBM", "MNIST"]
+
+- name: Bus Countdown Timer
+  image: /images/posts/codelab-bus-countdown-timer/devboard.webp
+  role: Maker
+  timeline: "2024"
+  url: /fr/blog/codelab-bus-countdown-timer/
+  summary: "Un compte à rebours IoT pour le prochain bus : un ESP32, un écran LCD et une API de transport, avec un contournement des portails Wi-Fi captifs."
+  tags: ["hobby", "IoT", "ESP32", "C++", "API"]
+
+- name: ENSTRAID · Peugeot 205 électrique
+  image: /images/posts/ensta-enstraid/motor.webp
+  role: Membre fondateur
+  timeline: "2024"
+  url: /fr/blog/ensta-enstraid/
+  summary: "Conversion d’une Peugeot 205 classique en voiture 100 % électrique avec l’association de rétrofit de l’ENSTA Paris."
+  tags: ["academic", "EV", "rétrofit", "ENSTA Paris"]
+
+- name: Notion2GoogleTask
+  image: /images/posts/codelab-notion2googletask/notion-google-task.png
+  role: Auteur
+  timeline: "2025"
+  url: /fr/blog/codelab-notion2googletask/
+  summary: "Un microservice qui synchronise Notion et Google Tasks pour garder les tâches à jour des deux côtés."
+  tags: ["hobby", "Python", "automation", "API"]

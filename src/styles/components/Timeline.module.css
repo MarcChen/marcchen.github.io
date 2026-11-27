@@ -1,7 +1,7 @@
 .sectionHeader {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: var(--space-12);
 }
 
@@ -139,8 +139,6 @@
 
 .detailsCard {
   background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-2xl);
   padding: var(--space-8);

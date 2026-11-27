@@ -1,7 +1,7 @@
 # 部分信息
 section:
-  name: 关于
-  id: about
+  name: 认证
+  id: certifications
   enable: true
   weight: 1
   showOnNavbar: true

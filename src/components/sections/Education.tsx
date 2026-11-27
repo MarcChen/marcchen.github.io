@@ -206,7 +206,6 @@ export default function Education({
   return (
     <SectionWrapper id={data.section.id} alternate={alternate}>
       <div className={styles.sectionHeader}>
-        <span className="section-label">04. Academic</span>
         <AnimatedHeading title={data.section.name} />
       </div>
 

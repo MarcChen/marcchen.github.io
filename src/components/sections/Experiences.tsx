@@ -55,7 +55,6 @@ export default function Experiences({
   return (
     <SectionWrapper id={data.section.id} alternate={alternate}>
       <div className={styles.sectionHeader}>
-        <span className="section-label">03. Career</span>
         <AnimatedHeading title={data.section.name} />
       </div>
 

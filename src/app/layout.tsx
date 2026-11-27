@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Archivo, JetBrains_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import Script from "next/script";
-import CursorGlow from "@/components/layout/CursorGlow";
 import MotionProvider from "@/components/layout/MotionProvider";
 import { assetPath } from "@/lib/paths";
 
-const inter = Inter({
+const archivo = Archivo({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-archivo",
+  axes: ["wdth"],
   display: "swap",
 });
 
@@ -52,7 +46,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}
+      className={`${archivo.variable} ${jetbrains.variable}`}
     >
       <head>
         <meta name="color-scheme" content="light dark" />
@@ -65,7 +59,6 @@ export default function RootLayout({
       </head>
       <body style={{ fontFamily: "var(--font-sans)" }}>
         <MotionProvider>
-          <CursorGlow />
           {children}
         </MotionProvider>
 
@@ -131,10 +124,16 @@ export default function RootLayout({
               calLink: "marc-chen/30min",
               config: { layout: "month_view" },
               buttonText: "Book a call",
+              buttonColor: "#4A3324",
+              buttonTextColor: "#FAF3E6",
             });
             Cal.ns["30min"]("ui", {
               hideEventTypeDetails: false,
               layout: "month_view",
+              cssVarsPerTheme: {
+                light: { "cal-brand": "#4A3324" },
+                dark: { "cal-brand": "#FAF3E6" },
+              },
             });
           `}
         </Script>

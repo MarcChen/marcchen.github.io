@@ -18,7 +18,6 @@ export default function Achievements({ data, alternate }: AchievementsProps) {
   return (
     <SectionWrapper id={data.section.id} alternate={alternate}>
       <div className={styles.sectionHeader}>
-        <span className="section-label">07. Gallery</span>
         <AnimatedHeading title={data.section.name} />
       </div>
 
