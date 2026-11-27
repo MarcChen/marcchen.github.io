@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
@@ -17,21 +17,46 @@ interface ExperiencesProps {
   alternate?: boolean;
 }
 
-/** Résumé-style ledger: one line per position (period, company, role); each
- *  line opens to the company overview and responsibilities. Latest is open. */
+/** Résumé-style ledger: one line per position (period, company, role).
+ *  Hovering a line previews it open; clicking pins it open (click again to unpin).
+ *  On touch screens a tap pins. */
 export default function Experiences({ locale, data, alternate }: ExperiencesProps) {
   const rows = data.experiences.flatMap((exp, ei) =>
     exp.positions.map((pos, pi) => ({ key: `${ei}-${pi}`, company: exp.company, pos }))
   );
-  const [open, setOpen] = useState<Set<string>>(() => new Set(rows.length ? [rows[0].key] : []));
+  const [pinned, setPinned] = useState<Set<string>>(() => new Set());
+  const [hovered, setHovered] = useState<string | null>(null);
+  const enterTimer = useRef<number | undefined>(undefined);
+  const leaveTimer = useRef<number | undefined>(undefined);
 
-  const toggle = (key: string) =>
-    setOpen((prev) => {
+  useEffect(
+    () => () => {
+      window.clearTimeout(enterTimer.current);
+      window.clearTimeout(leaveTimer.current);
+    },
+    []
+  );
+
+  const togglePin = (key: string) =>
+    setPinned((prev) => {
       const next = new Set(prev);
       if (next.has(key)) next.delete(key);
       else next.add(key);
       return next;
     });
+
+  // Small delays so lines don't flicker open while the pointer just passes over.
+  const onEnter = (key: string, e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    window.clearTimeout(leaveTimer.current);
+    window.clearTimeout(enterTimer.current);
+    enterTimer.current = window.setTimeout(() => setHovered(key), 140);
+  };
+  const onLeave = (e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    window.clearTimeout(enterTimer.current);
+    leaveTimer.current = window.setTimeout(() => setHovered(null), 180);
+  };
 
   const end = (e?: string) => (!e || /^(now|present)$/i.test(e.trim()) ? t(locale, "present") : e);
 
@@ -40,16 +65,22 @@ export default function Experiences({ locale, data, alternate }: ExperiencesProp
       <AnimatedHeading title={data.section.name} />
       <ol className={styles.ledger}>
         {rows.map(({ key, company, pos }) => {
-          const isOpen = open.has(key);
+          const isPinned = pinned.has(key);
+          const isOpen = isPinned || hovered === key;
           const panelId = `exp-${key}`;
           return (
-            <li key={key} className={`${styles.row} ${isOpen ? styles.open : ""}`}>
+            <li
+              key={key}
+              className={`${styles.row} ${isOpen ? styles.open : ""} ${isPinned ? styles.pinned : ""}`}
+              onPointerEnter={(e) => onEnter(key, e)}
+              onPointerLeave={onLeave}
+            >
               <button
                 type="button"
                 className={styles.head}
-                aria-expanded={isOpen}
+                aria-expanded={isPinned}
                 aria-controls={panelId}
-                onClick={() => toggle(key)}
+                onClick={() => togglePin(key)}
               >
                 <span className={styles.period}>
                   {pos.start} – {end(pos.end)}
@@ -63,7 +94,10 @@ export default function Experiences({ locale, data, alternate }: ExperiencesProp
                   {company.name}
                 </span>
                 <span className={styles.role}>{pos.designation}</span>
-                <span className={styles.toggle} aria-hidden="true">+</span>
+                <span className={styles.toggle} aria-hidden="true">
+                  +
+                  {isOpen && !isPinned && <span className={styles.hint}>{t(locale, "keep_open")}</span>}
+                </span>
               </button>
               <div id={panelId} className={styles.body} role="region" aria-label={`${company.name}, ${pos.designation}`}>
                 <div>

@@ -29,8 +29,9 @@ function subscribePalette(cb: () => void) {
   mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-palette"] });
   return () => mo.disconnect();
 }
-const paletteSnapshot = (): Palette => (document.documentElement.dataset.palette === "brick" ? "brick" : "espresso");
-const paletteServer = (): Palette => "espresso";
+// Brick & Sand is the default; "espresso" is the alternative palette.
+const paletteSnapshot = (): Palette => (document.documentElement.dataset.palette === "espresso" ? "espresso" : "brick");
+const paletteServer = (): Palette => "brick";
 
 function getSystemScheme(): "light" | "dark" {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
@@ -116,10 +117,10 @@ export default function Navbar({ locale, sections, siteName, author }: NavbarPro
   }, []);
 
   const choosePalette = useCallback((p: Palette) => {
-    if (p === "brick") document.documentElement.dataset.palette = "brick";
+    if (p === "espresso") document.documentElement.dataset.palette = "espresso";
     else delete document.documentElement.dataset.palette;
     try {
-      if (p === "brick") localStorage.setItem(PALETTE_STORAGE_KEY, p);
+      if (p === "espresso") localStorage.setItem(PALETTE_STORAGE_KEY, p);
       else localStorage.removeItem(PALETTE_STORAGE_KEY);
     } catch {
       // storage unavailable
@@ -272,7 +273,7 @@ export default function Navbar({ locale, sections, siteName, author }: NavbarPro
             <div className={styles.control}>
               <span>{t(locale, "palette")}</span>
               <div className={styles.seg} role="group" aria-label={t(locale, "palette")}>
-                {(["espresso", "brick"] as const).map((p) => (
+                {(["brick", "espresso"] as const).map((p) => (
                   <button
                     key={p}
                     type="button"

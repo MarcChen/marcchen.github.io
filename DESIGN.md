@@ -2,16 +2,19 @@
 
 Marc Chen's portfolio. Tokens live in `src/styles/variables.css`; global primitives in `src/styles/globals.css`.
 
-## Palette (pinned by Marc, Nov 2026)
+## Palette
 
-| Token | Hex | Role |
-|---|---|---|
-| `--cream` | `#FAF3E6` | Page ground (light), text on espresso |
-| `--oat` | `#EDE3D1` | Alternate sections, cards, contact card |
-| `--taupe` | `#B09A7C` | Lines, selection, scrollbar, 3D terrain tint. Never body text (fails contrast on cream) |
-| `--espresso` | `#4A3324` | Ink, headings, primary buttons; ground in dark mode |
+Default: **Brick & Sand** (chosen by Marc, Nov 2026). Navy ink on variations of cream; brick only as a small accent.
 
-No other hues. Mixes of these four (`color-mix`) are allowed for muted text and borders. Dark mode swaps the ground to a deeper espresso and the accent to cream (`--accent` / `--on-accent` flip under the dark scheme).
+| Token | Brick & Sand (default) | Espresso (alternative) | Role |
+|---|---|---|---|
+| `--cream` | `#FAF5EC` | `#FAF3E6` | Page ground |
+| `--oat` | `#F1E8D8` | `#EDE3D1` | Alternate sections, hover rows, cards |
+| `--sand` | `#E7DBC5` | `#E3D6BF` | Deeper surface (skill tiles, 3D terrain) |
+| `--taupe` | `#E4572E` brick | `#B09A7C` taupe | Accent only: seal rings, dashed rules, menu numbers, the 3D rider. Never body text. |
+| `--espresso` | `#15213B` navy | `#4A3324` espresso | Ink, headings, primary buttons; ground in dark mode |
+
+The Espresso palette is switchable from the Index menu (`<html data-palette="espresso">`, remembered in `localStorage`). Dark mode swaps the ground to a deep ink and flips the accent to sand/cream.
 
 ## Type
 
@@ -22,6 +25,7 @@ No other hues. Mixes of these four (`color-mix`) are allowed for muted text and 
 ## Shape and depth
 
 - Cards and media: 2px espresso borders, generous radius (`--radius-2xl` / `--radius-3xl`).
+- Large fills are reserved: content sits on cream variations; full ink blocks appear only in the Index menu and dark mode.
 - Shadows are warm, offset and blurred (`--shadow-xl`); no glows, no glass, no gradients, no gradient text.
 - Buttons are pills: primary = espresso fill / cream text, outline = 2px espresso.
 

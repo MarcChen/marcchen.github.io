@@ -116,7 +116,8 @@ export default function RideScene({ kmLabel, altLabel, title }: RideSceneProps) 
       const curve = new THREE.CatmullRomCurve3(pts);
       const routeMat = new THREE.MeshBasicMaterial();
       scene.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 360, 0.1, 8, false), routeMat));
-      const rider = new THREE.Mesh(new THREE.SphereGeometry(0.42, 20, 14), routeMat);
+      const riderMat = new THREE.MeshBasicMaterial();
+      const rider = new THREE.Mesh(new THREE.SphereGeometry(0.42, 20, 14), riderMat);
       scene.add(rider);
       const ringMat = new THREE.MeshBasicMaterial({ transparent: true, side: THREE.DoubleSide });
       const ring = new THREE.Mesh(new THREE.RingGeometry(0.48, 0.6, 40), ringMat);
@@ -133,22 +134,25 @@ export default function RideScene({ kmLabel, altLabel, title }: RideSceneProps) 
       const paint = () => {
         const cs = getComputedStyle(document.documentElement);
         const v = (n: string, d: string) => cs.getPropertyValue(n).trim() || d;
-        const cream = new THREE.Color(v("--cream", "#FAF3E6"));
-        const oat = new THREE.Color(v("--oat", "#EDE3D1"));
-        const taupe = new THREE.Color(v("--taupe", "#B09A7C"));
-        const esp = new THREE.Color(v("--espresso", "#4A3324"));
+        const cream = new THREE.Color(v("--cream", "#FAF5EC"));
+        const sand = new THREE.Color(v("--sand", "#E7DBC5"));
+        const oat = new THREE.Color(v("--oat", "#F1E8D8"));
+        const taupe = new THREE.Color(v("--taupe", "#E4572E"));
+        const esp = new THREE.Color(v("--espresso", "#15213B"));
         const metaScheme = document.querySelector('meta[name="color-scheme"]')?.getAttribute("content");
         const dark = metaScheme === "dark" ||
           (metaScheme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
         const ground = dark ? esp.clone() : oat.clone();
         (scene.fog as import("three").Fog).color.copy(ground);
-        terrainMat.color.copy(dark ? esp.clone().lerp(taupe, 0.25) : oat.clone().lerp(taupe, 0.35));
+        // Surfaces stay in the cream/sand family; the accent only marks the rider.
+        terrainMat.color.copy(dark ? esp.clone().lerp(sand, 0.18) : sand.clone().lerp(esp, 0.06));
         wireMat.color.copy(dark ? cream : esp);
         wireMat.opacity = dark ? 0.12 : 0.1;
-        peakMat.color.copy(dark ? esp.clone().lerp(taupe, 0.45) : taupe.clone().lerp(oat, 0.2));
+        peakMat.color.copy(dark ? esp.clone().lerp(sand, 0.4) : sand.clone().lerp(esp, 0.18));
         capMat.color.copy(cream);
         routeMat.color.copy(dark ? cream : esp);
-        ringMat.color.copy(dark ? cream : esp);
+        ringMat.color.copy(taupe);
+        riderMat.color.copy(taupe);
         hemi.groundColor.copy(esp);
         host.style.setProperty("--scene-ground", `#${ground.getHexString()}`);
       };
@@ -225,7 +229,7 @@ export default function RideScene({ kmLabel, altLabel, title }: RideSceneProps) 
           const m = o as import("three").Mesh;
           m.geometry?.dispose?.();
         });
-        [terrainMat, wireMat, peakMat, capMat, routeMat, ringMat].forEach((m) => m.dispose());
+        [terrainMat, wireMat, peakMat, capMat, routeMat, ringMat, riderMat].forEach((m) => m.dispose());
         renderer.dispose();
         renderer.domElement.remove();
       };

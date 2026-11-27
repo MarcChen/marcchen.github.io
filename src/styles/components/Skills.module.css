@@ -1,4 +1,4 @@
-/* Skills — periodic table of tools. Fill 0 = paper, 1 = ink, 2 = taupe. */
+/* Skills — periodic table of tools. Fill 0 = cream, 1 = sand, 2 = oat with accent symbol. */
 
 .filters {
   display: flex;
@@ -72,6 +72,8 @@
   transition: transform 0.35s var(--ease-out), opacity 0.35s, box-shadow 0.35s;
 }
 
+/* Category fills stay in the cream family; ink is always navy/espresso.
+   Category 2 is marked by an accent-coloured symbol. */
 [data-fill="0"].tile,
 .key[data-fill="0"] {
   background: var(--cream);
@@ -80,14 +82,22 @@
 
 [data-fill="1"].tile,
 .key[data-fill="1"] {
-  background: var(--espresso);
-  color: var(--cream);
+  background: var(--sand);
+  color: var(--espresso);
 }
 
 [data-fill="2"].tile,
 .key[data-fill="2"] {
-  background: var(--taupe);
+  background: var(--oat);
   color: var(--espresso);
+}
+
+.key[data-fill="2"] {
+  border-color: var(--taupe);
+}
+
+[data-fill="2"].tile .sym {
+  color: var(--taupe);
 }
 
 .tile:hover,

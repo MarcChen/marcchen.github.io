@@ -326,8 +326,9 @@
   background: linear-gradient(90deg, #FAF3E6 0 50%, #4A3324 50%);
 }
 
+
 .swatch[data-swatch="brick"] {
-  background: linear-gradient(90deg, #ECE2D0 0 33%, #15213B 33% 66%, #E4572E 66%);
+  background: linear-gradient(90deg, #FAF5EC 0 33%, #15213B 33% 66%, #E4572E 66%);
 }
 
 .iconToggle {

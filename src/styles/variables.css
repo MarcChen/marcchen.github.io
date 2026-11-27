@@ -1,25 +1,31 @@
 /* ================================================================
    Design Tokens — Marc Chen brand
-   Palette pinned by Marc: Cream #FAF3E6 · Oat #EDE3D1 · Taupe #B09A7C ·
-   Espresso #4A3324. No other hues: every colour below is one of these
-   four or a mix of them. Taupe never carries body text (contrast).
+   Default palette "Brick & Sand" (chosen by Marc, Nov 2026):
+   navy ink on variations of cream, brick red only as a small accent.
+   Alternative palette "Espresso" (cream/oat/taupe/espresso) via
+   <html data-palette="espresso">, switchable from the Index menu.
+   Role names are shared by both palettes:
+     --cream  page ground        --oat    alternate surface
+     --sand   deeper surface     --taupe  accent (brick / taupe)
+     --espresso ink (navy / espresso)
    ================================================================ */
 
 :root {
-  /* ─── Raw palette ─── */
-  --cream: #FAF3E6;
-  --oat: #EDE3D1;
-  --taupe: #B09A7C;
-  --espresso: #4A3324;
-  --espresso-deep: color-mix(in oklab, #4A3324 62%, black);
+  /* ─── Raw palette (Brick & Sand) ─── */
+  --cream: #FAF5EC;
+  --oat: #F1E8D8;
+  --sand: #E7DBC5;
+  --taupe: #E4572E;
+  --espresso: #15213B;
+  --espresso-deep: #0C1426;
 
   /* ─── Brand accents (HSL triplets, used as hsl(var(--accent))) ─── */
-  --accent: 25 35% 22%;            /* Espresso */
-  --accent-hover: 25 35% 30%;
-  --accent-glow: 25 35% 22% / 0;   /* glow retired */
-  --accent-secondary: 35 25% 59%;  /* Taupe */
-  --accent-secondary-hover: 35 25% 52%;
-  --on-accent: #FAF3E6;
+  --accent: 222 46% 16%;           /* Navy ink */
+  --accent-hover: 222 40% 24%;
+  --accent-glow: 222 46% 16% / 0;  /* glow retired */
+  --accent-secondary: 14 77% 54%;  /* Brick */
+  --accent-secondary-hover: 14 77% 48%;
+  --on-accent: #FAF5EC;
 
   /* ─── Gradients retired: solid fills keep old references working ─── */
   --gradient-primary: linear-gradient(hsl(var(--accent)), hsl(var(--accent)));
@@ -173,45 +179,47 @@
   --dot-opacity: 0.12;
 }
 
-/* Dark scheme: accent flips to cream so fills and text stay readable. */
+/* Dark scheme: ink becomes the ground; accent flips to sand. */
 @media (prefers-color-scheme: dark) {
   :root:not(:has(> head > meta[name="color-scheme"][content="light"])) {
-    --accent: 39 71% 94%;
-    --accent-hover: 39 42% 87%;
-    --on-accent: #4A3324;
-  }
-}
-:root:has(> head > meta[name="color-scheme"][content="dark"]) {
-  --accent: 39 71% 94%;
-  --accent-hover: 39 42% 87%;
-  --on-accent: #4A3324;
-}
-
-/* ================================================================
-   Test palette "Brick & Sand" (toggle in the Index menu):
-   sand #ECE2D0 · navy #15213B · brick #E4572E. Same roles as above:
-   cream→sand ground, oat→deeper sand, taupe→brick accent, espresso→navy ink.
-   ================================================================ */
-:root[data-palette="brick"] {
-  --cream: #ECE2D0;
-  --oat: #E1D3BA;
-  --taupe: #E4572E;
-  --espresso: #15213B;
-  --espresso-deep: #0C1426;
-  --accent: 222 46% 16%;
-  --accent-hover: 222 40% 24%;
-  --on-accent: #ECE2D0;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root[data-palette="brick"]:not(:has(> head > meta[name="color-scheme"][content="light"])) {
     --accent: 37 41% 87%;
     --accent-hover: 37 35% 80%;
     --on-accent: #15213B;
   }
 }
-:root[data-palette="brick"]:has(> head > meta[name="color-scheme"][content="dark"]) {
+:root:has(> head > meta[name="color-scheme"][content="dark"]) {
   --accent: 37 41% 87%;
   --accent-hover: 37 35% 80%;
   --on-accent: #15213B;
+}
+
+/* ================================================================
+   Alternative palette "Espresso": cream #FAF3E6 · oat #EDE3D1 ·
+   taupe #B09A7C · espresso #4A3324.
+   ================================================================ */
+:root[data-palette="espresso"] {
+  --cream: #FAF3E6;
+  --oat: #EDE3D1;
+  --sand: #E3D6BF;
+  --taupe: #B09A7C;
+  --espresso: #4A3324;
+  --espresso-deep: #2E2016;
+  --accent: 25 35% 22%;
+  --accent-hover: 25 35% 30%;
+  --accent-secondary: 35 25% 59%;
+  --accent-secondary-hover: 35 25% 52%;
+  --on-accent: #FAF3E6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-palette="espresso"]:not(:has(> head > meta[name="color-scheme"][content="light"])) {
+    --accent: 39 71% 94%;
+    --accent-hover: 39 42% 87%;
+    --on-accent: #4A3324;
+  }
+}
+:root[data-palette="espresso"]:has(> head > meta[name="color-scheme"][content="dark"]) {
+  --accent: 39 71% 94%;
+  --accent-hover: 39 42% 87%;
+  --on-accent: #4A3324;
 }
