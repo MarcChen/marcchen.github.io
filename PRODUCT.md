@@ -34,7 +34,7 @@ Static Next.js site exported to GitHub Pages. Three locales: English, French, Si
 
 ## Brand Commitments
 
-Name: Marc Chen. Rejected by Marc: résumé-like layouts (sidebar CV, timeline-as-hero, certification walls) and anything that reads as AI-generated. Minimalism is welcome. No logo or established visual identity worth preserving; the current violet-gradient glassmorphism look is explicitly rejected as AI-generated.
+Name: Marc Chen. Rejected by Marc: résumé-like layouts (sidebar CV, timeline-as-hero, certification walls) and anything that reads as AI-generated. Minimalism is welcome. Palette pinned by Marc (Nov 2026): Cream #FAF3E6, Oat #EDE3D1, Taupe #B09A7C, Espresso #4A3324, no other hues. Marc wants an uncommon UX (not a standard scrolling one-pager): professional work first, personal life alongside as part of the same professional brand. Motion and 3D (three.js) are welcome. No logo or established visual identity worth preserving; the current violet-gradient glassmorphism look is explicitly rejected as AI-generated.
 
 ## Evidence on Hand
 
