@@ -50,12 +50,12 @@ export default function Experiences({ locale, data, alternate }: ExperiencesProp
     if (e.pointerType !== "mouse") return;
     window.clearTimeout(leaveTimer.current);
     window.clearTimeout(enterTimer.current);
-    enterTimer.current = window.setTimeout(() => setHovered(key), 140);
+    enterTimer.current = window.setTimeout(() => setHovered(key), 220);
   };
   const onLeave = (e: React.PointerEvent) => {
     if (e.pointerType !== "mouse") return;
     window.clearTimeout(enterTimer.current);
-    leaveTimer.current = window.setTimeout(() => setHovered(null), 180);
+    leaveTimer.current = window.setTimeout(() => setHovered(null), 260);
   };
 
   const end = (e?: string) => (!e || /^(now|present)$/i.test(e.trim()) ? t(locale, "present") : e);
@@ -107,7 +107,11 @@ export default function Experiences({ locale, data, alternate }: ExperiencesProp
                       {company.overview && <p className={styles.overview}>{company.overview}</p>}
                       <ul className={styles.points}>
                         {pos.responsibilities.map((r, i) => (
-                          <li key={i} dangerouslySetInnerHTML={{ __html: inlineMarkdown(r) }} />
+                          <li
+                            key={i}
+                            style={{ ["--i" as string]: i + 1 }}
+                            dangerouslySetInnerHTML={{ __html: inlineMarkdown(r) }}
+                          />
                         ))}
                       </ul>
                       {company.url && (

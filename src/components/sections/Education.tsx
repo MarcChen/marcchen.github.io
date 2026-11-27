@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FileText } from "lucide-react";
+import { ArrowUpRight, FileText } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import type { EducationSection } from "@/lib/types";
@@ -17,17 +17,22 @@ interface EducationProps {
 
 const fileHref = (url: string) => (url.startsWith("http") ? url : assetPath(url));
 
-/** Each graded school as a transcript sheet: grade as the headline, PDF one
- *  click away, courses and activities in a drawer. Ungraded schools follow as a line. */
+/** Every school as a transcript sheet: grade as the headline (when there is
+ *  one), the school's website, the PDF, and courses/activities in a drawer. */
 export default function Education({ locale, data, alternate }: EducationProps) {
-  const graded = data.degrees.filter((d) => d.grade);
-  const others = data.degrees.filter((d) => !d.grade);
+  const hostOf = (url: string) => {
+    try {
+      return new URL(url).hostname.replace(/^www\./, "");
+    } catch {
+      return url;
+    }
+  };
 
   return (
     <SectionWrapper id={data.section.id} alternate={alternate}>
       <AnimatedHeading title={data.section.name} />
       <div className={styles.sheets}>
-        {graded.map((d) => {
+        {data.degrees.map((d) => {
           const courses = d.takenCourses?.courses ?? [];
           const extras = d.extracurricularActivities ?? [];
           return (
@@ -57,6 +62,18 @@ export default function Education({ locale, data, alternate }: EducationProps) {
                   <span>/ {d.grade.outOf}</span>
                   <em>{d.grade.scale}</em>
                 </div>
+              )}
+
+              {d.institution.url && (
+                <a
+                  href={d.institution.url}
+                  className={styles.site}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {hostOf(d.institution.url)}
+                  <ArrowUpRight size={14} aria-hidden="true" />
+                </a>
               )}
 
               {d.gradesReport && (
@@ -109,17 +126,6 @@ export default function Education({ locale, data, alternate }: EducationProps) {
         })}
       </div>
 
-      {others.length > 0 && (
-        <ul className={styles.others}>
-          {others.map((d) => (
-            <li key={d.institution.name + d.name}>
-              <span className={styles.year}>{d.timeframe}</span>
-              <b>{d.institution.name}</b>
-              <span>{d.name}</span>
-            </li>
-          ))}
-        </ul>
-      )}
     </SectionWrapper>
   );
 }
