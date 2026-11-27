@@ -2,17 +2,15 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "@/components/ui/Icons";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import type { ProjectsSection } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
-import { cloudinaryUrl } from "@/lib/cloudinary";
-import { assetPath } from "@/lib/paths";
 import { t } from "@/lib/i18n";
-import filterStyles from "@/styles/components/Skills.module.css";
+import { assetPath } from "@/lib/paths";
+import { cloudinaryUrl } from "@/lib/cloudinary";
 import styles from "@/styles/components/Projects.module.css";
 
 interface ProjectsProps {
@@ -21,253 +19,115 @@ interface ProjectsProps {
   alternate?: boolean;
 }
 
+const KIND_TAGS = new Set(["hobby", "academic", "professional"]);
 const isInternal = (url?: string) => !!url && url.startsWith("/");
-const projectHref = (url: string) => (isInternal(url) ? assetPath(url) : url);
+const href = (url: string) => (isInternal(url) ? assetPath(url) : url);
+const imgSrc = (src: string) => (src.startsWith("http") ? src : assetPath(src));
+const yearOf = (timeline: string) => timeline.match(/(\d{4})(?!.*\d{4})/)?.[1] ?? timeline;
 
+/** Side projects as an index. Hovering or focusing a line opens it in place:
+ *  the picture slides in inside the row and the summary appears. */
 export default function Projects({ locale, data, alternate }: ProjectsProps) {
-  const [activeFilter, setActiveFilter] = useState("all");
-
-  const filtered =
-    activeFilter === "all"
-      ? data.projects
-      : data.projects.filter((p) => p.tags.includes(activeFilter));
-
-  const featuredProject = filtered.length > 0 ? filtered[0] : null;
-  const standardProjects = filtered.length > 1 ? filtered.slice(1) : [];
+  const [filter, setFilter] = useState("all");
+  const list = data.projects.filter((p) => filter === "all" || p.tags.includes(filter));
 
   return (
     <SectionWrapper id={data.section.id} alternate={alternate}>
-      <div className={styles.sectionHeader}>
-        <AnimatedHeading title={data.section.name} />
+      <AnimatedHeading title={data.section.name} />
+
+      <div className={styles.filters} role="group" aria-label={data.section.name}>
+        {data.buttons.map((btn) => (
+          <button
+            key={btn.filter}
+            type="button"
+            aria-pressed={filter === btn.filter}
+            onClick={() => setFilter(btn.filter)}
+          >
+            {btn.name}
+          </button>
+        ))}
       </div>
 
-      <div className={filterStyles.filterContainer}>
-        <div className={filterStyles.filterTrack}>
-          {data.buttons.map((btn) => (
-            <button
-              key={btn.filter}
-              type="button"
-              aria-pressed={activeFilter === btn.filter}
-              className={`${filterStyles.filterBtn} ${activeFilter === btn.filter ? filterStyles.active : ""}`}
-              onClick={() => setActiveFilter(btn.filter)}
-            >
-              {activeFilter === btn.filter && (
-                <motion.div 
-                  layoutId="projectsFilter" 
-                  className={filterStyles.activeFilterBg} 
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                />
-              )}
-              <span className={filterStyles.filterText}>{btn.name}</span>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className={styles.projectsContainer}>
-        <AnimatePresence mode="popLayout">
-          {filtered.length > 0 ? (
-            <motion.div layout className={styles.projectsLayout}>
-              
-              {/* Featured Project Spotlight */}
-              {featuredProject && (
-                <motion.div
-                  key={`feat-${featuredProject.name}`}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4 }}
-                  className={styles.featuredCard}
-                >
-                  <div className={styles.featuredContent}>
-                    <div className={styles.featuredHeader}>
-                      {featuredProject.logo && (
-                        <div className={styles.featuredLogoWrapper}>
-                          <Image
-                            src={cloudinaryUrl(featuredProject.logo)}
-                            alt={featuredProject.name}
-                            width={48}
-                            height={48}
-                            className={styles.featuredLogo}
-                          />
-                        </div>
-                      )}
-                      <div>
-                        <span className={styles.featuredBadge}>{t(locale, "featured_project")}</span>
-                        <h3 className={styles.featuredTitle}>{featuredProject.name}</h3>
-                      </div>
-                    </div>
-                    
-                    <p className={styles.featuredSummary}>{featuredProject.summary}</p>
-                    
-                    <div className={styles.featuredMeta}>
-                       <span className={styles.metaLabel}>{t(locale, "role_label")}</span>
-                       <span className={styles.metaValue}>{featuredProject.role}</span>
-                       <span className={styles.metaDivider}>•</span>
-                       <span className={styles.metaValue}>{featuredProject.timeline}</span>
-                    </div>
-
-                    <div className={styles.featuredTags}>
-                      {featuredProject.tags.map((tag) => (
-                        <span key={tag} className={styles.featuredTag}>
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className={styles.featuredActions}>
-                      {featuredProject.url && (
-                        <a
-                          href={projectHref(featuredProject.url)}
-                          className="btn btn-primary"
-                          {...(isInternal(featuredProject.url) ? {} : { target: "_blank", rel: "noopener noreferrer" })}
-                        >
-                          <ArrowUpRight size={16} aria-hidden="true" />
-                          {isInternal(featuredProject.url) ? t(locale, "read_more") : t(locale, "live_preview")}
-                        </a>
-                      )}
-                      {featuredProject.repo && (
-                        <a href={featuredProject.repo} className="btn btn-outline" target="_blank" rel="noopener noreferrer">
-                          <GithubIcon size={16} aria-hidden="true" />
-                          {t(locale, "source_code")}
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                  
-                  {/* Visual / Image for the featured project */}
-                  <div className={styles.featuredVisual}>
-                    {featuredProject.image ? (
-                      <div className={styles.imageContainer}>
-                        <Image
-                          src={featuredProject.image.startsWith("http") ? featuredProject.image : assetPath(featuredProject.image)}
-                          alt={featuredProject.name}
-                          fill
-                          loading="lazy"
-                          className={styles.projectImage}
-                          unoptimized
-                        />
-                        <div className={styles.imageOverlay} />
-                      </div>
+      {list.length === 0 ? (
+        <p className={styles.empty}>{t(locale, "no_projects")}</p>
+      ) : (
+        <ul className={styles.index}>
+          {list.map((p) => {
+            const picture = p.image ?? p.logo;
+            const tags = p.tags.filter((tag) => !KIND_TAGS.has(tag)).slice(0, 3);
+            return (
+              <li key={p.name} className={`${styles.item} ${p.url ? styles.linked : ""}`}>
+                <span className={styles.year}>{yearOf(p.timeline)}</span>
+                <div className={styles.main}>
+                  <h3 className={styles.name}>
+                    {p.url ? (
+                      <a
+                        href={href(p.url)}
+                        className={styles.stretched}
+                        {...(isInternal(p.url) ? {} : { target: "_blank", rel: "noopener noreferrer" })}
+                      >
+                        {p.name}
+                      </a>
                     ) : (
-                      <>
-                        <div className={styles.visualCircles}>
-                          <div className={styles.circle1} />
-                          <div className={styles.circle2} />
-                          <div className={styles.circle3} />
-                        </div>
-                        <div className={styles.visualGrid} />
-                      </>
+                      p.name
                     )}
+                  </h3>
+                  <div className={styles.more}>
+                    <div>
+                      <p className={styles.summary}>
+                        {p.summary.replace(/\*\*/g, "")}
+                      </p>
+                      <p className={styles.meta}>
+                        {p.role} · {p.timeline}
+                        {p.url && isInternal(p.url) && <> · {t(locale, "read_post")}</>}
+                      </p>
+                    </div>
                   </div>
-                </motion.div>
-              )}
-
-              {/* Standard Masonry Grid */}
-              {standardProjects.length > 0 && (
-                <div className={styles.standardGrid}>
-                  {standardProjects.map((project, idx) => (
-                    <motion.div
-                      key={`std-${project.name}`}
-                      layout
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, scale: 0.9 }}
-                      transition={{ duration: 0.3, delay: idx * 0.05 }}
-                      className={`${styles.standardCard} ${project.url ? styles.linked : ""}`}
-                    >
-                      {project.image && (
-                        <div className={styles.standardThumb}>
-                          <Image
-                            src={project.image.startsWith("http") ? project.image : assetPath(project.image)}
-                            alt=""
-                            fill
-                            sizes="(max-width: 768px) 100vw, 33vw"
-                            loading="lazy"
-                            unoptimized
-                          />
-                        </div>
-                      )}
-                      <div className={styles.standardHeader}>
-                        <div className={styles.standardTitleGroup}>
-                          {project.logo && (
-                            <Image
-                              src={cloudinaryUrl(project.logo)}
-                              alt={project.name}
-                              width={32}
-                              height={32}
-                              className={styles.standardLogo}
-                            />
-                          )}
-                          <h4 className={styles.standardTitle}>
-                            {project.url ? (
-                              <a
-                                href={projectHref(project.url)}
-                                className={styles.stretched}
-                                {...(isInternal(project.url) ? {} : { target: "_blank", rel: "noopener noreferrer" })}
-                              >
-                                {project.name}
-                              </a>
-                            ) : (
-                              project.name
-                            )}
-                          </h4>
-                        </div>
-                        <div className={styles.standardLinks}>
-                          {project.repo && (
-                            <a
-                              href={project.repo}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className={styles.iconLink}
-                              aria-label={`${t(locale, "source_code")}: ${project.name}`}
-                            >
-                              <GithubIcon size={18} aria-hidden="true" />
-                            </a>
-                          )}
-                          {project.url && (
-                            <ArrowUpRight className={styles.cardArrow} size={18} aria-hidden="true" />
-                          )}
-                        </div>
-                      </div>
-
-                      <p className={styles.standardSummary}>{project.summary}</p>
-
-                      <div className={styles.standardMeta}>
-                         <span>{project.role}</span>
-                         <span>•</span>
-                         <span>{project.timeline}</span>
-                      </div>
-
-                      <div className={styles.standardTags}>
-                        {project.tags.slice(0, 3).map((tag) => (
-                          <span key={tag} className="tag tag-secondary">
-                            {tag}
-                          </span>
-                        ))}
-                        {project.tags.length > 3 && (
-                           <span className={styles.moreTags}>+{project.tags.length - 3}</span>
-                        )}
-                      </div>
-                    </motion.div>
-                  ))}
                 </div>
-              )}
-            </motion.div>
-          ) : (
-            <motion.div 
-              key="empty" 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
-              exit={{ opacity: 0 }}
-              className={styles.emptyState}
-            >
-              <p>{t(locale, "no_projects")}</p>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+                <span className={styles.tags}>
+                  {tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </span>
+                <span className={styles.thumb} aria-hidden="true">
+                  {picture ? (
+                    <Image
+                      src={p.image ? imgSrc(picture) : cloudinaryUrl(picture)}
+                      alt=""
+                      fill
+                      sizes="220px"
+                      loading="lazy"
+                      unoptimized
+                    />
+                  ) : (
+                    <span className={styles.mono}>
+                      {p.name
+                        .split(/\s+/)
+                        .map((w) => w[0])
+                        .join("")
+                        .slice(0, 3)}
+                    </span>
+                  )}
+                </span>
+                <span className={styles.end}>
+                  {p.repo && (
+                    <a
+                      href={p.repo}
+                      className={styles.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${t(locale, "source_code")}: ${p.name}`}
+                    >
+                      <GithubIcon size={18} aria-hidden="true" />
+                    </a>
+                  )}
+                  {p.url && <ArrowUpRight className={styles.arrow} size={20} aria-hidden="true" />}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </SectionWrapper>
   );
 }

@@ -186,3 +186,32 @@
   --accent-hover: 39 42% 87%;
   --on-accent: #4A3324;
 }
+
+/* ================================================================
+   Test palette "Brick & Sand" (toggle in the Index menu):
+   sand #ECE2D0 · navy #15213B · brick #E4572E. Same roles as above:
+   cream→sand ground, oat→deeper sand, taupe→brick accent, espresso→navy ink.
+   ================================================================ */
+:root[data-palette="brick"] {
+  --cream: #ECE2D0;
+  --oat: #E1D3BA;
+  --taupe: #E4572E;
+  --espresso: #15213B;
+  --espresso-deep: #0C1426;
+  --accent: 222 46% 16%;
+  --accent-hover: 222 40% 24%;
+  --on-accent: #ECE2D0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-palette="brick"]:not(:has(> head > meta[name="color-scheme"][content="light"])) {
+    --accent: 37 41% 87%;
+    --accent-hover: 37 35% 80%;
+    --on-accent: #15213B;
+  }
+}
+:root[data-palette="brick"]:has(> head > meta[name="color-scheme"][content="dark"]) {
+  --accent: 37 41% 87%;
+  --accent-hover: 37 35% 80%;
+  --on-accent: #15213B;
+}

@@ -18,7 +18,7 @@ export default function LocaleShell({ locale, children }: LocaleShellProps) {
       <a href="#main-content" className="skip-link visually-hidden">
         {t(locale, "skip_to_content")}
       </a>
-      <Navbar locale={locale} sections={sections} siteName={author.name} />
+      <Navbar locale={locale} sections={sections} siteName={author.name} author={author} />
       <SocialSidebar author={author} locale={locale} />
       <main id="main-content" tabIndex={-1}>
         {children}

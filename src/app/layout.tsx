@@ -53,7 +53,7 @@ export default function RootLayout({
         {/* Synchronous inline FOUC prevention immediately after meta[name="color-scheme"] */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var s=localStorage.getItem("color-scheme");if(!s){var l=localStorage.getItem("theme-scheme");if(l==="light"||l==="dark"){s=l;localStorage.setItem("color-scheme",s);}}if(s==="light"||s==="dark"){var m=document.querySelector('meta[name="color-scheme"]');if(m)m.content=s;}}catch(e){}var bp=${JSON.stringify(basePath)};var p=location.pathname;if(bp&&p.indexOf(bp)===0)p=p.slice(bp.length)||"/";if(/^\\/fr(\\/|$)/.test(p))document.documentElement.lang="fr";else if(/^\\/zh-cn(\\/|$)/.test(p))document.documentElement.lang="zh-CN";})();`,
+            __html: `(function(){try{var s=localStorage.getItem("color-scheme");if(!s){var l=localStorage.getItem("theme-scheme");if(l==="light"||l==="dark"){s=l;localStorage.setItem("color-scheme",s);}}if(s==="light"||s==="dark"){var m=document.querySelector('meta[name="color-scheme"]');if(m)m.content=s;}if(localStorage.getItem("palette")==="brick")document.documentElement.dataset.palette="brick";}catch(e){}var bp=${JSON.stringify(basePath)};var p=location.pathname;if(bp&&p.indexOf(bp)===0)p=p.slice(bp.length)||"/";if(/^\\/fr(\\/|$)/.test(p))document.documentElement.lang="fr";else if(/^\\/zh-cn(\\/|$)/.test(p))document.documentElement.lang="zh-CN";})();`,
           }}
         />
       </head>

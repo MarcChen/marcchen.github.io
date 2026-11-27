@@ -1,90 +1,104 @@
-.list {
+.seals {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: var(--space-8) var(--space-5);
 }
 
-.item {
-  min-width: 0;
-}
-
-.card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  height: 100%;
-  padding: var(--space-5);
-  border: 2px solid var(--text-heading);
-  border-radius: var(--radius-2xl);
-  background: var(--bg-card);
-  color: var(--text-heading);
+.seal {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  text-align: center;
   text-decoration: none;
-  transition: transform var(--duration-normal) var(--ease-out), background-color var(--duration-normal) var(--ease-default), box-shadow var(--duration-normal) var(--ease-default);
-}
-
-.card:hover {
-  transform: translateY(-4px) rotate(-0.6deg);
-  background: var(--bg-card-hover);
-  box-shadow: var(--shadow-xl);
   color: var(--text-heading);
 }
 
-.badge {
-  width: 88px;
-  height: 88px;
+.seal:hover {
+  color: var(--text-heading);
+}
+
+.disc {
+  position: relative;
+  width: min(176px, 100%);
+  aspect-ratio: 1;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 1.2s var(--ease-out);
+}
+
+.outer {
+  fill: none;
+  stroke: var(--text-heading);
+  stroke-width: 2;
+}
+
+.inner {
+  fill: none;
+  stroke: var(--taupe);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 4;
+}
+
+.ringText {
+  fill: var(--text-heading);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.core {
+  position: absolute;
+  inset: 21%;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 2px solid var(--text-heading);
   display: grid;
   place-items: center;
-  border-radius: 50%;
-  background: var(--oat);
-  border: 1.5px solid var(--border-color-strong);
   overflow: hidden;
+  transition: transform 0.5s var(--ease-out);
 }
 
-.badge img {
-  width: 78%;
-  height: 78%;
+.core img {
+  width: 86%;
+  height: 86%;
   object-fit: contain;
+}
+
+.seal:hover .ring,
+.seal:focus-visible .ring {
+  transform: rotate(120deg);
+}
+
+.seal:hover .core {
+  transform: scale(1.06) rotate(-6deg);
 }
 
 .name {
   font-weight: 800;
-  font-size: var(--text-base);
-  line-height: 1.25;
-  padding-right: var(--space-6);
-}
-
-.arrow {
-  position: absolute;
-  top: var(--space-4);
-  right: var(--space-4);
-  transition: transform var(--duration-normal) var(--ease-out);
-}
-
-.card:hover .arrow {
-  transform: translate(3px, -3px);
+  font-size: var(--text-sm);
+  line-height: 1.3;
+  max-width: 22ch;
 }
 
 @media (max-width: 640px) {
-  .list {
+  .seals {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-3);
+    gap: var(--space-6) var(--space-3);
   }
+}
 
-  .card {
-    padding: var(--space-4);
-    gap: var(--space-3);
-  }
-
-  .badge {
-    width: 60px;
-    height: 60px;
-  }
-
-  .name {
-    font-size: var(--text-sm);
+@media (prefers-reduced-motion: reduce) {
+  .ring,
+  .core {
+    transition: none;
   }
 }

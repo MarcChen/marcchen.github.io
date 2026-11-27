@@ -1,22 +1,36 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, useSyncExternalStore } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Globe, Sun, Moon } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Sun, Moon, Download } from "lucide-react";
 import type { EnabledSection } from "@/lib/data";
-import { locales, localeNames, localeFlags, localePath, defaultLocale, type Locale, t } from "@/lib/i18n";
-import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
+import type { Author } from "@/lib/types";
+import { locales, localeNames, localePath, defaultLocale, type Locale, t } from "@/lib/i18n";
+import { assetPath } from "@/lib/paths";
+import { cloudinaryUrl } from "@/lib/cloudinary";
 import styles from "@/styles/components/Navbar.module.css";
 
 interface NavbarProps {
   locale: Locale;
   sections: EnabledSection[];
   siteName: string;
+  author: Author;
 }
 
 const COLOR_SCHEME_STORAGE_KEY = "color-scheme";
+const PALETTE_STORAGE_KEY = "palette";
+type Palette = "espresso" | "brick";
+
+/** Current palette, read from <html data-palette> (set before paint in layout). */
+function subscribePalette(cb: () => void) {
+  const mo = new MutationObserver(cb);
+  mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-palette"] });
+  return () => mo.disconnect();
+}
+const paletteSnapshot = (): Palette => (document.documentElement.dataset.palette === "brick" ? "brick" : "espresso");
+const paletteServer = (): Palette => "espresso";
 
 function getSystemScheme(): "light" | "dark" {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
@@ -39,368 +53,241 @@ function setMetaColorScheme(value: "light dark" | "light" | "dark") {
   meta.content = value;
 }
 
-export default function Navbar({ locale, sections, siteName }: NavbarProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [renderedTheme, setRenderedTheme] = useState<"light" | "dark">("dark");
-  const navRef = useRef<HTMLElement>(null);
-  const langPopoverRef = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = usePrefersReducedMotion();
+/**
+ * Header: name + CV + "Index" button. The Index opens a full-screen menu with
+ * the sections in large type, contact, language, theme and palette controls.
+ */
+export default function Navbar({ locale, sections, siteName, author }: NavbarProps) {
+  const [open, setOpen] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const palette = useSyncExternalStore(subscribePalette, paletteSnapshot, paletteServer);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const pathname = usePathname();
   const homeHref = localePath(locale, "/");
-  const blogHref = localePath(locale, "/blog/");
-  const photosHref = localePath(locale, "/photos/");
   const isHomePage =
     pathname === homeHref ||
     pathname === `/${locale}` ||
     pathname === `/${locale}/` ||
     (locale === defaultLocale && pathname === "");
-
-  const isRouteActive = (segment: "/blog" | "/photos") => {
-    const candidates = [localePath(locale, segment), `/${locale}${segment}`];
-    return candidates.some(
-      (base) => pathname === base || pathname.startsWith(`${base}/`)
-    );
-  };
-
-  const navSections = useMemo(
-    () => sections.filter((s) => s.showOnNavbar),
-    [sections]
+  const navSections = sections.filter((s) => s.showOnNavbar);
+  const cvHref = assetPath(
+    locale === "zh-cn" ? "/files/MarcChen_s_Resume_CN.pdf" : "/files/MarcChen_s_Resume_ENG.pdf"
   );
 
-  // Sync <html lang> on client-side locale navigation
   useEffect(() => {
     document.documentElement.lang = locale === "zh-cn" ? "zh-CN" : locale;
   }, [locale]);
 
-  // Conditionally load Popover & CSS Anchor Positioning polyfills only when unsupported
+  // Theme state follows <meta name="color-scheme">, the OS, and other tabs.
   useEffect(() => {
-    if (!Object.hasOwn(HTMLElement.prototype, "popover")) {
-      void import("@oddbird/popover-polyfill");
-    }
-    if (!CSS.supports("anchor-name: --a")) {
-      void import("@oddbird/css-anchor-positioning");
-    }
-  }, []);
-
-  // Synchronize theme icon with <meta name="color-scheme">, OS changes, and other tabs
-  useEffect(() => {
-    const syncState = () => setRenderedTheme(getRenderedScheme());
-    syncState();
-
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    mediaQuery.addEventListener("change", syncState);
-
-    const handleStorage = (event: StorageEvent) => {
-      if (event.key !== COLOR_SCHEME_STORAGE_KEY) return;
-      const val = event.newValue;
-      setMetaColorScheme(val === "light" || val === "dark" ? val : "light dark");
-      syncState();
+    const sync = () => setTheme(getRenderedScheme());
+    sync();
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    mq.addEventListener("change", sync);
+    const onStorage = (e: StorageEvent) => {
+      if (e.key !== COLOR_SCHEME_STORAGE_KEY) return;
+      const v = e.newValue;
+      setMetaColorScheme(v === "light" || v === "dark" ? v : "light dark");
+      sync();
     };
-    window.addEventListener("storage", handleStorage);
-
+    window.addEventListener("storage", onStorage);
     return () => {
-      mediaQuery.removeEventListener("change", syncState);
-      window.removeEventListener("storage", handleStorage);
+      mq.removeEventListener("change", sync);
+      window.removeEventListener("storage", onStorage);
     };
   }, []);
 
   const toggleTheme = useCallback(() => {
-    const current = getRenderedScheme();
-    const target: "light" | "dark" = current === "dark" ? "light" : "dark";
-    const system = getSystemScheme();
-
-    if (target === system) {
-      try {
+    const target = getRenderedScheme() === "dark" ? "light" : "dark";
+    try {
+      if (target === getSystemScheme()) {
         localStorage.removeItem(COLOR_SCHEME_STORAGE_KEY);
         localStorage.removeItem("theme-scheme");
-      } catch {
-        // Ignore storage restrictions
-      }
-      setMetaColorScheme("light dark");
-    } else {
-      try {
+      } else {
         localStorage.setItem(COLOR_SCHEME_STORAGE_KEY, target);
-      } catch {
-        // Ignore storage restrictions
       }
-      setMetaColorScheme(target);
-    }
-    setRenderedTheme(target);
-  }, []);
-
-  // Compact header state on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80);
-    };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Native scroll-target-group aria-current sync + IntersectionObserver fallback
-  useEffect(() => {
-    if (!isHomePage || !navRef.current) return;
-    const navEl = navRef.current;
-    const fragmentLinks = Array.from(
-      navEl.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')
-    );
-    if (fragmentLinks.length === 0) return;
-
-    if (CSS.supports("scroll-target-group: auto")) {
-      const syncAriaCurrent = () => {
-        const currentLink = navEl.querySelector("a:target-current");
-        fragmentLinks.forEach((link) => {
-          link.setAttribute("aria-current", link === currentLink ? "true" : "false");
-        });
-      };
-      syncAriaCurrent();
-      document.addEventListener("scrollend", syncAriaCurrent, { passive: true });
-      return () => {
-        document.removeEventListener("scrollend", syncAriaCurrent);
-      };
-    }
-
-    const sectionEls = navSections
-      .map((s) => document.getElementById(s.id))
-      .filter((el): el is HTMLElement => Boolean(el));
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute("id");
-            fragmentLinks.forEach((link) => {
-              const isActive = link.getAttribute("href") === `#${id}`;
-              link.classList.toggle("target-current", isActive);
-              link.setAttribute("aria-current", isActive ? "true" : "false");
-            });
-          }
-        }
-      },
-      { rootMargin: "-50% 0px -50% 0px", threshold: 0 }
-    );
-
-    sectionEls.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, [isHomePage, navSections]);
-
-  // Close mobile menu on Escape
-  useEffect(() => {
-    if (!isMobileOpen) return;
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setIsMobileOpen(false);
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isMobileOpen]);
-
-  const closeLangPopover = () => {
-    const el = langPopoverRef.current as (HTMLDivElement & { hidePopover?: () => void }) | null;
-    try {
-      el?.hidePopover?.();
     } catch {
-      // Popover already closed
+      // storage unavailable
     }
-  };
+    setMetaColorScheme(target === getSystemScheme() ? "light dark" : target);
+    setTheme(target);
+  }, []);
+
+  const choosePalette = useCallback((p: Palette) => {
+    if (p === "brick") document.documentElement.dataset.palette = "brick";
+    else delete document.documentElement.dataset.palette;
+    try {
+      if (p === "brick") localStorage.setItem(PALETTE_STORAGE_KEY, p);
+      else localStorage.removeItem(PALETTE_STORAGE_KEY);
+    } catch {
+      // storage unavailable
+    }
+  }, []);
+
+  // Menu: lock scroll, close on Escape, return focus to the button.
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.documentElement.style.overflow;
+    document.documentElement.style.overflow = "hidden";
+    const firstLink = menuRef.current?.querySelector<HTMLAnchorElement>("a");
+    firstLink?.focus({ preventScroll: true });
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    const btn = buttonRef.current;
+    return () => {
+      document.documentElement.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+      btn?.focus({ preventScroll: true });
+    };
+  }, [open]);
+
+  const close = () => setOpen(false);
+  const sectionHref = (id: string) => (isHomePage ? `#${id}` : `${homeHref}#${id}`);
+  const items = [
+    ...navSections.map((s) => ({ key: s.id, label: s.name, href: sectionHref(s.id) })),
+    { key: "blog", label: t(locale, "blog_nav"), href: localePath(locale, "/blog/") },
+    { key: "photos", label: t(locale, "photos_nav"), href: localePath(locale, "/photos/") },
+  ];
 
   return (
     <>
-      <motion.header
-        className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}
-        initial={prefersReducedMotion ? false : { y: -100 }}
-        animate={{ y: 0 }}
-        transition={
-          prefersReducedMotion
-            ? { duration: 0 }
-            : { type: "spring", stiffness: 100, damping: 20 }
-        }
-      >
-        <div className={styles.navContainer}>
-          <div className={styles.pillContainer}>
-            <Link href={homeHref} className={styles.logo}>
-              <div className={styles.logoDot} aria-hidden="true" />
-              {siteName}
-            </Link>
-
-            {/* Desktop Links */}
-            <nav ref={navRef} className={styles.desktopNav} aria-label="Primary">
-              {navSections.map((section) =>
-                isHomePage ? (
-                  <a
-                    key={section.id}
-                    href={`#${section.id}`}
-                    className={styles.navLink}
-                  >
-                    <span className={styles.linkText}>{section.name}</span>
-                  </a>
-                ) : (
-                  <Link
-                    key={section.id}
-                    href={`${homeHref}#${section.id}`}
-                    className={styles.navLink}
-                  >
-                    <span className={styles.linkText}>{section.name}</span>
-                  </Link>
-                )
-              )}
-              <Link
-                href={blogHref}
-                className={styles.navLink}
-                aria-current={isRouteActive("/blog") ? "page" : undefined}
-              >
-                <span className={styles.linkText}>{t(locale, "blog_nav")}</span>
-              </Link>
-              <Link
-                href={photosHref}
-                className={styles.navLink}
-                aria-current={isRouteActive("/photos") ? "page" : undefined}
-              >
-                <span className={styles.linkText}>{t(locale, "photos_nav")}</span>
-              </Link>
-            </nav>
-
-            <div className={styles.actions}>
-              {/* Language Switcher (Native Popover + CSS Anchor Positioning) */}
-              <div className={styles.langContainer}>
-                <button
-                  type="button"
-                  className={`${styles.iconBtn} ${styles.langTrigger}`}
-                  aria-label={t(locale, "switch_language")}
-                  {...({ popovertarget: "lang-switcher-popover" } as Record<string, string>)}
-                >
-                  <Globe size={18} aria-hidden="true" />
-                </button>
-                <div
-                  ref={langPopoverRef}
-                  id="lang-switcher-popover"
-                  className={styles.langDropdown}
-                  {...({ popover: "auto" } as Record<string, string>)}
-                >
-                  {locales.map((loc) => (
-                    <Link
-                      key={loc}
-                      href={localePath(loc, "/")}
-                      lang={loc === "zh-cn" ? "zh-CN" : loc}
-                      className={`${styles.langOption} ${loc === locale ? styles.activeLang : ""}`}
-                      aria-current={loc === locale ? "true" : undefined}
-                      onClick={closeLangPopover}
-                    >
-                      <span className={styles.flag} aria-hidden="true">{localeFlags[loc]}</span>
-                      {localeNames[loc]}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              {/* Theme Toggle */}
-              <button
-                type="button"
-                className={styles.iconBtn}
-                onClick={toggleTheme}
-                aria-label={t(locale, "toggle_theme")}
-              >
-                {renderedTheme === "light" ? (
-                  <Moon size={18} aria-hidden="true" />
-                ) : (
-                  <Sun size={18} aria-hidden="true" />
-                )}
-              </button>
-
-              {/* Mobile Toggle */}
-              <button
-                type="button"
-                className={styles.mobileToggle}
-                onClick={() => setIsMobileOpen((prev) => !prev)}
-                aria-label={t(locale, "toggle_menu")}
-                aria-expanded={isMobileOpen}
-                aria-controls="mobile-nav-menu"
-              >
-                {isMobileOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
-              </button>
-            </div>
+      <header className={`${styles.bar} ${open ? styles.isOpen : ""}`}>
+        <div className={`container ${styles.row}`}>
+          <Link href={homeHref} className={styles.name} onClick={close}>
+            {siteName}
+          </Link>
+          <div className={styles.right}>
+            <a href={cvHref} className={styles.cv} target="_blank" rel="noopener noreferrer">
+              <Download size={15} aria-hidden="true" />
+              <span>CV</span>
+            </a>
+            <button
+              ref={buttonRef}
+              type="button"
+              className={styles.menuBtn}
+              aria-expanded={open}
+              aria-controls="site-index"
+              onClick={() => setOpen((o) => !o)}
+            >
+              <span className={styles.burger} aria-hidden="true">
+                <i />
+                <i />
+              </span>
+              <span>{open ? t(locale, "index_close") : t(locale, "index_open")}</span>
+            </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileOpen && (
-          <motion.div
-            id="mobile-nav-menu"
-            className={styles.mobileMenu}
-            initial={prefersReducedMotion ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={prefersReducedMotion ? undefined : { opacity: 0 }}
-            transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.25 }}
-            onClick={(e) => {
-              if (e.target === e.currentTarget) setIsMobileOpen(false);
-            }}
-          >
-            <motion.nav
-              aria-label="Mobile"
-              className={styles.mobileMenuInner}
-              initial={prefersReducedMotion ? false : { y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={prefersReducedMotion ? { duration: 0 } : { delay: 0.08 }}
-            >
-              {navSections.map((section) =>
-                isHomePage ? (
-                  <a
-                    key={section.id}
-                    href={`#${section.id}`}
-                    className={styles.mobileNavLink}
-                    onClick={() => setIsMobileOpen(false)}
-                  >
-                    {section.name}
-                  </a>
-                ) : (
-                  <Link
-                    key={section.id}
-                    href={`${homeHref}#${section.id}`}
-                    className={styles.mobileNavLink}
-                    onClick={() => setIsMobileOpen(false)}
-                  >
-                    {section.name}
-                  </Link>
-                )
-              )}
-              <Link
-                href={blogHref}
-                className={styles.mobileNavLink}
-                onClick={() => setIsMobileOpen(false)}
+      <div
+        id="site-index"
+        ref={menuRef}
+        className={`${styles.overlay} ${open ? styles.overlayOpen : ""}`}
+        aria-hidden={!open}
+        inert={!open}
+      >
+        <nav className={styles.list} aria-label="Index">
+          <ol>
+            {items.map((item, i) => (
+              <li key={item.key} style={{ ["--i" as string]: i }}>
+                <Link href={item.href} onClick={close}>
+                  <span className={styles.num}>{String(i + 1).padStart(2, "0")}</span>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </nav>
+
+        <aside className={styles.aside}>
+          <Image
+            src={cloudinaryUrl("/images/author/marc.png")}
+            alt={siteName}
+            width={112}
+            height={112}
+            className={styles.avatar}
+          />
+          <p className={styles.who}>
+            {t(locale, "hero_role")}
+            {author.contactInfo.email && (
+              <>
+                <br />
+                <a href={`mailto:${author.contactInfo.email}`}>{author.contactInfo.email}</a>
+              </>
+            )}
+          </p>
+          <div className={styles.ctaRow}>
+            <a href="https://cal.com/marc-chen" className={styles.pillLight} target="_blank" rel="noopener noreferrer">
+              {t(locale, "book_a_call")}
+            </a>
+            {author.contactInfo.linkedin && (
+              <a
+                href={`https://www.linkedin.com/in/${author.contactInfo.linkedin}`}
+                className={styles.pill}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {t(locale, "blog_nav")}
-              </Link>
-              <Link
-                href={photosHref}
-                className={styles.mobileNavLink}
-                onClick={() => setIsMobileOpen(false)}
+                LinkedIn
+              </a>
+            )}
+            {author.contactInfo.github && (
+              <a
+                href={`https://github.com/${author.contactInfo.github}`}
+                className={styles.pill}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {t(locale, "photos_nav")}
-              </Link>
+                GitHub
+              </a>
+            )}
+          </div>
 
-              <div className={styles.mobileDivider} />
-
-              <div className={styles.mobileLangSelector}>
+          <div className={styles.controls}>
+            <div className={styles.control}>
+              <span>{t(locale, "language")}</span>
+              <div className={styles.seg}>
                 {locales.map((loc) => (
                   <Link
                     key={loc}
                     href={localePath(loc, "/")}
                     lang={loc === "zh-cn" ? "zh-CN" : loc}
-                    className={`${styles.mobileLangOption} ${loc === locale ? styles.activeLangMobile : ""}`}
-                    onClick={() => setIsMobileOpen(false)}
+                    aria-current={loc === locale ? "true" : undefined}
+                    onClick={close}
                   >
-                    <span aria-hidden="true">{localeFlags[loc]}</span> {localeNames[loc]}
+                    {localeNames[loc]}
                   </Link>
                 ))}
               </div>
-            </motion.nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </div>
+            <div className={styles.control}>
+              <span>{t(locale, "theme_label")}</span>
+              <button type="button" className={styles.iconToggle} onClick={toggleTheme} aria-label={t(locale, "toggle_theme")}>
+                {theme === "light" ? <Moon size={16} aria-hidden="true" /> : <Sun size={16} aria-hidden="true" />}
+              </button>
+            </div>
+            <div className={styles.control}>
+              <span>{t(locale, "palette")}</span>
+              <div className={styles.seg} role="group" aria-label={t(locale, "palette")}>
+                {(["espresso", "brick"] as const).map((p) => (
+                  <button
+                    key={p}
+                    type="button"
+                    aria-pressed={palette === p}
+                    onClick={() => choosePalette(p)}
+                  >
+                    <i className={styles.swatch} data-swatch={p} aria-hidden="true" />
+                    {t(locale, p === "brick" ? "palette_brick" : "palette_espresso")}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
     </>
   );
 }

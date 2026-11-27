@@ -211,6 +211,7 @@ export default function RideScene({ kmLabel, altLabel, title }: RideSceneProps) 
       const meta = document.querySelector('meta[name="color-scheme"]');
       const mo = new MutationObserver(repaint);
       if (meta) mo.observe(meta, { attributes: true });
+      mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-palette"] });
 
       cleanup = () => {
         cancelAnimationFrame(raf);
