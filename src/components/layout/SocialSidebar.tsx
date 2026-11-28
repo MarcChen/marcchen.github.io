@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, FileText } from "lucide-react";
+import { Mail, Download, CalendarDays } from "lucide-react";
+import { t } from "@/lib/i18n";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import type { Author } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
@@ -37,10 +38,17 @@ export default function SocialSidebar({ author, locale }: SocialSidebarProps) {
       external: false,
     },
     {
-      id: "resume-en",
-      label: locale === "fr" ? "CV (Anglais)" : locale === "zh-cn" ? "英文简历" : "English Resume",
-      url: assetPath("/files/MarcChen_s_Resume_ENG.pdf"),
-      icon: <FileText size={20} />,
+      id: "book-call",
+      label: t(locale, "book_a_call"),
+      url: "https://cal.com/marc-chen",
+      icon: <CalendarDays size={20} />,
+      external: true,
+    },
+    {
+      id: "download-cv",
+      label: t(locale, "download_cv_short"),
+      url: assetPath(locale === "zh-cn" ? "/files/MarcChen_s_Resume_CN.pdf" : "/files/MarcChen_s_Resume_ENG.pdf"),
+      icon: <Download size={20} />,
       external: true,
     },
   ].filter((item) => Boolean(item.url));

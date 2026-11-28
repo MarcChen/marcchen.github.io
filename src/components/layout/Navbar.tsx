@@ -1,15 +1,12 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef, useSyncExternalStore } from "react";
+import { useEffect, useCallback, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Sun, Moon, Download } from "lucide-react";
+import { Sun, Moon, Globe, Palette as PaletteIcon } from "lucide-react";
 import type { EnabledSection } from "@/lib/data";
 import type { Author } from "@/lib/types";
-import { locales, localeNames, localePath, defaultLocale, type Locale, t } from "@/lib/i18n";
-import { assetPath } from "@/lib/paths";
-import { cloudinaryUrl } from "@/lib/cloudinary";
+import { locales, localeNames, localePath, type Locale, t } from "@/lib/i18n";
 import styles from "@/styles/components/Navbar.module.css";
 
 interface NavbarProps {
@@ -23,13 +20,12 @@ const COLOR_SCHEME_STORAGE_KEY = "color-scheme";
 const PALETTE_STORAGE_KEY = "palette";
 type Palette = "espresso" | "brick";
 
-/** Current palette, read from <html data-palette> (set before paint in layout). */
+// Brick & Sand is the default; "espresso" is the alternative palette (temporary, for review).
 function subscribePalette(cb: () => void) {
   const mo = new MutationObserver(cb);
   mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-palette"] });
   return () => mo.disconnect();
 }
-// Brick & Sand is the default; "espresso" is the alternative palette.
 const paletteSnapshot = (): Palette => (document.documentElement.dataset.palette === "espresso" ? "espresso" : "brick");
 const paletteServer = (): Palette => "brick";
 
@@ -38,8 +34,7 @@ function getSystemScheme(): "light" | "dark" {
 }
 
 function getRenderedScheme(): "light" | "dark" {
-  const meta = document.querySelector<HTMLMetaElement>('meta[name="color-scheme"]');
-  const content = meta?.content?.trim();
+  const content = document.querySelector<HTMLMetaElement>('meta[name="color-scheme"]')?.content?.trim();
   if (content === "light" || content === "dark") return content;
   return getSystemScheme();
 }
@@ -55,33 +50,32 @@ function setMetaColorScheme(value: "light dark" | "light" | "dark") {
 }
 
 /**
- * Header: name + CV + "Index" button. The Index opens a full-screen menu with
- * the sections in large type, contact, language, theme and palette controls.
+ * Three-part header: name (left) · Portfolio / Blog / Photos (centre) ·
+ * small language, theme and palette buttons (right).
  */
-export default function Navbar({ locale, sections, siteName, author }: NavbarProps) {
-  const [open, setOpen] = useState(false);
+export default function Navbar({ locale, siteName }: NavbarProps) {
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
   const palette = useSyncExternalStore(subscribePalette, paletteSnapshot, paletteServer);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const menuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname() || "/";
 
-  const pathname = usePathname();
   const homeHref = localePath(locale, "/");
-  const isHomePage =
-    pathname === homeHref ||
-    pathname === `/${locale}` ||
-    pathname === `/${locale}/` ||
-    (locale === defaultLocale && pathname === "");
-  const navSections = sections.filter((s) => s.showOnNavbar);
-  const cvHref = assetPath(
-    locale === "zh-cn" ? "/files/MarcChen_s_Resume_CN.pdf" : "/files/MarcChen_s_Resume_ENG.pdf"
-  );
+  const blogHref = localePath(locale, "/blog/");
+  const photosHref = localePath(locale, "/photos/");
+  const strip = (p: string) => p.replace(/\/+$/, "");
+  const inSection = (base: string) => strip(pathname).startsWith(strip(base)) && strip(base) !== "";
+  const current = inSection(blogHref) ? "blog" : inSection(photosHref) ? "photos" : "home";
+  // Path of this page in another language (falls back to that language's home).
+  const pathFor = (loc: Locale) => {
+    const rest = strip(pathname).replace(/^\/(fr|zh-cn)(?=\/|$)/, "") || "/";
+    return localePath(loc, rest.endsWith("/") ? rest : `${rest}/`);
+  };
 
   useEffect(() => {
     document.documentElement.lang = locale === "zh-cn" ? "zh-CN" : locale;
   }, [locale]);
 
-  // Theme state follows <meta name="color-scheme">, the OS, and other tabs.
   useEffect(() => {
     const sync = () => setTheme(getRenderedScheme());
     sync();
@@ -100,6 +94,21 @@ export default function Navbar({ locale, sections, siteName, author }: NavbarPro
     };
   }, []);
 
+  // Close the language menu on outside click / Escape.
+  useEffect(() => {
+    if (!langOpen) return;
+    const onDown = (e: PointerEvent) => {
+      if (!langRef.current?.contains(e.target as Node)) setLangOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setLangOpen(false);
+    document.addEventListener("pointerdown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [langOpen]);
+
   const toggleTheme = useCallback(() => {
     const target = getRenderedScheme() === "dark" ? "light" : "dark";
     try {
@@ -116,179 +125,89 @@ export default function Navbar({ locale, sections, siteName, author }: NavbarPro
     setTheme(target);
   }, []);
 
-  const choosePalette = useCallback((p: Palette) => {
-    if (p === "espresso") document.documentElement.dataset.palette = "espresso";
+  const togglePalette = useCallback(() => {
+    const next: Palette = paletteSnapshot() === "brick" ? "espresso" : "brick";
+    if (next === "espresso") document.documentElement.dataset.palette = "espresso";
     else delete document.documentElement.dataset.palette;
     try {
-      if (p === "espresso") localStorage.setItem(PALETTE_STORAGE_KEY, p);
+      if (next === "espresso") localStorage.setItem(PALETTE_STORAGE_KEY, next);
       else localStorage.removeItem(PALETTE_STORAGE_KEY);
     } catch {
       // storage unavailable
     }
   }, []);
 
-  // Menu: lock scroll, close on Escape, return focus to the button.
-  useEffect(() => {
-    if (!open) return;
-    const prev = document.documentElement.style.overflow;
-    document.documentElement.style.overflow = "hidden";
-    const firstLink = menuRef.current?.querySelector<HTMLAnchorElement>("a");
-    firstLink?.focus({ preventScroll: true });
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-    const btn = buttonRef.current;
-    return () => {
-      document.documentElement.style.overflow = prev;
-      window.removeEventListener("keydown", onKey);
-      btn?.focus({ preventScroll: true });
-    };
-  }, [open]);
-
-  const close = () => setOpen(false);
-  const sectionHref = (id: string) => (isHomePage ? `#${id}` : `${homeHref}#${id}`);
-  const items = [
-    ...navSections.map((s) => ({ key: s.id, label: s.name, href: sectionHref(s.id) })),
-    { key: "blog", label: t(locale, "blog_nav"), href: localePath(locale, "/blog/") },
-    { key: "photos", label: t(locale, "photos_nav"), href: localePath(locale, "/photos/") },
+  const links = [
+    { key: "home", href: homeHref, label: t(locale, "nav_portfolio") },
+    { key: "blog", href: blogHref, label: t(locale, "blog_nav") },
+    { key: "photos", href: photosHref, label: t(locale, "photos_nav") },
   ];
 
   return (
-    <>
-      <header className={`${styles.bar} ${open ? styles.isOpen : ""}`}>
-        <div className={`container ${styles.row}`}>
-          <Link href={homeHref} className={styles.name} onClick={close}>
-            {siteName}
-          </Link>
-          <div className={styles.right}>
-            <a href={cvHref} className={styles.cv} target="_blank" rel="noopener noreferrer">
-              <Download size={15} aria-hidden="true" />
-              <span>CV</span>
-            </a>
-            <button
-              ref={buttonRef}
-              type="button"
-              className={styles.menuBtn}
-              aria-expanded={open}
-              aria-controls="site-index"
-              onClick={() => setOpen((o) => !o)}
-            >
-              <span className={styles.burger} aria-hidden="true">
-                <i />
-                <i />
-              </span>
-              <span>{open ? t(locale, "index_close") : t(locale, "index_open")}</span>
-            </button>
-          </div>
-        </div>
-      </header>
+    <header className={styles.bar}>
+      <div className={`container ${styles.row}`}>
+        <Link href={homeHref} className={styles.name}>
+          {siteName}
+        </Link>
 
-      <div
-        id="site-index"
-        ref={menuRef}
-        className={`${styles.overlay} ${open ? styles.overlayOpen : ""}`}
-        aria-hidden={!open}
-        inert={!open}
-      >
-        <nav className={styles.list} aria-label="Index">
-          <ol>
-            {items.map((item, i) => (
-              <li key={item.key} style={{ ["--i" as string]: i }}>
-                <Link href={item.href} onClick={close}>
-                  <span className={styles.num}>{String(i + 1).padStart(2, "0")}</span>
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ol>
+        <nav className={styles.links} aria-label="Primary">
+          {links.map((l) => (
+            <Link
+              key={l.key}
+              href={l.href}
+              className={styles.link}
+              aria-current={current === l.key ? "page" : undefined}
+            >
+              {l.label}
+            </Link>
+          ))}
         </nav>
 
-        <aside className={styles.aside}>
-          <Image
-            src={cloudinaryUrl("/images/author/marc.png")}
-            alt={siteName}
-            width={112}
-            height={112}
-            className={styles.avatar}
-          />
-          <p className={styles.who}>
-            {t(locale, "hero_role")}
-            {author.contactInfo.email && (
-              <>
-                <br />
-                <a href={`mailto:${author.contactInfo.email}`}>{author.contactInfo.email}</a>
-              </>
-            )}
-          </p>
-          <div className={styles.ctaRow}>
-            <a href="https://cal.com/marc-chen" className={styles.pillLight} target="_blank" rel="noopener noreferrer">
-              {t(locale, "book_a_call")}
-            </a>
-            {author.contactInfo.linkedin && (
-              <a
-                href={`https://www.linkedin.com/in/${author.contactInfo.linkedin}`}
-                className={styles.pill}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-              </a>
-            )}
-            {author.contactInfo.github && (
-              <a
-                href={`https://github.com/${author.contactInfo.github}`}
-                className={styles.pill}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
-            )}
-          </div>
-
-          <div className={styles.controls}>
-            <div className={styles.control}>
-              <span>{t(locale, "language")}</span>
-              <div className={styles.seg}>
+        <div className={styles.tools}>
+          <div className={styles.lang} ref={langRef}>
+            <button
+              type="button"
+              className={styles.tool}
+              aria-label={t(locale, "switch_language")}
+              aria-expanded={langOpen}
+              aria-haspopup="menu"
+              onClick={() => setLangOpen((o) => !o)}
+            >
+              <Globe size={16} aria-hidden="true" />
+              <span className={styles.code}>{locale === "zh-cn" ? "中" : locale.toUpperCase()}</span>
+            </button>
+            {langOpen && (
+              <div className={styles.menu} role="menu">
                 {locales.map((loc) => (
                   <Link
                     key={loc}
-                    href={localePath(loc, "/")}
+                    role="menuitem"
+                    href={pathFor(loc)}
                     lang={loc === "zh-cn" ? "zh-CN" : loc}
                     aria-current={loc === locale ? "true" : undefined}
-                    onClick={close}
+                    onClick={() => setLangOpen(false)}
                   >
                     {localeNames[loc]}
                   </Link>
                 ))}
               </div>
-            </div>
-            <div className={styles.control}>
-              <span>{t(locale, "theme_label")}</span>
-              <button type="button" className={styles.iconToggle} onClick={toggleTheme} aria-label={t(locale, "toggle_theme")}>
-                {theme === "light" ? <Moon size={16} aria-hidden="true" /> : <Sun size={16} aria-hidden="true" />}
-              </button>
-            </div>
-            <div className={styles.control}>
-              <span>{t(locale, "palette")}</span>
-              <div className={styles.seg} role="group" aria-label={t(locale, "palette")}>
-                {(["brick", "espresso"] as const).map((p) => (
-                  <button
-                    key={p}
-                    type="button"
-                    aria-pressed={palette === p}
-                    onClick={() => choosePalette(p)}
-                  >
-                    <i className={styles.swatch} data-swatch={p} aria-hidden="true" />
-                    {t(locale, p === "brick" ? "palette_brick" : "palette_espresso")}
-                  </button>
-                ))}
-              </div>
-            </div>
+            )}
           </div>
-        </aside>
+          <button type="button" className={styles.tool} onClick={toggleTheme} aria-label={t(locale, "toggle_theme")}>
+            {theme === "light" ? <Moon size={16} aria-hidden="true" /> : <Sun size={16} aria-hidden="true" />}
+          </button>
+          <button
+            type="button"
+            className={styles.tool}
+            onClick={togglePalette}
+            aria-label={`${t(locale, "palette")}: ${t(locale, palette === "brick" ? "palette_brick" : "palette_espresso")}`}
+            title={`${t(locale, "palette")}: ${t(locale, palette === "brick" ? "palette_brick" : "palette_espresso")}`}
+          >
+            <PaletteIcon size={16} aria-hidden="true" />
+            <i className={styles.swatch} data-swatch={palette} aria-hidden="true" />
+          </button>
+        </div>
       </div>
-    </>
+    </header>
   );
 }

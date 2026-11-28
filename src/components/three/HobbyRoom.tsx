@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, MousePointerClick } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Move3d, RotateCcw } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
 import { t } from "@/lib/i18n";
 import { assetPath } from "@/lib/paths";
@@ -24,6 +24,7 @@ export default function HobbyRoom({ locale }: { locale: Locale }) {
   const [score, setScore] = useState<{ made: number; shots: number } | null>(null);
   const [failed, setFailed] = useState(false);
   const [touch, setTouch] = useState(false);
+  const [moved, setMoved] = useState(false);
   const hobbies = getHobbies(locale);
 
   useEffect(() => {
@@ -33,18 +34,25 @@ export default function HobbyRoom({ locale }: { locale: Locale }) {
     let cleanup = () => {};
     if (window.matchMedia("(hover: none)").matches) setTouch(true);
     (async () => {
-      const [THREE, { createHobbyRoom }] = await Promise.all([import("three"), import("@/components/three/hobbyRoom")]);
+      const [THREE, { createHobbyRoom }, { OrbitControls }, { RoundedBoxGeometry }, { RoomEnvironment }] = await Promise.all([
+        import("three"),
+        import("@/components/three/hobbyRoom"),
+        import("three/examples/jsm/controls/OrbitControls.js"),
+        import("three/examples/jsm/geometries/RoundedBoxGeometry.js"),
+        import("three/examples/jsm/environments/RoomEnvironment.js"),
+      ]);
       if (disposed) return;
       try {
         const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const room = createHobbyRoom(THREE, host, {
-          lightScale: Math.PI,
+          addons: { OrbitControls, RoundedBoxGeometry, RoomEnvironment },
           fujiUrl: assetPath("/videos/timelapse-mtfuji-poster.jpg"),
           dark: isDarkScheme(),
           reducedMotion: reduced,
           onHover: (id, x, y) => setHover(id ? { id, x, y } : null),
           onSelect: (id) => setSelected(id),
           onScore: (made, shots) => setScore({ made, shots }),
+          onMoved: setMoved,
         });
         ctrl.current = room;
         const repaint = () => room.setDark(isDarkScheme());
@@ -82,6 +90,10 @@ export default function HobbyRoom({ locale }: { locale: Locale }) {
     setSelected(null);
     ctrl.current?.focus(null);
   };
+  const reset = () => {
+    setSelected(null);
+    ctrl.current?.reset();
+  };
 
   const info = selected ? hobbies[selected] : null;
   const hoverInfo = hover && hover.id !== selected ? hobbies[hover.id] : null;
@@ -96,9 +108,16 @@ export default function HobbyRoom({ locale }: { locale: Locale }) {
 
       {!selected && (
         <span className={styles.hint} aria-hidden="true">
-          <MousePointerClick size={14} />
+          <Move3d size={14} />
           {t(locale, touch ? "room_hint_touch" : "room_hint")}
         </span>
+      )}
+
+      {moved && !selected && (
+        <button type="button" className={styles.reset} onClick={reset}>
+          <RotateCcw size={14} aria-hidden="true" />
+          {t(locale, "room_reset")}
+        </button>
       )}
 
       {score && (
