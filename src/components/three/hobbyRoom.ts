@@ -20,7 +20,7 @@ type Obj = THREE_NS.Object3D;
 export type HobbyId =
   | "triban" | "scott" | "orbea" | "jersey" | "medals" | "ball" | "tent"
   | "camera" | "instax" | "fuji" | "monitors" | "music" | "speakers" | "mic"
-  | "scarlett" | "streamdeck" | "pi" | "prints" | "lamp";
+  | "scarlett" | "streamdeck" | "pi" | "prints" | "lamp" | "printer";
 
 /* Minimal shapes of the addons we use, so callers can pass them from any build. */
 interface OrbitLike {
@@ -87,7 +87,7 @@ const VIEWS: Record<HobbyId, { pos: V3; look: V3 }> = {
   jersey: { pos: [-0.75, 3.25, 1.4], look: [-0.75, 3.25, -4.0] },
   medals: { pos: [1.0, 3.9, 0.4], look: [1.0, 3.95, -4.0] },
   ball: { pos: [1.4, 2.6, 4.6], look: [-1.6, 2.0, -2.0] },
-  tent: { pos: [0.4, 2.9, 6.2], look: [-3.0, 0.15, 1.9] },
+  tent: { pos: [0.3, 2.5, 4.6], look: [-3.05, 0.35, 0.75] },
   camera: { pos: [4.6, 2.1, 5.0], look: [2.9, 1.45, 2.6] },
   instax: { pos: [1.1, 2.0, 4.6], look: [-0.25, 0.75, 2.7] },
   fuji: { pos: [-2.4, 3.45, 1.2], look: [-2.4, 3.45, -4.0] },
@@ -95,11 +95,12 @@ const VIEWS: Record<HobbyId, { pos: V3; look: V3 }> = {
   music: { pos: [3.6, 2.9, 0.0], look: [3.45, 2.2, -3.5] },
   speakers: { pos: [2.6, 3.3, 0.6], look: [2.6, 1.6, -3.5] },
   mic: { pos: [2.2, 2.3, 0.1], look: [1.5, 2.05, -2.8] },
-  scarlett: { pos: [2.2, 2.25, -0.9], look: [2.05, 1.62, -2.6] },
+  scarlett: { pos: [2.75, 2.3, -1.35], look: [2.66, 1.65, -3.32] },
   streamdeck: { pos: [3.4, 2.25, -0.9], look: [3.2, 1.62, -2.6] },
   pi: { pos: [4.6, 2.2, -0.9], look: [4.3, 1.68, -2.85] },
   prints: { pos: [2.7, 4.5, 0.4], look: [2.6, 4.35, -3.8] },
   lamp: { pos: [1.9, 2.5, -0.4], look: [1.15, 2.0, -2.65] },
+  printer: { pos: [0.7, 1.7, -0.6], look: [-0.45, 0.45, -3.5] },
 };
 const HOME = { pos: [11.0, 7.0, 12.4] as V3, look: [0.4, 2.0, -0.8] as V3 };
 
@@ -114,7 +115,7 @@ export function createHobbyRoom(T: Three, host: HTMLElement, opts: RoomOptions):
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = T.PCFSoftShadowMap;
   renderer.toneMapping = T.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.0;
+  renderer.toneMappingExposure = 1.05;
   renderer.domElement.setAttribute("aria-hidden", "true");
   host.prepend(renderer.domElement);
 
@@ -122,7 +123,7 @@ export function createHobbyRoom(T: Three, host: HTMLElement, opts: RoomOptions):
   const pmrem = new T.PMREMGenerator(renderer);
   const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
   scene.environment = envTex;
-  (scene as unknown as { environmentIntensity: number }).environmentIntensity = 0.45;
+  (scene as unknown as { environmentIntensity: number }).environmentIntensity = 0.8;
 
   const camera = new T.PerspectiveCamera(32, 1, 0.05, 120);
   camera.position.set(...HOME.pos);
@@ -289,14 +290,14 @@ export function createHobbyRoom(T: Three, host: HTMLElement, opts: RoomOptions):
   const wheels: Obj[] = [];
   const spinning = new Map<Obj, number>();
   const bikeGroups: Record<string, Obj> = {};
-  function bike(id: "triban" | "scott" | "orbea", frame: string, accent: string, brand: string, road: boolean) {
+  interface BikeSpec { frame: Mat; logo: string; brand: string; road: boolean; tan: boolean; detail?: Mat }
+  function bike(id: "triban" | "scott" | "orbea", spec: BikeSpec) {
+    const { frame: fm, logo, brand, road, tan } = spec;
     const U = 1.3; // metres → room units
     const g = group(room, [-4.92, BIKE_Y[id], BIKE_Z[id]], id);
     g.rotation.y = Math.PI / 2;
     bikeGroups[id] = g;
     const P = (x: number, y: number, z = 0): V3 => [x * U, y * U, z * U];
-    const fm = mat(frame, { roughness: 0.28, metalness: 0.15, envMapIntensity: 1.2 } as THREE_NS.MeshStandardMaterialParameters);
-    const am = mat(accent, { roughness: 0.3, metalness: 0.15 });
     const blk = plastic("#17191F", 0.5);
     const alu = metal("#B9BEC6", 0.3);
     const bb = P(0, 0), rear = P(-0.42, 0.07), front = P(0.6, 0.07);
@@ -304,8 +305,8 @@ export function createHobbyRoom(T: Three, host: HTMLElement, opts: RoomOptions):
     const r = 0.018 * U;
     tube(bb, seatTop, r * 1.05, fm, g);
     tube(seatTop, headTop, r, fm, g);
-    tube(bb, headLow, r * 1.3, accent === frame ? fm : am, g, r * 1.4);
-    tube(headLow, headTop, r * 1.45, fm, g, r * 1.6);
+    tube(bb, headLow, r * 1.3, fm, g, r * 1.4);
+    tube(headLow, headTop, r * 1.45, spec.detail ?? fm, g, r * 1.6);
     for (const z of [-0.035, 0.035]) {
       tube(bb, [rear[0], rear[1], z * U], r * 0.6, fm, g, r * 0.8);
       tube([seatTop[0], seatTop[1] - 0.03 * U, 0], [rear[0], rear[1], z * U], r * 0.5, fm, g, r * 0.6);
@@ -340,7 +341,7 @@ export function createHobbyRoom(T: Three, host: HTMLElement, opts: RoomOptions):
       const w = group(g, c);
       const tyreR = road ? 0.335 : 0.345, tyreT = road ? 0.014 : 0.022;
       torus(tyreR * U, tyreT * U, plastic("#141518", 0.85), w, [0, 0, 0], 64);
-      if (!road) torus((tyreR - 0.012) * U, tyreT * 0.75 * U, plastic("#BC9566", 0.85), w, [0, 0, 0], 64);
+      if (tan) torus((tyreR - 0.012) * U, tyreT * 0.75 * U, plastic("#BC9566", 0.85), w, [0, 0, 0], 64);
       const rim = torus((road ? 0.29 : 0.312) * U, (road ? 0.03 : 0.012) * U, road ? plastic("#16171B", 0.35) : alu, w, [0, 0, 0], 64);
       rim.scale.z = road ? 0.45 : 1;
       for (let k = 0; k < 24; k++) {
@@ -355,16 +356,37 @@ export function createHobbyRoom(T: Three, host: HTMLElement, opts: RoomOptions):
     // brand decal on both sides of the down tube
     const dt = new T.Vector3(...headLow).sub(new T.Vector3(...bb));
     const ang = Math.atan2(dt.y, dt.x);
-    const tex = textTex(brand, accent === "#F4F4F2" ? "#2453A6" : "#FFFFFF", "italic 900 92px Archivo, Arial, sans-serif");
+    const tex = textTex(brand, logo, "italic 900 92px Archivo, Arial, sans-serif");
     for (const s of [1, -1]) decal(tex, 0.26 * U, 0.06 * U, g, [dt.x * 0.48, dt.y * 0.48, s * (r * 1.32)], [0, s > 0 ? 0 : Math.PI, s > 0 ? ang : -ang]);
     // wall hooks
     const hook = metal("#30343E", 0.4);
-    rbox(0.08, 0.08, 0.5, 0.02, hook, room, [-5.12, BIKE_Y[id] + 0.68, BIKE_Z[id] - 0.18]);
-    rbox(0.08, 0.08, 0.5, 0.02, hook, room, [-5.12, BIKE_Y[id] + 0.68, BIKE_Z[id] + 0.52]);
+    // two short arms out of the wall, cradling the top tube
+    for (const dz of [0.12, -0.38]) {
+      const wy = BIKE_Y[id] + 0.66 + (dz < 0 ? 0.05 : 0);
+      rbox(0.04, 0.12, 0.1, 0.015, hook, room, [-5.17, wy, BIKE_Z[id] + dz]);
+      const arm = cyl(0.016, 0.016, 0.3, hook, room, [-5.02, wy - 0.035, BIKE_Z[id] + dz], 10);
+      arm.rotation.z = Math.PI / 2;
+      cyl(0.022, 0.022, 0.06, plastic("#111318", 0.9), room, [-4.86, wy - 0.01, BIKE_Z[id] + dz], 10);
+    }
   }
-  bike("triban", "#C8232C", "#C8232C", "TRIBAN", false);
-  bike("scott", "#F4F4F2", "#2453A6", "SCOTT", false);
-  bike("orbea", "#F26A1B", "#1A1B20", "ORBEA", true);
+  // Colourways: Triban GRVL 520 Subcompact (red), Scott Addict Gravel 30 (white / splatter blue),
+  // Orbea Orca M30iLTD PWR 2024 (Orange Cloud matt / Stone Blue).
+  const splatter = canvasTex(512, 512, (c) => {
+    c.fillStyle = "#F6F6F3"; c.fillRect(0, 0, 512, 512);
+    for (let i = 0; i < 420; i++) {
+      // tubes stretch the texture ~14x along their length, so dots are drawn wide to read as round
+      const x = Math.random() * 512, y = Math.random() * 512, rr = Math.pow(Math.random(), 2.5) * 5 + 1;
+      c.fillStyle = Math.random() > 0.3 ? "#2F64C8" : "#16357A";
+      c.beginPath(); c.ellipse(x, y, rr * 14, rr * (0.7 + Math.random() * 0.5), 0, 0, Math.PI * 2); c.fill();
+    }
+  });
+  splatter.tex.wrapS = splatter.tex.wrapT = T.RepeatWrapping;
+  splatter.tex.repeat.set(1, 0.8);
+  const scottMat = new T.MeshStandardMaterial({ map: splatter.tex, roughness: 0.3, metalness: 0.05 });
+  disposables.push(scottMat);
+  bike("triban", { frame: mat("#B71F2A", { roughness: 0.3, metalness: 0.2 }), logo: "#FFFFFF", brand: "TRIBAN", road: false, tan: false });
+  bike("scott", { frame: scottMat, logo: "#2453A6", brand: "SCOTT", road: false, tan: false });
+  bike("orbea", { frame: mat("#D24E1C", { roughness: 0.55, metalness: 0.05 }), logo: "#5C7488", brand: "ORBEA", road: true, tan: false, detail: mat("#5C7488", { roughness: 0.55 }) });
 
   // ─── back wall: Fuji frame, jersey shadow box, medals, hoop, shelf ─
   const glassMat = new T.MeshStandardMaterial({ color: "#FFFFFF", transparent: true, opacity: 0.08, roughness: 0.05, metalness: 0.2 });
@@ -573,7 +595,7 @@ export function createHobbyRoom(T: Three, host: HTMLElement, opts: RoomOptions):
     cones.push(cone);
   }
   // Focusrite Scarlett 2i2
-  const scarlett = group(desk, [-0.55, 1.545, 0.6], "scarlett");
+  const scarlett = group(desk, [0.06, 1.545, -0.12], "scarlett"); // under the screens
   rbox(0.52, 0.12, 0.3, 0.025, metal("#C8232C", 0.35), scarlett, [0, 0.06, 0]);
   const halos: THREE_NS.MeshStandardMaterial[] = [];
   for (const kx of [-0.17, -0.03]) {
@@ -697,35 +719,145 @@ export function createHobbyRoom(T: Three, host: HTMLElement, opts: RoomOptions):
   }
 
   // ─── floor: tent, tripod + A6600, Instax on a crate ────────────
-  const tent = group(room, [-3.1, 0, 1.9], "tent");
-  tent.rotation.y = 0.5;
-  tent.scale.setScalar(0.82);
-  const fly = plastic("#E4572E", 0.75);
-  const tentGeo = new T.SphereGeometry(1.15, 40, 16, 0, Math.PI * 2, 0, Math.PI / 2);
-  const tentMesh = mesh(tentGeo, fly, tent);
-  tentMesh.scale.set(1.25, 0.82, 1);
-  cyl(1.44, 1.44, 0.08, plastic("#30343E", 0.8), tent, [0, 0.04, 0], 40).scale.set(1, 1, 0.8);
-  for (const a of [0.62, -0.62]) {
-    const pole = torus(1.16, 0.016, metal("#15213B", 0.4), tent, [0, 0, 0], 48, Math.PI);
-    pole.rotation.y = a + Math.PI / 2;
-    pole.scale.set(1.25, 0.83, 1);
+  // Freestanding two-pole trekking tent: crossing poles, sagging panels, an open side door
+  // (cut out of the shell so the inside shows), bathtub floor, guy lines, pegs and boots.
+  const tent = group(room, [-3.05, 0, 0.75], "tent");
+  tent.rotation.y = 0.82;
+  {
+    const W = 1.25, D = 0.82, H = 1.12;
+    const tentH = (x: number, z: number) => {
+      const ax = Math.abs(x) / W, az = Math.abs(z) / D, m = Math.min(1, Math.max(ax, az));
+      const ridge = Math.abs(ax - az) / Math.max(1e-3, Math.max(ax, az));
+      return Math.max(0, H * (1 - Math.pow(m, 2.1)) - 0.09 * H * Math.sin(Math.PI * (1 - m)) * ridge);
+    };
+    const geo = new T.PlaneGeometry(2 * W, 2 * D, 56, 40);
+    geo.rotateX(-Math.PI / 2);
+    const pos = geo.attributes.position;
+    const cols: number[] = [];
+    const fly = new T.Color("#5C7A4E"), flyTop = new T.Color("#6E8E5C"), tub = new T.Color("#3A3F4A");
+    const inDoor: boolean[] = [];
+    for (let i = 0; i < pos.count; i++) {
+      const x = pos.getX(i), z = pos.getZ(i), h = tentH(x, z);
+      pos.setY(i, h);
+      const front = z > 0 && z / D >= Math.abs(x) / W - 0.02;
+      inDoor.push(front && Math.pow(x / (0.56 * W), 2) + Math.pow(h / (0.84 * H), 2) < 1 && h > 0.07);
+      const c = h < 0.1 ? tub : h > 0.8 * H ? flyTop : fly;
+      cols.push(c.r, c.g, c.b);
+    }
+    geo.setAttribute("color", new T.Float32BufferAttribute(cols, 3));
+    const idx = geo.index!.array;
+    const keep: number[] = [];
+    for (let i = 0; i < idx.length; i += 3) if (!(inDoor[idx[i]] && inDoor[idx[i + 1]] && inDoor[idx[i + 2]])) keep.push(idx[i], idx[i + 1], idx[i + 2]);
+    geo.setIndex(keep);
+    geo.computeVertexNormals();
+    const shellMat = new T.MeshStandardMaterial({ vertexColors: true, side: T.DoubleSide, roughness: 0.82 });
+    disposables.push(shellMat);
+    mesh(geo, shellMat, tent);
+    // poles along both diagonals
+    const poleM = metal("#C9CDD2", 0.3);
+    for (const sgn of [1, -1]) {
+      const pts: V3[] = [];
+      for (let k = 0; k <= 24; k++) { const t = -1 + (k / 24) * 2; const x = t * W * 0.99, z = sgn * t * D * 0.99; pts.push([x, tentH(x, z) + 0.022, z]); }
+      curve(pts, 0.013, poleM, tent, false, 64);
+    }
+    // door edge with zipper + rolled-up door panel at the top of the opening
+    const edge: V3[] = [];
+    for (let k = 0; k <= 20; k++) {
+      const a = Math.PI * (k / 20);
+      const x = Math.cos(a) * 0.56 * W, hh = Math.max(0.07, Math.sin(a) * 0.84 * H);
+      let z = 0; for (let zz = D; zz > 0; zz -= 0.01) { if (tentH(x, zz) >= hh) { z = zz; break; } }
+      edge.push([x, hh, z + 0.01]);
+    }
+    curve(edge, 0.012, plastic("#E4572E", 0.5), tent, false, 60);
+    const roll = cyl(0.06, 0.06, 0.62 * W, plastic("#4C6842", 0.85), tent, [0, 0.86 * H, 0.33], 16);
+    roll.rotation.z = Math.PI / 2;
+    // inside: floor, sleeping pad, sleeping bag
+    rbox(2 * W - 0.2, 0.02, 2 * D - 0.2, 0.01, plastic("#2E333C", 0.9), tent, [0, 0.02, 0]);
+    rbox(1.55, 0.06, 0.5, 0.03, plastic("#2E5C8A", 0.6), tent, [0, 0.06, -0.12]);
+    const bag = rbox(1.35, 0.14, 0.44, 0.07, plastic("#D9682E", 0.7), tent, [0.08, 0.15, -0.12]);
+    bag.rotation.z = 0.03;
+    // guy lines + pegs
+    const guy = plastic("#E4572E", 0.6);
+    for (const [gx, gz, px, pz] of [[0, D * 0.55, 0, D + 0.75], [0, -D * 0.55, 0, -D - 0.75], [W * 0.6, 0, W + 0.7, 0], [-W * 0.6, 0, -W - 0.7, 0]] as const) {
+      tube([gx, tentH(gx, gz) + 0.02, gz], [px, 0.03, pz], 0.005, guy, tent);
+      cyl(0.012, 0.004, 0.14, metal("#9AA0A8"), tent, [px, 0.05, pz], 6);
+    }
+    for (const [cx, cz] of [[W, D], [-W, D], [W, -D], [-W, -D]] as const) cyl(0.01, 0.004, 0.12, metal("#9AA0A8"), tent, [cx * 1.02, 0.05, cz * 1.02], 6);
   }
-  const doorShape = new T.Shape();
-  doorShape.moveTo(-0.42, 0); doorShape.lineTo(0.42, 0); doorShape.quadraticCurveTo(0.4, 0.62, 0, 0.72); doorShape.quadraticCurveTo(-0.4, 0.62, -0.42, 0);
-  const door = mesh(new T.ShapeGeometry(doorShape, 16), mat("#3A2414", { side: T.DoubleSide, roughness: 0.9 }), tent, [0, 0.04, 0.96], false);
-  door.rotation.x = -0.35;
-  curve([[-0.42, 0.04, 0.97], [-0.38, 0.45, 0.85], [0, 0.72, 0.72], [0.38, 0.45, 0.85], [0.42, 0.04, 0.97]], 0.008, plastic("#FAF5EC"), tent, false, 32);
+  // mountain boots by the door
+  function boot(parent: Obj, p: V3, rotY: number) {
+    const b = group(parent, p);
+    b.rotation.y = rotY;
+    const leather = plastic("#7A4E2D", 0.7), suede = plastic("#5A3B24", 0.85), rubber = plastic("#25221F", 0.9);
+    rbox(0.19, 0.05, 0.42, 0.025, rubber, b, [0, 0.025, 0]);
+    for (let k = 0; k < 6; k++) rbox(0.17, 0.012, 0.025, 0.005, rubber, b, [0, 0.004, -0.17 + k * 0.068]);
+    rbox(0.17, 0.13, 0.36, 0.06, leather, b, [0, 0.11, -0.01]);
+    const toe = sphere(1, rubber, b, [0, 0.085, 0.15], 16);
+    toe.scale.set(0.088, 0.06, 0.07);
+    cyl(0.078, 0.085, 0.2, suede, b, [0, 0.25, -0.1], 18);
+    torus(0.074, 0.018, plastic("#3A2A1E", 0.8), b, [0, 0.35, -0.1], 18).rotation.x = Math.PI / 2;
+    rbox(0.08, 0.2, 0.04, 0.02, suede, b, [0, 0.24, 0.0]).rotation.x = -0.35;
+    const lace = plastic("#C8232C", 0.6);
+    for (let k = 0; k < 5; k++) { const y = 0.17 + k * 0.04, z = 0.08 - k * 0.035; tube([-0.07, y, z], [0.07, y, z], 0.006, lace, b); }
+  }
+  boot(tent, [0.42, 0, 1.18], 0.25);
+  boot(tent, [0.7, 0, 1.05], -0.2);
   const lanternMat = new T.MeshStandardMaterial({ color: "#FFF4D6", emissive: "#FFC56A", emissiveIntensity: 0 });
   disposables.push(lanternMat);
-  cyl(0.06, 0.06, 0.14, lanternMat, tent, [0.2, 0.12, 0.6], 16).castShadow = false;
+  cyl(0.06, 0.06, 0.14, lanternMat, tent, [-0.5, 0.1, 0.25], 16).castShadow = false;
   const lanternLight = new T.PointLight("#FFC56A", 0, 3.5, 2);
-  lanternLight.position.set(0.2, 0.45, 0.6);
+  lanternLight.position.set(-0.5, 0.4, 0.35);
   tent.add(lanternLight);
-  for (const a of [0.5, 1.7, 2.9, 4.2, 5.4]) {
-    const px = Math.cos(a) * 1.9, pz = Math.sin(a) * 1.55;
-    tube([Math.cos(a) * 1.2, 0.6, Math.sin(a) * 0.95], [px, 0.02, pz], 0.004, plastic("#FAF5EC"), tent);
-    cyl(0.012, 0.004, 0.12, metal("#9AA0A8"), tent, [px, 0.05, pz], 6);
-  }
+
+  // Creality SparkX i7 on the floor: open gantry, moving bed, toolhead, CFS Lite spool box
+  const printer = group(room, [-0.2, 0, -3.55], "printer");
+  printer.rotation.y = 0.3;
+  const pWhite = plastic("#EDEDEB", 0.4), pGrey = plastic("#B9BDC3", 0.4), pDark = plastic("#1E2127", 0.45);
+  rbox(0.68, 0.16, 0.72, 0.04, pWhite, printer, [0, 0.08, 0]);
+  const screenTex = canvasTex(256, 160, (c) => { c.fillStyle = "#0F1A2A"; c.fillRect(0, 0, 256, 160); c.fillStyle = "#3BD16F"; c.font = "700 26px Arial"; c.fillText("SPARKX i7", 24, 52); c.fillStyle = "#9AA6B8"; c.font = "500 20px Arial"; c.fillText("Ready · PLA 210°C", 24, 96); });
+  const pScreen = new T.MeshBasicMaterial({ map: screenTex.tex, toneMapped: false });
+  disposables.push(pScreen);
+  const ps = mesh(new T.PlaneGeometry(0.2, 0.12), pScreen, printer, [0.18, 0.1, 0.362], false);
+  ps.rotation.x = -0.2;
+  rbox(0.08, 0.03, 0.6, 0.01, metal("#9AA0A8", 0.3), printer, [0, 0.175, 0]);
+  const bed = group(printer, [0, 0.2, 0]);
+  rbox(0.56, 0.025, 0.56, 0.01, metal("#2A2E36", 0.5), bed);
+  const pei = canvasTex(128, 128, (c) => { c.fillStyle = "#1A1C20"; c.fillRect(0, 0, 128, 128); noise(c, 128, 128, 0.6, 3000); c.strokeStyle = "rgba(255,255,255,.18)"; c.strokeRect(8, 8, 112, 112); });
+  const peiMat = new T.MeshStandardMaterial({ map: pei.tex, roughness: 0.7, metalness: 0.2 });
+  disposables.push(peiMat);
+  const peiTop = mesh(new T.PlaneGeometry(0.54, 0.54), peiMat, bed, [0, 0.014, 0], false);
+  peiTop.rotation.x = -Math.PI / 2;
+  const vasePts2: THREE_NS.Vector2[] = [];
+  for (let i = 0; i <= 12; i++) vasePts2.push(new T.Vector2(0.05 + Math.sin((i / 12) * Math.PI) * 0.05, i * 0.018));
+  const printed = mesh(new T.LatheGeometry(vasePts2, 24), pla("#2BA7A0"), bed, [0.04, 0.014, 0.02]);
+  printed.scale.y = 0.001;
+  printed.visible = false;
+  for (const x of [-0.32, 0.32]) rbox(0.05, 0.72, 0.07, 0.01, pGrey, printer, [x, 0.52, -0.12]);
+  rbox(0.7, 0.07, 0.09, 0.02, pWhite, printer, [0, 0.9, -0.12]);
+  const xBeam = group(printer, [0, 0.52, -0.08]);
+  rbox(0.62, 0.035, 0.05, 0.008, metal("#9AA0A8", 0.3), xBeam);
+  const head = group(xBeam, [0, 0, 0.05]);
+  rbox(0.11, 0.14, 0.09, 0.025, pWhite, head, [0, 0.0, 0]);
+  disc(0.03, 0.01, pDark, head, [0, 0.01, 0.048], 20);
+  cyl(0.008, 0.002, 0.03, metal("#D4A64A", 0.3), head, [0, -0.085, 0.0], 10);
+  const rgbMat = new T.MeshStandardMaterial({ color: "#20242C", emissive: "#4B8CFF", emissiveIntensity: 0.6 });
+  disposables.push(rgbMat);
+  rbox(0.1, 0.008, 0.01, 0.003, rgbMat, head, [0, -0.06, 0.047]);
+  curve([[0, 0.07, 0], [0.05, 0.3, -0.08], [-0.45, 0.42, -0.25]], 0.008, pDark, head, false, 20);
+  // CFS Lite spool box beside the printer
+  const cfs = group(printer, [-0.68, 0, 0.0]);
+  cfs.rotation.y = 0.15;
+  rbox(0.5, 0.26, 0.4, 0.03, pWhite, cfs, [0, 0.13, 0]);
+  const lid = new T.MeshStandardMaterial({ color: "#C9D6E2", transparent: true, opacity: 0.35, roughness: 0.1 });
+  disposables.push(lid);
+  rbox(0.5, 0.06, 0.4, 0.03, lid, cfs, [0, 0.29, 0]).castShadow = false;
+  ["#E4572E", "#2BA7A0", "#FAF5EC", "#15213B"].forEach((c, i) => {
+    const sp = group(cfs, [-0.18 + i * 0.12, 0.19, 0]);
+    sp.rotation.y = Math.PI / 2;
+    disc(0.09, 0.07, pla(c), sp, [0, 0, 0], 28);
+    disc(0.1, 0.008, pDark, sp, [0, 0, 0.038], 28);
+    disc(0.1, 0.008, pDark, sp, [0, 0, -0.038], 28);
+  });
 
   const camG = group(room, [2.9, 0, 2.6], "camera");
   camG.rotation.y = 0.64; // lens looks at the visitor
@@ -803,9 +935,16 @@ export function createHobbyRoom(T: Three, host: HTMLElement, opts: RoomOptions):
   }
 
   // ─── lights ────────────────────────────────────────────────────
-  const hemi = new T.HemisphereLight("#FFF6E6", "#C9A57C", 1.2);
+  const hemi = new T.HemisphereLight("#FFF6E6", "#C9A57C", 1.9);
   scene.add(hemi);
-  const sun = new T.DirectionalLight("#FFF1DA", 2.6);
+  // soft ceiling fill so the room reads as a lit bedroom, not a box in daylight
+  const ceiling = [[-1.6, 5.9, 0.6], [2.6, 5.9, -1.2]].map(([x, y, z]) => {
+    const l = new T.PointLight("#FFF3E0", 22, 0, 2);
+    l.position.set(x, y, z);
+    scene.add(l);
+    return l;
+  });
+  const sun = new T.DirectionalLight("#FFF1DA", 3.2);
   sun.position.set(7, 11, 8);
   sun.castShadow = true;
   sun.shadow.mapSize.set(2048, 2048);
@@ -957,6 +1096,7 @@ export function createHobbyRoom(T: Three, host: HTMLElement, opts: RoomOptions):
   let flashT = -1, recT = -1, onAirT = -1, printT = -1;
   const keyFlash = new Map<number, number>();
   let lampOn = false, lanternOn = false;
+  let printJob = -1;
   function easter(id: HobbyId) {
     switch (id) {
       case "ball":
@@ -968,6 +1108,7 @@ export function createHobbyRoom(T: Three, host: HTMLElement, opts: RoomOptions):
       case "medals": medalSwing.forEach((m, i) => (m.userData.swing = 0.5 + i * 0.12)); break;
       case "lamp": lampOn = !lampOn; break;
       case "tent": lanternOn = !lanternOn; break;
+      case "printer": printJob = 0; printed.visible = true; printed.scale.y = 0.001; break;
       case "camera": flashT = 0; recT = 0; break;
       case "mic": onAirT = 0; break;
       case "instax": printT = 0; print.visible = true; break;
@@ -996,13 +1137,14 @@ export function createHobbyRoom(T: Three, host: HTMLElement, opts: RoomOptions):
     floorMat.color.set(d ? "#6E5A48" : "#FFFFFF");
     skyMat.color.set(d ? "#1B2A4A" : "#CFE3F2");
     rugMat.color.set(d ? "#7C8399" : "#FFFFFF");
-    hemi.intensity = d ? 0.35 : 1.2;
+    hemi.intensity = d ? 0.5 : 1.9;
+    ceiling.forEach((l) => { l.intensity = d ? 5 : 22; l.color.set(d ? "#FFC98A" : "#FFF3E0"); });
     hemi.color.set(d ? "#8A9CD8" : "#FFF6E6");
-    sun.intensity = d ? 0.25 : 2.6;
+    sun.intensity = d ? 0.25 : 3.2;
     sun.color.set(d ? "#9FB4FF" : "#FFF1DA");
-    windowLight.intensity = d ? 2.5 : 6;
+    windowLight.intensity = d ? 2.5 : 9;
     windowLight.color.set(d ? "#8FA8FF" : "#DDEBFF");
-    (scene as unknown as { environmentIntensity: number }).environmentIntensity = d ? 0.12 : 0.45;
+    (scene as unknown as { environmentIntensity: number }).environmentIntensity = d ? 0.2 : 0.8;
     if (d) lampOn = true;
   }
   setDark(dark);
@@ -1090,6 +1232,16 @@ export function createHobbyRoom(T: Three, host: HTMLElement, opts: RoomOptions):
     });
     if (printT >= 0) { printT += dt; print.position.y = 0.44 + Math.min(1, printT / 1.2) * 0.22; if (printT > 6) { printT = -1; print.visible = false; print.position.y = 0.44; } }
     ledMat.emissiveIntensity = Math.sin(time * 6) > 0.3 ? 1.5 : 0.2;
+    if (printJob >= 0) {
+      printJob += dt;
+      const k = Math.min(1, printJob / 7);
+      printed.scale.y = Math.max(0.001, Math.floor(k * 40) / 40);
+      head.position.x = Math.sin(time * 9) * 0.12 + 0.04;
+      bed.position.z = Math.sin(time * 5.3) * 0.06;
+      xBeam.position.y = 0.52 - 0.28 + k * 0.24;
+      rgbMat.emissive.set("#3BD16F");
+      if (k >= 1) { printJob = -1; head.position.x = 0; bed.position.z = 0; xBeam.position.y = 0.52; rgbMat.emissive.set("#4B8CFF"); }
+    }
     halos.forEach((h, i) => (h.emissiveIntensity = 0.5 + Math.abs(Math.sin(time * (3 + i))) * 1.0));
     if (!reduced) blades.rotation.y += dt * 12;
     const beat = reduced ? 0 : Math.max(0, Math.sin(time * 7.5)) * 0.02;
@@ -1097,7 +1249,7 @@ export function createHobbyRoom(T: Three, host: HTMLElement, opts: RoomOptions):
     screenMats.forEach((m) => m.color.setScalar(dark ? 1 : 0.92));
 
     renderer.render(scene, camera);
-    const busy = !!tween || !!shot || flashT >= 0 || printT >= 0;
+    const busy = !!tween || !!shot || flashT >= 0 || printT >= 0 || printJob >= 0;
     if (visible && (!reduced || busy)) raf = requestAnimationFrame(frame);
   }
   const start = () => { cancelAnimationFrame(raf); last = performance.now(); raf = requestAnimationFrame(frame); };
