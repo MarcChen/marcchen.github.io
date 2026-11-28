@@ -38,8 +38,8 @@ The Espresso palette is switchable from the Index menu (`<html data-palette="esp
 
 ## 3D
 
-`src/components/three/RideScene.tsx`: a procedural low-poly landscape with the Paris → Saint-Malo ride as a line, an elevation readout and a slowly drifting camera. three.js is imported lazily after first paint, colours come from the tokens and follow the scheme, the loop pauses off-screen, and reduced motion renders one still frame.
+`src/components/three/hobbyRoom.ts` builds an interactive low-poly room of Marc's hobbies entirely in code: three bikes on the wall (Triban GRVL 520, Scott Addict Gravel, Orbea Orca), a Golden State Curry 30 jersey, half-marathon medals, a mini hoop and ball, a bivouac tent, an A6600 on a Sirui tripod, an Instax, a Mount Fuji frame, and the desk (BenQ + second screen, Eris 4.5, MV7X, Scarlett 2i2, Stream Deck, Raspberry Pi cage, 3D prints, lamp). Hover lifts an object and shows its name; click flies the camera to it and opens a panel (`src/lib/hobbies.ts`, EN/FR/ZH) with easter eggs (shoot the ball, spin wheels, lamp, lantern, camera flash, Instax print, Stream Deck, song switch). Dark mode is a night scene. three.js loads after first paint, the loop pauses off-screen, and reduced motion renders on demand. `HobbyRoom.tsx` is the React wrapper used in the hero.
 
 ## Page structure
 
-Home: Hero (name, role, short bio, CV, 3D ride + avatar) → Certifications → Skills → Experiences → Education (grades + documents) → Side projects (cards link to blog posts). Photos page: gallery + Achievements. Left social sidebar and the cal.com floating "Book a call" button (branded espresso) on every page.
+Home: Hero (name, role, short bio, CV, interactive 3D hobby room + avatar) → Certifications → Skills → Experiences → Education (grades + documents) → Side projects (cards link to blog posts). Photos page: gallery + Achievements. Left social sidebar and the cal.com floating "Book a call" button (branded espresso) on every page.

@@ -1,0 +1,168 @@
+/* Interactive hobby room — canvas fills the card; UI floats on top. */
+
+.room {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-3xl);
+  border: 2px solid var(--text-heading);
+  background: var(--oat);
+}
+
+.room canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.room[data-failed] {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 22px, var(--border-color) 22px 23px),
+    var(--bg-secondary);
+}
+
+.tip {
+  position: absolute;
+  z-index: 3;
+  transform: translate(14px, -130%);
+  pointer-events: none;
+  white-space: nowrap;
+  font-size: var(--text-xs);
+  font-weight: 800;
+  padding: 5px 10px;
+  border-radius: var(--radius-full);
+  background: var(--espresso);
+  color: var(--cream);
+  box-shadow: 0 10px 20px -12px rgb(0 0 0 / 0.5);
+}
+
+.hint {
+  position: absolute;
+  z-index: 2;
+  left: var(--space-4);
+  top: var(--space-4);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  padding: 6px 11px;
+  border-radius: var(--radius-full);
+  background: var(--cream);
+  color: var(--espresso);
+  border: 1.5px solid var(--espresso);
+  pointer-events: none;
+}
+
+.score {
+  position: absolute;
+  z-index: 2;
+  right: var(--space-4);
+  top: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: 6px 11px;
+  border-radius: var(--radius-full);
+  background: var(--taupe);
+  color: var(--espresso);
+}
+
+.panel {
+  position: absolute;
+  z-index: 4;
+  left: var(--space-4);
+  right: var(--space-4);
+  bottom: var(--space-4);
+  max-width: 360px;
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-xl);
+  background: var(--cream);
+  color: var(--espresso);
+  border: 2px solid var(--espresso);
+  box-shadow: 0 18px 36px -22px rgb(0 0 0 / 0.55);
+  animation: panelIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+.kind {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--taupe);
+}
+
+.name {
+  font-size: var(--text-lg);
+  font-weight: 900;
+  font-stretch: 110%;
+  line-height: 1.15;
+  margin-top: 2px;
+  color: var(--espresso);
+}
+
+.text {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-sm);
+  color: color-mix(in oklab, var(--espresso) 80%, var(--cream));
+}
+
+.play {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--espresso);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.back,
+.link {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-xs);
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--espresso);
+  color: var(--espresso);
+}
+
+.back {
+  background: var(--espresso);
+  color: var(--cream);
+}
+
+.link:hover {
+  color: var(--espresso);
+  background: var(--oat);
+}
+
+.back:focus-visible,
+.link:focus-visible {
+  outline: 3px solid var(--espresso);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    animation: none;
+  }
+}

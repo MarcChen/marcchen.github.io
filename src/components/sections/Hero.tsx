@@ -9,8 +9,8 @@ import { assetPath } from "@/lib/paths";
 import { cloudinaryUrl } from "@/lib/cloudinary";
 import styles from "@/styles/components/Hero.module.css";
 
-// three.js is loaded only on the client, after first paint.
-const RideScene = dynamic(() => import("@/components/three/RideScene"));
+// The interactive 3D hobby room loads three.js on the client, after first paint.
+const HobbyRoom = dynamic(() => import("@/components/three/HobbyRoom"));
 
 interface HeroProps {
   locale: Locale;
@@ -19,7 +19,7 @@ interface HeroProps {
 
 const delay = (s: number) => ({ "--d": `${s}s` }) as CSSProperties;
 
-/** Intro: name, role, short bio and CV, beside the 3D ride scene and avatar.
+/** Intro: name, role, short bio and CV, beside the interactive 3D hobby room and avatar.
  *  All entrance motion is CSS, so the content is readable before hydration. */
 export default function Hero({ locale, author }: HeroProps) {
   const [first, ...rest] = author.name.split(" ");
@@ -58,11 +58,7 @@ export default function Hero({ locale, author }: HeroProps) {
         </div>
 
         <div className={styles.visual}>
-          <RideScene
-            title={t(locale, "ride_title")}
-            kmLabel={t(locale, "ride_km")}
-            altLabel={t(locale, "ride_alt")}
-          />
+          <HobbyRoom locale={locale} />
           <figure className={styles.avatar}>
             <Image
               src={cloudinaryUrl("/images/author/marc.png")}
@@ -72,7 +68,6 @@ export default function Hero({ locale, author }: HeroProps) {
               priority
             />
           </figure>
-          <p className="visually-hidden">{t(locale, "ride_label")}</p>
         </div>
       </div>
     </section>

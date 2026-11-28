@@ -66,13 +66,13 @@
 
 .visual {
   position: relative;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 1 / 1;
   min-width: 0;
 }
 
 .avatar {
   position: absolute;
-  left: clamp(-2.5rem, -3vw, -1rem);
+  right: clamp(-2.5rem, -3vw, -1rem);
   bottom: clamp(-2.5rem, -3vw, -1rem);
   width: clamp(110px, 13vw, 168px);
   aspect-ratio: 1;
@@ -134,13 +134,13 @@
   }
 
   .visual {
-    aspect-ratio: 4 / 3;
-    margin-left: var(--space-4);
+    aspect-ratio: 4 / 5;
+    margin-right: var(--space-4);
     margin-bottom: var(--space-6);
   }
 
   .avatar {
-    left: calc(-1 * var(--space-4));
+    right: calc(-1 * var(--space-4));
     bottom: calc(-1 * var(--space-6));
     width: 104px;
   }
