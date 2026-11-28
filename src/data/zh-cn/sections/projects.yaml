@@ -1,6 +1,6 @@
 # section information
 section:
-  name: Projects
+  name: 个人项目
   id: projects
   enable: true
   weight: 5
@@ -45,3 +45,27 @@ projects:
   repo: https://github.com/MarcChen/RBM_BinaryAlphaDigits
   summary: "使用对比散度在二元AlphaDigits数据集上训练的受限玻尔兹曼机（RBM）的实现。涵盖图像生成、超参数调整以及跨多个Jupyter笔记本的字符数影响实验。包括一份补充研究报告（Chen & Sebti）。"
   tags: ["academic", "machine-learning", "deep-learning", "RBM", "MNIST"]
+
+- name: Bus Countdown Timer
+  image: /images/posts/codelab-bus-countdown-timer/devboard.webp
+  role: 创作者
+  timeline: "2024"
+  url: /zh-cn/blog/codelab-bus-countdown-timer/
+  summary: "下一班公交的物联网倒计时：ESP32、LCD 屏和公交 API，并解决了强制门户 Wi-Fi 的登录问题。"
+  tags: ["hobby", "IoT", "ESP32", "C++", "API"]
+
+- name: ENSTRAID · 电动标致 205
+  image: /images/posts/ensta-enstraid/motor.webp
+  role: 创始成员
+  timeline: "2024"
+  url: /zh-cn/blog/ensta-enstraid/
+  summary: "与 ENSTA Paris 改装协会一起，将一辆经典标致 205 改装为纯电动汽车。"
+  tags: ["academic", "EV", "改装", "ENSTA Paris"]
+
+- name: Notion2GoogleTask
+  image: /images/posts/codelab-notion2googletask/notion-google-task.png
+  role: 作者
+  timeline: "2025"
+  url: /zh-cn/blog/codelab-notion2googletask/
+  summary: "让 Notion 与 Google Tasks 保持同步的微服务，两边的任务始终一致。"
+  tags: ["hobby", "Python", "automation", "API"]

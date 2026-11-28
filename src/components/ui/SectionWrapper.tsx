@@ -1,8 +1,4 @@
-"use client";
-
-import { useRef, type ReactNode } from "react";
-import { motion, useInView } from "framer-motion";
-import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
+import type { ReactNode } from "react";
 
 interface SectionWrapperProps {
   id: string;
@@ -12,29 +8,27 @@ interface SectionWrapperProps {
   noDivider?: boolean;
 }
 
+/**
+ * Section shell. The entrance is a CSS scroll-driven reveal (`.reveal` in
+ * globals.css): content is fully visible by default and only animates where
+ * the browser supports view timelines and motion is allowed.
+ */
 export default function SectionWrapper({
   id,
   children,
+  alternate = false,
   className = "",
   noDivider = false,
 }: SectionWrapperProps) {
-  const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
-  const prefersReducedMotion = usePrefersReducedMotion();
-
   return (
     <>
-      <motion.section
-        ref={ref}
+      <section
         id={id}
         tabIndex={-1}
-        className={`section section-deferred relative ${className}`}
-        initial={prefersReducedMotion ? false : { opacity: 0, y: 50 }}
-        animate={prefersReducedMotion || isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-        transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className={`section section-deferred relative ${alternate ? "section-alt" : ""} ${className}`}
       >
-        <div className="container relative z-10">{children}</div>
-      </motion.section>
+        <div className="container relative z-10 reveal">{children}</div>
+      </section>
       {!noDivider && <div className="section-divider" />}
     </>
   );

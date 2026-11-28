@@ -1,0 +1,3 @@
+# URL prefixes the link checker should skip (one per line).
+# Use only for links that are correct but cannot be checked, e.g. private
+# repositories that return 404 to anonymous requests.

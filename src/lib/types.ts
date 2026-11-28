@@ -53,6 +53,7 @@ export interface Badge {
   color?: string;
   url?: string;
   badge?: string; // image url for certifications
+  ring?: string; // short label written around the certification seal
 }
 
 export interface ResourceLink {
@@ -79,6 +80,8 @@ export interface FilterButton {
 
 export interface Skill {
   name: string;
+  /** One- to three-letter "element" symbol for the periodic-table tile. */
+  symbol?: string;
   logo: string;
   summary: string;
   categories: string[];

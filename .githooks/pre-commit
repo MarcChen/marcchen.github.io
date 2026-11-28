@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 set -eu
 
+echo "[pre-commit] Checking links in staged blog posts, data and code..."
+node scripts/check-links.mjs --staged
+
 echo "[pre-commit] Running TypeScript, static build, and site/asset non-regression checks..."
 npx tsc --noEmit
 npx next build

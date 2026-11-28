@@ -1,6 +1,6 @@
 # section information
 section:
-  name: Projects
+  name: Side projects
   id: projects
   enable: true
   weight: 5
@@ -45,3 +45,35 @@ projects:
   repo: https://github.com/MarcChen/RBM_BinaryAlphaDigits
   summary: "Implementation of a Restricted Boltzmann Machine (RBM) trained on the Binary AlphaDigits dataset using Contrastive Divergence. Covers image generation, hyperparameter tuning, and character count influence experiments across multiple Jupyter notebooks. Includes a companion research report (Chen & Sebti)."
   tags: ["academic", "machine-learning", "deep-learning", "RBM", "MNIST"]
+
+- name: Bus Countdown Timer
+  image: /images/posts/codelab-bus-countdown-timer/devboard.webp
+  role: Maker
+  timeline: "2024"
+  url: /blog/codelab-bus-countdown-timer/
+  summary: "An IoT countdown for the next bus: an ESP32, an LCD and a transport API, with a workaround for captive Wi-Fi portals and power tuning for real-time requests."
+  tags: ["hobby", "IoT", "ESP32", "C++", "API"]
+
+- name: ENSTRAID · Electric Peugeot 205
+  image: /images/posts/ensta-enstraid/motor.webp
+  role: Founding member
+  timeline: "2024"
+  url: /blog/ensta-enstraid/
+  summary: "Converting a classic Peugeot 205 into a 100% electric car with the ENSTA Paris retrofit association."
+  tags: ["academic", "EV", "retrofit", "ENSTA Paris"]
+
+- name: Notion2GoogleTask
+  image: /images/posts/codelab-notion2googletask/notion-google-task.png
+  role: Author
+  timeline: "2025"
+  url: /blog/codelab-notion2googletask/
+  summary: "A microservice that keeps Notion and Google Tasks in sync, so tasks stay up to date on both platforms."
+  tags: ["hobby", "Python", "automation", "API"]
+
+- name: Self-hosted music server
+  image: /images/posts/spotify-free/Spotify_Logo.webp
+  role: Author
+  timeline: "2025"
+  url: /blog/spotify-free/
+  summary: "Replacing a Spotify subscription with an automated, self-hosted library on a home server using spotDL and Navidrome."
+  tags: ["hobby", "self-hosting", "automation", "homeserver"]

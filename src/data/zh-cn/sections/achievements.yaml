@@ -4,7 +4,7 @@ section:
   id: achievements
   enable: true
   weight: 8
-  showOnNavbar: true
+  showOnNavbar: false
   # 可选隐藏部分标题
   # hideTitle: true
 

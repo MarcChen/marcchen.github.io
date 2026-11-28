@@ -1,0 +1,104 @@
+.seals {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: var(--space-8) var(--space-5);
+}
+
+.seal {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-heading);
+}
+
+.seal:hover {
+  color: var(--text-heading);
+}
+
+.disc {
+  position: relative;
+  width: min(176px, 100%);
+  aspect-ratio: 1;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 1.2s var(--ease-out);
+}
+
+.outer {
+  fill: none;
+  stroke: var(--text-heading);
+  stroke-width: 2;
+}
+
+.inner {
+  fill: none;
+  stroke: var(--taupe);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 4;
+}
+
+.ringText {
+  fill: var(--text-heading);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.core {
+  position: absolute;
+  inset: 21%;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 2px solid var(--text-heading);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.core img {
+  width: 86%;
+  height: 86%;
+  object-fit: contain;
+}
+
+.seal:hover .ring,
+.seal:focus-visible .ring {
+  transform: rotate(120deg);
+}
+
+.seal:hover .core {
+  transform: scale(1.06) rotate(-6deg);
+}
+
+.name {
+  font-weight: 800;
+  font-size: var(--text-sm);
+  line-height: 1.3;
+  max-width: 22ch;
+}
+
+@media (max-width: 640px) {
+  .seals {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6) var(--space-3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring,
+  .core {
+    transition: none;
+  }
+}

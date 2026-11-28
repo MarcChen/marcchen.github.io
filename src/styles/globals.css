@@ -15,10 +15,9 @@
 html {
   scroll-padding-top: var(--nav-height);
   -webkit-text-size-adjust: 100%;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   overflow-x: clip;
   interpolate-size: allow-keywords;
-  --scrollbar-thumb: light-dark(hsl(250 30% 45%), hsl(250 40% 65%));
+  --scrollbar-thumb: var(--taupe);
   --scrollbar-track: transparent;
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
   scrollbar-width: thin;
@@ -52,18 +51,16 @@ main {
   overflow-x: clip;
 }
 
-/* ─── Uniform Line Grid Background Overlay ─── */
+/* ─── Paper grain (subtle, warm) ─── */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: 
-    linear-gradient(to right, var(--border-color) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
-  background-size: 50px 50px;
-  opacity: 0.35;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ─── Typography ─── */
@@ -143,8 +140,8 @@ button {
 }
 
 ::selection {
-  background: hsl(var(--accent) / 0.3);
-  color: var(--text-heading);
+  background: var(--taupe);
+  color: var(--espresso);
 }
 
 /* ─── Scrollbar Legacy Fallback ─── */
@@ -279,12 +276,12 @@ button {
 /* ─── Section Headings ─── */
 
 .section-heading {
-  margin-bottom: var(--space-16);
-  text-align: center;
+  margin-bottom: var(--space-12);
+  text-align: left;
 }
 
 .section-label {
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: var(--space-2);
   font-family: var(--font-mono);
@@ -306,23 +303,22 @@ button {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: var(--text-5xl);
-  font-weight: 800;
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tighter);
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  font-weight: 900;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
   color: var(--text-heading);
   margin-bottom: var(--space-4);
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   overflow: hidden;
 }
 
 .section-title .gradient {
-  background: var(--gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-heading);
 }
 
 .section-subtitle {
@@ -337,15 +333,10 @@ button {
 
 .section-divider {
   width: 100%;
-  max-width: 200px;
+  max-width: var(--max-width);
   height: 1px;
   margin: 0 auto;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    hsl(var(--accent) / 0.3),
-    transparent
-  );
+  background: var(--border-color-strong);
 }
 
 /* ================================================================
@@ -357,8 +348,6 @@ button {
 .glass-card {
   position: relative;
   background: var(--bg-glass-card);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-2xl);
   padding: var(--space-6);
@@ -457,8 +446,8 @@ button {
   padding: var(--space-3) var(--space-6);
   font-family: var(--font-sans);
   font-size: var(--text-sm);
-  font-weight: 600;
-  border-radius: var(--radius-xl);
+  font-weight: 800;
+  border-radius: var(--radius-full);
   transition: transform var(--duration-normal) var(--ease-default), color var(--duration-normal) var(--ease-default), background-color var(--duration-normal) var(--ease-default), border-color var(--duration-normal) var(--ease-default), box-shadow var(--duration-normal) var(--ease-default);
   white-space: nowrap;
   position: relative;
@@ -466,34 +455,21 @@ button {
 }
 
 .btn-primary {
-  background: var(--gradient-primary);
-  color: #fff;
-  border: none;
-  box-shadow: 0 0 20px hsl(var(--accent) / 0.2);
+  background: hsl(var(--accent));
+  color: var(--on-accent);
+  border: 2px solid hsl(var(--accent));
 }
 
 .btn-primary:hover {
-  box-shadow: var(--shadow-glow-lg);
+  background: hsl(var(--accent-hover));
+  border-color: hsl(var(--accent-hover));
   transform: translateY(-2px);
-  color: #fff;
-}
-
-.btn-primary::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
-  background-size: 250% 100%;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .btn-primary::after {
-    animation: shimmer 3s ease-in-out infinite;
-  }
+  color: var(--on-accent);
+  box-shadow: var(--shadow-glow-lg);
 }
 
 .btn-outline {
-  border: 1px solid hsl(var(--accent) / 0.3);
+  border: 2px solid hsl(var(--accent));
   color: hsl(var(--accent));
   background: transparent;
 }
@@ -648,10 +624,7 @@ button {
 /* ─── Gradient text helper ─── */
 
 .gradient-text {
-  background: var(--gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-heading);
 }
 
 /* ═══════════════════════════════════════════════
@@ -693,4 +666,48 @@ button {
   .section-title {
     font-size: var(--text-2xl);
   }
+}
+
+/* ================================================================
+   Scroll-driven reveals (CSS view timelines). Content is visible by
+   default; browsers without view timelines simply show it static.
+   ================================================================ */
+.section-alt {
+  background: var(--bg-secondary);
+}
+
+.title-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+}
+
+.title-rise {
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: revealUp linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+
+    .title-rise {
+      animation: titleRise linear both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 60%;
+    }
+  }
+}
+
+@keyframes revealUp {
+  from { opacity: 0.15; transform: translateY(48px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes titleRise {
+  from { transform: translateY(100%); }
+  to { transform: none; }
 }

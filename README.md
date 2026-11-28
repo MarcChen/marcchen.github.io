@@ -54,3 +54,14 @@ If you have any questions or would like to collaborate, feel free to reach out!
 ---
 
 This portfolio will be regularly updated with new projects and experiences. Stay tuned!
+
+---
+
+## Link checking
+
+Every link in the blog posts (`src/content/posts`), the site data (`src/data`) and the code must exist and respond.
+
+- `npm run links:check` checks the whole site (internal paths, blog slugs, files in `public/`, and external URLs over HTTP).
+- `npm run links:check:offline` checks internal links only.
+- The pre-commit hook (`npm run hooks:install` once) runs the check on the files you are committing and blocks the commit on a broken link.
+- Links that are correct but cannot be checked (for example a private repository) go in `.linkcheckignore`, one URL prefix per line.

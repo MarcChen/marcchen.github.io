@@ -1,16 +1,14 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { Briefcase, ArrowRight } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
 import type { ExperiencesSection } from "@/lib/types";
 import type { Locale } from "@/lib/i18n";
-import { cloudinaryUrl } from "@/lib/cloudinary";
 import { t } from "@/lib/i18n";
-import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
+import { cloudinaryUrl } from "@/lib/cloudinary";
+import { inlineMarkdown } from "@/lib/inline-md";
 import styles from "@/styles/components/Timeline.module.css";
 
 interface ExperiencesProps {
@@ -19,189 +17,116 @@ interface ExperiencesProps {
   alternate?: boolean;
 }
 
-export default function Experiences({
-  locale,
-  data,
-  alternate,
-}: ExperiencesProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const prefersReducedMotion = usePrefersReducedMotion();
+/** Résumé-style ledger: one line per position (period, company, role).
+ *  Hovering a line previews it open; clicking pins it open (click again to unpin).
+ *  On touch screens a tap pins. */
+export default function Experiences({ locale, data, alternate }: ExperiencesProps) {
+  const rows = data.experiences.flatMap((exp, ei) =>
+    exp.positions.map((pos, pi) => ({ key: `${ei}-${pi}`, company: exp.company, pos }))
+  );
+  const [pinned, setPinned] = useState<Set<string>>(() => new Set());
+  const [hovered, setHovered] = useState<string | null>(null);
+  const enterTimer = useRef<number | undefined>(undefined);
+  const leaveTimer = useRef<number | undefined>(undefined);
 
-  // If no experiences, safely return
-  if (!data?.experiences?.length) return null;
+  useEffect(
+    () => () => {
+      window.clearTimeout(enterTimer.current);
+      window.clearTimeout(leaveTimer.current);
+    },
+    []
+  );
 
-  const activeExp = data.experiences[activeIndex];
-  const count = data.experiences.length;
+  const togglePin = (key: string) =>
+    setPinned((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
 
-  const handleTabKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>, idx: number) => {
-    let nextIdx: number | null = null;
-    if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-      nextIdx = (idx + 1) % count;
-    } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-      nextIdx = (idx - 1 + count) % count;
-    } else if (event.key === "Home") {
-      nextIdx = 0;
-    } else if (event.key === "End") {
-      nextIdx = count - 1;
-    }
-    if (nextIdx !== null) {
-      event.preventDefault();
-      setActiveIndex(nextIdx);
-      tabRefs.current[nextIdx]?.focus();
-    }
+  // Small delays so lines don't flicker open while the pointer just passes over.
+  const onEnter = (key: string, e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    window.clearTimeout(leaveTimer.current);
+    window.clearTimeout(enterTimer.current);
+    enterTimer.current = window.setTimeout(() => setHovered(key), 220);
   };
+  const onLeave = (e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    window.clearTimeout(enterTimer.current);
+    leaveTimer.current = window.setTimeout(() => setHovered(null), 260);
+  };
+
+  const end = (e?: string) => (!e || /^(now|present)$/i.test(e.trim()) ? t(locale, "present") : e);
 
   return (
     <SectionWrapper id={data.section.id} alternate={alternate}>
-      <div className={styles.sectionHeader}>
-        <span className="section-label">03. Career</span>
-        <AnimatedHeading title={data.section.name} />
-      </div>
-
-      <div className={styles.splitLayout}>
-        {/* Left Column: Company List */}
-        <div
-          className={styles.sidebar}
-          role="tablist"
-          aria-label={data.section.name}
-          aria-orientation="vertical"
-        >
-          <div className={styles.timelineLine} aria-hidden="true" />
-          {data.experiences.map((exp, idx) => {
-            const isActive = idx === activeIndex;
-            return (
-              <button
-                key={idx}
-                ref={(el) => {
-                  tabRefs.current[idx] = el;
-                }}
-                type="button"
-                role="tab"
-                id={`exp-tab-${idx}`}
-                aria-selected={isActive}
-                aria-controls={`exp-panel-${idx}`}
-                tabIndex={isActive ? 0 : -1}
-                className={`${styles.companyTab} ${isActive ? styles.activeTab : ""}`}
-                onClick={() => setActiveIndex(idx)}
-                onKeyDown={(e) => handleTabKeyDown(e, idx)}
-              >
-                <div className={styles.tabMarker} aria-hidden="true">
-                  <div className={styles.tabDot} />
-                </div>
-
-                <div className={styles.tabContent}>
-                  {exp.company.logo && (
-                    <div className={styles.companyLogoMin}>
-                      <Image
-                        src={cloudinaryUrl(exp.company.logo)}
-                        alt={exp.company.name}
-                        width={24}
-                        height={24}
-                        className={styles.logoImg}
-                      />
-                    </div>
-                  )}
-                  <div className={styles.tabInfo}>
-                    <span className={styles.tabName}>{exp.company.name}</span>
-                    <span className={styles.tabDuration}>
-                      {exp.positions[0].start.split(" ")[1] || exp.positions[0].start} —{" "}
-                      {exp.positions[exp.positions.length - 1].end?.split(" ")[1] ||
-                        exp.positions[exp.positions.length - 1].end || t(locale, "present")}
-                    </span>
-                  </div>
-                </div>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Right Column: Active Details */}
-        <div
-          className={styles.detailsArea}
-          role="tabpanel"
-          id={`exp-panel-${activeIndex}`}
-          aria-labelledby={`exp-tab-${activeIndex}`}
-        >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeIndex}
-              initial={prefersReducedMotion ? false : { opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={prefersReducedMotion ? undefined : { opacity: 0, x: -20 }}
-              transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.3, ease: "easeOut" }}
-              className={styles.detailsCard}
+      <AnimatedHeading title={data.section.name} />
+      <ol className={styles.ledger}>
+        {rows.map(({ key, company, pos }) => {
+          const isPinned = pinned.has(key);
+          const isOpen = isPinned || hovered === key;
+          const panelId = `exp-${key}`;
+          return (
+            <li
+              key={key}
+              className={`${styles.row} ${isOpen ? styles.open : ""} ${isPinned ? styles.pinned : ""}`}
+              onPointerEnter={(e) => onEnter(key, e)}
+              onPointerLeave={onLeave}
             >
-              <div className={styles.detailsHeader}>
-                {activeExp.company.logo && (
-                  <div className={styles.largeLogoWrapper}>
-                    <Image
-                      src={cloudinaryUrl(activeExp.company.logo)}
-                      alt={activeExp.company.name}
-                      width={64}
-                      height={64}
-                      className={styles.largeLogo}
-                    />
-                  </div>
-                )}
-                <div className={styles.headerInfo}>
-                  <h3 className={styles.detailsCompanyName}>
-                     {activeExp.company.url ? (
-                        <a href={activeExp.company.url} target="_blank" rel="noopener noreferrer">
-                          {activeExp.company.name}
-                          <ArrowRight size={16} className={styles.linkArrow} />
-                        </a>
-                      ) : (
-                        activeExp.company.name
-                      )}
-                  </h3>
-                  <span className={styles.detailsLocation}>
-                    {activeExp.company.location}
-                  </span>
-                </div>
-              </div>
-
-              {activeExp.company.overview && (
-                <p className={styles.companyOverview}>
-                  {activeExp.company.overview}
-                </p>
-              )}
-
-              <div className={styles.positionsList}>
-                {activeExp.positions.map((pos, pidx) => (
-                  <div key={pidx} className={styles.positionBlock}>
-                    <div className={styles.posHeader}>
-                      <div className={styles.posTitleGroup}>
-                        <Briefcase size={16} className={styles.posIcon} />
-                        <h4 className={styles.posTitle}>{pos.designation}</h4>
-                      </div>
-                      <span className={styles.posDate}>
-                        {pos.start} — {pos.end || t(locale, "present")}
-                      </span>
-                    </div>
-
-                    {pos.responsibilities && (
-                      <ul className={styles.responsibilities}>
-                        {pos.responsibilities.map((resp, ridx) => (
-                          <motion.li 
-                            key={ridx}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 + (ridx * 0.05) }}
-                          >
-                            <span className={styles.bullet}>▹</span>
-                            <span dangerouslySetInnerHTML={{ __html: resp }} />
-                          </motion.li>
+              <button
+                type="button"
+                className={styles.head}
+                aria-expanded={isPinned}
+                aria-controls={panelId}
+                onClick={() => togglePin(key)}
+              >
+                <span className={styles.period}>
+                  {pos.start} – {end(pos.end)}
+                </span>
+                <span className={styles.company}>
+                  {company.logo && (
+                    <span className={styles.logo}>
+                      <Image src={cloudinaryUrl(company.logo)} alt="" width={28} height={28} />
+                    </span>
+                  )}
+                  {company.name}
+                </span>
+                <span className={styles.role}>{pos.designation}</span>
+                <span className={styles.toggle} aria-hidden="true">
+                  +
+                  {isOpen && !isPinned && <span className={styles.hint}>{t(locale, "keep_open")}</span>}
+                </span>
+              </button>
+              <div id={panelId} className={styles.body} role="region" aria-label={`${company.name}, ${pos.designation}`}>
+                <div>
+                  <div className={styles.inner}>
+                    <span className={styles.location}>{company.location}</span>
+                    <div>
+                      {company.overview && <p className={styles.overview}>{company.overview}</p>}
+                      <ul className={styles.points}>
+                        {pos.responsibilities.map((r, i) => (
+                          <li
+                            key={i}
+                            style={{ ["--i" as string]: i + 1 }}
+                            dangerouslySetInnerHTML={{ __html: inlineMarkdown(r) }}
+                          />
                         ))}
                       </ul>
-                    )}
+                      {company.url && (
+                        <a href={company.url} className={styles.site} target="_blank" rel="noopener noreferrer">
+                          {new URL(company.url).hostname.replace(/^www\./, "")} ↗
+                        </a>
+                      )}
+                    </div>
                   </div>
-                ))}
+                </div>
               </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
+            </li>
+          );
+        })}
+      </ol>
     </SectionWrapper>
   );
 }

@@ -10,6 +10,8 @@
     "lint": "eslint",
     "test:verify": "node scripts/verify-site.mjs",
     "test:verify:build": "node scripts/verify-site.mjs --build",
+    "links:check": "node scripts/check-links.mjs",
+    "links:check:offline": "node scripts/check-links.mjs --offline",
     "hooks:install": "git config core.hooksPath .githooks",
     "images:optimize": "node scripts/optimize-images.mjs",
     "images:upload": "node scripts/upload-to-cloudinary.mjs",
@@ -34,13 +36,15 @@
     "rehype-highlight": "^7.0.2",
     "rehype-slug": "^6.0.0",
     "remark": "^15.0.1",
-    "remark-gfm": "^4.0.1"
+    "remark-gfm": "^4.0.1",
+    "three": "^0.170.0"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.170.0",
     "cloudinary": "^2",
     "dotenv": "^16",
     "eslint": "^9",

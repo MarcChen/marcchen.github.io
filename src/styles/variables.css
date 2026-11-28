@@ -1,29 +1,44 @@
 /* ================================================================
-   Design Tokens — CSS Custom Properties
-   Complete overhaul: dark-first, violet-blue + emerald dual accent,
-   glassmorphism, glow effects, noise texture support.
+   Design Tokens — Marc Chen brand
+   Default palette "Brick & Sand" (chosen by Marc, Nov 2026):
+   navy ink on variations of cream, brick red only as a small accent.
+   Alternative palette "Espresso" (cream/oat/taupe/espresso) via
+   <html data-palette="espresso">, switchable from the Index menu.
+   Role names are shared by both palettes:
+     --cream  page ground        --oat    alternate surface
+     --sand   deeper surface     --taupe  accent (brick / taupe)
+     --espresso ink (navy / espresso)
    ================================================================ */
 
 :root {
-  /* ─── Brand Accents ─── */
-  --accent: 250 85% 65%;          /* Violet-blue */
-  --accent-hover: 255 90% 72%;
-  --accent-glow: 250 85% 65% / 0.25;
-  --accent-secondary: 160 84% 45%;  /* Emerald */
-  --accent-secondary-hover: 160 84% 52%;
+  /* ─── Raw palette (Brick & Sand) ─── */
+  --cream: #FAF5EC;
+  --oat: #F1E8D8;
+  --sand: #E7DBC5;
+  --taupe: #E4572E;
+  --espresso: #15213B;
+  --espresso-deep: #0C1426;
 
-  /* ─── Gradients ─── */
-  --gradient-primary: linear-gradient(135deg, hsl(250, 85%, 65%), hsl(280, 75%, 60%));
-  --gradient-secondary: linear-gradient(135deg, hsl(160, 84%, 45%), hsl(190, 85%, 50%));
-  --gradient-hero: linear-gradient(135deg, hsl(250, 85%, 65%) 0%, hsl(280, 75%, 55%) 50%, hsl(320, 70%, 55%) 100%);
-  --gradient-subtle: linear-gradient(135deg, hsl(250, 85%, 65% / 0.1), hsl(280, 75%, 55% / 0.05));
-  --gradient-border: linear-gradient(135deg, hsl(250, 85%, 65% / 0.5), hsl(280, 75%, 55% / 0.2), hsl(160, 84%, 45% / 0.5));
-  --gradient-text: linear-gradient(135deg, hsl(250, 85%, 72%), hsl(280, 75%, 65%), hsl(160, 84%, 50%));
+  /* ─── Brand accents (HSL triplets, used as hsl(var(--accent))) ─── */
+  --accent: 222 46% 16%;           /* Navy ink */
+  --accent-hover: 222 40% 24%;
+  --accent-glow: 222 46% 16% / 0;  /* glow retired */
+  --accent-secondary: 14 77% 54%;  /* Brick */
+  --accent-secondary-hover: 14 77% 48%;
+  --on-accent: #FAF5EC;
+
+  /* ─── Gradients retired: solid fills keep old references working ─── */
+  --gradient-primary: linear-gradient(hsl(var(--accent)), hsl(var(--accent)));
+  --gradient-secondary: linear-gradient(var(--taupe), var(--taupe));
+  --gradient-hero: linear-gradient(var(--oat), var(--oat));
+  --gradient-subtle: linear-gradient(transparent, transparent);
+  --gradient-border: linear-gradient(var(--taupe), var(--taupe));
+  --gradient-text: linear-gradient(hsl(var(--accent)), hsl(var(--accent)));
 
   /* ─── Typography ─── */
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --font-sans: var(--font-archivo), "Archivo", "PingFang SC", "Noto Sans SC", system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-archivo), "Archivo", "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), "JetBrains Mono", ui-monospace, monospace;
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -79,29 +94,29 @@
   --radius-full: 9999px;
 
   /* ─── Shadows ─── */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 2px 0 rgb(74 51 36 / 0.08);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.15), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  --shadow-glow: 0 0 20px hsl(var(--accent-glow));
-  --shadow-glow-lg: 0 0 40px hsl(var(--accent-glow)), 0 0 80px hsl(var(--accent) / 0.1);
-  --shadow-glow-secondary: 0 0 20px hsl(var(--accent-secondary) / 0.25);
+  --shadow-xl: 0 22px 40px -24px rgb(74 51 36 / 0.5);
+  --shadow-2xl: 0 30px 60px -28px rgb(74 51 36 / 0.6);
+  --shadow-glow: none;
+  --shadow-glow-lg: 0 18px 36px -22px rgb(74 51 36 / 0.55);
+  --shadow-glow-secondary: none;
 
   /* ─── Transitions ─── */
   --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-in: cubic-bezier(0.4, 0, 1, 1);
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
-  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-bounce: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-fast: 150ms;
   --duration-normal: 300ms;
   --duration-slow: 500ms;
   --duration-slower: 700ms;
 
   /* ─── Layout ─── */
-  --max-width: 1200px;
+  --max-width: 1160px;
   --max-width-wide: 1400px;
   --max-width-prose: 72ch;
   --nav-height: 4rem;
@@ -134,32 +149,77 @@
     color-scheme: light;
   }
 
-  --bg-primary: light-dark(#fafafa, #09090b);
-  --bg-secondary: light-dark(#f4f4f5, #121215);
-  --bg-tertiary: light-dark(#e4e4e7, #18181b);
-  --bg-card: light-dark(rgba(255, 255, 255, 0.8), rgba(24, 24, 27, 0.6));
-  --bg-card-hover: light-dark(rgba(255, 255, 255, 0.95), rgba(32, 32, 36, 0.8));
-  --bg-glass: light-dark(rgba(255, 255, 255, 0.7), rgba(18, 18, 21, 0.7));
-  --bg-glass-strong: light-dark(rgba(255, 255, 255, 0.9), rgba(9, 9, 11, 0.85));
-  --bg-glass-card: light-dark(rgba(0, 0, 0, 0.02), rgba(255, 255, 255, 0.03));
-  --bg-elevated: light-dark(rgba(255, 255, 255, 0.8), rgba(38, 38, 42, 0.5));
+  --bg-primary: light-dark(var(--cream), var(--espresso-deep));
+  --bg-secondary: light-dark(var(--oat), var(--espresso));
+  --bg-tertiary: light-dark(color-mix(in oklab, var(--oat) 70%, var(--taupe)), color-mix(in oklab, var(--espresso) 80%, var(--taupe)));
+  --bg-card: light-dark(var(--cream), var(--espresso));
+  --bg-card-hover: light-dark(var(--oat), color-mix(in oklab, var(--espresso) 88%, var(--taupe)));
+  --bg-glass: light-dark(var(--cream), var(--espresso-deep));
+  --bg-glass-strong: light-dark(var(--cream), var(--espresso-deep));
+  --bg-glass-card: light-dark(var(--cream), var(--espresso));
+  --bg-elevated: light-dark(var(--oat), var(--espresso));
 
-  --text-heading: light-dark(#09090b, #fafafa);
-  --text-body: light-dark(#3f3f46, #a1a1aa);
-  --text-muted: light-dark(#71717a, #8b8b94);
-  --text-inverse: light-dark(#fafafa, #09090b);
-  --text-link: light-dark(hsl(250, 85%, 55%), hsl(var(--accent)));
+  --text-heading: light-dark(var(--espresso), var(--cream));
+  --text-body: light-dark(color-mix(in oklab, var(--espresso) 88%, var(--cream)), color-mix(in oklab, var(--cream) 90%, var(--espresso)));
+  --text-muted: light-dark(color-mix(in oklab, var(--espresso) 72%, var(--cream)), color-mix(in oklab, var(--oat) 78%, var(--espresso)));
+  --text-inverse: light-dark(var(--cream), var(--espresso));
+  --text-link: light-dark(var(--espresso), var(--cream));
 
-  --border-color: light-dark(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.06));
-  --border-color-strong: light-dark(rgba(0, 0, 0, 0.12), rgba(255, 255, 255, 0.12));
-  --border-color-hover: light-dark(rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2));
+  --border-color: light-dark(color-mix(in oklab, var(--espresso) 14%, transparent), color-mix(in oklab, var(--cream) 16%, transparent));
+  --border-color-strong: light-dark(color-mix(in oklab, var(--espresso) 30%, transparent), color-mix(in oklab, var(--cream) 30%, transparent));
+  --border-color-hover: light-dark(var(--espresso), var(--cream));
 
-  --code-bg: light-dark(#f4f4f5, #1a1a1e);
-  --code-text: light-dark(hsl(250, 85%, 50%), hsl(var(--accent)));
+  --code-bg: light-dark(var(--oat), var(--espresso));
+  --code-text: light-dark(var(--espresso), var(--cream));
 
-  --footer-bg: light-dark(#18181b, #050506);
-  --footer-text: light-dark(#a1a1aa, #52525b);
+  --footer-bg: var(--espresso);
+  --footer-text: var(--oat);
 
   --noise-opacity: 0.03;
   --dot-opacity: 0.12;
+}
+
+/* Dark scheme: ink becomes the ground; accent flips to sand. */
+@media (prefers-color-scheme: dark) {
+  :root:not(:has(> head > meta[name="color-scheme"][content="light"])) {
+    --accent: 37 41% 87%;
+    --accent-hover: 37 35% 80%;
+    --on-accent: #15213B;
+  }
+}
+:root:has(> head > meta[name="color-scheme"][content="dark"]) {
+  --accent: 37 41% 87%;
+  --accent-hover: 37 35% 80%;
+  --on-accent: #15213B;
+}
+
+/* ================================================================
+   Alternative palette "Espresso": cream #FAF3E6 · oat #EDE3D1 ·
+   taupe #B09A7C · espresso #4A3324.
+   ================================================================ */
+:root[data-palette="espresso"] {
+  --cream: #FAF3E6;
+  --oat: #EDE3D1;
+  --sand: #E3D6BF;
+  --taupe: #B09A7C;
+  --espresso: #4A3324;
+  --espresso-deep: #2E2016;
+  --accent: 25 35% 22%;
+  --accent-hover: 25 35% 30%;
+  --accent-secondary: 35 25% 59%;
+  --accent-secondary-hover: 35 25% 52%;
+  --on-accent: #FAF3E6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-palette="espresso"]:not(:has(> head > meta[name="color-scheme"][content="light"])) {
+    --accent: 39 71% 94%;
+    --accent-hover: 39 42% 87%;
+    --on-accent: #4A3324;
+  }
+}
+:root[data-palette="espresso"]:has(> head > meta[name="color-scheme"][content="dark"]) {
+  --accent: 39 71% 94%;
+  --accent-hover: 39 42% 87%;
+  --on-accent: #4A3324;
 }
